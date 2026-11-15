@@ -567,6 +567,30 @@ export function renderResources({ resources, compareDoc, indexDoc }) {
   </div>
   <section class="section section--tight">
     <div class="container">
+      ${sectionHead({
+        eyebrow: "deep dive / 15",
+        title: "每份资料：看什么、跳过什么",
+        lead: "展开任意一份，能看到这本书 / 这个仓库具体该读哪几章、什么该跳过——这些是「用法说明」，不是摘要。"
+      })}
+      ${resources
+        .map(
+          (r) => `<details class="res-detail">
+        <summary>
+          <span class="res-tag">${r.tag}</span>
+          <h3>${r.code} · ${r.title}</h3>
+          <span class="res-detail__meta">${r.modules.join(" / ")} · ${r.host}</span>
+        </summary>
+        <div class="res-detail__body">
+          <div class="prose">${r.body}</div>
+          <a class="res-detail__link" href="${r.url}" target="_blank" rel="noopener">打开原文 ${icon("external", { size: 12 })}</a>
+        </div>
+      </details>`
+        )
+        .join("")}
+    </div>
+  </section>
+  <section class="section section--tight">
+    <div class="container">
       <div class="prose" style="max-width:900px">${compare.html}</div>
     </div>
   </section>

@@ -270,6 +270,577 @@
   </div>
   <section class="section section--tight">
     <div class="container">
+      <div class="section-head">
+  <div>
+    <span class="eyebrow">deep dive / 15</span>
+    <h2>每份资料：看什么、跳过什么</h2>
+  </div>
+  <div class="section-head__side">
+    <p class="lead">展开任意一份，能看到这本书 / 这个仓库具体该读哪几章、什么该跳过——这些是「用法说明」，不是摘要。</p>
+    
+  </div>
+</div>
+      <details class="res-detail">
+        <summary>
+          <span class="res-tag">PDF</span>
+          <h3>书01 · 《大规模语言模型：从理论到实践》</h3>
+          <span class="res-detail__meta">M1 / M3 / M4 / M5 / M6 · llmbook-zh.github.io</span>
+        </summary>
+        <div class="res-detail__body">
+          <div class="prose"><ul>
+<li><strong>链接（官方免费 PDF）</strong>：<a href="https://llmbook-zh.github.io/" target="_blank" rel="noopener">https://llmbook-zh.github.io/</a></li>
+<li><strong>作者</strong>：张奇、桂韬、郑锐、黄萱菁（复旦大学自然语言处理实验室）</li>
+<li><strong>语言</strong>：中文（原生，无翻译腔）</li>
+<li><strong>版本</strong>：优先第 2 版（约 533 页）</li>
+<li><strong>对应模块</strong>：M1、M3、M4、M5、M6</li>
+<li><strong>使用频率</strong>：<strong>最低频，但最权威</strong>。一学期翻 5 次就够。</li>
+</ul>
+<hr class="rule">
+<h2 id="res-书01-这本书是什么">这本书是什么</h2>
+<p>一本&quot;把大模型从原理讲到落地&quot;的中文教材。覆盖：大模型怎么来的（发展史）、怎么训练（预训练/指令微调/RLHF）、怎么用（提示工程）、怎么增强（RAG）、怎么变成 Agent、怎么评估、怎么部署。</p>
+<p><strong>它不是给初学者写的</strong>，第一版前言里明说了面向有机器学习基础的人。所以：<strong>你只读我指定的章节，且只读&quot;概念段&quot;，跳过所有公式推导。</strong></p>
+<hr class="rule">
+<h2 id="res-书01-你只需读这些我标好的">你只需读这些（我标好的）</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>章节</th><th>内容</th><th>什么时候读</th><th>怎么读</th></tr></thead><tbody><tr><td>第 1 章</td><td>大模型发展历程、GPT 系列怎么迭代</td><td>M0 结束后</td><td>当故事读，跳过所有数学</td></tr><tr><td>第 2 章</td><td>大模型的能力边界、涌现现象</td><td>M1 学完后</td><td>重点看&quot;幻觉&quot;和&quot;上下文窗口&quot;两节</td></tr><tr><td>第 7 章</td><td><strong>检索增强生成（RAG）</strong></td><td>M4 前后</td><td>全书最该读的一章，做 P5 前读一遍</td></tr><tr><td>第 8 章</td><td>智能体（Agent）</td><td>M6 前后</td><td>看&quot;规划/记忆/工具&quot;三件套的划分</td></tr><tr><td>其余章节</td><td>分布式训练、RLHF 细节、量化</td><td><strong>不读</strong></td><td>你是应用开发，不需要</td></tr></tbody></table></div>
+<hr class="rule">
+<h2 id="res-书01-怎么用它正确姿势">怎么用它（正确姿势）</h2>
+<ol>
+<li><strong>不要通读</strong>。把它当&quot;维基百科&quot;：做完练习后有个概念模糊，Ctrl+F 搜关键词，读那 2 页。</li>
+<li><strong>看到公式就跳</strong>。这本书的公式是给研究生看的，你需要的是&quot;这个公式在解决什么问题&quot;，而不是&quot;这个公式怎么推&quot;。</li>
+<li><strong>只信概念，不信代码</strong>。书里的示例代码偏示意，实际工程以官方文档和 GitHub 仓库为准。</li>
+</ol>
+<hr class="rule">
+<h2 id="res-书01-一句话评价">一句话评价</h2>
+<blockquote class="callout">
+<p>你不需要读懂它，你需要<strong>在面试前能引用它</strong>。比如被问&quot;RAG 为什么能缓解幻觉&quot;，你能答&quot;因为它把事实性知识放在上下文里，让模型从&#39;回忆&#39;变成&#39;阅读理解&#39;&quot;——这句话就来自第 7 章。</p>
+</blockquote></div>
+          <a class="res-detail__link" href="https://llmbook-zh.github.io/" target="_blank" rel="noopener">打开原文 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4l-8.2 8.2M18.5 14v5.5h-14v-14H10"/></svg></a>
+        </div>
+      </details><details class="res-detail">
+        <summary>
+          <span class="res-tag">PDF</span>
+          <h3>书02 · 《动手学深度学习》（PyTorch 版）</h3>
+          <span class="res-detail__meta">M3 / M4 · zh.d2l.ai</span>
+        </summary>
+        <div class="res-detail__body">
+          <div class="prose"><ul>
+<li><strong>在线中文版</strong>：<a href="https://zh.d2l.ai/" target="_blank" rel="noopener">https://zh.d2l.ai/</a></li>
+<li><strong>PDF 直链</strong>：<a href="https://zh.d2l.ai/d2l-zh.pdf" target="_blank" rel="noopener">https://zh.d2l.ai/d2l-zh.pdf</a></li>
+<li><strong>作者</strong>：Aston Zhang、Zachary Lipton、李沐 等</li>
+<li><strong>语言</strong>：中文（原生）</li>
+<li><strong>对应模块</strong>：M3（向量/相似度）、M4（注意力直觉）</li>
+<li><strong>使用频率</strong>：<strong>极低频</strong>。只用来查&quot;直觉&quot;，不敲代码。</li>
+</ul>
+<hr class="rule">
+<h2 id="res-书02-这本书是什么">这本书是什么</h2>
+<p>深度学习领域最著名的中文开源教材。讲神经网络、CNN、RNN、注意力机制、Transformer。</p>
+<p><strong>注意：这本书不是为大模型应用开发准备的。</strong> 它是&quot;训练模型&quot;的书，你的目标是&quot;使用模型&quot;。所以：</p>
+<blockquote class="callout">
+<p>❌ 不要跟着它学 PyTorch 训练
+✅ 只在需要&quot;看懂 Transformer 大概在干嘛&quot;时，读它的第 10 章</p>
+</blockquote>
+<hr class="rule">
+<h2 id="res-书02-你只需读这些">你只需读这些</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>章节</th><th>内容</th><th>为什么要读</th></tr></thead><tbody><tr><td>第 2 章 预备知识</td><td>张量、矩阵乘法</td><td>理解&quot;向量就是一串数字&quot;</td></tr><tr><td>第 3 章 线性神经网络</td><td>线性回归、softmax</td><td>理解&quot;模型就是在调参数&quot;</td></tr><tr><td>第 10 章 注意力机制</td><td><strong>自注意力、多头注意力</strong></td><td>理解 Transformer 的核心，M3/M4 必读</td></tr></tbody></table></div>
+<p>其余章节（卷积、循环网络、优化算法、计算机视觉、NLP 应用）<strong>全部跳过</strong>。</p>
+<hr class="rule">
+<h2 id="res-书02-怎么读第-10-章这是唯一需要动脑的地方">怎么读第 10 章（这是唯一需要动脑的地方）</h2>
+<ol>
+<li>先看<strong>图</strong>，别看公式。看懂&quot;每个词都在问其他词：你跟我有关系吗？&quot;</li>
+<li>再看 <strong>QKV 三个矩阵</strong>的比喻：Query=我在找什么，Key=我是什么，Value=我实际带的信息。</li>
+<li>公式 <code>softmax(QK^T/√d)V</code> 只记一句话：<strong>&quot;算相似度 → 归一化成权重 → 按权重加权求和&quot;</strong>。</li>
+<li>代码部分<strong>不要跑</strong>，看一眼形状变化就行。</li>
+</ol>
+<hr class="rule">
+<h2 id="res-书02-提醒">提醒</h2>
+<p>这本书的 PDF 很大，而且大量篇幅你永远用不到。<strong>建议直接看在线版</strong>（<a href="https://zh.d2l.ai/），按章节点开，省硬盘也省心理负担" target="_blank" rel="noopener">https://zh.d2l.ai/），按章节点开，省硬盘也省心理负担</a>。</p></div>
+          <a class="res-detail__link" href="https://zh.d2l.ai/" target="_blank" rel="noopener">打开原文 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4l-8.2 8.2M18.5 14v5.5h-14v-14H10"/></svg></a>
+        </div>
+      </details><details class="res-detail">
+        <summary>
+          <span class="res-tag">PDF</span>
+          <h3>书03 · 《生成式 AI 导论》2024 春季班 · 李宏毅</h3>
+          <span class="res-detail__meta">M0 / M1 / M2 / M6 / M7 · speech.ee.ntu.edu.tw</span>
+        </summary>
+        <div class="res-detail__body">
+          <div class="prose"><ul>
+<li><strong>课程主页（含每讲 PDF 课件下载）</strong>：<a href="https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php" target="_blank" rel="noopener">https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php</a></li>
+<li><strong>视频</strong>：课程页表格里的 YouTube 链接（B 站有搬运，搜&quot;李宏毅 生成式AI导论 2024&quot;）</li>
+<li><strong>作者</strong>：李宏毅（台湾大学电机工程系）</li>
+<li><strong>语言</strong>：中文（普通话授课，繁体字幕/讲义）</li>
+<li><strong>对应模块</strong>：M0、M1、M2、M6、M7</li>
+<li><strong>使用频率</strong>：<strong>最高频</strong>。这是给你这种背景的人量身定做的课。</li>
+</ul>
+<hr class="rule">
+<h2 id="res-书03-为什么这门课最适合你">为什么这门课最适合你</h2>
+<p>课程主页的 FAQ 里，李宏毅自己写了：</p>
+<blockquote class="callout">
+<p>这门课的目标受众是初学者，<strong>不需要任何先修知识</strong>，也不要求先修过机器学习。
+即使你以前完全没有编程经验，也能跟上。
+作业全部用 Colab，<strong>不需要自己准备运算资源</strong>。</p>
+</blockquote>
+<p>这就是为你写的。而且他讲课的特点是：<strong>几乎不写公式，全靠图和段子讲直觉</strong>，正好补你数学的短板。</p>
+<hr class="rule">
+<h2 id="res-书03-你只需看这几讲按顺序">你只需看这几讲（按顺序）</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>讲次</th><th>主题</th><th>对应你的模块</th><th>看视频还是看 PDF</th></tr></thead><tbody><tr><td>第 1 讲</td><td>生成式 AI 是什么？</td><td>M0</td><td>看视频（1 小时，可 1.5 倍速）</td></tr><tr><td>第 2 讲</td><td>今日的生成式 AI 厉害在哪里</td><td>M0 末</td><td>看视频</td></tr><tr><td>第 3–5 讲</td><td><strong>提示工程（上中下）</strong></td><td>M1</td><td><strong>看 PDF 讲义</strong>（图多，比视频快）</td></tr><tr><td>第 6–8 讲</td><td>大模型是怎么练出来的（预训练→指令微调→RLHF）</td><td>M2/M5</td><td>看 PDF，看不懂再看视频</td></tr><tr><td>第 9 讲</td><td>以大型语言模型打造的 AI Agent</td><td>M6</td><td>看 PDF</td></tr><tr><td>第 10 讲</td><td>语言模型如何做文字接龙——浅谈 Transformer</td><td>M3/M4</td><td>看 PDF（配合书02 第 10 章）</td></tr><tr><td>第 12 讲</td><td>如何评估大模型能力</td><td>M5</td><td>看 PDF</td></tr><tr><td>其余</td><td>影像生成、可解释性、安全性</td><td><strong>不看</strong></td><td>与你目标无关</td></tr></tbody></table></div>
+<hr class="rule">
+<h2 id="res-书03-怎么用">怎么用</h2>
+<ol>
+<li><strong>不要从头看到尾。</strong> 一讲 1 小时，16 周看不完 16 讲。只按上表挑。</li>
+<li><strong>优先看 PDF 讲义，视频当补充。</strong> 讲义是图 + 少量字，10 分钟能翻完；视频适合通勤/碎片时间听。</li>
+<li><strong>他的梗听不懂没关系</strong>，跳过。你要的是直觉，不是笑话。</li>
+<li><strong>作业（Homework）可以不做。</strong> 他的作业是给台大学生算学分的，你做我设计的项目就够了。</li>
+</ol>
+<hr class="rule">
+<h2 id="res-书03-一句话评价">一句话评价</h2>
+<blockquote class="callout">
+<p>如果整个资料区只能留一个，留这个。它解决的是&quot;<strong>让你觉得这东西不神秘</strong>&quot;的问题——这比任何公式都重要。</p>
+</blockquote></div>
+          <a class="res-detail__link" href="https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php" target="_blank" rel="noopener">打开原文 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4l-8.2 8.2M18.5 14v5.5h-14v-14H10"/></svg></a>
+        </div>
+      </details><details class="res-detail">
+        <summary>
+          <span class="res-tag">WEB</span>
+          <h3>网页01 · 李宏毅《生成式 AI 导论》课程主页</h3>
+          <span class="res-detail__meta">M0 / M1 / M2 / M3 / M6 / M7 · speech.ee.ntu.edu.tw</span>
+        </summary>
+        <div class="res-detail__body">
+          <div class="prose"><ul>
+<li><strong>链接</strong>：<a href="https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php" target="_blank" rel="noopener">https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php</a></li>
+<li><strong>类型</strong>：大学公开课（视频 + PDF 讲义 + 作业）</li>
+<li><strong>语言</strong>：中文（普通话）</li>
+<li><strong>对应模块</strong>：M0、M1、M2、M3、M6、M7</li>
+<li><strong>费用</strong>：完全免费，无需注册</li>
+</ul>
+<hr class="rule">
+<h2 id="res-网页01-页面上有什么">页面上有什么</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>资源</th><th>位置</th><th>怎么用</th></tr></thead><tbody><tr><td>每讲 PPT（PDF/PPTX）</td><td>表格 &quot;Slides (PDF)&quot; 列</td><td><strong>主用</strong>，10 分钟翻完一讲</td></tr><tr><td>每讲视频</td><td>表格 &quot;Videos&quot; 列</td><td>通勤时听，或讲义看不懂时看</td></tr><tr><td>作业 + Colab</td><td>下方 &quot;Homework&quot; 表</td><td>你不用做，但可以点开看别人怎么设计题目</td></tr><tr><td>常见问题 FAQ</td><td>页面最下方</td><td>值得读一遍，里面解释了&quot;这门课适合谁&quot;</td></tr></tbody></table></div>
+<hr class="rule">
+<h2 id="res-网页01-推荐观看顺序针对你">推荐观看顺序（针对你）</h2>
+<p>第 1 讲 → 第 2 讲 → 第 3、4、5 讲（提示工程）→ 第 9 讲（Agent）→ 第 10 讲（Transformer）→ 第 12 讲（评估）</p>
+<p><strong>跳过</strong>：第 13–18 讲（安全性、影像生成）、第 11 讲（可解释性）。</p>
+<hr class="rule">
+<h2 id="res-网页01-注意">注意</h2>
+<ul>
+<li>讲义是<strong>繁体中文</strong>。阅读无障碍，个别词不一样（&quot;模型&quot;叫&quot;模型&quot;，&quot;视频&quot;叫&quot;影片&quot;，&quot;代码&quot;叫&quot;程式&quot;）。</li>
+<li>视频在 YouTube，国内访问可能需要额外手段；B 站有大量搬运版本，搜课程名即可。</li>
+<li>页面是台大校园网，<strong>偶尔很慢</strong>，打不开就过几小时再试。</li>
+</ul></div>
+          <a class="res-detail__link" href="https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php" target="_blank" rel="noopener">打开原文 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4l-8.2 8.2M18.5 14v5.5h-14v-14H10"/></svg></a>
+        </div>
+      </details><details class="res-detail">
+        <summary>
+          <span class="res-tag">WEB</span>
+          <h3>网页02 · Prompt Engineering Guide（提示工程指南）中文版</h3>
+          <span class="res-detail__meta">M1 / M6 · www.promptingguide.ai</span>
+        </summary>
+        <div class="res-detail__body">
+          <div class="prose"><ul>
+<li><strong>链接</strong>：<a href="https://www.promptingguide.ai/zh" target="_blank" rel="noopener">https://www.promptingguide.ai/zh</a></li>
+<li><strong>英文原站</strong>：<a href="https://www.promptingguide.ai/" target="_blank" rel="noopener">https://www.promptingguide.ai/</a></li>
+<li><strong>出品</strong>：DAIR.AI</li>
+<li><strong>类型</strong>：在线书 / 技巧大全</li>
+<li><strong>语言</strong>：有官方中文版</li>
+<li><strong>对应模块</strong>：M1（主参考）、M6</li>
+<li><strong>费用</strong>：免费</li>
+</ul>
+<hr class="rule">
+<h2 id="res-网页02-这是什么">这是什么</h2>
+<p>目前最全的提示词技巧百科。从&quot;什么是提示词&quot;讲到 CoT、ReAct、Self-Consistency、对抗提示等几十种技巧，每种都有例子。</p>
+<p><strong>它不是教程，是菜单。</strong> 你不需要按顺序读，需要时查对应章节。</p>
+<hr class="rule">
+<h2 id="res-网页02-你只需读这几节">你只需读这几节</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>章节</th><th>内容</th><th>对应</th></tr></thead><tbody><tr><td>提示词基础 / 提示词要素</td><td>指令、角色、格式</td><td>M1 理论 2</td></tr><tr><td>提示技术 → 零样本 / 少样本</td><td>zero-shot、few-shot</td><td>M1 理论 3</td></tr><tr><td>提示技术 → <strong>思维链（CoT）</strong></td><td>让模型&quot;先想再答&quot;</td><td>M1 理论 4</td></tr><tr><td>提示技术 → <strong>ReAct</strong></td><td>想一步、做一步、看结果</td><td>M6</td></tr><tr><td>风险 → 提示注入</td><td>prompt injection</td><td>M1 理论 6</td></tr></tbody></table></div>
+<p><strong>跳过</strong>：对抗提示、图像提示、以及所有&quot;研究论文摘要&quot;部分。</p>
+<hr class="rule">
+<h2 id="res-网页02-注意">注意</h2>
+<ul>
+<li>中文版是社区翻译，个别术语翻译生硬（比如 &quot;few-shot&quot; 有时译成&quot;少样本&quot;，有时直接保留英文）。<strong>以英文原词为准</strong>。</li>
+<li>里面的例子大多用 GPT-3.5/4，你换成 DeepSeek 效果类似，但<strong>同一提示词在不同模型上效果会有差异</strong>，这点在 M1 练习里会专门考。</li>
+</ul></div>
+          <a class="res-detail__link" href="https://www.promptingguide.ai/zh" target="_blank" rel="noopener">打开原文 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4l-8.2 8.2M18.5 14v5.5h-14v-14H10"/></svg></a>
+        </div>
+      </details><details class="res-detail">
+        <summary>
+          <span class="res-tag">WEB</span>
+          <h3>网页03 · all-in-rag（RAG 技术全栈指南）在线阅读</h3>
+          <span class="res-detail__meta">M3 / M4 / M5 · datawhalechina.github.io</span>
+        </summary>
+        <div class="res-detail__body">
+          <div class="prose"><ul>
+<li><strong>在线阅读</strong>：<a href="https://datawhalechina.github.io/all-in-rag/" target="_blank" rel="noopener">https://datawhalechina.github.io/all-in-rag/</a></li>
+<li><strong>仓库</strong>：<a href="https://github.com/datawhalechina/all-in-rag" target="_blank" rel="noopener">https://github.com/datawhalechina/all-in-rag</a></li>
+<li><strong>出品</strong>：Datawhale（国内开源学习组织）</li>
+<li><strong>类型</strong>：在线书 / 实战教程</li>
+<li><strong>语言</strong>：中文</li>
+<li><strong>对应模块</strong>：M3、M4、M5（<strong>主力参考</strong>）</li>
+<li><strong>费用</strong>：免费</li>
+</ul>
+<hr class="rule">
+<h2 id="res-网页03-这是什么">这是什么</h2>
+<p>一本专门讲 RAG（检索增强生成）的中文实战书。口号是&quot;RAG 技术全栈指南&quot;，从最基础的&quot;为什么要 RAG&quot;讲到向量检索、切分策略、混合检索、重排、评估、工程落地。</p>
+<p><strong>这是你 M4/M5 阶段最该看的东西</strong>，比我写的讲稿更细，但我写的更好懂——先看我的，卡住了再翻它。</p>
+<hr class="rule">
+<h2 id="res-网页03-阅读建议">阅读建议</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>阶段</th><th>读哪部分</th><th>怎么读</th></tr></thead><tbody><tr><td>M3 学完后</td><td>讲&quot;向量/Embedding/相似度&quot;的章节</td><td>对照我的讲稿，补充细节</td></tr><tr><td>M4 做项目时</td><td>&quot;文档解析 → 切分 → 入库 → 检索 → 生成&quot;主流程</td><td><strong>边做边读</strong>，不要先读完再做</td></tr><tr><td>M5 优化时</td><td>切分策略、混合检索、重排、评估</td><td>精读，这是拉开差距的部分</td></tr></tbody></table></div>
+<hr class="rule">
+<h2 id="res-网页03-注意">注意</h2>
+<ul>
+<li>这本书用的是 <strong>LangChain / LlamaIndex 生态</strong>，版本更新快，代码可能和你装的对不上。<strong>思路照抄，代码按官方文档改。</strong></li>
+<li>在线书页面右侧有目录，<strong>按需跳转</strong>，不要从第一章顺序读。</li>
+<li>里面有些章节偏&quot;综述&quot;，读起来像论文。跳过，你只需要&quot;怎么做&quot;的部分。</li>
+</ul></div>
+          <a class="res-detail__link" href="https://datawhalechina.github.io/all-in-rag/" target="_blank" rel="noopener">打开原文 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4l-8.2 8.2M18.5 14v5.5h-14v-14H10"/></svg></a>
+        </div>
+      </details><details class="res-detail">
+        <summary>
+          <span class="res-tag">WEB</span>
+          <h3>网页04 · llm-universe（大模型应用开发教程）在线阅读</h3>
+          <span class="res-detail__meta">M0 / M1 / M2 / M4 / M7 · datawhalechina.github.io</span>
+        </summary>
+        <div class="res-detail__body">
+          <div class="prose"><ul>
+<li><strong>在线阅读</strong>：<a href="https://datawhalechina.github.io/llm-universe/" target="_blank" rel="noopener">https://datawhalechina.github.io/llm-universe/</a></li>
+<li><strong>仓库</strong>：<a href="https://github.com/datawhalechina/llm-universe" target="_blank" rel="noopener">https://github.com/datawhalechina/llm-universe</a></li>
+<li><strong>出品</strong>：Datawhale</li>
+<li><strong>类型</strong>：在线书 / 项目式教程</li>
+<li><strong>语言</strong>：中文</li>
+<li><strong>对应模块</strong>：M0、M1、M2、M4、M7</li>
+<li><strong>费用</strong>：免费</li>
+</ul>
+<hr class="rule">
+<h2 id="res-网页04-这是什么">这是什么</h2>
+<p>一本书教你&quot;用 LLM API + LangChain 做一个应用&quot;的教程，副标题大意是&quot;基于 LLM API 与 LangChain 的大模型应用开发教程&quot;。</p>
+<p>它的结构非常贴合你的路线：</p>
+<ol>
+<li>大模型简介 → 对应你的 M0</li>
+<li>调用 API、写提示词 → 对应 M1</li>
+<li>搭建知识库、构建 RAG → 对应 M3/M4</li>
+<li>用 Streamlit 做界面 → 对应 M7</li>
+</ol>
+<p><strong>所以你其实是在&quot;跟着这本书的骨架走&quot;，只是我把每一步拆得更细、讲得更白。</strong></p>
+<hr class="rule">
+<h2 id="res-网页04-阅读建议">阅读建议</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>你的模块</th><th>看它哪部分</th><th>提示</th></tr></thead><tbody><tr><td>M0</td><td>第 1 章（大模型是什么、怎么调 API）</td><td>只读概念，代码用我给的</td></tr><tr><td>M1</td><td>第 2 章（提示词）</td><td>补充我的讲稿里没覆盖的技巧</td></tr><tr><td>M2</td><td>第 3 章（构建应用）</td><td>看它怎么组织&quot;多轮对话&quot;</td></tr><tr><td>M4</td><td>第 5 章（RAG）</td><td><strong>重点</strong>，和 all-in-rag 对照着看</td></tr><tr><td>M7</td><td>第 6 章（Streamlit 部署）</td><td>直接抄界面代码结构</td></tr></tbody></table></div>
+<hr class="rule">
+<h2 id="res-网页04-注意">注意</h2>
+<ul>
+<li>这本书<strong>默认你会用 pip 装一堆库</strong>（langchain、chromadb、streamlit…）。到那一步我会先问你要不要装。</li>
+<li>它有时候一次给你一大段完整代码，<strong>不要整段复制</strong>。你按我的项目计划书，一行一行敲。</li>
+<li>书里有时用需要付费的模型接口（如 GPT-4），你可以全部换成 DeepSeek，成本几乎为零。</li>
+</ul></div>
+          <a class="res-detail__link" href="https://datawhalechina.github.io/llm-universe/" target="_blank" rel="noopener">打开原文 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4l-8.2 8.2M18.5 14v5.5h-14v-14H10"/></svg></a>
+        </div>
+      </details><details class="res-detail">
+        <summary>
+          <span class="res-tag">WEB</span>
+          <h3>网页05 · DeepSeek API 官方文档</h3>
+          <span class="res-detail__meta">M0 / M1 / M2 · api-docs.deepseek.com</span>
+        </summary>
+        <div class="res-detail__body">
+          <div class="prose"><ul>
+<li><strong>链接</strong>：<a href="https://api-docs.deepseek.com/zh-cn/" target="_blank" rel="noopener">https://api-docs.deepseek.com/zh-cn/</a></li>
+<li><strong>类型</strong>：官方 API 文档</li>
+<li><strong>语言</strong>：中文（官方原生）</li>
+<li><strong>对应模块</strong>：M0、M1、M2（<strong>必读</strong>）</li>
+<li><strong>费用</strong>：文档免费；调用按量付费，价格很低</li>
+</ul>
+<hr class="rule">
+<h2 id="res-网页05-为什么选它作为你的主力-api">为什么选它作为你的主力 API</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>对比项</th><th>DeepSeek</th><th>OpenAI</th></tr></thead><tbody><tr><td>中文文档</td><td>✅ 官方中文</td><td>英文为主</td></tr><tr><td>支付方式</td><td>支付宝/微信</td><td>需要外币卡</td></tr><tr><td>网络</td><td>国内直连</td><td>需要额外手段</td></tr><tr><td>价格</td><td>极低</td><td>较高</td></tr><tr><td>接口格式</td><td><strong>兼容 OpenAI 格式</strong></td><td>原生</td></tr></tbody></table></div>
+<p>&quot;兼容 OpenAI 格式&quot;是关键：<strong>你学的写法，换成任何一家国内模型都能用</strong>，只改 <code>base_url</code> 和 <code>model</code> 两个参数。</p>
+<hr class="rule">
+<h2 id="res-网页05-文档里你需要看的四页">文档里你需要看的四页</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>页面</th><th>内容</th><th>对应</th></tr></thead><tbody><tr><td>快速开始</td><td>拿 API Key、第一个请求示例</td><td>M0</td></tr><tr><td>API 参考 → Chat Completions</td><td>参数说明：model / messages / temperature / stream</td><td>M0、M2</td></tr><tr><td>模型与价格</td><td>有哪些模型、怎么计费</td><td>M2（成本估算）</td></tr><tr><td>错误码</td><td>401 / 402 / 429 / 500 分别什么意思</td><td>全程排错用</td></tr></tbody></table></div>
+<hr class="rule">
+<h2 id="res-网页05-关键参数速记背下来">关键参数速记（背下来）</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>参数</th><th>作用</th><th>你常用值</th></tr></thead><tbody><tr><td><code>model</code></td><td>用哪个模型</td><td><code>deepseek-chat</code></td></tr><tr><td><code>messages</code></td><td>对话历史，数组，每个元素有 <code>role</code> 和 <code>content</code></td><td>见 M2</td></tr><tr><td><code>role</code></td><td><code>system</code>（人设）/ <code>user</code>（你）/ <code>assistant</code>（模型）</td><td>三种</td></tr><tr><td><code>temperature</code></td><td>随机性，0 最稳，1 最飘</td><td>事实类 0–0.3，创意类 0.7–1</td></tr><tr><td><code>stream</code></td><td>是否流式返回（打字机效果）</td><td>界面用 <code>True</code></td></tr></tbody></table></div>
+<hr class="rule">
+<h2 id="res-网页05-注意">注意</h2>
+<ul>
+<li><strong>API Key 等于你的钱包</strong>。绝对不要写进代码、不要上传 GitHub、不要发给我。放在 <code>.env</code> 文件里，M0 会教你。</li>
+<li>新注册通常有赠送额度，够你学完整个计划。<strong>不要一上来充大钱。</strong></li>
+<li>价格会变，<strong>以官网为准</strong>，我不在讲稿里写死数字。</li>
+</ul></div>
+          <a class="res-detail__link" href="https://api-docs.deepseek.com/zh-cn/" target="_blank" rel="noopener">打开原文 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4l-8.2 8.2M18.5 14v5.5h-14v-14H10"/></svg></a>
+        </div>
+      </details><details class="res-detail">
+        <summary>
+          <span class="res-tag">WEB</span>
+          <h3>网页06 · 工程文档合集（写代码时查）</h3>
+          <span class="res-detail__meta"> · fastapi.tiangolo.com</span>
+        </summary>
+        <div class="res-detail__body">
+          <div class="prose"><blockquote class="callout">
+<p>这一个文件里放 4 个官方文档入口。它们不是&quot;学&quot;的，是&quot;查&quot;的。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="res-网页06-1-fastapi中文文档-m7">1. FastAPI（中文文档）· M7</h2>
+<ul>
+<li><strong>链接</strong>：<a href="https://fastapi.tiangolo.com/zh/" target="_blank" rel="noopener">https://fastapi.tiangolo.com/zh/</a></li>
+<li><strong>用途</strong>：把你的 Python 函数变成一个网址（别人能调用）</li>
+<li><strong>你只需看</strong>：教程 → 第一步、路径参数、请求体、查询参数</li>
+<li><strong>跳过</strong>：依赖注入高级用法、WebSocket、后台任务（用到再说）</li>
+</ul>
+<hr class="rule">
+<h2 id="res-网页06-2-streamlit英文但代码即文档-m2-m7">2. Streamlit（英文，但代码即文档）· M2 / M7</h2>
+<ul>
+<li><strong>链接</strong>：<a href="https://docs.streamlit.io/" target="_blank" rel="noopener">https://docs.streamlit.io/</a></li>
+<li><strong>用途</strong>：用纯 Python 三行代码做出网页界面，不用学 HTML/CSS</li>
+<li><strong>你只需看</strong>：Get started → Basic concepts；API reference → <code>st.chat_input</code>、<code>st.chat_message</code>、<code>st.write_stream</code>、<code>st.file_uploader</code></li>
+<li><strong>为什么英文也行</strong>：这库的文档 90% 是代码块，看懂函数名就会用</li>
+</ul>
+<hr class="rule">
+<h2 id="res-网页06-3-chroma向量数据库-m3-m4">3. Chroma（向量数据库）· M3 / M4</h2>
+<ul>
+<li><strong>链接</strong>：<a href="https://docs.trychroma.com/" target="_blank" rel="noopener">https://docs.trychroma.com/</a></li>
+<li><strong>用途</strong>：把文本存成向量，按&quot;意思&quot;检索</li>
+<li><strong>你只需看</strong>：Collections（增删改查）、Querying（查询）</li>
+<li><strong>关键概念</strong>：collection ≈ 一张表；document ≈ 一条文本；embedding ≈ 它的向量</li>
+</ul>
+<hr class="rule">
+<h2 id="res-网页06-4-langchain英文-m4-m6">4. LangChain（英文）· M4 / M6</h2>
+<ul>
+<li><strong>链接</strong>：<a href="https://python.langchain.com/" target="_blank" rel="noopener">https://python.langchain.com/</a></li>
+<li><strong>用途</strong>：把&quot;模型 + 检索 + 工具&quot;串成流水线</li>
+<li><strong>重要提醒</strong>：这个库<strong>版本变动极快</strong>，2023 年的教程基本跑不通。看到 <code>ImportError</code> 先怀疑版本。</li>
+<li><strong>我的建议</strong>：<strong>M6 之前不要碰 LangChain</strong>。先用原生代码把 RAG 和工具调用写一遍，理解原理，再用框架——否则你会变成&quot;只会背 API 的人&quot;。</li>
+</ul>
+<hr class="rule">
+<h2 id="res-网页06-一句话原则">一句话原则</h2>
+<blockquote class="callout">
+<p>官方文档 &gt; 博客教程 &gt; CSDN 转载。
+报错时，先把报错的<strong>最后一行</strong>复制到搜索引擎，加个 <code>site:github.com</code> 或 <code>site:stackoverflow.com</code>。</p>
+</blockquote></div>
+          <a class="res-detail__link" href="https://fastapi.tiangolo.com/zh/" target="_blank" rel="noopener">打开原文 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4l-8.2 8.2M18.5 14v5.5h-14v-14H10"/></svg></a>
+        </div>
+      </details><details class="res-detail">
+        <summary>
+          <span class="res-tag">REPO</span>
+          <h3>仓库01 · datawhalechina/llm-universe</h3>
+          <span class="res-detail__meta">M0 / M1 / M2 / M4 / M7 · github.com</span>
+        </summary>
+        <div class="res-detail__body">
+          <div class="prose"><ul>
+<li><strong>仓库</strong>：<a href="https://github.com/datawhalechina/llm-universe" target="_blank" rel="noopener">https://github.com/datawhalechina/llm-universe</a></li>
+<li><strong>在线阅读</strong>：<a href="https://datawhalechina.github.io/llm-universe/" target="_blank" rel="noopener">https://datawhalechina.github.io/llm-universe/</a></li>
+<li><strong>出品</strong>：Datawhale</li>
+<li><strong>语言</strong>：中文</li>
+<li><strong>对应模块</strong>：M0、M1、M2、M4、M7</li>
+<li><strong>能抄什么</strong>：<strong>项目目录结构</strong>、Streamlit 界面写法、RAG 的最小实现</li>
+</ul>
+<hr class="rule">
+<h2 id="res-仓库01-它是什么">它是什么</h2>
+<p>&quot;基于 LLM API 与 LangChain 的大模型应用开发教程&quot;的配套代码仓库。教程正文是网页，这个仓库是<strong>能跑起来的代码</strong>。</p>
+<p>对你最大的价值：<strong>它不是玩具 demo，而是一个完整应用的目录结构</strong>。你做 P5/P7 时，照它的分层方式组织文件，代码会立刻显得&quot;专业&quot;。</p>
+<hr class="rule">
+<h2 id="res-仓库01-该看哪些">该看哪些</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>目录/文件</th><th>看什么</th><th>什么时候</th></tr></thead><tbody><tr><td><code>README.md</code></td><td>整体目录说明</td><td>M0 时扫一眼</td></tr><tr><td>前端/界面相关目录</td><td>Streamlit 怎么组织页面</td><td>M7</td></tr><tr><td>知识库/RAG 相关目录</td><td>文档解析、切分、入库的分层</td><td>M4</td></tr><tr><td><code>requirements.txt</code></td><td>要装哪些库</td><td>装环境时对照</td></tr></tbody></table></div>
+<p><strong>不要看</strong>：<code>docs/</code> 里的书稿正文（网页版更好读）、任何 <code>notebook</code> 里的长篇实验。</p>
+<hr class="rule">
+<h2 id="res-仓库01-能抄的三个具体东西">能抄的三个具体东西</h2>
+<ol>
+<li><strong>目录分层</strong>：把&quot;配置 / 模型调用 / 检索 / 界面&quot;分开，别全写一个文件里。</li>
+<li><strong>配置管理</strong>：用 <code>.env</code> + 一个 <code>config.py</code>，而不是把 key 写在代码里。</li>
+<li><strong>异常处理</strong>：看它怎么处理&quot;API 超时&quot;&quot;key 无效&quot;。</li>
+</ol>
+<hr class="rule">
+<h2 id="res-仓库01-注意">注意</h2>
+<ul>
+<li>它用的 LangChain 版本可能较老，直接 <code>pip install -r requirements.txt</code> 常常装出一堆冲突。<strong>别整包安装</strong>，用到哪个装哪个。</li>
+<li>它的代码是&quot;教学代码&quot;，命名和结构偏简单，实际项目要更严谨——但作为起点足够了。</li>
+</ul></div>
+          <a class="res-detail__link" href="https://github.com/datawhalechina/llm-universe" target="_blank" rel="noopener">打开原文 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4l-8.2 8.2M18.5 14v5.5h-14v-14H10"/></svg></a>
+        </div>
+      </details><details class="res-detail">
+        <summary>
+          <span class="res-tag">REPO</span>
+          <h3>仓库02 · datawhalechina/all-in-rag</h3>
+          <span class="res-detail__meta">M3 / M4 / M5 · github.com</span>
+        </summary>
+        <div class="res-detail__body">
+          <div class="prose"><ul>
+<li><strong>仓库</strong>：<a href="https://github.com/datawhalechina/all-in-rag" target="_blank" rel="noopener">https://github.com/datawhalechina/all-in-rag</a></li>
+<li><strong>在线阅读</strong>：<a href="https://datawhalechina.github.io/all-in-rag/" target="_blank" rel="noopener">https://datawhalechina.github.io/all-in-rag/</a></li>
+<li><strong>出品</strong>：Datawhale</li>
+<li><strong>语言</strong>：中文</li>
+<li><strong>对应模块</strong>：M3、M4、M5</li>
+<li><strong>能抄什么</strong>：<strong>RAG 的完整流水线代码</strong>、切分策略的对比实验、评估脚本</li>
+</ul>
+<hr class="rule">
+<h2 id="res-仓库02-它是什么">它是什么</h2>
+<p>&quot;大模型应用开发实战一：RAG 技术全栈指南&quot;。这是国内目前最系统的 RAG 中文实战项目，从&quot;文档怎么读进来&quot;一直讲到&quot;怎么评估检索质量&quot;。</p>
+<p>对你最大的价值：<strong>它把 RAG 拆成了可替换的零件</strong>（解析器 / 切分器 / 嵌入模型 / 向量库 / 重排器 / 生成器），你能看到&quot;换掉一个零件会发生什么&quot;。</p>
+<hr class="rule">
+<h2 id="res-仓库02-该看哪些">该看哪些</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>阶段</th><th>看什么</th><th>目的</th></tr></thead><tbody><tr><td>M4 开始前</td><td>整体流程图</td><td>知道有哪几个环节</td></tr><tr><td>M4 做项目时</td><td>文档解析、切分、入库的代码</td><td>抄最小可用实现</td></tr><tr><td>M5 优化时</td><td>不同切分/检索方式的对比</td><td>理解&quot;为什么调这个参数&quot;</td></tr><tr><td>M5 评估时</td><td>评估指标与脚本</td><td>做你的 20 条评测集</td></tr></tbody></table></div>
+<hr class="rule">
+<h2 id="res-仓库02-能抄的三个具体东西">能抄的三个具体东西</h2>
+<ol>
+<li><strong>切分参数</strong>：chunk_size / overlap 怎么定，别人踩过什么坑。</li>
+<li><strong>提示词模板</strong>：RAG 的&quot;带上下文回答&quot;提示词长什么样。</li>
+<li><strong>评估表结构</strong>：问题、标准答案、检索到的片段、是否命中——<strong>这张表就是你 M5 的作业模板</strong>。</li>
+</ol>
+<hr class="rule">
+<h2 id="res-仓库02-注意">注意</h2>
+<ul>
+<li>这是&quot;book + code&quot;型仓库，代码分散在多章。<strong>按章节找，不要通读仓库。</strong></li>
+<li>部分章节依赖较新的库版本，跑不通很正常。<strong>看懂逻辑即可，不必跑通每一行。</strong></li>
+</ul></div>
+          <a class="res-detail__link" href="https://github.com/datawhalechina/all-in-rag" target="_blank" rel="noopener">打开原文 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4l-8.2 8.2M18.5 14v5.5h-14v-14H10"/></svg></a>
+        </div>
+      </details><details class="res-detail">
+        <summary>
+          <span class="res-tag">REPO</span>
+          <h3>仓库03 · datawhalechina/happy-llm</h3>
+          <span class="res-detail__meta">M3 / M4 · github.com</span>
+        </summary>
+        <div class="res-detail__body">
+          <div class="prose"><ul>
+<li><strong>仓库</strong>：<a href="https://github.com/datawhalechina/happy-llm" target="_blank" rel="noopener">https://github.com/datawhalechina/happy-llm</a></li>
+<li><strong>出品</strong>：Datawhale</li>
+<li><strong>语言</strong>：中文</li>
+<li><strong>对应模块</strong>：M3、M4（补原理）</li>
+<li><strong>能抄什么</strong>：<strong>&quot;从零手写&quot;的教学代码</strong>，用来理解 Transformer / 注意力到底在算什么</li>
+</ul>
+<hr class="rule">
+<h2 id="res-仓库03-它是什么">它是什么</h2>
+<p>&quot;从零开始的大语言模型原理与实践教程&quot;。它的野心是：<strong>带你从最基础的部分开始，一步步搭出一个能说话的小语言模型</strong>。</p>
+<p>对你的价值不是&quot;真的去训一个模型&quot;（你没显卡，也不需要），而是：</p>
+<blockquote class="callout">
+<p>当你对&quot;模型到底怎么处理文字&quot;感到玄乎时，看它用几十行代码把这件事写出来。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="res-仓库03-该看哪些">该看哪些</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>章节</th><th>内容</th><th>什么时候看</th></tr></thead><tbody><tr><td>分词 / Tokenizer</td><td>文字怎么变成数字</td><td>M0 学 token 时</td></tr><tr><td>注意力 / Transformer</td><td>QKV 到底在干嘛</td><td>M3/M4 感到困惑时</td></tr><tr><td>训练流程概览</td><td>预训练 / 微调 / RLHF 分别在干嘛</td><td>M5 或面试前</td></tr></tbody></table></div>
+<p><strong>不要看</strong>：分布式训练、显存优化、数据清洗工程——这些离你太远。</p>
+<hr class="rule">
+<h2 id="res-仓库03-怎么用关键">怎么用（关键）</h2>
+<p><strong>不要照着敲。</strong> 这类&quot;从零实现&quot;的代码，敲一遍要几十小时，而且对你做应用开发没有直接帮助。</p>
+<p>正确用法：<strong>读，不敲</strong>。读的时候问自己三个问题：</p>
+<ol>
+<li>输入是什么形状？</li>
+<li>中间变成了什么形状？</li>
+<li>输出是什么形状？</li>
+</ol>
+<p>能把这三个问题答出来，你就超过 80% 的&quot;只会调 API&quot;的人了。</p>
+<hr class="rule">
+<h2 id="res-仓库03-注意">注意</h2>
+<ul>
+<li>仓库里的完整训练代码需要 GPU 和大数据集，<strong>你没有条件跑，也不需要跑</strong>。</li>
+<li>它的价值 90% 在&quot;讲解&quot;，10% 在&quot;代码&quot;。</li>
+</ul></div>
+          <a class="res-detail__link" href="https://github.com/datawhalechina/happy-llm" target="_blank" rel="noopener">打开原文 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4l-8.2 8.2M18.5 14v5.5h-14v-14H10"/></svg></a>
+        </div>
+      </details><details class="res-detail">
+        <summary>
+          <span class="res-tag">REPO</span>
+          <h3>仓库04 · datawhalechina/prompt-engineering-for-developers</h3>
+          <span class="res-detail__meta">M1 · github.com</span>
+        </summary>
+        <div class="res-detail__body">
+          <div class="prose"><ul>
+<li><strong>仓库</strong>：<a href="https://github.com/datawhalechina/prompt-engineering-for-developers" target="_blank" rel="noopener">https://github.com/datawhalechina/prompt-engineering-for-developers</a></li>
+<li><strong>出品</strong>：Datawhale（对吴恩达课程的中文本地化）</li>
+<li><strong>语言</strong>：中文（含中英对照）</li>
+<li><strong>对应模块</strong>：M1（主力补充）</li>
+<li><strong>能抄什么</strong>：<strong>一套完整的提示词练习</strong>，带讲解和代码</li>
+</ul>
+<hr class="rule">
+<h2 id="res-仓库04-它是什么">它是什么</h2>
+<p>对吴恩达（Andrew Ng）与 OpenAI 合作的《ChatGPT Prompt Engineering for Developers》短课程的中文版整理，包含讲义、代码和课后练习。</p>
+<p>原课程只有 1.5 小时，<strong>极其适合你这种&quot;周末只有两小时&quot;的人</strong>：一个周末就能看完，而且每个技巧都有可运行的例子。</p>
+<hr class="rule">
+<h2 id="res-仓库04-该看哪些">该看哪些</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>内容</th><th>对应我的模块</th><th>用法</th></tr></thead><tbody><tr><td>提示词原则（写清楚、给例子）</td><td>M1 理论 2–3</td><td>对照我的讲稿读一遍</td></tr><tr><td>迭代式开发提示词</td><td>M1 理论 5</td><td><strong>最实用的一节</strong>：先写粗的，再一步步改好</td></tr><tr><td>文本概括 / 推理 / 转换 / 扩展</td><td>M1 练习</td><td>直接当练习素材</td></tr><tr><td>聊天机器人</td><td>M2</td><td>提前预习多轮对话</td></tr></tbody></table></div>
+<hr class="rule">
+<h2 id="res-仓库04-能抄的三个具体东西">能抄的三个具体东西</h2>
+<ol>
+<li><strong>&quot;明确、具体、给例子&quot;三原则</strong>的具体写法。</li>
+<li><strong>迭代改进的流程</strong>：跑一次 → 看哪里不对 → 改一句 → 再跑。这是提示工程的真实工作方式。</li>
+<li><strong>带分隔符的提示词模板</strong>（用 <code>&quot;&quot;&quot;</code> 或 <code>###</code> 把用户输入和指令隔开）——这是防提示注入的第一道防线。</li>
+</ol>
+<hr class="rule">
+<h2 id="res-仓库04-注意">注意</h2>
+<ul>
+<li>课程用的是 OpenAI 的接口，你换成 DeepSeek 后，<strong>个别技巧效果会打折</strong>（比如让模型输出特定 JSON 格式，小模型更不听话）。这正常，M1 练习里有对比题。</li>
+<li>仓库里的 notebook 可以直接看，<strong>不用跑</strong>，跑起来要配 API key 环境。</li>
+</ul></div>
+          <a class="res-detail__link" href="https://github.com/datawhalechina/prompt-engineering-for-developers" target="_blank" rel="noopener">打开原文 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4l-8.2 8.2M18.5 14v5.5h-14v-14H10"/></svg></a>
+        </div>
+      </details><details class="res-detail">
+        <summary>
+          <span class="res-tag">REPO</span>
+          <h3>仓库05 · openai/openai-cookbook</h3>
+          <span class="res-detail__meta">M1 / M2 / M6 · github.com</span>
+        </summary>
+        <div class="res-detail__body">
+          <div class="prose"><ul>
+<li><strong>仓库</strong>：<a href="https://github.com/openai/openai-cookbook" target="_blank" rel="noopener">https://github.com/openai/openai-cookbook</a></li>
+<li><strong>类型</strong>：官方示例代码集</li>
+<li><strong>语言</strong>：英文（代码为主，注释不多）</li>
+<li><strong>对应模块</strong>：M1、M2、M6</li>
+<li><strong>能抄什么</strong>：<strong>工业级的&quot;怎么调&quot;最佳实践</strong></li>
+</ul>
+<hr class="rule">
+<h2 id="res-仓库05-它是什么">它是什么</h2>
+<p>OpenAI 官方维护的&quot;食谱&quot;：一堆可以直接抄的示例，告诉你&quot;做某件事的标准写法是什么&quot;。</p>
+<p>它不教你原理，只告诉你<strong>别人生产环境里怎么写的</strong>。所以它是&quot;照着做&quot;的资料，不是&quot;读懂&quot;的资料。</p>
+<hr class="rule">
+<h2 id="res-仓库05-你只需要看这几个例子">你只需要看这几个例子</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>例子</th><th>讲什么</th><th>对应</th></tr></thead><tbody><tr><td>How to count tokens</td><td>怎么数 token、估算成本</td><td>M2 成本控制</td></tr><tr><td>How to format inputs to ChatGPT models</td><td>messages 数组怎么拼</td><td>M2</td></tr><tr><td>How to use chat completions with streaming</td><td>流式输出</td><td>M2</td></tr><tr><td>Structured outputs / JSON mode</td><td>让模型稳定输出 JSON</td><td>M1 理论 6</td></tr><tr><td>Function calling</td><td>工具调用</td><td>M6</td></tr><tr><td>RAG 相关示例</td><td>检索 + 生成的最小实现</td><td>M4</td></tr></tbody></table></div>
+<p><strong>跳过</strong>：微调、图像、语音、Assistants API（这些要么用不上，要么 OpenAI 专属）。</p>
+<hr class="rule">
+<h2 id="res-仓库05-为什么英文资料也给你">为什么英文资料也给你</h2>
+<p>因为<strong>这是全网质量最高的&quot;标准写法&quot;</strong>。你不需要读它的文字，只需要看代码块——变量名、函数签名、异常处理，这些是通用语言。</p>
+<p>我的讲稿会把每个例子的关键点用中文讲清楚，你只需要在写代码时回来对照。</p>
+<hr class="rule">
+<h2 id="res-仓库05-注意">注意</h2>
+<ul>
+<li>它假设你用 OpenAI 的 SDK。你用 DeepSeek 时，<code>from openai import OpenAI</code> 一样能用，只要改 <code>base_url</code>——<strong>这就是&quot;兼容 OpenAI 格式&quot;的好处</strong>。</li>
+<li>部分例子用了较新的 API（如 Responses API），如果你装的 SDK 版本老，会报错。<strong>报错就看版本，别硬改。</strong></li>
+</ul></div>
+          <a class="res-detail__link" href="https://github.com/openai/openai-cookbook" target="_blank" rel="noopener">打开原文 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4l-8.2 8.2M18.5 14v5.5h-14v-14H10"/></svg></a>
+        </div>
+      </details><details class="res-detail">
+        <summary>
+          <span class="res-tag">REPO</span>
+          <h3>仓库06 · Hoper-J/AI-Guide-and-Demos-zh_CN</h3>
+          <span class="res-detail__meta">M0 / M6 · github.com</span>
+        </summary>
+        <div class="res-detail__body">
+          <div class="prose"><ul>
+<li><strong>仓库</strong>：<a href="https://github.com/Hoper-J/AI-Guide-and-Demos-zh_CN" target="_blank" rel="noopener">https://github.com/Hoper-J/AI-Guide-and-Demos-zh_CN</a></li>
+<li><strong>类型</strong>：中文入门指南 + 示例代码</li>
+<li><strong>语言</strong>：中文</li>
+<li><strong>对应模块</strong>：M0（环境排错）、M6（部署/微调入门）</li>
+<li><strong>能抄什么</strong>：<strong>&quot;没有显卡也能学&quot;的环境配置经验</strong>、API 到本地部署的过渡路径</li>
+</ul>
+<hr class="rule">
+<h2 id="res-仓库06-它是什么">它是什么</h2>
+<p>一份面向&quot;想从 API 走到本地大模型部署和微调&quot;的中文逐步指南，代码提供 Kaggle / Colab 在线版本，<strong>明确说明没有显卡也能学</strong>。</p>
+<p>这正好对上你的设备情况（笔记本无独显，可用免费云 GPU）。</p>
+<hr class="rule">
+<h2 id="res-仓库06-该看哪些">该看哪些</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>部分</th><th>内容</th><th>对应</th></tr></thead><tbody><tr><td>环境准备</td><td>Python、包管理、常见报错</td><td>M0 装环境时对照</td></tr><tr><td>第一个 Demo</td><td>怎么跑起一个最小示例</td><td>M0</td></tr><tr><td>API 调用篇</td><td>国内模型怎么接</td><td>M0、M1</td></tr><tr><td>在线运行篇</td><td>Colab / Kaggle 怎么用</td><td>选修（微调时）</td></tr><tr><td>部署篇</td><td>怎么把模型跑起来</td><td>选修</td></tr></tbody></table></div>
+<p><strong>不要看</strong>：微调的具体参数调优（那是另一个方向）。</p>
+<hr class="rule">
+<h2 id="res-仓库06-对你的特殊价值">对你的特殊价值</h2>
+<p>你只有一个周末两小时，最怕的是<strong>卡在装环境上</strong>。这个仓库里有一节专门讲&quot;新手常见的环境问题&quot;，比你搜 Stack Overflow 快得多。</p>
+<p>M0 阶段如果 <code>pip install</code> 报错、Python 版本冲突、虚拟环境不生效——先来这里对照，再来问我。</p>
+<hr class="rule">
+<h2 id="res-仓库06-注意">注意</h2>
+<ul>
+<li>这类个人维护的指南更新不如官方文档及时，<strong>命令以官方文档为准</strong>。</li>
+<li>里面如果推荐了某个第三方工具/镜像站，<strong>先问我要不要装</strong>，不要直接执行。</li>
+</ul></div>
+          <a class="res-detail__link" href="https://github.com/Hoper-J/AI-Guide-and-Demos-zh_CN" target="_blank" rel="noopener">打开原文 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 4h6v6M20 4l-8.2 8.2M18.5 14v5.5h-14v-14H10"/></svg></a>
+        </div>
+      </details>
+    </div>
+  </section>
+  <section class="section section--tight">
+    <div class="container">
       <div class="prose" style="max-width:900px"><h2 id="res-按模块查">按模块查</h2>
 <div class="table-scroll"><table class="data-table"><thead><tr><th>模块</th><th>主用（只开这一个）</th><th>备用（卡住才开）</th><th>PDF</th><th>网页</th><th>GitHub</th></tr></thead><tbody><tr><td><strong>M0 开局</strong></td><td>讲稿 + DeepSeek 文档&quot;快速开始&quot;</td><td>李宏毅第 1 讲 PDF</td><td>书03 第1讲</td><td>网页05、网页01</td><td>仓库06（环境排错）</td></tr><tr><td><strong>M1 提示工程</strong></td><td>讲稿 + 李宏毅第 3–5 讲 PDF</td><td>提示工程指南中文版</td><td>书03 第3–5讲</td><td>网页02、网页01</td><td>仓库04</td></tr><tr><td><strong>M2 对话应用</strong></td><td>讲稿 + DeepSeek 文档&quot;参数说明&quot;</td><td>llm-universe 第 3 章</td><td>—</td><td>网页05、网页04</td><td>仓库01、仓库05</td></tr><tr><td><strong>M3 语义检索</strong></td><td>讲稿 + all-in-rag 向量章节</td><td>书02 第 10 章（注意力直觉）</td><td>书02</td><td>网页03</td><td>仓库03</td></tr><tr><td><strong>M4 RAG 核心</strong></td><td>讲稿 + all-in-rag 主流程</td><td>llm-universe 第 5 章</td><td>书01 第7章</td><td>网页03、网页04</td><td>仓库02、仓库01</td></tr><tr><td><strong>M5 RAG 进阶</strong></td><td>讲稿 + all-in-rag 评估章节</td><td>书01 第 7 章后半</td><td>书01</td><td>网页03</td><td>仓库02</td></tr><tr><td><strong>M6 Agent</strong></td><td>讲稿 + 李宏毅第 9 讲 PDF</td><td>提示工程指南 ReAct 节</td><td>书01 第8章</td><td>网页02、网页01</td><td>仓库05（function calling）</td></tr><tr><td><strong>M7 部署</strong></td><td>讲稿 + FastAPI/Streamlit 文档</td><td>llm-universe 第 6 章</td><td>—</td><td>网页06、网页04</td><td>仓库01</td></tr></tbody></table></div>
 <hr class="rule">

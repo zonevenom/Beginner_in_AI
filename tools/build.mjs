@@ -15,7 +15,7 @@ import {
   renderResources,
   renderProgress
 } from "./pages-doc.mjs";
-import { readTitle, plainText } from "./content.mjs";
+import { readTitle, plainText, stripFirstH1 } from "./content.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -62,7 +62,9 @@ function build() {
   write("index.html", renderHome());
   pages.push({ u: "index.html", t: "首页", k: "page", p: "BEGINNER_IN_AI" });
 
-  write("modules.html", renderModules());
+  const theoryGuide = read("source/02_理论讲解区/00_理论区导读.md");
+  const quizGuide = read("source/03_练习题目区/00_练习区使用说明.md");
+  write("modules.html", renderModules({ guides: { theory: theoryGuide, quiz: quizGuide } }));
   pages.push({ u: "modules.html", t: "模块总览", k: "page", p: "8 个模块" });
 
   const planDoc = read("source/00_知识图谱总览区/01_学习计划总表.md");
@@ -222,8 +224,14 @@ function collectResources() {
         code,
         title: title || rawTitle,
         url,
+        host: (() => {
+          try { return new URL(url).hostname; } catch (_) { return ""; }
+        })(),
         modules,
-        excerpt: excerptOf(src)
+        excerpt: excerptOf(src),
+        body: renderMarkdown(stripFirstH1(src), {
+          headingIdPrefix: `res-${code}-`
+        }).html
       });
       if (url === "#") problems.push(`未能解析链接：${f}`);
     }

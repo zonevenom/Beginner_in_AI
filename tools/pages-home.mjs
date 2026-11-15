@@ -10,14 +10,7 @@ import {
   icon,
   byCode
 } from "./data.mjs";
-import {
-  moduleCard,
-  zoneCard,
-  projectCard,
-  ticker,
-  sectionHead,
-  chip
-} from "./content.mjs";
+import { moduleCard, zoneCard, projectCard, ticker, sectionHead, chip, md, stripFirstH1, makeResolver } from "./content.mjs";
 
 const TOTAL_QUIZ = 51;
 
@@ -287,7 +280,35 @@ export function renderHome() {
 
 /* ---------------------------------------------------------- modules index */
 
-export function renderModules() {
+export function renderModules({ guides = {} } = {}) {
+  const resolver = makeResolver("");
+  const guideBlocks = [
+    {
+      key: "theory",
+      title: "理论讲解区 · 导读：讲稿怎么读",
+      body: guides.theory || ""
+    },
+    {
+      key: "quiz",
+      title: "练习题目区 · 使用说明：题目怎么做",
+      body: guides.quiz || ""
+    }
+  ]
+    .filter((g) => g.body)
+    .map(
+      (g) => `<details class="guide-detail">
+      <summary>${g.title}</summary>
+      <div class="guide-detail__body">
+        <div class="prose">${md(stripFirstH1(g.body), {
+          root: "",
+          headingIdPrefix: `guide-${g.key}-`,
+          resolver
+        }).html}</div>
+      </div>
+    </details>`
+    )
+    .join("");
+
   const blocks = STAGES.map((stage) => {
     const mods = MODULES.filter((m) => m.stage === stage.id);
     return `<div class="stage-block" id="stage-${stage.id}" style="--accent:${stage.accent}">
@@ -320,7 +341,18 @@ export function renderModules() {
       </div>
     </div>
   </section>
-  <div class="container" style="padding-bottom:80px">${blocks}</div>`;
+  <div class="container" style="padding-bottom:80px">
+    ${
+      guideBlocks
+        ? `<div style="margin:0 0 34px">
+      <span class="eyebrow">read me first</span>
+      <h2 style="font-size:clamp(20px,2.6vw,28px);margin:10px 0 16px">开始前必读</h2>
+      ${guideBlocks}
+    </div>`
+        : ""
+    }
+    ${blocks}
+  </div>`;
 
   return page({
     root: "",
