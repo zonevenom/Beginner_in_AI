@@ -1,0 +1,17 @@
+﻿{
+  "name": "beginner-in-ai",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "16 周大模型应用开发学习路线 · 亮色赛博朋克风格静态站点",
+  "homepage": "https://zonevenom.github.io/Beginner_in_AI/",
+  "repository": { "type": "git", "url": "https://github.com/zonevenom/Beginner_in_AI.git" },
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "serve": "node tools/serve.mjs 4173",
+    "test": "node --test tools/md.test.mjs",
+    "dev": "node tools/build.mjs && node tools/serve.mjs 4173"
+  },
+  "keywords": ["llm", "rag", "agent", "learning-plan", "static-site", "github-pages"],
+  "license": "MIT"
+}

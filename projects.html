@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>实践项目 · Beginner_in_AI</title>
+<meta name="description" content="8 个由浅入深的大模型应用项目：命令行问答、提示词实验台、带记忆的聊天助手、语义搜索器、个人文档问答、带评测的 RAG v2、多功能 Agent、部署上线。">
+<meta name="author" content="zonevenom">
+<meta name="theme-color" content="#eef1f8">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Beginner_in_AI">
+<meta property="og:title" content="实践项目 · Beginner_in_AI">
+<meta property="og:description" content="8 个由浅入深的大模型应用项目：命令行问答、提示词实验台、带记忆的聊天助手、语义搜索器、个人文档问答、带评测的 RAG v2、多功能 Agent、部署上线。">
+<meta property="og:url" content="https://zonevenom.github.io/Beginner_in_AI/">
+<meta property="og:image" content="https://zonevenom.github.io/Beginner_in_AI/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="实践项目 · Beginner_in_AI">
+<meta name="twitter:description" content="8 个由浅入深的大模型应用项目：命令行问答、提示词实验台、带记忆的聊天助手、语义搜索器、个人文档问答、带评测的 RAG v2、多功能 Agent、部署上线。">
+<meta name="twitter:image" content="https://zonevenom.github.io/Beginner_in_AI/assets/img/og-cover.png">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/favicon.svg">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/content.css">
+
+</head>
+<body data-root="">
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-header">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html" aria-label="Beginner_in_AI 首页">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+  <path d="M20 2.6 35 11v18L20 37.4 5 29V11z" fill="#fff" stroke="#080b16" stroke-width="1.8"/>
+  <path d="M20 2.6 35 11v9L20 28.6 5 20v-9z" fill="#00d5e8" opacity=".9"/>
+  <path d="M35 20v9L20 37.4V28.6z" fill="#ff3d9a" opacity=".85"/>
+  <path d="M13.2 24V16l6.8-3.9L26.8 16v8L20 27.9z" fill="#fff" stroke="#080b16" stroke-width="1.4"/>
+  <circle cx="20" cy="20" r="2.1" fill="#080b16"/>
+</svg>
+      <span class="brand-text">
+        <span class="brand-name">BEGINNER_IN_AI</span>
+        <span class="brand-sub">16 weeks · llm application dev</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="展开导航">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a class="nav-link" href="index.html">首页</a></li><li><a class="nav-link" href="modules.html">模块</a></li><li><a class="nav-link" href="roadmap.html">路线图</a></li><li><a class="nav-link" href="projects.html" aria-current="page">项目</a></li><li><a class="nav-link" href="graph.html">图谱</a></li><li><a class="nav-link" href="resources.html">资料</a></li><li><a class="nav-link" href="progress.html">进度</a></li>
+      <li><button class="search-open" type="button" data-search-open aria-label="搜索全站（Ctrl K）">
+        <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.4"/><path d="m15.6 15.6 4.4 4.4"/></svg><span>搜索</span><kbd>⌘K</kbd>
+      </button></li>
+      <li class="nav-cta"><a class="btn btn--sm" href="https://github.com/zonevenom/Beginner_in_AI" target="_blank" rel="noopener">
+        <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11 11 0 0 1 6 0C18 4.7 19 5 19 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5Z"/></svg>GitHub</a></li>
+    </ul>
+  </div>
+</header>
+<main id="main">
+<section class="page-head">
+    <div class="container">
+      <div class="page-head__inner">
+        <div>
+          <span class="eyebrow">projects / 8</span>
+          <h1>8 个项目，<br>串成你的作品集</h1>
+          <p class="lead">项目不是「学完再做」，是「边做边学」。卡住的地方，才是真正学到的地方。每个模块配 1 个项目，8 个串起来就是 16 周后的作品集。</p>
+        </div>
+        <div class="page-head__meta">
+          <div><b>8</b>个项目</div>
+          <div><b>P5–P8</b>简历主力</div>
+          <div><b>3</b>件交付物</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="container" style="padding-bottom:40px">
+    <div class="project-grid"><a class="project-card" href="modules/m0.html#panel-project" style="--accent:#00d5e8">
+  <div class="project-card__top">
+    <span>P1</span>
+    <span class="chip chip--outline">M0</span>
+    <span class="diff" style="--accent:#00d5e8" aria-label="难度 1 / 5">★☆☆☆☆</span>
+  </div>
+  <h3>命令行 AI 问答工具「小助」</h3>
+  <p>一个能在终端聊天的脚本</p>
+  <div class="project-card__foot">
+    <span class="chip chip--outline">简历价值 · 低（练习用）</span>
+    <span class="chip" style="margin-left:auto">看计划书 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></span>
+  </div>
+</a><a class="project-card" href="modules/m1.html#panel-project" style="--accent:#ff3d9a">
+  <div class="project-card__top">
+    <span>P2</span>
+    <span class="chip chip--outline">M1</span>
+    <span class="diff" style="--accent:#ff3d9a" aria-label="难度 2 / 5">★★☆☆☆</span>
+  </div>
+  <h3>提示词实验台</h3>
+  <p>能对比、能打分的小工具</p>
+  <div class="project-card__foot">
+    <span class="chip chip--outline">简历价值 · 中</span>
+    <span class="chip" style="margin-left:auto">看计划书 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></span>
+  </div>
+</a><a class="project-card" href="modules/m2.html#panel-project" style="--accent:#6a4cff">
+  <div class="project-card__top">
+    <span>P3</span>
+    <span class="chip chip--outline">M2</span>
+    <span class="diff" style="--accent:#6a4cff" aria-label="难度 2 / 5">★★☆☆☆</span>
+  </div>
+  <h3>带记忆的聊天助手（Web）</h3>
+  <p>网页版聊天界面</p>
+  <div class="project-card__foot">
+    <span class="chip chip--outline">简历价值 · 中</span>
+    <span class="chip" style="margin-left:auto">看计划书 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></span>
+  </div>
+</a><a class="project-card" href="modules/m3.html#panel-project" style="--accent:#b9e012">
+  <div class="project-card__top">
+    <span>P4</span>
+    <span class="chip chip--outline">M3</span>
+    <span class="diff" style="--accent:#b9e012" aria-label="难度 2 / 5">★★☆☆☆</span>
+  </div>
+  <h3>语义搜索器</h3>
+  <p>按「意思」找内容的搜索</p>
+  <div class="project-card__foot">
+    <span class="chip chip--outline">简历价值 · 中</span>
+    <span class="chip" style="margin-left:auto">看计划书 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></span>
+  </div>
+</a><a class="project-card" href="modules/m4.html#panel-project" style="--accent:#ff6b35">
+  <div class="project-card__top">
+    <span>P5</span>
+    <span class="chip chip--outline">M4</span>
+    <span class="diff" style="--accent:#ff6b35" aria-label="难度 3 / 5">★★★☆☆</span>
+  </div>
+  <h3>个人文档问答机器人 v1</h3>
+  <p>能对着你的 PDF 提问</p>
+  <div class="project-card__foot">
+    <span class="chip chip--outline">简历价值 · 高</span>
+    <span class="chip" style="margin-left:auto">看计划书 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></span>
+  </div>
+</a><a class="project-card" href="modules/m5.html#panel-project" style="--accent:#00c2a8">
+  <div class="project-card__top">
+    <span>P6</span>
+    <span class="chip chip--outline">M5</span>
+    <span class="diff" style="--accent:#00c2a8" aria-label="难度 4 / 5">★★★★☆</span>
+  </div>
+  <h3>带评测的 RAG v2</h3>
+  <p>有准确率数字的系统</p>
+  <div class="project-card__foot">
+    <span class="chip chip--outline">简历价值 · 很高</span>
+    <span class="chip" style="margin-left:auto">看计划书 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></span>
+  </div>
+</a><a class="project-card" href="modules/m6.html#panel-project" style="--accent:#2f6bff">
+  <div class="project-card__top">
+    <span>P7</span>
+    <span class="chip chip--outline">M6</span>
+    <span class="diff" style="--accent:#2f6bff" aria-label="难度 4 / 5">★★★★☆</span>
+  </div>
+  <h3>多功能 Agent</h3>
+  <p>会自己调工具的助手</p>
+  <div class="project-card__foot">
+    <span class="chip chip--outline">简历价值 · 很高</span>
+    <span class="chip" style="margin-left:auto">看计划书 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></span>
+  </div>
+</a><a class="project-card" href="modules/m7.html#panel-project" style="--accent:#ffb020">
+  <div class="project-card__top">
+    <span>P8</span>
+    <span class="chip chip--outline">M7</span>
+    <span class="diff" style="--accent:#ffb020" aria-label="难度 5 / 5">★★★★★</span>
+  </div>
+  <h3>部署上线的完整应用</h3>
+  <p>一个能发给别人的链接</p>
+  <div class="project-card__foot">
+    <span class="chip chip--outline">简历价值 · 很高</span>
+    <span class="chip" style="margin-left:auto">看计划书 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></span>
+  </div>
+</a></div>
+  </div>
+  <section class="section section--tight">
+    <div class="container">
+      <div class="prose" style="max-width:900px"><h2 id="proj-每个项目计划书的标准结构">每个项目计划书的标准结构</h2>
+<p>你打开任何一份 <code>00_项目计划书.md</code>，都会看到这 7 节：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>节</th><th>内容</th><th>为什么要有</th></tr></thead><tbody><tr><td>1. 项目要做什么</td><td>一句话 + 验收标准</td><td>避免做着做着跑偏</td></tr><tr><td>2. 工具与开发环境</td><td>需要装什么、什么版本</td><td><strong>装之前我会问你</strong></td></tr><tr><td>3. 项目文件结构</td><td>目录树 + 每个文件干什么</td><td>先想清楚结构，再写代码</td></tr><tr><td>4. 项目流程图</td><td>数据怎么流动</td><td>画不出流程图 = 没想清楚</td></tr><tr><td>5. 分步实现</td><td>每步：目标→代码→为什么→怎么验证</td><td><strong>揉碎了，一步一停</strong></td></tr><tr><td>6. 进化方向</td><td>从&quot;能跑&quot;到&quot;能打&quot;的 5 级台阶</td><td>面试时你说得出&quot;下一步做什么&quot;</td></tr><tr><td>7. 资料标注</td><td>每步参考了哪份资料</td><td>你能溯源，我也能核对</td></tr></tbody></table></div>
+<hr class="rule">
+<h2 id="proj-做项目的四条纪律">做项目的四条纪律</h2>
+<ol>
+<li><strong>不要复制整段代码。</strong> 一行一行敲。敲错、报错、修好——这个过程才是学习。</li>
+<li><strong>每 10 行运行一次。</strong> 攒 100 行再跑，报错你根本不知道错在哪。</li>
+<li><strong>每完成一步，<code>git commit</code> 一次。</strong> 写不出 commit message，说明你不知道自己刚干了啥。</li>
+<li><strong>先跑通，再优化。</strong> 丑但能跑的代码 &gt; 漂亮但跑不起来的代码。</li>
+</ol>
+<hr class="rule">
+<h2 id="proj-关于抄参考项目">关于&quot;抄参考项目&quot;</h2>
+<p>参考仓库（<code>01_学习资料区/03_github库/</code>）的正确用法：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>✅ 可以看</th><th>❌ 不要看</th></tr></thead><tbody><tr><td>目录怎么分层</td><td>具体业务逻辑的实现</td></tr><tr><td>异常怎么处理</td><td>完整的文件内容直接复制</td></tr><tr><td>配置怎么管理</td><td>用它替代你自己思考</td></tr></tbody></table></div>
+<blockquote class="callout">
+<p><strong>抄结构，不抄实现。</strong> 你抄了实现，面试时被问&quot;为什么这么写&quot;就露馅了。</p>
+</blockquote></div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+  <path d="M20 2.6 35 11v18L20 37.4 5 29V11z" fill="#fff" stroke="#080b16" stroke-width="1.8"/>
+  <path d="M20 2.6 35 11v9L20 28.6 5 20v-9z" fill="#00d5e8" opacity=".9"/>
+  <path d="M35 20v9L20 37.4V28.6z" fill="#ff3d9a" opacity=".85"/>
+  <path d="M13.2 24V16l6.8-3.9L26.8 16v8L20 27.9z" fill="#fff" stroke="#080b16" stroke-width="1.4"/>
+  <circle cx="20" cy="20" r="2.1" fill="#080b16"/>
+</svg>
+          <span class="brand-text">
+            <span class="brand-name">BEGINNER_IN_AI</span>
+            <span class="brand-sub">from python basics to rag &amp; agents</span>
+          </span>
+        </a>
+        <p>为「会一点 Python、数学基本忘光、看英文吃力、只有周末能集中学」的人准备的 16 周路线。理论 → 练习 → 项目，每个模块都走一遍。</p>
+      </div>
+      <div class="footer-col">
+        <h4>Route</h4>
+        <ul>
+          <li><a href="roadmap.html">16 周排期</a></li>
+          <li><a href="modules.html">8 个模块</a></li>
+          <li><a href="projects.html">8 个实践项目</a></li>
+          <li><a href="graph.html">知识图谱</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Modules</h4>
+        <ul><li><a href="modules/m0.html">M0 · 开局</a></li><li><a href="modules/m1.html">M1 · 提示工程</a></li><li><a href="modules/m2.html">M2 · 对话应用</a></li><li><a href="modules/m3.html">M3 · 语义检索</a></li><li><a href="modules/m4.html">M4 · RAG 核心</a></li><li><a href="modules/m5.html">M5 · RAG 进阶</a></li><li><a href="modules/m6.html">M6 · Agent</a></li><li><a href="modules/m7.html">M7 · 部署上线</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Beginner_in_AI · 内容来自个人学习计划，持续迭代中</span>
+      <span>
+        <a href="https://github.com/zonevenom/Beginner_in_AI" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="resources.html">资料出处</a> ·
+        <button class="reset-btn" type="button" data-to-top>回到顶部 ↑</button>
+      </span>
+    </div>
+  </div>
+</footer>
+<div class="search-overlay" data-search-overlay role="dialog" aria-modal="true" aria-label="站内搜索">
+  <div class="search-panel">
+    <div class="search-field">
+      <svg class="icon " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.4"/><path d="m15.6 15.6 4.4 4.4"/></svg>
+      <input type="search" placeholder="搜索模块、概念、题目、项目…" aria-label="搜索关键词" autocomplete="off">
+      <button class="search-esc" type="button" data-search-close>ESC</button>
+    </div>
+    <ul class="search-results" data-search-results></ul>
+    <p class="search-empty" hidden>没有匹配结果，换个关键词试试。</p>
+  </div>
+</div>
+<script src="assets/vendor/mermaid.min.js" defer></script>
+<script src="assets/js/site.js" defer></script>
+
+</body>
+</html>

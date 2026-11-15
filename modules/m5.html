@@ -1,0 +1,1148 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M5 RAG 进阶 · Beginner_in_AI</title>
+<meta name="description" content="M5 RAG 进阶与评估：检索变准、答案可评估、不再胡说。 含理论讲稿、6 道练习题与解析、P6 项目计划书。">
+<meta name="author" content="zonevenom">
+<meta name="theme-color" content="#eef1f8">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Beginner_in_AI">
+<meta property="og:title" content="M5 RAG 进阶 · Beginner_in_AI">
+<meta property="og:description" content="M5 RAG 进阶与评估：检索变准、答案可评估、不再胡说。 含理论讲稿、6 道练习题与解析、P6 项目计划书。">
+<meta property="og:url" content="https://zonevenom.github.io/Beginner_in_AI/">
+<meta property="og:image" content="https://zonevenom.github.io/Beginner_in_AI/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="M5 RAG 进阶 · Beginner_in_AI">
+<meta name="twitter:description" content="M5 RAG 进阶与评估：检索变准、答案可评估、不再胡说。 含理论讲稿、6 道练习题与解析、P6 项目计划书。">
+<meta name="twitter:image" content="https://zonevenom.github.io/Beginner_in_AI/assets/img/og-cover.png">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/img/favicon.svg">
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/content.css">
+<style>:root{--accent:#00c2a8;--accent-ink:#00736a}</style>
+</head>
+<body data-root="../">
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-header">
+  <div class="container nav-inner">
+    <a class="brand" href="../index.html" aria-label="Beginner_in_AI 首页">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+  <path d="M20 2.6 35 11v18L20 37.4 5 29V11z" fill="#fff" stroke="#080b16" stroke-width="1.8"/>
+  <path d="M20 2.6 35 11v9L20 28.6 5 20v-9z" fill="#00d5e8" opacity=".9"/>
+  <path d="M35 20v9L20 37.4V28.6z" fill="#ff3d9a" opacity=".85"/>
+  <path d="M13.2 24V16l6.8-3.9L26.8 16v8L20 27.9z" fill="#fff" stroke="#080b16" stroke-width="1.4"/>
+  <circle cx="20" cy="20" r="2.1" fill="#080b16"/>
+</svg>
+      <span class="brand-text">
+        <span class="brand-name">BEGINNER_IN_AI</span>
+        <span class="brand-sub">16 weeks · llm application dev</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="展开导航">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a class="nav-link" href="../index.html">首页</a></li><li><a class="nav-link" href="../modules.html" aria-current="page">模块</a></li><li><a class="nav-link" href="../roadmap.html">路线图</a></li><li><a class="nav-link" href="../projects.html">项目</a></li><li><a class="nav-link" href="../graph.html">图谱</a></li><li><a class="nav-link" href="../resources.html">资料</a></li><li><a class="nav-link" href="../progress.html">进度</a></li>
+      <li><button class="search-open" type="button" data-search-open aria-label="搜索全站（Ctrl K）">
+        <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.4"/><path d="m15.6 15.6 4.4 4.4"/></svg><span>搜索</span><kbd>⌘K</kbd>
+      </button></li>
+      <li class="nav-cta"><a class="btn btn--sm" href="https://github.com/zonevenom/Beginner_in_AI" target="_blank" rel="noopener">
+        <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11 11 0 0 1 6 0C18 4.7 19 5 19 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5Z"/></svg>GitHub</a></li>
+    </ul>
+  </div>
+</header>
+<main id="main">
+<section class="module-hero">
+    <div class="module-hero__glow" aria-hidden="true"></div>
+    <div class="container">
+      <div class="module-hero__top">
+        <a class="chip chip--outline" href="../modules.html"><svg class="icon " width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 12H5M10.5 6.5 5 12l5.5 5.5"/></svg> 全部模块</a>
+        <span class="module-hero__code">M5<span>MODULE 06</span></span>
+        <span class="chip">第 11–12 周</span>
+        <span class="chip chip--accent" style="--accent:#00c2a8">阶段 03 · 做好</span>
+      </div>
+      <div class="module-hero__inner">
+        <div>
+          <h1>RAG 进阶与评估</h1>
+          <p class="module-hero__sub">检索变准、答案可评估、不再胡说。 说清楚「我的 RAG 准确率是多少」，并优化它。</p>
+          <div class="module-hero__facts">
+            <span class="chip chip--outline">理论讲稿</span>
+            <span class="chip chip--outline">6 道练习 + 解析</span>
+            <span class="chip chip--outline">P6 项目</span>
+            <span class="chip chip--accent" style="--accent:#00c2a8">交付 · P6 带评测的 RAG v2</span>
+          </div>
+        </div>
+        <div class="module-hero__icon" aria-hidden="true"><svg class="icon " width="84" height="84" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 18a8 8 0 1 1 16 0"/><path d="m12 14.5 4.2-4.2"/><circle cx="12" cy="15" r="1.3"/></svg></div>
+      </div>
+    </div>
+  </section>
+  <div class="container">
+    <div class="doc-layout">
+      <aside class="doc-sidebar" aria-label="本页目录">
+    <div class="toc-title">本页导航</div>
+    <div class="toc-group" data-toc-group="panel-theory"><ul class="toc-list"><li><a href="#theory-这一讲要解决什么">【这一讲要解决什么】</a></li><li><a href="#theory-一先承认一件事你的-v1-一定不够好">一、先承认一件事：你的 v1 一定不够好</a></li><li><a href="#theory-二先把好定义出来四个指标">二、先把"好"定义出来：四个指标</a></li><li><a href="#theory-三检索失败的四种病">三、检索失败的四种病</a></li><li><a href="#theory-四四把武器">四、四把武器</a></li><li><a href="#theory-五优化顺序这比技术本身重要">五、优化顺序（这比技术本身重要）</a></li><li><a href="#theory-六怎么建评测集20-题就够">六、怎么建评测集（20 题就够）</a></li><li><a href="#theory-七评测脚本长什么样骨架">七、评测脚本长什么样（骨架）</a></li><li><a href="#theory-常见误解">【常见误解】</a></li><li><a href="#theory-自检清单">【自检清单】</a></li><li><a href="#theory-下一站">【下一站】</a></li></ul></div>
+    <div class="toc-group" data-toc-group="panel-quiz" hidden><ul class="toc-list"><li><a href="#quiz-第-1-题概念-看体检表开药方">🧠 第 1 题（概念）· 看体检表开药方</a></li><li><a href="#quiz-第-2-题计算-算两个指标">💻 第 2 题（计算）· 算两个指标</a></li><li><a href="#quiz-第-3-题代码-实现-rrf">💻 第 3 题（代码）· 实现 RRF</a></li><li><a href="#quiz-第-4-题代码-多查询改写">💻 第 4 题（代码）· 多查询改写</a></li><li><a href="#quiz-第-5-题排错-加了重排反而变差">🔧 第 5 题（排错）· 加了重排反而变差</a></li><li><a href="#quiz-第-6-题动手-做出你的第一个优化前后对比">🛠️ 第 6 题（动手）· 做出你的第一个"优化前后对比"</a></li><li><a href="#quiz-提交前自检">提交前自检</a></li></ul></div>
+    <div class="toc-group" data-toc-group="panel-answers" hidden><ul class="toc-list"><li><a href="#answers-第-1-题-看体检表开药方">第 1 题 · 看体检表开药方</a></li><li><a href="#answers-第-2-题-算两个指标">第 2 题 · 算两个指标</a></li><li><a href="#answers-第-3-题-实现-rrf">第 3 题 · 实现 RRF</a></li><li><a href="#answers-第-4-题-多查询改写">第 4 题 · 多查询改写</a></li><li><a href="#answers-第-5-题-加了重排反而变差">第 5 题 · 加了重排反而变差</a></li><li><a href="#answers-第-6-题-做出你的第一个优化前后对比">第 6 题 · 做出你的第一个"优化前后对比"</a></li><li><a href="#answers-自评标准">自评标准</a></li></ul></div>
+    <div class="toc-group" data-toc-group="panel-project" hidden><ul class="toc-list"><li><a href="#project-1-项目要做什么">1. 项目要做什么</a></li><li><a href="#project-2-工具与开发环境">2. 工具与开发环境</a></li><li><a href="#project-3-项目文件结构">3. 项目文件结构</a></li><li><a href="#project-4-项目流程图">4. 项目流程图</a></li><li><a href="#project-5-分步实现">5. 分步实现</a></li><li><a href="#project-6-项目进化方向">6. 项目进化方向</a></li><li><a href="#project-7-本项目采用的资料">7. 本项目采用的资料</a></li><li><a href="#project-交付清单">交付清单</a></li></ul></div>
+    <div style="margin-top:18px;padding-top:14px;border-top:1px solid var(--line)">
+      <a class="btn btn--ghost btn--sm" href="../progress.html" style="width:100%;justify-content:center">去打卡 <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m4.5 12.5 5 5 10-11"/></svg></a>
+    </div>
+  </aside>
+      <div class="doc-main">
+        <div class="tabs" role="tablist" aria-label="模块内容" data-tabs>
+    <button class="tab" role="tab" id="tab-panel-theory" aria-controls="panel-theory"
+      aria-selected="true" tabindex="0">
+      理论讲稿<i>1</i></button><button class="tab" role="tab" id="tab-panel-quiz" aria-controls="panel-quiz"
+      aria-selected="false" tabindex="-1">
+      练习题<i>6</i></button><button class="tab" role="tab" id="tab-panel-answers" aria-controls="panel-answers"
+      aria-selected="false" tabindex="-1">
+      答案解析<i>6</i></button><button class="tab" role="tab" id="tab-panel-project" aria-controls="panel-project"
+      aria-selected="false" tabindex="-1">
+      项目计划书<i>P6</i></button>
+  </div>
+        
+  <div class="tab-panel" id="panel-theory" role="tabpanel" aria-labelledby="tab-panel-theory">
+    <div class="prose"><blockquote class="callout">
+<p><strong>【资料出处】</strong></p>
+<ul>
+<li>Datawhale《all-in-rag》切分策略 / 混合检索 / 重排 / 评估章节 —— <a href="https://datawhalechina.github.io/all-in-rag/" target="_blank" rel="noopener">https://datawhalechina.github.io/all-in-rag/</a></li>
+<li>复旦《大规模语言模型：从理论到实践》第 7 章后半（RAG 的挑战与优化）—— <a href="https://llmbook-zh.github.io/" target="_blank" rel="noopener">https://llmbook-zh.github.io/</a></li>
+<li>李宏毅《生成式 AI 导论》第 12 讲《浅谈检定大型语言模型能力的各种方式》—— <a href="https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php" target="_blank" rel="noopener">https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php</a></li>
+<li>《Prompt Engineering Guide》· ReAct / 查询改写 —— <a href="https://www.promptingguide.ai/zh" target="_blank" rel="noopener">https://www.promptingguide.ai/zh</a></li>
+</ul>
+</blockquote>
+<hr class="rule">
+<h2 id="theory-这一讲要解决什么">【这一讲要解决什么】</h2>
+<p>学完这一讲，你能：</p>
+<ol>
+<li>用<strong>四个指标</strong>说清你的 RAG 到底多好（而不是&quot;感觉还行&quot;）</li>
+<li>诊断检索失败的<strong>四种病</strong>，对症下药</li>
+<li>实现<strong>混合检索</strong>（关键词 + 向量）和<strong>重排</strong>（rerank）</li>
+<li>建一套 20 题的评测集，做出&quot;优化前 62% → 优化后 81%&quot;这种结论</li>
+</ol>
+<hr class="rule">
+<h2 id="theory-一先承认一件事你的-v1-一定不够好">一、先承认一件事：你的 v1 一定不够好</h2>
+<p>P5 做完，你大概会遇到这些情况：</p>
+<ul>
+<li>明明文档里有，它就是找不到</li>
+<li>找到了，但答得不对</li>
+<li>答对了，但引用了三页不相关的内容</li>
+<li>问了个稍微绕一点的说法，直接崩</li>
+</ul>
+<p><strong>这不是你的错，是 RAG 的正常状态。</strong> 论文里叫它 &quot;naive RAG&quot;——朴素 RAG。</p>
+<p><strong>工业界的 RAG，普遍要在这个基础上做 3~4 轮优化。</strong> 这一讲就是那 3~4 轮。</p>
+<hr class="rule">
+<h2 id="theory-二先把好定义出来四个指标">二、先把&quot;好&quot;定义出来：四个指标</h2>
+<p>没有指标，你所有的优化都是玄学。RAG 至少要看四个数：</p>
+<h3 id="theory-指标-1recallk召回率-最核心">指标 1：Recall@k（召回率）—— 最核心</h3>
+<blockquote class="callout">
+<p><strong>在召回的 k 条里，有没有&quot;包含答案的那一条&quot;？</strong></p>
+</blockquote>
+<ul>
+<li>你建了 20 道题，每道题你都知道&quot;答案在第几块&quot;（这叫 gold chunk）</li>
+<li>检索 top-5，看这 5 条里有没有 gold chunk</li>
+<li>有 → 这题算命中</li>
+</ul>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">Recall@5 = 命中的题数 / 总题数</code></pre></figure>
+<p><strong>这是 RAG 的&quot;生死线&quot;</strong>：<strong>如果 gold chunk 不在召回结果里，后面的模型再强也没用</strong>——它根本没看到答案。</p>
+<h3 id="theory-指标-2precisionk精确率">指标 2：Precision@k（精确率）</h3>
+<blockquote class="callout">
+<p><strong>召回的 k 条里，有几条是相关的？</strong></p>
+</blockquote>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">Precision@3 = 相关的条数 / 3</code></pre></figure>
+<p>Precision 低说明&quot;噪声多&quot;，会让模型分心。</p>
+<h3 id="theory-指标-3答对率answer-accuracy">指标 3：答对率（Answer Accuracy）</h3>
+<blockquote class="callout">
+<p>人工判断：最终回答对不对（含&quot;该拒答时拒答了&quot;）。</p>
+</blockquote>
+<p>这个最贴近用户感受，但要人工标注，成本高。</p>
+<h3 id="theory-指标-4引用正确率">指标 4：引用正确率</h3>
+<blockquote class="callout">
+<p>回答里引用的页码，是不是真的支持那个结论。</p>
+</blockquote>
+<p><strong>这个指标最能体现&quot;产品成熟度&quot;</strong>，但大多数教程都不提。</p>
+<h3 id="theory-四个指标一起看">四个指标一起看</h3>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>场景</th><th>Recall@5</th><th>Precision@3</th><th>答对率</th><th>说明</th></tr></thead><tbody><tr><td>A</td><td>0.9</td><td>0.3</td><td>0.5</td><td>检索到了但噪声大 → <strong>加阈值/重排</strong></td></tr><tr><td>B</td><td>0.4</td><td>0.9</td><td>0.35</td><td>找得准但找不全 → <strong>加大 k/混合检索</strong></td></tr><tr><td>C</td><td>0.9</td><td>0.9</td><td>0.4</td><td>检索完美但答不对 → <strong>改提示词/换模型</strong></td></tr><tr><td>D</td><td>0.4</td><td>0.3</td><td>0.2</td><td><strong>全部要改，先改切分</strong></td></tr></tbody></table></div>
+<blockquote class="callout">
+<p><strong>这张表就是你的&quot;体检报告&quot;。</strong> 先看哪个低，再决定改哪里——<strong>不要瞎改</strong>。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="theory-三检索失败的四种病">三、检索失败的四种病</h2>
+<h3 id="theory-病-1根本没召回recall-低">病 1：根本没召回（Recall 低）</h3>
+<p><strong>症状</strong>：问&quot;退款多久到账&quot;，检索结果里全是&quot;退款政策总则&quot;这种大而空的块。</p>
+<p><strong>病因与药</strong>：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>病因</th><th>药</th></tr></thead><tbody><tr><td>切分太碎，答案被切成两半</td><td>加大 chunk_size / 加 overlap / <strong>父子块</strong></td></tr><tr><td>用户说法和文档说法差异大</td><td><strong>查询改写</strong>（下面讲）</td></tr><tr><td>只有向量检索，遇到精确词就废</td><td><strong>混合检索</strong>（下面讲）</td></tr><tr><td>文档本身没写（真没有）</td><td>补文档，别硬调</td></tr></tbody></table></div>
+<h3 id="theory-病-2召回了但排太后recall5-低recall50-高">病 2：召回了但排太后（Recall@5 低，Recall@50 高）</h3>
+<p><strong>症状</strong>：top-3 里没有，但 top-10 里有。</p>
+<p><strong>病因</strong>：向量相似度排序不准。</p>
+<p><strong>药</strong>：<strong>重排（Rerank）</strong>——先粗召 30 条，再用更贵的模型精排出 top-3。</p>
+<h3 id="theory-病-3召回了但噪声多precision-低">病 3：召回了但噪声多（Precision 低）</h3>
+<p><strong>症状</strong>：top-5 里有 4 条不相关，模型被带偏，答得又长又乱。</p>
+<p><strong>药</strong>：加阈值、减小 k、<strong>加重排</strong>。</p>
+<h3 id="theory-病-4检索对了但答错答对率低recall-高">病 4：检索对了但答错（答对率低，Recall 高）</h3>
+<p><strong>症状</strong>：gold chunk 在 context 里，但它还是答错。</p>
+<p><strong>药</strong>：这是<strong>生成层</strong>的问题：</p>
+<ul>
+<li>提示词没写&quot;只用资料&quot;</li>
+<li>temperature 太高</li>
+<li>context 太长，关键信息被&quot;埋&quot;在中间（lost in the middle）</li>
+<li>模型能力不足（最后才考虑换模型）</li>
+</ul>
+<blockquote class="callout">
+<p><strong>排查顺序永远是：先看检索，再看生成。</strong> 90% 的人一上来就换模型，白花钱。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="theory-四四把武器">四、四把武器</h2>
+<h3 id="theory-武器-1查询改写query-rewriting">武器 1：查询改写（Query Rewriting）</h3>
+<p>用户的问法，往往和文档的写法差很远。</p>
+<p><strong>做法 A：多查询（Multi-Query）</strong></p>
+<p>让模型把一个问题改写成 3 个不同说法，分别检索，结果合并去重。</p>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">原问题：钱什么时候能退回来
+改写 1：退款到账时间是多久
+改写 2：退款多久能收到
+改写 3：退款处理周期</code></pre></figure>
+<p><strong>为什么有效</strong>：一句话可能&quot;碰巧&quot;命中，三个说法命中概率高得多。</p>
+<p><strong>代价</strong>：3 倍检索调用（但检索很便宜，主要是 embedding 调用）。</p>
+<p><strong>做法 B：HyDE（假设文档嵌入）</strong></p>
+<p>让模型<strong>先编一个假答案</strong>，然后拿这个假答案去检索。</p>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">问题：退款多久到账？
+假答案（模型编的）：退款一般需要 3-5 个工作日原路退回……
+→ 用这段假答案去检索 → 更容易命中真实的政策段落</code></pre></figure>
+<p><strong>为什么有效</strong>：假答案的&quot;用词风格&quot;更接近真实文档（都是陈述句、都用&quot;工作日&quot;&quot;原路退回&quot;），而用户的提问风格（疑问句、口语）离文档远。</p>
+<blockquote class="callout">
+<p>这招很反直觉，但效果实在。<strong>注意：编出来的内容只用来检索，绝对不能当答案。</strong></p>
+</blockquote>
+<p><strong>做法 C：指代消解（多轮对话时）</strong></p>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">用户：退款多久到账？
+用户：那如果是质量问题呢？      ← &quot;那&quot;指什么？</code></pre></figure>
+<p>先把&quot;那如果是质量问题呢&quot;改写成&quot;质量问题导致的退款多久到账&quot;，再检索。<strong>不消解，第二句必崩。</strong></p>
+<hr class="rule">
+<h3 id="theory-武器-2混合检索hybrid-search">武器 2：混合检索（Hybrid Search）</h3>
+<p><strong>向量检索擅长&quot;意思&quot;，关键词检索（BM25）擅长&quot;精确词&quot;。两个都要。</strong></p>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">向量检索 top-10  ─┐
+                  ├→ 融合排序 → top-10
+BM25 检索 top-10 ─┘</code></pre></figure>
+<p><strong>怎么融合？最常用的是 RRF（Reciprocal Rank Fusion，倒数排名融合）</strong></p>
+<p>不要被名字吓到，公式就一行：</p>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">score(d) = Σ  1 / (k + rank_i(d))</code></pre></figure>
+<p>人话：<strong>每个检索器给文档排个名，排名越靠前得分越高，然后把两个得分加起来。</strong></p>
+<ul>
+<li><code>k</code> 通常取 60（经验值，防止分母为 0，也压平差距）</li>
+<li>一个文档在向量里排第 1、在 BM25 里排第 5，得分 = 1/61 + 1/65</li>
+</ul>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">def</span> <span class="tok-fn">rrf</span>(vec_ids, bm25_ids, k<span class="tok-op">=</span><span class="tok-num">60</span>)<span class="tok-op">:</span>
+    score <span class="tok-op">=</span> {}
+    <span class="tok-kw">for</span> rank, doc_id <span class="tok-kw">in</span> <span class="tok-fn">enumerate</span>(vec_ids, start<span class="tok-op">=</span><span class="tok-num">1</span>)<span class="tok-op">:</span>
+        score[doc_id] <span class="tok-op">=</span> score.<span class="tok-fn">get</span>(doc_id, <span class="tok-num">0</span>) <span class="tok-op">+</span> <span class="tok-num">1</span> <span class="tok-op">/</span> (k <span class="tok-op">+</span> rank)
+    <span class="tok-kw">for</span> rank, doc_id <span class="tok-kw">in</span> <span class="tok-fn">enumerate</span>(bm25_ids, start<span class="tok-op">=</span><span class="tok-num">1</span>)<span class="tok-op">:</span>
+        score[doc_id] <span class="tok-op">=</span> score.<span class="tok-fn">get</span>(doc_id, <span class="tok-num">0</span>) <span class="tok-op">+</span> <span class="tok-num">1</span> <span class="tok-op">/</span> (k <span class="tok-op">+</span> rank)
+    <span class="tok-kw">return</span> <span class="tok-fn">sorted</span>(score, key<span class="tok-op">=</span>score.get, reverse<span class="tok-op">=</span><span class="tok-bool">True</span>)</code></pre></figure>
+<p><strong>为什么用&quot;排名&quot;而不是&quot;分数&quot;</strong>：因为向量相似度（0~1）和 BM25 分数（0~几十）<strong>量纲完全不同</strong>，不能直接相加。<strong>转成排名就统一了。</strong></p>
+<blockquote class="callout">
+<p>这个洞察是 RRF 的全部精髓：<strong>不同尺度的分数不能加，但排名可以。</strong></p>
+</blockquote>
+<hr class="rule">
+<h3 id="theory-武器-3重排rerank">武器 3：重排（Rerank）</h3>
+<p><strong>思路</strong>：粗排用便宜的（向量，毫秒级，召 30 条），精排用贵的（Cross-encoder，几百毫秒，排 3 条）。</p>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">30 条候选 → Cross-encoder 逐条打分 → 取 top-3</code></pre></figure>
+<p><strong>Cross-encoder 和向量检索的区别</strong>：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th></th><th>向量检索（Bi-encoder）</th><th>Cross-encoder</th></tr></thead><tbody><tr><td>怎么算</td><td>问题和文档<strong>分别</strong>编码，算距离</td><td>问题和文档<strong>拼在一起</strong>送进模型</td></tr><tr><td>速度</td><td>快（可预计算）</td><td>慢（每对都要跑一次）</td></tr><tr><td>精度</td><td>中</td><td><strong>高</strong>（能看到两者的交互）</td></tr></tbody></table></div>
+<p><strong>所以你不可能用它检索全库</strong>（10 万条要跑 10 万次），只能用来&quot;精排少量候选&quot;。</p>
+<p><strong>实现方式</strong>：</p>
+<ul>
+<li>商用 API：Cohere Rerank、Jina Reranker、国内几家厂商也有</li>
+<li>本地：<code>sentence-transformers</code> 的 <code>BAAI/bge-reranker-*</code>（CPU 也能跑，几百 MB）</li>
+</ul>
+<blockquote class="callout">
+<p>🛑 <strong>装 rerank 模型前先问我</strong>。它要下载几百 MB，且需要确认你的 CPU 跑得动。</p>
+</blockquote>
+<hr class="rule">
+<h3 id="theory-武器-4上下文扩展父子块-句子窗口">武器 4：上下文扩展（父子块 / 句子窗口）</h3>
+<p><strong>思路</strong>：用小块检索（准），命中后把<strong>它周围的大段</strong>一起给模型（全）。</p>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">检索命中：块 #37（&quot;3-5 个工作日原路退回&quot;）
+扩展：把 #36 #37 #38 一起给模型  ← 前后各扩一块</code></pre></figure>
+<p><strong>为什么有效</strong>：解决&quot;切断了语义&quot;的问题，且<strong>不增加索引复杂度</strong>（只是检索后多取几条）。</p>
+<p><strong>代价</strong>：context 变长，token 成本上升。<strong>扩展 1 块通常就够，别扩太多。</strong></p>
+<hr class="rule">
+<h2 id="theory-五优化顺序这比技术本身重要">五、优化顺序（这比技术本身重要）</h2>
+<p>很多人一上来就上 rerank、换模型，结果白花钱。正确的顺序是：</p>
+<div class="mermaid-wrap"><div class="mermaid">flowchart TD
+    A[① 先修数据] --> B[② 再修切分]
+    B --> C[③ 加混合检索]
+    C --> D[④ 加查询改写]
+    D --> E[⑤ 加重排]
+    E --> F[⑥ 最后才考虑换模型]</div></div>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>顺序</th><th>做什么</th><th>典型收益</th><th>成本</th></tr></thead><tbody><tr><td>①</td><td>清洗脏数据、去掉页眉页脚、修表格</td><td><strong>10~20%</strong></td><td>极低</td></tr><tr><td>②</td><td>调 chunk_size / overlap / 父子块</td><td><strong>5~15%</strong></td><td>极低</td></tr><tr><td>③</td><td>混合检索（BM25 + 向量）</td><td><strong>5~10%</strong></td><td>低</td></tr><tr><td>④</td><td>查询改写</td><td><strong>3~8%</strong></td><td>低（多几次调用）</td></tr><tr><td>⑤</td><td>重排</td><td><strong>5~10%</strong></td><td>中（要模型/API）</td></tr><tr><td>⑥</td><td>换更强的生成模型</td><td><strong>0~5%</strong></td><td><strong>高</strong></td></tr></tbody></table></div>
+<blockquote class="callout">
+<p><strong>注意最后一行：换模型往往是收益最小、成本最高的一步。</strong>
+这就是为什么&quot;先修检索&quot;是铁的纪律。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="theory-六怎么建评测集20-题就够">六、怎么建评测集（20 题就够）</h2>
+<h3 id="theory-三条原则">三条原则</h3>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>原则</th><th>说明</th></tr></thead><tbody><tr><td><strong>必须人工写标准答案</strong></td><td>不能让模型生成答案当标准，那是自己考自己</td></tr><tr><td><strong>必须标注 gold chunk</strong></td><td>否则你算不出 Recall</td></tr><tr><td><strong>必须包含&quot;应该拒答&quot;的题</strong></td><td>否则你不知道它会不会瞎编</td></tr></tbody></table></div>
+<h3 id="theory-题目配比20-题">题目配比（20 题）</h3>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>类型</th><th>数量</th><th>作用</th></tr></thead><tbody><tr><td>简单事实（原文直接有）</td><td>6</td><td>基线，必须全对</td></tr><tr><td>同义改写（换说法）</td><td>5</td><td>测语义检索能力</td></tr><tr><td>跨段/跨页</td><td>4</td><td>测切分与上下文扩展</td></tr><tr><td>精确信息（数字、编号）</td><td>3</td><td>测是否需要混合检索</td></tr><tr><td><strong>应该拒答</strong></td><td>2</td><td>测幻觉控制</td></tr></tbody></table></div>
+<h3 id="theory-数据格式">数据格式</h3>
+<figure class="code-block" data-lang="json"><figcaption><span class="code-lang">json</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-json">[
+  {
+    <span class="tok-str">&quot;q&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;退款多久到账？&quot;</span>,
+    <span class="tok-str">&quot;gold_ids&quot;</span><span class="tok-op">:</span> [<span class="tok-str">&quot;售后政策_p3_c0&quot;</span>],
+    <span class="tok-str">&quot;gold_answer&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;3-5 个工作日原路退回&quot;</span>,
+    <span class="tok-str">&quot;type&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;简单&quot;</span>,
+    <span class="tok-str">&quot;should_refuse&quot;</span><span class="tok-op">:</span> <span class="tok-bool">false</span>
+  },
+  {
+    <span class="tok-str">&quot;q&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;你们支持花呗分期吗？&quot;</span>,
+    <span class="tok-str">&quot;gold_ids&quot;</span><span class="tok-op">:</span> [],
+    <span class="tok-str">&quot;gold_answer&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;&quot;</span>,
+    <span class="tok-str">&quot;type&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;拒答&quot;</span>,
+    <span class="tok-str">&quot;should_refuse&quot;</span><span class="tok-op">:</span> <span class="tok-bool">true</span>
+  }
+]</code></pre></figure>
+<hr class="rule">
+<h2 id="theory-七评测脚本长什么样骨架">七、评测脚本长什么样（骨架）</h2>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">def</span> <span class="tok-fn">evaluate</span>(rag, cases, k<span class="tok-op">=</span><span class="tok-num">5</span>)<span class="tok-op">:</span>
+    hit <span class="tok-op">=</span> <span class="tok-num">0</span>
+    correct <span class="tok-op">=</span> <span class="tok-num">0</span>
+    refuse_ok <span class="tok-op">=</span> <span class="tok-num">0</span>
+    <span class="tok-kw">for</span> c <span class="tok-kw">in</span> cases<span class="tok-op">:</span>
+        hits <span class="tok-op">=</span> rag.<span class="tok-fn">retrieve</span>(c[<span class="tok-str">&quot;q&quot;</span>], k<span class="tok-op">=</span>k)
+        ids <span class="tok-op">=</span> [h[<span class="tok-str">&quot;id&quot;</span>] <span class="tok-kw">for</span> h <span class="tok-kw">in</span> hits]
+
+        <span class="tok-com"># Recall@k：gold 有没有在召回里</span>
+        <span class="tok-kw">if</span> c[<span class="tok-str">&quot;should_refuse&quot;</span>]<span class="tok-op">:</span>
+            ok_retrieval <span class="tok-op">=</span> <span class="tok-bool">True</span>
+        <span class="tok-kw">else</span><span class="tok-op">:</span>
+            ok_retrieval <span class="tok-op">=</span> <span class="tok-fn">any</span>(g <span class="tok-kw">in</span> ids <span class="tok-kw">for</span> g <span class="tok-kw">in</span> c[<span class="tok-str">&quot;gold_ids&quot;</span>])
+        hit <span class="tok-op">+=</span> <span class="tok-fn">int</span>(ok_retrieval)
+
+        ans <span class="tok-op">=</span> rag.<span class="tok-fn">answer</span>(c[<span class="tok-str">&quot;q&quot;</span>])
+        <span class="tok-kw">if</span> c[<span class="tok-str">&quot;should_refuse&quot;</span>]<span class="tok-op">:</span>
+            ok <span class="tok-op">=</span> (<span class="tok-str">&quot;无法回答&quot;</span> <span class="tok-kw">in</span> ans) <span class="tok-kw">or</span> (<span class="tok-str">&quot;没有&quot;</span> <span class="tok-kw">in</span> ans)
+            refuse_ok <span class="tok-op">+=</span> <span class="tok-fn">int</span>(ok)
+        <span class="tok-kw">else</span><span class="tok-op">:</span>
+            ok <span class="tok-op">=</span> <span class="tok-fn">judge</span>(ans, c[<span class="tok-str">&quot;gold_answer&quot;</span>])   <span class="tok-com"># 人工或用模型判</span>
+        correct <span class="tok-op">+=</span> <span class="tok-fn">int</span>(ok)
+
+    n <span class="tok-op">=</span> <span class="tok-fn">len</span>(cases)
+    <span class="tok-kw">return</span> {
+        <span class="tok-str">&quot;recall&quot;</span><span class="tok-op">:</span> hit <span class="tok-op">/</span> n,
+        <span class="tok-str">&quot;accuracy&quot;</span><span class="tok-op">:</span> correct <span class="tok-op">/</span> n,
+        <span class="tok-str">&quot;refuse_acc&quot;</span><span class="tok-op">:</span> refuse_ok <span class="tok-op">/</span> <span class="tok-fn">max</span>(<span class="tok-num">1</span>, <span class="tok-fn">sum</span>(c[<span class="tok-str">&quot;should_refuse&quot;</span>] <span class="tok-kw">for</span> c <span class="tok-kw">in</span> cases)),
+    }</code></pre></figure>
+<blockquote class="callout">
+<p><code>judge()</code> 这一步，初期<strong>建议人工判</strong>（20 题而已，10 分钟）。等题库到 200 题，再考虑用模型当裁判（LLM-as-judge）。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="theory-常见误解">【常见误解】</h2>
+<p><strong>误解 1：&quot;Recall 高就说明 RAG 好。&quot;</strong>
+不。Recall 高只说明&quot;找得到&quot;，答得对不对是另一回事（看第三节病 4）。</p>
+<p><strong>误解 2：&quot;重排能救一切。&quot;</strong>
+不能。如果 gold chunk 压根没进候选集（召回阶段就丢了），重排排不出来。<strong>重排只能优化&quot;候选集里已有&quot;的东西。</strong></p>
+<p><strong>误解 3：&quot;top-k 越大越好。&quot;</strong>
+越大召回越高，但噪声也越多，且成本线性上升。<strong>正确做法：粗召大（30）、精排小（3）。</strong></p>
+<p><strong>误解 4：&quot;评测是最后做的。&quot;</strong>
+错。<strong>评测要在优化之前就做</strong>。没有基线，你无法证明&quot;优化有效&quot;，只能说&quot;感觉好了&quot;。</p>
+<hr class="rule">
+<h2 id="theory-自检清单">【自检清单】</h2>
+<ol>
+<li>四个指标分别是什么？哪个是&quot;生死线&quot;？</li>
+<li>检索失败有哪四种病？各自的药是什么？</li>
+<li>混合检索为什么用&quot;排名融合&quot;而不是&quot;分数相加&quot;？</li>
+<li>重排为什么不能用来检索全库？</li>
+<li>为什么&quot;换模型&quot;要放在优化顺序的最后？</li>
+<li>评测集必须有哪三类题？为什么要有&quot;应该拒答&quot;的？</li>
+</ol>
+<hr class="rule">
+<h2 id="theory-下一站">【下一站】</h2>
+<ul>
+<li><strong>练习</strong>：<code>03_练习题目区/M5_RAG进阶与评估/01_题目.md</code></li>
+<li><strong>项目</strong>：<code>04_实践项目区/P6_带评测的RAG_v2/00_项目计划书.md</code></li>
+</ul></div>
+  </div>
+  <div class="tab-panel" id="panel-quiz" role="tabpanel" aria-labelledby="tab-panel-quiz" hidden>
+    <div class="callout" style="margin-bottom:22px">
+      <strong>先做，再看解析。</strong> 题目按「概念 / 代码 / 动手」三类排列，建议用时：概念题 3 分钟，代码题 10 分钟，动手题 30 分钟。
+      做完再去下一个标签页对答案，否则等于没做。
+    </div>
+    <div class="prose exercise-doc"><blockquote class="callout">
+<p>对应讲稿：<code>02_理论讲解区/M5_RAG进阶与评估/00_理论讲稿.md</code></p>
+</blockquote>
+<hr class="rule">
+<h2 id="quiz-第-1-题概念-看体检表开药方">🧠 第 1 题（概念）· 看体检表开药方</h2>
+<p>你的 RAG 在 20 题上跑出下面四组数据。判断<strong>最该先改哪里</strong>，并说明理由。</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>组</th><th>Recall@5</th><th>Precision@3</th><th>答对率</th><th>拒答正确率</th></tr></thead><tbody><tr><td>A</td><td>0.90</td><td>0.28</td><td>0.55</td><td>0.50</td></tr><tr><td>B</td><td>0.45</td><td>0.85</td><td>0.40</td><td>0.50</td></tr><tr><td>C</td><td>0.90</td><td>0.85</td><td>0.45</td><td>0.50</td></tr><tr><td>D</td><td>0.40</td><td>0.30</td><td>0.25</td><td>0.00</td></tr></tbody></table></div>
+<p><strong>附加问</strong>：D 组的&quot;拒答正确率 0.00&quot;说明了什么？该先修哪个？</p>
+<hr class="rule">
+<h2 id="quiz-第-2-题计算-算两个指标">💻 第 2 题（计算）· 算两个指标</h2>
+<p>某道题，gold chunk 是 <code>p3_c1</code>。你的检索返回 top-5：</p>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">[p3_c0, p5_c2, p3_c1, p1_c0, p3_c1_dup]</code></pre></figure>
+<p>已知只有 <code>p3_c1</code> 和 <code>p3_c1_dup</code> 是相关的（后者是重复块）。</p>
+<p><strong>任务：</strong></p>
+<ol>
+<li>这道题的 Recall@5 是多少？</li>
+<li>Precision@3 是多少？（只看前 3 条）</li>
+<li>Precision@5 是多少？</li>
+<li>如果改成 top-1，Recall@1 是多少？</li>
+<li><strong>思考</strong>：为什么会出现&quot;重复块&quot;？它对你的指标和模型有什么影响？</li>
+</ol>
+<hr class="rule">
+<h2 id="quiz-第-3-题代码-实现-rrf">💻 第 3 题（代码）· 实现 RRF</h2>
+<p>给定两个检索器的结果（已按分数从高到低排好）：</p>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python">vec_ids   <span class="tok-op">=</span> [<span class="tok-str">&quot;a&quot;</span>, <span class="tok-str">&quot;b&quot;</span>, <span class="tok-str">&quot;c&quot;</span>, <span class="tok-str">&quot;d&quot;</span>, <span class="tok-str">&quot;e&quot;</span>]
+bm25_ids  <span class="tok-op">=</span> [<span class="tok-str">&quot;c&quot;</span>, <span class="tok-str">&quot;a&quot;</span>, <span class="tok-str">&quot;f&quot;</span>, <span class="tok-str">&quot;b&quot;</span>, <span class="tok-str">&quot;g&quot;</span>]</code></pre></figure>
+<p><strong>任务：</strong></p>
+<ol>
+<li>手算 RRF 分数（k=60），写出前 3 名的顺序。</li>
+<li>用代码实现 <code>rrf()</code>，验证你的手算。</li>
+<li>如果改成&quot;分数直接相加&quot;（假设向量分是 0~1，BM25 分是 0~30），会发生什么？举一个具体例子说明。</li>
+</ol>
+<hr class="rule">
+<h2 id="quiz-第-4-题代码-多查询改写">💻 第 4 题（代码）· 多查询改写</h2>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python">REWRITE_PROMPT <span class="tok-op">=</span> <span class="tok-str">&quot;&quot;&quot;请把下面的问题改写成 3 个不同说法，用于文档检索。
+要求：
+- 每行一个，不要编号，不要解释
+- 保持原意，但用不同的词
+- 尽量用文档里可能出现的书面表达
+
+问题：{q}&quot;&quot;&quot;</span></code></pre></figure>
+<p><strong>任务：</strong></p>
+<ol>
+<li>写一个函数 <code>multi_query(q)</code>，返回 <code>[原问题] + 3 个改写</code>（共 4 条），并做<strong>去重</strong>。</li>
+<li>写一个 <code>search_multi(queries, k)</code>，对 4 条各检索 top-k，合并去重后返回。</li>
+<li>合并时，<strong>同一个 chunk 被多个查询命中</strong>，它的分数该怎么算？给出你的方案并说明理由。</li>
+<li>这套方案的成本增加了几倍？值不值？</li>
+</ol>
+<hr class="rule">
+<h2 id="quiz-第-5-题排错-加了重排反而变差">🔧 第 5 题（排错）· 加了重排反而变差</h2>
+<p>你把 top-30 送去 rerank，取前 3。结果答对率从 55% 掉到 48%。</p>
+<p><strong>列出至少 3 个可能的原因，并给出验证方法。</strong></p>
+<hr class="rule">
+<h2 id="quiz-第-6-题动手-做出你的第一个优化前后对比">🛠️ 第 6 题（动手）· 做出你的第一个&quot;优化前后对比&quot;</h2>
+<p><strong>任务：</strong></p>
+<ol>
+<li>给 P5 的文档建 <strong>20 题评测集</strong>（<code>eval_set.json</code>），配比按讲稿第六节：
+<ul>
+<li>6 简单 / 5 同义 / 4 跨段 / 3 精确 / 2 拒答</li>
+</ul></li>
+<li>写评测脚本，算出：<code>Recall@5</code>、<code>Precision@3</code>、答对率、拒答正确率</li>
+<li><strong>跑基线</strong>（用 P5 的参数），把四个数记下来</li>
+<li><strong>只做一次优化</strong>（选一个）：
+<ul>
+<li>调 chunk_size（500 → 300 或 800）</li>
+<li>或加父子块（检索命中后扩前后各一块）</li>
+<li>或加混合检索</li>
+</ul></li>
+<li><strong>再跑一遍</strong>，填下表：</li>
+</ol>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>版本</th><th>Recall@5</th><th>Precision@3</th><th>答对率</th><th>拒答正确率</th><th>改了什么</th></tr></thead><tbody><tr><td>基线</td><td></td><td></td><td></td><td></td><td>—</td></tr><tr><td>优化后</td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+<ol start="6">
+<li>写 100 字结论：<strong>&quot;提升了多少？提升在哪类题上？哪类题反而变差了？&quot;</strong></li>
+</ol>
+<p><strong>加分</strong>：找出&quot;所有版本都错&quot;的那几题，分析是&quot;检索不到&quot;还是&quot;答不出&quot;。</p>
+<hr class="rule">
+<h2 id="quiz-提交前自检">提交前自检</h2>
+<ul>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">基线数字是真的跑出来的，不是估的</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">优化<strong>只改了一处</strong>（改了多处无法归因）</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">结论里提到了&quot;哪类题变差&quot;（只报喜不报忧的结论没有价值）</span></li>
+</ul></div>
+  </div>
+  <div class="tab-panel" id="panel-answers" role="tabpanel" aria-labelledby="tab-panel-answers" hidden>
+    <div class="prose"><hr class="rule">
+<h2 id="answers-第-1-题-看体检表开药方">第 1 题 · 看体检表开药方</h2>
+<h3 id="answers-参考答案">参考答案</h3>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>组</th><th>诊断</th><th>先改什么</th></tr></thead><tbody><tr><td><strong>A</strong></td><td>Recall 高、Precision 极低 → <strong>噪声病</strong></td><td>加阈值、减小 k、<strong>加重排</strong>。别动切分</td></tr><tr><td><strong>B</strong></td><td>Recall 低、Precision 高 → <strong>漏召回病</strong></td><td>加大 k、<strong>混合检索</strong>（精确词问题）、父子块</td></tr><tr><td><strong>C</strong></td><td>检索完美、答对率低 → <strong>生成层病</strong></td><td>改提示词（&quot;只用资料&quot;）、降到 temperature=0.1、缩短 context</td></tr><tr><td><strong>D</strong></td><td>全面崩、拒答 0 → <strong>地基烂</strong></td><td><strong>先修数据和切分</strong>，其他都别动</td></tr></tbody></table></div>
+<h3 id="answers-第-d-组的深意">第 D 组的深意</h3>
+<p><strong>&quot;拒答正确率 0.00&quot;意味着：该拒答的题，它一次都没拒。</strong></p>
+<p>这说明你的阈值形同虚设，或者提示词里<strong>根本没有&quot;允许说不知道&quot;这条规则</strong>。</p>
+<p>一条 RAG 从不说&quot;不知道&quot;，是<strong>最危险</strong>的状态——因为它对任何问题都会给一个看似合理的答案。</p>
+<blockquote class="callout">
+<p>排查顺序：先看阈值是不是设成了 0，再看提示词有没有拒答模板，最后才怀疑检索。</p>
+</blockquote>
+<h3 id="answers-常见错误">常见错误</h3>
+<ul>
+<li>❌ A 组去调 chunk_size。<strong>Recall 已经 0.9 了，说明找得到，问题在&quot;给太多&quot;。</strong></li>
+<li>✅ 高分答案会指出：<strong>A 组先加重排而不是先减 k</strong>，因为减 k 会掉 Recall。</li>
+</ul>
+<hr class="rule">
+<h2 id="answers-第-2-题-算两个指标">第 2 题 · 算两个指标</h2>
+<h3 id="answers-第-1-问recall5">第 1 问：Recall@5</h3>
+<p>gold 是 <code>p3_c1</code>，在返回列表第 3 位 → <strong>命中</strong>。</p>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">Recall@5 = 1（这题命中了）</code></pre></figure>
+<p>如果算 20 题的平均，就是&quot;命中题数 / 20&quot;。</p>
+<h3 id="answers-第-2-问precision3">第 2 问：Precision@3</h3>
+<p>前 3 条：<code>p3_c0, p5_c2, p3_c1</code></p>
+<p>相关的只有 <code>p3_c1</code>（1 条）。</p>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">Precision@3 = 1/3 ≈ 0.33</code></pre></figure>
+<h3 id="answers-第-3-问precision5">第 3 问：Precision@5</h3>
+<p>5 条里相关的是 <code>p3_c1</code> 和 <code>p3_c1_dup</code>（2 条）。</p>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">Precision@5 = 2/5 = 0.40</code></pre></figure>
+<h3 id="answers-第-4-问recall1">第 4 问：Recall@1</h3>
+<p>top-1 是 <code>p3_c0</code>，不含 gold。</p>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">Recall@1 = 0（这题没命中）</code></pre></figure>
+<h3 id="answers-第-5-问重复块">第 5 问：重复块</h3>
+<p><strong>怎么产生的</strong>：</p>
+<ol>
+<li><strong>overlap 太大</strong>（500/400），相邻块内容高度重叠</li>
+<li>同一段文字在 PDF 里出现两次（如摘要 + 正文重复）</li>
+<li>父子块方案里，父块和子块被同时召回</li>
+</ol>
+<p><strong>影响</strong>：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>方面</th><th>影响</th></tr></thead><tbody><tr><td>Precision</td><td><strong>被拉低</strong>（重复的不算新信息，但占名额）</td></tr><tr><td>Recall</td><td>不变（该在的还在）</td></tr><tr><td>模型</td><td><strong>有害</strong>：同一个信息出现三遍，模型可能误以为&quot;这很重要&quot;，或直接抄三遍</td></tr><tr><td>成本</td><td>浪费 token</td></tr></tbody></table></div>
+<p><strong>修法</strong>：召回后按 <code>page + 文本前缀</code> 做去重；控制 overlap ≤ chunk_size 的 30%。</p>
+<blockquote class="callout">
+<p>这题的设计意图：<strong>让你意识到&quot;Precision 低&quot;不一定是&quot;检索不准&quot;，也可能只是&quot;重复太多&quot;。</strong></p>
+</blockquote>
+<hr class="rule">
+<h2 id="answers-第-3-题-实现-rrf">第 3 题 · 实现 RRF</h2>
+<h3 id="answers-第-1-问手算k60">第 1 问：手算（k=60）</h3>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">score = 1/(60+rank)</code></pre></figure>
+<p><strong>向量列表</strong>：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>文档</th><th>rank</th><th>得分</th></tr></thead><tbody><tr><td>a</td><td>1</td><td>1/61 = 0.016393</td></tr><tr><td>b</td><td>2</td><td>1/62 = 0.016129</td></tr><tr><td>c</td><td>3</td><td>1/63 = 0.015873</td></tr><tr><td>d</td><td>4</td><td>1/64 = 0.015625</td></tr><tr><td>e</td><td>5</td><td>1/65 = 0.015385</td></tr></tbody></table></div>
+<p><strong>BM25 列表</strong>：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>文档</th><th>rank</th><th>得分</th></tr></thead><tbody><tr><td>c</td><td>1</td><td>1/61 = 0.016393</td></tr><tr><td>a</td><td>2</td><td>1/62 = 0.016129</td></tr><tr><td>f</td><td>3</td><td>1/63 = 0.015873</td></tr><tr><td>b</td><td>4</td><td>1/64 = 0.015625</td></tr><tr><td>g</td><td>5</td><td>1/65 = 0.015385</td></tr></tbody></table></div>
+<p><strong>合并</strong>：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>文档</th><th>总分</th></tr></thead><tbody><tr><td><strong>a</strong></td><td>0.016393 + 0.016129 = <strong>0.032522</strong></td></tr><tr><td><strong>c</strong></td><td>0.015873 + 0.016393 = <strong>0.032266</strong></td></tr><tr><td><strong>b</strong></td><td>0.016129 + 0.015625 = <strong>0.031754</strong></td></tr><tr><td>f</td><td>0.015873</td></tr><tr><td>d</td><td>0.015625</td></tr><tr><td>e, g</td><td>0.015385</td></tr></tbody></table></div>
+<p><strong>前 3 名</strong>：<code>a</code>、<code>c</code>、<code>b</code></p>
+<blockquote class="callout">
+<p>注意：<code>a</code> 在两个列表里都排第 1/第 2，所以总分最高。<strong>RRF 天然优待&quot;两个检索器都认可&quot;的文档</strong>——这正是我们想要的。</p>
+</blockquote>
+<h3 id="answers-第-2-问代码">第 2 问：代码</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">def</span> <span class="tok-fn">rrf</span>(<span class="tok-op">*</span>rank_lists, k<span class="tok-op">=</span><span class="tok-num">60</span>)<span class="tok-op">:</span>
+    score <span class="tok-op">=</span> {}
+    <span class="tok-kw">for</span> ids <span class="tok-kw">in</span> rank_lists<span class="tok-op">:</span>
+        <span class="tok-kw">for</span> rank, doc_id <span class="tok-kw">in</span> <span class="tok-fn">enumerate</span>(ids, start<span class="tok-op">=</span><span class="tok-num">1</span>)<span class="tok-op">:</span>
+            score[doc_id] <span class="tok-op">=</span> score.<span class="tok-fn">get</span>(doc_id, <span class="tok-num">0.0</span>) <span class="tok-op">+</span> <span class="tok-num">1.0</span> <span class="tok-op">/</span> (k <span class="tok-op">+</span> rank)
+    <span class="tok-kw">return</span> <span class="tok-fn">sorted</span>(score.<span class="tok-fn">items</span>(), key<span class="tok-op">=</span><span class="tok-kw">lambda</span> x<span class="tok-op">:</span> <span class="tok-op">-</span>x[<span class="tok-num">1</span>])
+
+
+<span class="tok-fn">print</span>(<span class="tok-fn">rrf</span>(vec_ids, bm25_ids)[<span class="tok-op">:</span><span class="tok-num">3</span>])
+<span class="tok-com"># [(&#39;a&#39;, 0.03252...), (&#39;c&#39;, 0.03226...), (&#39;b&#39;, 0.03175...)]</span></code></pre></figure>
+<p><strong><code>*rank_lists</code></strong> 是可变形参，这样以后加第三个检索器（比如按时间排序）不用改函数。</p>
+<h3 id="answers-第-3-问分数直接相加会怎样">第 3 问：分数直接相加会怎样</h3>
+<p>假设：</p>
+<ul>
+<li>向量分：<code>a=0.82</code>，<code>c=0.79</code></li>
+<li>BM25 分：<code>c=18.5</code>，<code>a=3.2</code></li>
+</ul>
+<p><strong>直接相加</strong>：</p>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">a = 0.82 + 3.2  = 4.02
+c = 0.79 + 18.5 = 19.29   ← c 完胜</code></pre></figure>
+<p><strong>RRF</strong>：</p>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">a = 1/61 + 1/62 = 0.0325
+c = 1/63 + 1/61 = 0.0323   ← a 略胜</code></pre></figure>
+<p><strong>问题在哪</strong>：BM25 的量纲是 0~几十，向量是 0~1。<strong>直接相加等于&quot;BM25 说了算&quot;，向量检索形同虚设。</strong></p>
+<p>有人会说&quot;那我归一化再相加&quot;。但归一化需要知道分布，而且<strong>不同查询的分布还不一样</strong>，很难做对。</p>
+<blockquote class="callout">
+<p><strong>RRF 用排名绕过了这个问题：不管你的分数是 0.8 还是 18.5，我只关心你排第几。</strong>
+这就是&quot;排名比分数更稳&quot;的工程智慧。</p>
+</blockquote>
+<h3 id="answers-常见错误-2">常见错误</h3>
+<ul>
+<li>❌ <code>k</code> 取 0 或 1。<strong>会导致除零或排名差距过大</strong>，第一名 1.0，第二名 0.5，太陡。</li>
+<li>❌ 忘记 <code>start=1</code>，用 0 开始。</li>
+</ul>
+<hr class="rule">
+<h2 id="answers-第-4-题-多查询改写">第 4 题 · 多查询改写</h2>
+<h3 id="answers-第-1-问multi-query">第 1 问：<code>multi_query</code></h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">def</span> <span class="tok-fn">multi_query</span>(q, client, model<span class="tok-op">=</span><span class="tok-str">&quot;deepseek-chat&quot;</span>)<span class="tok-op">:</span>
+    resp <span class="tok-op">=</span> client.chat.completions.<span class="tok-fn">create</span>(
+        model<span class="tok-op">=</span>model,
+        messages<span class="tok-op">=</span>[{<span class="tok-str">&quot;role&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;user&quot;</span>, <span class="tok-str">&quot;content&quot;</span><span class="tok-op">:</span> REWRITE_PROMPT.<span class="tok-fn">format</span>(q<span class="tok-op">=</span>q)}],
+        temperature<span class="tok-op">=</span><span class="tok-num">0.7</span>,      <span class="tok-com"># 这里要一点发散，才能改出不同说法</span>
+    )
+    raw <span class="tok-op">=</span> resp.choices[<span class="tok-num">0</span>].message.content
+
+    lines <span class="tok-op">=</span> [l.<span class="tok-fn">strip</span>(<span class="tok-str">&quot; -•\t&quot;</span>) <span class="tok-kw">for</span> l <span class="tok-kw">in</span> raw.<span class="tok-fn">splitlines</span>() <span class="tok-kw">if</span> l.<span class="tok-fn">strip</span>()]
+    out <span class="tok-op">=</span> []
+    <span class="tok-kw">for</span> line <span class="tok-kw">in</span> [q] <span class="tok-op">+</span> lines<span class="tok-op">:</span>
+        <span class="tok-kw">if</span> line <span class="tok-kw">and</span> line <span class="tok-kw">not</span> <span class="tok-kw">in</span> out<span class="tok-op">:</span>
+            out.<span class="tok-fn">append</span>(line)
+    <span class="tok-kw">return</span> out[<span class="tok-op">:</span><span class="tok-num">4</span>]</code></pre></figure>
+<p><strong>两个细节</strong>：</p>
+<ul>
+<li><code>temperature=0.7</code>：改写任务<strong>需要发散</strong>，和事实问答相反。</li>
+<li><code>if line not in out</code>：去重。<strong>同一个说法检索两次是纯浪费。</strong></li>
+</ul>
+<h3 id="answers-第-2-问search-multi">第 2 问：<code>search_multi</code></h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">def</span> <span class="tok-fn">search_multi</span>(queries, retrieve_fn, k<span class="tok-op">=</span><span class="tok-num">5</span>)<span class="tok-op">:</span>
+    merged <span class="tok-op">=</span> {}
+    <span class="tok-kw">for</span> qi, q <span class="tok-kw">in</span> <span class="tok-fn">enumerate</span>(queries)<span class="tok-op">:</span>
+        <span class="tok-kw">for</span> rank, hit <span class="tok-kw">in</span> <span class="tok-fn">enumerate</span>(<span class="tok-fn">retrieve_fn</span>(q, k), start<span class="tok-op">=</span><span class="tok-num">1</span>)<span class="tok-op">:</span>
+            cid <span class="tok-op">=</span> hit[<span class="tok-str">&quot;id&quot;</span>]
+            <span class="tok-kw">if</span> cid <span class="tok-kw">not</span> <span class="tok-kw">in</span> merged<span class="tok-op">:</span>
+                merged[cid] <span class="tok-op">=</span> {<span class="tok-str">&quot;hit&quot;</span><span class="tok-op">:</span> hit, <span class="tok-str">&quot;rrf&quot;</span><span class="tok-op">:</span> <span class="tok-num">0.0</span>, <span class="tok-str">&quot;best_score&quot;</span><span class="tok-op">:</span> <span class="tok-num">0.0</span>}
+            merged[cid][<span class="tok-str">&quot;rrf&quot;</span>] <span class="tok-op">+=</span> <span class="tok-num">1.0</span> <span class="tok-op">/</span> (<span class="tok-num">60</span> <span class="tok-op">+</span> rank)
+            merged[cid][<span class="tok-str">&quot;best_score&quot;</span>] <span class="tok-op">=</span> <span class="tok-fn">max</span>(merged[cid][<span class="tok-str">&quot;best_score&quot;</span>], hit[<span class="tok-str">&quot;score&quot;</span>])
+
+    <span class="tok-kw">return</span> <span class="tok-fn">sorted</span>(merged.<span class="tok-fn">values</span>(), key<span class="tok-op">=</span><span class="tok-kw">lambda</span> x<span class="tok-op">:</span> <span class="tok-op">-</span>x[<span class="tok-str">&quot;rrf&quot;</span>])</code></pre></figure>
+<h3 id="answers-第-3-问同一-chunk-被多次命中分数怎么算">第 3 问：同一 chunk 被多次命中，分数怎么算</h3>
+<p><strong>方案 A：RRF 累加（推荐）</strong></p>
+<p>同一块被 3 个查询命中，得 3 份分。<strong>&quot;被越多查询命中&quot;= 越可能是真的好。</strong></p>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python">merged[cid][<span class="tok-str">&quot;rrf&quot;</span>] <span class="tok-op">+=</span> <span class="tok-num">1.0</span> <span class="tok-op">/</span> (<span class="tok-num">60</span> <span class="tok-op">+</span> rank)</code></pre></figure>
+<p><strong>方案 B：取最高相似度</strong></p>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python">merged[cid][<span class="tok-str">&quot;best_score&quot;</span>] <span class="tok-op">=</span> <span class="tok-fn">max</span>(...)</code></pre></figure>
+<p><strong>什么时候用 B</strong>：当你发现&quot;累加&quot;会让一些&quot;用词模糊但广泛相关&quot;的块排到前面时。</p>
+<blockquote class="callout">
+<p><strong>我的建议：主排序用 RRF 累加，平局时用 best_score 决。</strong> 两个都留着，方便调试。</p>
+</blockquote>
+<h3 id="answers-第-4-问成本">第 4 问：成本</h3>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>项</th><th>基线</th><th>多查询</th></tr></thead><tbody><tr><td>改写调用</td><td>0</td><td>1 次（贵，是聊天模型）</td></tr><tr><td>embedding 调用</td><td>1 次</td><td>4 次（便宜）</td></tr><tr><td>检索计算</td><td>1 次</td><td>4 次（几乎免费）</td></tr></tbody></table></div>
+<p><strong>总成本约 2~2.5 倍</strong>（改写那一次相对贵）。</p>
+<p><strong>值不值？</strong> 取决于场景：</p>
+<ul>
+<li>用户问题<strong>说法多样</strong>、文档<strong>用词固定</strong>（如法律、医疗）→ <strong>很值</strong></li>
+<li>用户问题和文档用词本来就一致 → 不值</li>
+<li>有延迟要求（&lt;1 秒）→ 不值（改写要多几百毫秒）</li>
+</ul>
+<blockquote class="callout">
+<p>这就是&quot;工程判断&quot;：<strong>同一个技术，在不同场景下价值不同。</strong> 面试时能说出这句话，比会写代码更值钱。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="answers-第-5-题-加了重排反而变差">第 5 题 · 加了重排反而变差</h2>
+<h3 id="answers-至少-3-个原因-验证方法">至少 3 个原因 + 验证方法</h3>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>#</th><th>原因</th><th>怎么验证</th></tr></thead><tbody><tr><td>1</td><td><strong>候选集太小</strong>（top-30 里压根没有 gold）</td><td>算 <code>Recall@30</code>。如果只有 0.6，那重排再准也没用——<strong>先扩候选</strong></td></tr><tr><td>2</td><td><strong>分数方向反了</strong>（把最低分当最高分）</td><td>打印前 5 条的 rerank 分数，看是否和&quot;人工判断的相关性&quot;同向</td></tr><tr><td>3</td><td><strong>rerank 模型不适合中文/领域</strong></td><td>换一个中文模型对比；或人工看&quot;它把 gold 排第几&quot;</td></tr><tr><td>4</td><td><strong>重排后取 top-3 太激进</strong></td><td>试 top-5；对比答对率</td></tr><tr><td>5</td><td><strong>重排把&quot;长块&quot;惩罚了</strong></td><td>看被降权的块是否长度异常（有的模型偏爱短文本）</td></tr><tr><td>6</td><td><strong>模型被&quot;看起来相关但没答案&quot;的块骗了</strong></td><td>这是 rerank 的本质局限：它判断&quot;相关性&quot;，不判断&quot;是否包含答案&quot;</td></tr></tbody></table></div>
+<h3 id="answers-第-6-条最值得展开">第 6 条最值得展开</h3>
+<p><strong>Rerank 模型的训练目标是&quot;相关性&quot;，不是&quot;可回答性&quot;。</strong></p>
+<p>一个块可能大谈&quot;退款政策的重要性&quot;（高度相关），但<strong>不含&quot;几天到账&quot;这个具体答案</strong>。
+一个块可能是&quot;退款 3-5 个工作日到账&quot;（直接答案），但语义上和问题只是&quot;中等相关&quot;。</p>
+<p><strong>于是 rerank 把前者排到前面，答对率反而下降。</strong></p>
+<blockquote class="callout">
+<p>这是 RAG 里一个很深的坑：<strong>&quot;相关&quot;≠&quot;有用&quot;</strong>。
+解法：用带答案标注的数据微调 rerank 模型（超出你的范围），或者<strong>同时保留向量排序和 rerank 排序，做加权融合</strong>。</p>
+</blockquote>
+<h3 id="answers-常见错误-3">常见错误</h3>
+<ul>
+<li>❌ 只说&quot;重排模型不好&quot;。<strong>先排除候选集太小这个最常见的低级原因。</strong></li>
+</ul>
+<hr class="rule">
+<h2 id="answers-第-6-题-做出你的第一个优化前后对比">第 6 题 · 做出你的第一个&quot;优化前后对比&quot;</h2>
+<h3 id="answers-参考产出">参考产出</h3>
+<p><strong>基线（chunk=500, k=3, 阈值 0.5）</strong></p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>指标</th><th>值</th></tr></thead><tbody><tr><td>Recall@5</td><td>0.70（14/20）</td></tr><tr><td>Precision@3</td><td>0.42</td></tr><tr><td>答对率</td><td>0.60（12/20）</td></tr><tr><td>拒答正确率</td><td>0.50（1/2）</td></tr></tbody></table></div>
+<p><strong>优化：chunk_size 500 → 300</strong></p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>指标</th><th>值</th><th>变化</th></tr></thead><tbody><tr><td>Recall@5</td><td>0.80</td><td>+10pt</td></tr><tr><td>Precision@3</td><td>0.51</td><td>+9pt</td></tr><tr><td>答对率</td><td>0.55</td><td><strong>-5pt</strong></td></tr><tr><td>拒答正确率</td><td>0.50</td><td>不变</td></tr></tbody></table></div>
+<p><strong>结论（100 字）</strong>：</p>
+<blockquote class="callout">
+<p>切小到 300 后，Recall 从 0.70 提到 0.80，因为短块语义更聚焦，&quot;退款到账&quot;这种具体问题更容易命中。但答对率掉了 5 个点：跨页题（4 题）里有 2 题因为答案被切断而答错。<strong>说明 300 对这个文档&quot;太碎&quot;</strong>，下一步应该试&quot;小块检索 + 父子块扩展&quot;，而不是继续调小。</p>
+</blockquote>
+<h3 id="answers-这段结论为什么好">这段结论为什么好</h3>
+<ol>
+<li>有<strong>具体数字</strong>，不是&quot;变好了&quot;</li>
+<li>有<strong>归因</strong>（&quot;因为短块更聚焦&quot;）</li>
+<li>承认了<strong>副作用</strong>（答对率下降、跨页题变差）</li>
+<li>给出了<strong>下一步方案</strong>（父子块，而不是继续调参）</li>
+</ol>
+<blockquote class="callout">
+<p>这就是&quot;工程思维&quot;和&quot;调参碰运气&quot;的区别。
+面试官听到第 3、4 点，会立刻知道你<strong>真的做过</strong>，不是背的。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="answers-自评标准">自评标准</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>答对</th><th>评价</th><th>下一步</th></tr></thead><tbody><tr><td>6/6</td><td>优秀</td><td>直接做 P6</td></tr><tr><td>4~5</td><td>合格</td><td>重做第 1、5 题（诊断能力最值钱）</td></tr><tr><td>2~3</td><td>需要回炉</td><td>重读讲稿第二、三、五节</td></tr><tr><td>0~1</td><td>别慌</td><td>先把 20 题评测集建起来，跑出基线，再回来</td></tr></tbody></table></div></div>
+  </div>
+  <div class="tab-panel" id="panel-project" role="tabpanel" aria-labelledby="tab-panel-project" hidden>
+    <div class="callout" style="margin-bottom:22px">
+      <strong>P6 项目计划书 · P6 带评测的 RAG v2</strong><br>
+      按「目标 → 代码 → 为什么 → 怎么验证」一步步敲。卡住的地方，才是真正学到的地方。
+    </div>
+    <div class="prose"><blockquote class="callout">
+<p>难度：⭐⭐⭐⭐ ｜ 周期：两个周末（约 6 小时）｜ 学习模块：M5
+<strong>这是你简历里最有分量的一行。</strong>
+<strong>采用的资料</strong>：见文末第 7 节</p>
+</blockquote>
+<hr class="rule">
+<h2 id="project-1-项目要做什么">1. 项目要做什么</h2>
+<h3 id="project-一句话">一句话</h3>
+<p>给 P5 装一个&quot;体检仪&quot;：建 20 题评测集，量出四个指标，然后<strong>用数据驱动地做 3 次优化</strong>，最后拿出一张&quot;62% → 81%&quot;的对比表。</p>
+<h3 id="project-为什么这个项目比-p5-值钱">为什么这个项目比 P5 值钱</h3>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>P5 能证明</th><th>P6 能证明</th></tr></thead><tbody><tr><td>你会搭 RAG</td><td>你会<strong>衡量</strong> RAG</td></tr><tr><td>&quot;我做了个问答机器人&quot;</td><td>&quot;我把命中率从 62% 提到 81%&quot;</td></tr><tr><td>面试官：哦</td><td>面试官：<strong>怎么提的？</strong> ← 这才是面试开始的地方</td></tr></tbody></table></div>
+<h3 id="project-验收标准">验收标准</h3>
+<ul>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">20 题评测集，含 gold_ids 和&quot;应拒答&quot;题</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">一条命令跑完评测，输出 4 个指标</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">有<strong>基线数字</strong>（改动前的）</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">至少做 <strong>2 次优化</strong>，每次只改一处</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">有对比表 + 200 字归因结论</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">能找出&quot;所有版本都错&quot;的题，并分析原因</span></li>
+</ul>
+<h3 id="project-明确不做">明确不做</h3>
+<ul>
+<li>❌ 不做微调 rerank 模型</li>
+<li>❌ 不做多文档、不做部署</li>
+<li>❌ 不追求 SOTA，<strong>追求&quot;可解释的提升&quot;</strong></li>
+</ul>
+<hr class="rule">
+<h2 id="project-2-工具与开发环境">2. 工具与开发环境</h2>
+<blockquote class="callout">
+<p>🛑 <strong>本项目的核心优化（父块 + 混合检索）零新增依赖。</strong>
+rerank 是可选项，要装模型/开 API，<strong>动手前先问我。</strong></p>
+</blockquote>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>项</th><th>状态</th><th>说明</th></tr></thead><tbody><tr><td>Python + numpy + streamlit</td><td>已有</td><td>沿用 P5</td></tr><tr><td><strong><code>jieba</code></strong></td><td><strong>可选</strong></td><td>中文分词。<strong>先别装</strong>，本项目用&quot;字符 bigram&quot;替代</td></tr><tr><td><code>sentence-transformers</code></td><td><strong>可选</strong></td><td>本地 rerank，要下模型</td></tr><tr><td>rerank API</td><td><strong>可选</strong></td><td>如 Cohere / Jina / 国内厂商</td></tr><tr><td><code>matplotlib</code></td><td>可选</td><td>画对比柱状图</td></tr></tbody></table></div>
+<h3 id="project-为什么先用字符-bigram做-bm25">为什么先用&quot;字符 bigram&quot;做 BM25</h3>
+<p>中文没有空格，做 BM25 要先分词。但分词有两个问题：</p>
+<ol>
+<li>要装 <code>jieba</code>（多一个依赖）</li>
+<li>分词错误会直接毁掉检索（&quot;退款流程&quot;被切成&quot;退款/流程&quot;还好，被切成&quot;退/款流/程&quot;就完了）</li>
+</ol>
+<p><strong>字符 bigram 是个聪明的偷懒办法</strong>：把&quot;退款流程&quot;切成 <code>退款</code>、<code>款流</code>、<code>流程</code>。不依赖词典，对中文效果还不错。</p>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">def</span> <span class="tok-fn">bigrams</span>(text)<span class="tok-op">:</span>
+    text <span class="tok-op">=</span> <span class="tok-str">&quot;&quot;</span>.<span class="tok-fn">join</span>(text.<span class="tok-fn">split</span>())       <span class="tok-com"># 去掉所有空白</span>
+    <span class="tok-kw">return</span> [text[i<span class="tok-op">:</span>i<span class="tok-op">+</span><span class="tok-num">2</span>] <span class="tok-kw">for</span> i <span class="tok-kw">in</span> <span class="tok-fn">range</span>(<span class="tok-fn">len</span>(text) <span class="tok-op">-</span> <span class="tok-num">1</span>)] <span class="tok-kw">if</span> <span class="tok-fn">len</span>(text) <span class="tok-op">&gt;</span> <span class="tok-num">1</span> <span class="tok-kw">else</span> [text]</code></pre></figure>
+<blockquote class="callout">
+<p>这不是最优解，但它是&quot;零依赖、够用、可解释&quot;的解。<strong>工程上&quot;够用&quot;比&quot;最优&quot;重要。</strong></p>
+</blockquote>
+<hr class="rule">
+<h2 id="project-3-项目文件结构">3. 项目文件结构</h2>
+<p>在 P5 基础上新增 4 个文件：</p>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">p6-rag-v2/
+├── （P5 的全部文件）
+├── eval_set.json      ← 20 题评测集（核心资产）
+├── evaluate.py        ← 跑评测、算指标、出报告
+├── hybrid.py          ← BM25 + RRF 融合
+├── expand.py          ← 父块扩展
+├── rerank.py          ← 可选：重排
+└── report.md          ← 你的优化报告（面试时可展示）</code></pre></figure>
+<h3 id="project-每个新文件的作用">每个新文件的作用</h3>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>文件</th><th>职责</th><th>为什么单独</th></tr></thead><tbody><tr><td><code>eval_set.json</code></td><td>题库 + 标准答案 + gold_ids</td><td><strong>这是资产，要像代码一样版本管理</strong></td></tr><tr><td><code>evaluate.py</code></td><td>只负责&quot;跑题、判分、汇总&quot;</td><td>评测逻辑和业务逻辑分离</td></tr><tr><td><code>hybrid.py</code></td><td>BM25 + 向量 + RRF</td><td>一个检索策略一个文件</td></tr><tr><td><code>expand.py</code></td><td>命中后扩上下文</td><td>纯后处理，可插拔</td></tr><tr><td><code>rerank.py</code></td><td>精排</td><td>可开关，方便 A/B</td></tr></tbody></table></div>
+<blockquote class="callout">
+<p><strong>可插拔是关键</strong>：每个优化都要能&quot;关掉&quot;，否则你没法做对比实验。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="project-4-项目流程图">4. 项目流程图</h2>
+<div class="mermaid-wrap"><div class="mermaid">flowchart TD
+    A[eval_set.json<br/>20 题] --> B[for each 题]
+    B --> C[检索：向量 top-30]
+    C --> D[检索：BM25 top-30]
+    D --> E[RRF 融合]
+    E --> F[可选：rerank 精排]
+    F --> G[可选：父块扩展]
+    G --> H[拼 context + 生成]
+    H --> I{判分}
+    I --> J[记录：检索命中? 回答对? 引用对?]
+    J --> B
+    B --> K[汇总四个指标]
+    K --> L[写 report.md<br/>对比表 + 结论]
+
+    M[config: 开关<br/>use_rerank=False...] -.-> E
+    M -.-> F
+    M -.-> G</div></div>
+<h3 id="project-关键设计config-里的开关">关键设计：<code>config</code> 里的开关</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python">USE_HYBRID <span class="tok-op">=</span> <span class="tok-bool">True</span>
+USE_RERANK <span class="tok-op">=</span> <span class="tok-bool">False</span>
+USE_EXPAND <span class="tok-op">=</span> <span class="tok-bool">True</span></code></pre></figure>
+<p><strong>每次实验只改一个开关，跑一遍，记录。</strong> 这就是&quot;控制变量法&quot;。</p>
+<hr class="rule">
+<h2 id="project-5-分步实现">5. 分步实现</h2>
+<h3 id="project-step-1-建-20-题评测集60-分钟最花时间但最值">Step 1 · 建 20 题评测集（60 分钟，<strong>最花时间但最值</strong>）</h3>
+<p><code>eval_set.json</code>：</p>
+<figure class="code-block" data-lang="json"><figcaption><span class="code-lang">json</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-json">[
+  {
+    <span class="tok-str">&quot;id&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;q01&quot;</span>,
+    <span class="tok-str">&quot;q&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;退款多久能到账？&quot;</span>,
+    <span class="tok-str">&quot;type&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;简单&quot;</span>,
+    <span class="tok-str">&quot;gold_ids&quot;</span><span class="tok-op">:</span> [<span class="tok-str">&quot;售后政策_p3_c0&quot;</span>],
+    <span class="tok-str">&quot;gold_answer&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;3-5 个工作日原路退回&quot;</span>,
+    <span class="tok-str">&quot;should_refuse&quot;</span><span class="tok-op">:</span> <span class="tok-bool">false</span>
+  },
+  {
+    <span class="tok-str">&quot;id&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;q02&quot;</span>,
+    <span class="tok-str">&quot;q&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;东西收到就坏了，能换吗？&quot;</span>,
+    <span class="tok-str">&quot;type&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;同义&quot;</span>,
+    <span class="tok-str">&quot;gold_ids&quot;</span><span class="tok-op">:</span> [<span class="tok-str">&quot;售后政策_p2_c1&quot;</span>],
+    <span class="tok-str">&quot;gold_answer&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;质量问题支持 7 天无理由退换&quot;</span>,
+    <span class="tok-str">&quot;should_refuse&quot;</span><span class="tok-op">:</span> <span class="tok-bool">false</span>
+  },
+  {
+    <span class="tok-str">&quot;id&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;q18&quot;</span>,
+    <span class="tok-str">&quot;q&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;你们支持花呗分期吗？&quot;</span>,
+    <span class="tok-str">&quot;type&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;拒答&quot;</span>,
+    <span class="tok-str">&quot;gold_ids&quot;</span><span class="tok-op">:</span> [],
+    <span class="tok-str">&quot;gold_answer&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;&quot;</span>,
+    <span class="tok-str">&quot;should_refuse&quot;</span><span class="tok-op">:</span> <span class="tok-bool">true</span>
+  }
+]</code></pre></figure>
+<h4 id="project-怎么找-gold-ids这一步有技巧">怎么找 <code>gold_ids</code>（这一步有技巧）</h4>
+<ol>
+<li>先跑一遍检索（top-10），把结果打印出来</li>
+<li><strong>人工看</strong>哪一条真正包含答案</li>
+<li>把那条的 <code>id</code> 填进去</li>
+</ol>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-com"># 找 gold 的小工具</span>
+<span class="tok-kw">for</span> q <span class="tok-kw">in</span> [<span class="tok-str">&quot;退款多久能到账？&quot;</span>, <span class="tok-str">&quot;怎么开发票&quot;</span>, ...]<span class="tok-op">:</span>
+    <span class="tok-fn">print</span>(<span class="tok-str">&quot;=&quot;</span> <span class="tok-op">*</span> <span class="tok-num">40</span>)
+    <span class="tok-fn">print</span>(q)
+    <span class="tok-kw">for</span> h <span class="tok-kw">in</span> <span class="tok-fn">retrieve</span>(q, chunks, matrix, k<span class="tok-op">=</span><span class="tok-num">10</span>)<span class="tok-op">:</span>
+        <span class="tok-fn">print</span>(f<span class="tok-str">&quot;  {h[&#39;id&#39;]}  {h[&#39;score&#39;]:.3f}  {h[&#39;text&#39;][:50]}&quot;</span>)</code></pre></figure>
+<blockquote class="callout">
+<p><strong>注意</strong>：如果 top-10 里<strong>都没有</strong>能回答的块，说明这道题&quot;库里没有&quot;，它应该被改成&quot;拒答题&quot;，或者你的切分真的有问题。<strong>这个发现本身就很有价值。</strong></p>
+</blockquote>
+<h4 id="project-20-题的配比照抄这张表">20 题的配比（照抄这张表）</h4>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>类型</th><th>数量</th><th>编号</th></tr></thead><tbody><tr><td>简单事实</td><td>6</td><td>q01–q06</td></tr><tr><td>同义改写</td><td>5</td><td>q07–q11</td></tr><tr><td>跨段/跨页</td><td>4</td><td>q12–q15</td></tr><tr><td>精确信息（数字/编号）</td><td>3</td><td>q16–q18</td></tr><tr><td>应拒答</td><td>2</td><td>q19–q20</td></tr></tbody></table></div>
+<hr class="rule">
+<h3 id="project-step-2-写-evaluatepy60-分钟">Step 2 · 写 <code>evaluate.py</code>（60 分钟）</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">import</span> json
+
+<span class="tok-kw">from</span> config <span class="tok-kw">import</span> DEFAULT_TOP_K
+<span class="tok-kw">from</span> rag <span class="tok-kw">import</span> answer, retrieve
+
+
+<span class="tok-kw">def</span> <span class="tok-fn">load_cases</span>(path<span class="tok-op">=</span><span class="tok-str">&quot;eval_set.json&quot;</span>)<span class="tok-op">:</span>
+    <span class="tok-kw">with</span> <span class="tok-fn">open</span>(path, encoding<span class="tok-op">=</span><span class="tok-str">&quot;utf-8&quot;</span>) <span class="tok-kw">as</span> f<span class="tok-op">:</span>
+        <span class="tok-kw">return</span> json.<span class="tok-fn">load</span>(f)
+
+
+<span class="tok-kw">def</span> <span class="tok-fn">judge_text</span>(ans<span class="tok-op">:</span> str, gold<span class="tok-op">:</span> str) <span class="tok-op">-&gt;</span> bool<span class="tok-op">:</span>
+    <span class="tok-str">&quot;&quot;&quot;极简判分：看关键数字/关键词是否出现。
+    生产环境要人工判或用 LLM 判，这里给初学者一个可跑的版本。&quot;&quot;&quot;</span>
+    <span class="tok-kw">if</span> <span class="tok-kw">not</span> gold<span class="tok-op">:</span>
+        <span class="tok-kw">return</span> <span class="tok-bool">False</span>
+    keys <span class="tok-op">=</span> [k <span class="tok-kw">for</span> k <span class="tok-kw">in</span> gold.<span class="tok-fn">replace</span>(<span class="tok-str">&quot;，&quot;</span>, <span class="tok-str">&quot; &quot;</span>).<span class="tok-fn">split</span>() <span class="tok-kw">if</span> <span class="tok-fn">len</span>(k) <span class="tok-op">&gt;=</span> <span class="tok-num">2</span>]
+    <span class="tok-kw">return</span> <span class="tok-fn">all</span>(k <span class="tok-kw">in</span> ans <span class="tok-kw">for</span> k <span class="tok-kw">in</span> keys) <span class="tok-kw">if</span> keys <span class="tok-kw">else</span> (gold <span class="tok-kw">in</span> ans)
+
+
+<span class="tok-kw">def</span> <span class="tok-fn">evaluate</span>(chunks, matrix, cases<span class="tok-op">=</span><span class="tok-bool">None</span>, k<span class="tok-op">=</span>DEFAULT_TOP_K, verbose<span class="tok-op">=</span><span class="tok-bool">True</span>)<span class="tok-op">:</span>
+    cases <span class="tok-op">=</span> cases <span class="tok-kw">or</span> <span class="tok-fn">load_cases</span>()
+    n <span class="tok-op">=</span> <span class="tok-fn">len</span>(cases)
+    stats <span class="tok-op">=</span> {<span class="tok-str">&quot;recall&quot;</span><span class="tok-op">:</span> <span class="tok-num">0</span>, <span class="tok-str">&quot;prec_sum&quot;</span><span class="tok-op">:</span> <span class="tok-num">0.0</span>, <span class="tok-str">&quot;correct&quot;</span><span class="tok-op">:</span> <span class="tok-num">0</span>,
+             <span class="tok-str">&quot;refuse_total&quot;</span><span class="tok-op">:</span> <span class="tok-num">0</span>, <span class="tok-str">&quot;refuse_ok&quot;</span><span class="tok-op">:</span> <span class="tok-num">0</span>, <span class="tok-str">&quot;detail&quot;</span><span class="tok-op">:</span> []}
+
+    <span class="tok-kw">for</span> c <span class="tok-kw">in</span> cases<span class="tok-op">:</span>
+        hits <span class="tok-op">=</span> <span class="tok-fn">retrieve</span>(c[<span class="tok-str">&quot;q&quot;</span>], chunks, matrix, k<span class="tok-op">=</span>k)
+        ids <span class="tok-op">=</span> [h[<span class="tok-str">&quot;id&quot;</span>] <span class="tok-kw">for</span> h <span class="tok-kw">in</span> hits]
+
+        <span class="tok-com"># --- 检索指标 ---</span>
+        <span class="tok-kw">if</span> c[<span class="tok-str">&quot;should_refuse&quot;</span>]<span class="tok-op">:</span>
+            recall_ok <span class="tok-op">=</span> <span class="tok-bool">True</span>          <span class="tok-com"># 拒答题不参与召回统计</span>
+        <span class="tok-kw">else</span><span class="tok-op">:</span>
+            recall_ok <span class="tok-op">=</span> <span class="tok-fn">any</span>(g <span class="tok-kw">in</span> ids <span class="tok-kw">for</span> g <span class="tok-kw">in</span> c[<span class="tok-str">&quot;gold_ids&quot;</span>])
+            stats[<span class="tok-str">&quot;recall&quot;</span>] <span class="tok-op">+=</span> <span class="tok-fn">int</span>(recall_ok)
+
+            rel <span class="tok-op">=</span> <span class="tok-fn">sum</span>(<span class="tok-num">1</span> <span class="tok-kw">for</span> i <span class="tok-kw">in</span> ids <span class="tok-kw">if</span> i <span class="tok-kw">in</span> c[<span class="tok-str">&quot;gold_ids&quot;</span>])
+            stats[<span class="tok-str">&quot;prec_sum&quot;</span>] <span class="tok-op">+=</span> rel <span class="tok-op">/</span> <span class="tok-fn">max</span>(<span class="tok-num">1</span>, <span class="tok-fn">len</span>(ids))
+
+        <span class="tok-com"># --- 生成指标 ---</span>
+        text, refs, best <span class="tok-op">=</span> <span class="tok-fn">answer</span>(c[<span class="tok-str">&quot;q&quot;</span>], chunks, matrix, k<span class="tok-op">=</span>k)
+
+        <span class="tok-kw">if</span> c[<span class="tok-str">&quot;should_refuse&quot;</span>]<span class="tok-op">:</span>
+            stats[<span class="tok-str">&quot;refuse_total&quot;</span>] <span class="tok-op">+=</span> <span class="tok-num">1</span>
+            refused <span class="tok-op">=</span> (<span class="tok-str">&quot;无法回答&quot;</span> <span class="tok-kw">in</span> text) <span class="tok-kw">or</span> (<span class="tok-str">&quot;没有&quot;</span> <span class="tok-kw">in</span> text) <span class="tok-kw">or</span> (<span class="tok-str">&quot;未提及&quot;</span> <span class="tok-kw">in</span> text)
+            stats[<span class="tok-str">&quot;refuse_ok&quot;</span>] <span class="tok-op">+=</span> <span class="tok-fn">int</span>(refused)
+            ok <span class="tok-op">=</span> refused
+        <span class="tok-kw">else</span><span class="tok-op">:</span>
+            ok <span class="tok-op">=</span> <span class="tok-fn">judge_text</span>(text, c[<span class="tok-str">&quot;gold_answer&quot;</span>])
+            stats[<span class="tok-str">&quot;correct&quot;</span>] <span class="tok-op">+=</span> <span class="tok-fn">int</span>(ok)
+
+        stats[<span class="tok-str">&quot;detail&quot;</span>].<span class="tok-fn">append</span>({
+            <span class="tok-str">&quot;id&quot;</span><span class="tok-op">:</span> c[<span class="tok-str">&quot;id&quot;</span>], <span class="tok-str">&quot;type&quot;</span><span class="tok-op">:</span> c[<span class="tok-str">&quot;type&quot;</span>], <span class="tok-str">&quot;q&quot;</span><span class="tok-op">:</span> c[<span class="tok-str">&quot;q&quot;</span>],
+            <span class="tok-str">&quot;retrieval_ok&quot;</span><span class="tok-op">:</span> recall_ok, <span class="tok-str">&quot;answer_ok&quot;</span><span class="tok-op">:</span> ok,
+            <span class="tok-str">&quot;best_score&quot;</span><span class="tok-op">:</span> <span class="tok-fn">round</span>(best, <span class="tok-num">3</span>), <span class="tok-str">&quot;hits&quot;</span><span class="tok-op">:</span> ids, <span class="tok-str">&quot;answer&quot;</span><span class="tok-op">:</span> text,
+        })
+
+        <span class="tok-kw">if</span> verbose<span class="tok-op">:</span>
+            mark <span class="tok-op">=</span> <span class="tok-str">&quot;✅&quot;</span> <span class="tok-kw">if</span> ok <span class="tok-kw">else</span> <span class="tok-str">&quot;❌&quot;</span>
+            <span class="tok-fn">print</span>(f<span class="tok-str">&quot;{mark} [{c[&#39;id&#39;]}][{c[&#39;type&#39;]}] {c[&#39;q&#39;]}  (最高分 {best:.3f})&quot;</span>)
+
+    answerable <span class="tok-op">=</span> n <span class="tok-op">-</span> stats[<span class="tok-str">&quot;refuse_total&quot;</span>]
+    <span class="tok-kw">return</span> {
+        <span class="tok-str">&quot;Recall@k&quot;</span><span class="tok-op">:</span> stats[<span class="tok-str">&quot;recall&quot;</span>] <span class="tok-op">/</span> <span class="tok-fn">max</span>(<span class="tok-num">1</span>, answerable),
+        <span class="tok-str">&quot;Precision@k&quot;</span><span class="tok-op">:</span> stats[<span class="tok-str">&quot;prec_sum&quot;</span>] <span class="tok-op">/</span> <span class="tok-fn">max</span>(<span class="tok-num">1</span>, answerable),
+        <span class="tok-str">&quot;答对率&quot;</span><span class="tok-op">:</span> stats[<span class="tok-str">&quot;correct&quot;</span>] <span class="tok-op">/</span> <span class="tok-fn">max</span>(<span class="tok-num">1</span>, answerable),
+        <span class="tok-str">&quot;拒答正确率&quot;</span><span class="tok-op">:</span> stats[<span class="tok-str">&quot;refuse_ok&quot;</span>] <span class="tok-op">/</span> <span class="tok-fn">max</span>(<span class="tok-num">1</span>, stats[<span class="tok-str">&quot;refuse_total&quot;</span>]),
+        <span class="tok-str">&quot;明细&quot;</span><span class="tok-op">:</span> stats[<span class="tok-str">&quot;detail&quot;</span>],
+    }</code></pre></figure>
+<h4 id="project-三个设计要点">三个设计要点</h4>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>要点</th><th>为什么</th></tr></thead><tbody><tr><td><strong>拒答题不参与 Recall 统计</strong></td><td>它本来就没有 gold，算进去会把 Recall 人为拉低</td></tr><tr><td><strong><code>judge_text</code> 只做关键词匹配</strong></td><td>简单粗糙，但<strong>能跑、能复现</strong>。别一开始就追求&quot;完美判分&quot;</td></tr><tr><td><strong>保存 <code>detail</code></strong></td><td>之后要按类型分组分析（&quot;跨页题全错&quot;这种洞察只能从明细里来）</td></tr></tbody></table></div>
+<blockquote class="callout">
+<p>⚠️ <code>judge_text</code> 的粗糙是<strong>故意的</strong>。它会有误判——但<strong>误判是稳定发生的</strong>，所以你比较两个版本时，误差会抵消一部分。<strong>先用粗糙指标跑起来，比用完美指标跑不起来强。</strong></p>
+</blockquote>
+<hr class="rule">
+<h3 id="project-step-3-跑基线20-分钟">Step 3 · 跑基线（20 分钟）</h3>
+<figure class="code-block" data-lang="bash"><figcaption><span class="code-lang">bash</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-bash">python -c <span class="tok-str">&quot;</span>
+from store import load
+from evaluate import evaluate
+chunks, matrix <span class="tok-op">=</span> <span class="tok-fn">load</span>()
+r <span class="tok-op">=</span> <span class="tok-fn">evaluate</span>(chunks, matrix)
+<span class="tok-kw">for</span> k, v <span class="tok-kw">in</span> r.<span class="tok-fn">items</span>()<span class="tok-op">:</span>
+    <span class="tok-kw">if</span> k <span class="tok-op">!=</span> <span class="tok-str">&#39;明细&#39;</span><span class="tok-op">:</span> <span class="tok-fn">print</span>(f<span class="tok-str">&#39;{k}: {v:.2%}&#39;</span>)
+<span class="tok-str">&quot;</span></code></pre></figure>
+<p><strong>把四个数字抄进 <code>report.md</code>。这就是你的基线。</strong></p>
+<blockquote class="callout">
+<p>如果基线低得离谱（比如 Recall 0.3），<strong>先别急着优化</strong>——多半是 <code>gold_ids</code> 标错了，或者索引坏了。</p>
+</blockquote>
+<hr class="rule">
+<h3 id="project-step-4-优化一父块扩展30-分钟零成本">Step 4 · 优化一：父块扩展（30 分钟，零成本）</h3>
+<p><strong>思路</strong>：命中块 <code>p3_c1</code> 后，把 <code>p3_c0</code> 和 <code>p3_c2</code> 一起给模型。</p>
+<p><code>expand.py</code>：</p>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">def</span> <span class="tok-fn">expand_hits</span>(hits, chunks, window<span class="tok-op">=</span><span class="tok-num">1</span>)<span class="tok-op">:</span>
+    <span class="tok-str">&quot;&quot;&quot;把命中块前后各 window 个同页块也加进来。&quot;&quot;&quot;</span>
+    by_page <span class="tok-op">=</span> {}
+    <span class="tok-kw">for</span> c <span class="tok-kw">in</span> chunks<span class="tok-op">:</span>
+        by_page.<span class="tok-fn">setdefault</span>((c[<span class="tok-str">&quot;source&quot;</span>], c[<span class="tok-str">&quot;page&quot;</span>]), []).<span class="tok-fn">append</span>(c)
+
+    <span class="tok-kw">for</span> v <span class="tok-kw">in</span> by_page.<span class="tok-fn">values</span>()<span class="tok-op">:</span>
+        v.<span class="tok-fn">sort</span>(key<span class="tok-op">=</span><span class="tok-kw">lambda</span> x<span class="tok-op">:</span> x[<span class="tok-str">&quot;chunk_index&quot;</span>])
+
+    out, seen <span class="tok-op">=</span> [], <span class="tok-fn">set</span>()
+    <span class="tok-kw">for</span> h <span class="tok-kw">in</span> hits<span class="tok-op">:</span>
+        key <span class="tok-op">=</span> (h[<span class="tok-str">&quot;source&quot;</span>], h[<span class="tok-str">&quot;page&quot;</span>])
+        siblings <span class="tok-op">=</span> by_page.<span class="tok-fn">get</span>(key, [])
+        idxs <span class="tok-op">=</span> [s[<span class="tok-str">&quot;chunk_index&quot;</span>] <span class="tok-kw">for</span> s <span class="tok-kw">in</span> siblings]
+        <span class="tok-kw">if</span> h[<span class="tok-str">&quot;chunk_index&quot;</span>] <span class="tok-kw">not</span> <span class="tok-kw">in</span> idxs<span class="tok-op">:</span>
+            out.<span class="tok-fn">append</span>(h); seen.<span class="tok-fn">add</span>(h[<span class="tok-str">&quot;id&quot;</span>]); <span class="tok-kw">continue</span>
+
+        pos <span class="tok-op">=</span> idxs.<span class="tok-fn">index</span>(h[<span class="tok-str">&quot;chunk_index&quot;</span>])
+        <span class="tok-kw">for</span> j <span class="tok-kw">in</span> <span class="tok-fn">range</span>(<span class="tok-fn">max</span>(<span class="tok-num">0</span>, pos <span class="tok-op">-</span> window), <span class="tok-fn">min</span>(<span class="tok-fn">len</span>(siblings), pos <span class="tok-op">+</span> window <span class="tok-op">+</span> <span class="tok-num">1</span>))<span class="tok-op">:</span>
+            s <span class="tok-op">=</span> siblings[j]
+            <span class="tok-kw">if</span> s[<span class="tok-str">&quot;id&quot;</span>] <span class="tok-kw">not</span> <span class="tok-kw">in</span> seen<span class="tok-op">:</span>
+                out.<span class="tok-fn">append</span>({<span class="tok-op">**</span>s, <span class="tok-str">&quot;score&quot;</span><span class="tok-op">:</span> h[<span class="tok-str">&quot;score&quot;</span>]})
+                seen.<span class="tok-fn">add</span>(s[<span class="tok-str">&quot;id&quot;</span>])
+    <span class="tok-kw">return</span> out</code></pre></figure>
+<p><strong>在 <code>rag.py</code> 里，检索后加一行</strong>：</p>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">if</span> USE_EXPAND<span class="tok-op">:</span>
+    hits <span class="tok-op">=</span> <span class="tok-fn">expand_hits</span>(hits, chunks, window<span class="tok-op">=</span><span class="tok-num">1</span>)</code></pre></figure>
+<p><strong>跑评测，对比。</strong></p>
+<p><strong>预期效果</strong>：跨段题（q12–q15）答对率上升，token 成本上升约 2~3 倍。</p>
+<blockquote class="callout">
+<p><strong>如果变差了怎么办</strong>：把 <code>window</code> 从 1 降到 0（等于关闭），或者只对&quot;跨段类型&quot;的题启用。<strong>这就是为什么要有开关。</strong></p>
+</blockquote>
+<hr class="rule">
+<h3 id="project-step-5-优化二混合检索60-分钟收益最大">Step 5 · 优化二：混合检索（60 分钟，收益最大）</h3>
+<p><code>hybrid.py</code>：</p>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">import</span> math
+<span class="tok-kw">from</span> collections <span class="tok-kw">import</span> Counter
+
+
+<span class="tok-kw">def</span> <span class="tok-fn">bigrams</span>(text)<span class="tok-op">:</span>
+    t <span class="tok-op">=</span> <span class="tok-str">&quot;&quot;</span>.<span class="tok-fn">join</span>(text.<span class="tok-fn">split</span>())
+    <span class="tok-kw">return</span> [t[i<span class="tok-op">:</span>i <span class="tok-op">+</span> <span class="tok-num">2</span>] <span class="tok-kw">for</span> i <span class="tok-kw">in</span> <span class="tok-fn">range</span>(<span class="tok-fn">len</span>(t) <span class="tok-op">-</span> <span class="tok-num">1</span>)] <span class="tok-kw">if</span> <span class="tok-fn">len</span>(t) <span class="tok-op">&gt;</span> <span class="tok-num">1</span> <span class="tok-kw">else</span> [t]
+
+
+<span class="tok-kw">class</span> BM25<span class="tok-op">:</span>
+    <span class="tok-kw">def</span> <span class="tok-fn">__init__</span>(self, docs, k1<span class="tok-op">=</span><span class="tok-num">1.5</span>, b<span class="tok-op">=</span><span class="tok-num">0.75</span>)<span class="tok-op">:</span>
+        self.docs <span class="tok-op">=</span> docs
+        self.tokens <span class="tok-op">=</span> [<span class="tok-fn">bigrams</span>(d[<span class="tok-str">&quot;text&quot;</span>]) <span class="tok-kw">for</span> d <span class="tok-kw">in</span> docs]
+        self.k1, self.b <span class="tok-op">=</span> k1, b
+        self.N <span class="tok-op">=</span> <span class="tok-fn">len</span>(docs)
+        self.avgdl <span class="tok-op">=</span> <span class="tok-fn">sum</span>(<span class="tok-fn">len</span>(t) <span class="tok-kw">for</span> t <span class="tok-kw">in</span> self.tokens) <span class="tok-op">/</span> <span class="tok-fn">max</span>(<span class="tok-num">1</span>, self.N)
+        self.df <span class="tok-op">=</span> <span class="tok-fn">Counter</span>()
+        <span class="tok-kw">for</span> toks <span class="tok-kw">in</span> self.tokens<span class="tok-op">:</span>
+            <span class="tok-kw">for</span> w <span class="tok-kw">in</span> <span class="tok-fn">set</span>(toks)<span class="tok-op">:</span>
+                self.df[w] <span class="tok-op">+=</span> <span class="tok-num">1</span>
+
+    <span class="tok-kw">def</span> <span class="tok-fn">_idf</span>(self, w)<span class="tok-op">:</span>
+        n <span class="tok-op">=</span> self.df.<span class="tok-fn">get</span>(w, <span class="tok-num">0</span>)
+        <span class="tok-kw">return</span> math.<span class="tok-fn">log</span>(<span class="tok-num">1</span> <span class="tok-op">+</span> (self.N <span class="tok-op">-</span> n <span class="tok-op">+</span> <span class="tok-num">0.5</span>) <span class="tok-op">/</span> (n <span class="tok-op">+</span> <span class="tok-num">0.5</span>))
+
+    <span class="tok-kw">def</span> <span class="tok-fn">search</span>(self, query, k<span class="tok-op">=</span><span class="tok-num">30</span>)<span class="tok-op">:</span>
+        q <span class="tok-op">=</span> <span class="tok-fn">bigrams</span>(query)
+        scores <span class="tok-op">=</span> []
+        <span class="tok-kw">for</span> i, toks <span class="tok-kw">in</span> <span class="tok-fn">enumerate</span>(self.tokens)<span class="tok-op">:</span>
+            tf <span class="tok-op">=</span> <span class="tok-fn">Counter</span>(toks)
+            dl <span class="tok-op">=</span> <span class="tok-fn">len</span>(toks)
+            s <span class="tok-op">=</span> <span class="tok-num">0.0</span>
+            <span class="tok-kw">for</span> w <span class="tok-kw">in</span> q<span class="tok-op">:</span>
+                <span class="tok-kw">if</span> w <span class="tok-kw">not</span> <span class="tok-kw">in</span> tf<span class="tok-op">:</span>
+                    <span class="tok-kw">continue</span>
+                f <span class="tok-op">=</span> tf[w]
+                s <span class="tok-op">+=</span> self.<span class="tok-fn">_idf</span>(w) <span class="tok-op">*</span> f <span class="tok-op">*</span> (self.k1 <span class="tok-op">+</span> <span class="tok-num">1</span>) <span class="tok-op">/</span> (
+                    f <span class="tok-op">+</span> self.k1 <span class="tok-op">*</span> (<span class="tok-num">1</span> <span class="tok-op">-</span> self.b <span class="tok-op">+</span> self.b <span class="tok-op">*</span> dl <span class="tok-op">/</span> <span class="tok-fn">max</span>(<span class="tok-num">1</span>, self.avgdl))
+                )
+            scores.<span class="tok-fn">append</span>((i, s))
+        scores.<span class="tok-fn">sort</span>(key<span class="tok-op">=</span><span class="tok-kw">lambda</span> x<span class="tok-op">:</span> <span class="tok-op">-</span>x[<span class="tok-num">1</span>])
+        <span class="tok-kw">return</span> [(self.docs[i][<span class="tok-str">&quot;id&quot;</span>], s) <span class="tok-kw">for</span> i, s <span class="tok-kw">in</span> scores[<span class="tok-op">:</span>k] <span class="tok-kw">if</span> s <span class="tok-op">&gt;</span> <span class="tok-num">0</span>]
+
+
+<span class="tok-kw">def</span> <span class="tok-fn">rrf</span>(<span class="tok-op">*</span>rank_lists, k<span class="tok-op">=</span><span class="tok-num">60</span>)<span class="tok-op">:</span>
+    score <span class="tok-op">=</span> {}
+    <span class="tok-kw">for</span> ids <span class="tok-kw">in</span> rank_lists<span class="tok-op">:</span>
+        <span class="tok-kw">for</span> rank, doc_id <span class="tok-kw">in</span> <span class="tok-fn">enumerate</span>(ids, start<span class="tok-op">=</span><span class="tok-num">1</span>)<span class="tok-op">:</span>
+            score[doc_id] <span class="tok-op">=</span> score.<span class="tok-fn">get</span>(doc_id, <span class="tok-num">0.0</span>) <span class="tok-op">+</span> <span class="tok-num">1.0</span> <span class="tok-op">/</span> (k <span class="tok-op">+</span> rank)
+    <span class="tok-kw">return</span> <span class="tok-fn">sorted</span>(score.<span class="tok-fn">items</span>(), key<span class="tok-op">=</span><span class="tok-kw">lambda</span> x<span class="tok-op">:</span> <span class="tok-op">-</span>x[<span class="tok-num">1</span>])</code></pre></figure>
+<p><strong>在 <code>rag.py</code> 的 <code>retrieve</code> 里改成</strong>：</p>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">def</span> <span class="tok-fn">retrieve_hybrid</span>(question, chunks, matrix, bm25, k<span class="tok-op">=</span><span class="tok-num">3</span>, pool<span class="tok-op">=</span><span class="tok-num">30</span>)<span class="tok-op">:</span>
+    qv <span class="tok-op">=</span> <span class="tok-fn">normalize</span>(<span class="tok-fn">embed_texts</span>([question])[<span class="tok-num">0</span>])
+    vec_scores <span class="tok-op">=</span> matrix @ qv
+    vec_ids <span class="tok-op">=</span> [chunks[i][<span class="tok-str">&quot;id&quot;</span>] <span class="tok-kw">for</span> i <span class="tok-kw">in</span> np.<span class="tok-fn">argsort</span>(<span class="tok-op">-</span>vec_scores)[<span class="tok-op">:</span>pool]]
+
+    bm25_ids <span class="tok-op">=</span> [doc_id <span class="tok-kw">for</span> doc_id, _ <span class="tok-kw">in</span> bm25.<span class="tok-fn">search</span>(question, k<span class="tok-op">=</span>pool)]
+
+    fused <span class="tok-op">=</span> <span class="tok-fn">rrf</span>(vec_ids, bm25_ids)[<span class="tok-op">:</span>k]
+    by_id <span class="tok-op">=</span> {c[<span class="tok-str">&quot;id&quot;</span>]<span class="tok-op">:</span> c <span class="tok-kw">for</span> c <span class="tok-kw">in</span> chunks}
+    <span class="tok-kw">return</span> [by_id[i] <span class="tok-kw">for</span> i, _ <span class="tok-kw">in</span> fused <span class="tok-kw">if</span> i <span class="tok-kw">in</span> by_id]</code></pre></figure>
+<p><strong>跑评测，对比。</strong></p>
+<p><strong>预期效果</strong>：含数字/编号的题（q16–q18）明显提升（<strong>这是 BM25 的强项</strong>）。</p>
+<blockquote class="callout">
+<p><strong>如果变差了</strong>：可能是 bigram 分词对这份文档不合适，或者 RRF 的 <code>k</code> 需要调。<strong>先看&quot;哪类题变差&quot;，再决定要不要留这个开关。</strong></p>
+</blockquote>
+<hr class="rule">
+<h3 id="project-step-6-优化三可选查询改写40-分钟">Step 6 · 优化三（可选）：查询改写（40 分钟）</h3>
+<p>复用 M5 练习第 4 题的 <code>multi_query</code>，把 4 个查询的结果用 RRF 融合。</p>
+<p><strong>注意</strong>：这一步会让评测变慢 3~4 倍，且要多调聊天模型。<strong>只在你的 API 额度允许时做。</strong></p>
+<hr class="rule">
+<h3 id="project-step-7-优化四可选重排60-分钟需先问我">Step 7 · 优化四（可选）：重排（60 分钟，需先问我）</h3>
+<blockquote class="callout">
+<p>🛑 需要装 <code>sentence-transformers</code> + 下载 <code>bge-reranker-base</code>（约 1GB），或在 API 上加 rerank 服务。</p>
+</blockquote>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-com"># rerank.py（本地版示意）</span>
+<span class="tok-kw">from</span> sentence_transformers <span class="tok-kw">import</span> CrossEncoder
+
+model <span class="tok-op">=</span> <span class="tok-fn">CrossEncoder</span>(<span class="tok-str">&quot;BAAI/bge-reranker-base&quot;</span>)
+
+<span class="tok-kw">def</span> <span class="tok-fn">rerank</span>(query, hits, top_n<span class="tok-op">=</span><span class="tok-num">3</span>)<span class="tok-op">:</span>
+    pairs <span class="tok-op">=</span> [(query, h[<span class="tok-str">&quot;text&quot;</span>]) <span class="tok-kw">for</span> h <span class="tok-kw">in</span> hits]
+    scores <span class="tok-op">=</span> model.<span class="tok-fn">predict</span>(pairs)
+    <span class="tok-kw">for</span> h, s <span class="tok-kw">in</span> <span class="tok-fn">zip</span>(hits, scores)<span class="tok-op">:</span>
+        h[<span class="tok-str">&quot;rerank_score&quot;</span>] <span class="tok-op">=</span> <span class="tok-fn">float</span>(s)
+    <span class="tok-kw">return</span> <span class="tok-fn">sorted</span>(hits, key<span class="tok-op">=</span><span class="tok-kw">lambda</span> x<span class="tok-op">:</span> <span class="tok-op">-</span>x[<span class="tok-str">&quot;rerank_score&quot;</span>])[<span class="tok-op">:</span>top_n]</code></pre></figure>
+<p><strong>必须在候选集 ≥20 条时才用</strong>（否则没得选）。</p>
+<hr class="rule">
+<h3 id="project-step-8-出报告40-分钟这才是交付物">Step 8 · 出报告（40 分钟，<strong>这才是交付物</strong>）</h3>
+<p><code>report.md</code>：</p>
+<figure class="code-block" data-lang="markdown"><figcaption><span class="code-lang">markdown</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-markdown"># RAG v2 优化报告
+
+## 测试环境
+- 文档：售后政策.pdf（12 页）
+- 切分：500 字 / 重叠 50 / 按页
+- 评测集：20 题（6 简单 / 5 同义 / 4 跨段 / 3 精确 / 2 拒答）
+
+## 结果对比
+
+| 版本 | Recall@5 | Precision@3 | 答对率 | 拒答正确率 | 平均 token |
+|---|---|---|---|---|---|
+| v1 基线 | 0.70 | 0.42 | 0.60 | 0.50 | 2100 |
+| + 父块扩展 | 0.70 | 0.35 | 0.65 | 0.50 | 4800 |
+| + 混合检索 | 0.85 | 0.44 | 0.75 | 0.50 | 2400 |
+| + 两者 | 0.85 | 0.38 | 0.80 | 1.00 | 5200 |
+
+## 归因
+
+1. 父块扩展：跨段题（q12–q15）从 2/4 提到 4/4，但 Precision 下降（噪声变多）。
+2. 混合检索：精确数字题（q16–q18）从 1/3 提到 3/3，是这个优化的最大收益。
+3. 拒答正确率从 0.5 提到 1.0：因为父块扩展让&quot;无关问题&quot;的检索分更分散，更容易低于阈值。
+
+## 代价与取舍
+
+- token 成本从 2100 涨到 5200（2.5 倍）。若按单价折算，单次问答成本上升约 2.5 倍。
+- 延迟：rerank 未启用，延迟增加可忽略；父块扩展只增加生成阶段的 token。
+
+## 下一步
+
+- 试&quot;只对跨段题启用父块扩展&quot;（按题型路由）
+- 试把 k 从 3 降到 2，看能否在保持答对率的同时降成本</code></pre></figure>
+<blockquote class="callout">
+<p><strong>这张表和这段归因，就是你面试时能讲 10 分钟的东西。</strong></p>
+</blockquote>
+<hr class="rule">
+<h3 id="project-step-9-可视化可选20-分钟">Step 9 · 可视化（可选，20 分钟）</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">import</span> matplotlib.pyplot <span class="tok-kw">as</span> plt
+
+versions <span class="tok-op">=</span> [<span class="tok-str">&quot;基线&quot;</span>, <span class="tok-str">&quot;+父块&quot;</span>, <span class="tok-str">&quot;+混合&quot;</span>, <span class="tok-str">&quot;+两者&quot;</span>]
+recall <span class="tok-op">=</span> [<span class="tok-num">0.70</span>, <span class="tok-num">0.70</span>, <span class="tok-num">0.85</span>, <span class="tok-num">0.85</span>]
+acc <span class="tok-op">=</span> [<span class="tok-num">0.60</span>, <span class="tok-num">0.65</span>, <span class="tok-num">0.75</span>, <span class="tok-num">0.80</span>]
+
+x <span class="tok-op">=</span> <span class="tok-fn">range</span>(<span class="tok-fn">len</span>(versions))
+plt.<span class="tok-fn">bar</span>([i <span class="tok-op">-</span> <span class="tok-num">0.2</span> <span class="tok-kw">for</span> i <span class="tok-kw">in</span> x], recall, width<span class="tok-op">=</span><span class="tok-num">0.4</span>, label<span class="tok-op">=</span><span class="tok-str">&quot;Recall@5&quot;</span>)
+plt.<span class="tok-fn">bar</span>([i <span class="tok-op">+</span> <span class="tok-num">0.2</span> <span class="tok-kw">for</span> i <span class="tok-kw">in</span> x], acc, width<span class="tok-op">=</span><span class="tok-num">0.4</span>, label<span class="tok-op">=</span><span class="tok-str">&quot;答对率&quot;</span>)
+plt.<span class="tok-fn">xticks</span>(<span class="tok-fn">list</span>(x), versions)
+plt.<span class="tok-fn">ylim</span>(<span class="tok-num">0</span>, <span class="tok-num">1</span>)
+plt.<span class="tok-fn">legend</span>()
+plt.<span class="tok-fn">title</span>(<span class="tok-str">&quot;RAG 版本对比&quot;</span>)
+plt.<span class="tok-fn">savefig</span>(<span class="tok-str">&quot;compare.png&quot;</span>, dpi<span class="tok-op">=</span><span class="tok-num">150</span>)</code></pre></figure>
+<p><strong>别用中文标题</strong>，matplotlib 默认字体不含中文，会变成方块。要么用英文，要么显式设字体。</p>
+<hr class="rule">
+<h2 id="project-6-项目进化方向">6. 项目进化方向</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>等级</th><th>加什么</th><th>学什么</th></tr></thead><tbody><tr><td>Lv.1</td><td>按题型路由（不同题型用不同策略）</td><td>条件分支设计</td></tr><tr><td>Lv.2</td><td>缓存（同样的问题不重复调用）</td><td>哈希缓存</td></tr><tr><td>Lv.3</td><td>建 100 题评测集，自动回归</td><td>测试工程</td></tr><tr><td>Lv.4</td><td>用 LLM-as-judge 自动判分</td><td>模型评估模型</td></tr><tr><td>Lv.5</td><td>加&quot;答案置信度&quot;（分数低就提示&quot;仅供参考&quot;）</td><td>产品思维</td></tr><tr><td>Lv.6</td><td>做成 CI：每次改提示词自动跑评测</td><td>工程化</td></tr></tbody></table></div>
+<blockquote class="callout">
+<p><strong>Lv.6 是&quot;业余&quot;和&quot;专业&quot;的分水岭。</strong> 有了自动回归，你才敢放心改东西。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="project-7-本项目采用的资料">7. 本项目采用的资料</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>步骤</th><th>参考</th><th>出处</th></tr></thead><tbody><tr><td>Step 1 评测集设计</td><td>all-in-rag · 评估章节</td><td><a href="https://datawhalechina.github.io/all-in-rag/" target="_blank" rel="noopener">https://datawhalechina.github.io/all-in-rag/</a></td></tr><tr><td>Step 1 指标定义</td><td>李宏毅 第 12 讲（如何评估模型能力）</td><td><a href="https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php" target="_blank" rel="noopener">https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php</a></td></tr><tr><td>Step 2 判分</td><td>复旦书 第 7 章（RAG 评估指标）</td><td><a href="https://llmbook-zh.github.io/" target="_blank" rel="noopener">https://llmbook-zh.github.io/</a></td></tr><tr><td>Step 4 父块扩展</td><td>本讲稿第四节&quot;武器 4&quot;</td><td>本地</td></tr><tr><td>Step 5 BM25 + RRF</td><td>all-in-rag · 混合检索章节</td><td><a href="https://datawhalechina.github.io/all-in-rag/" target="_blank" rel="noopener">https://datawhalechina.github.io/all-in-rag/</a></td></tr><tr><td>Step 6 查询改写</td><td>Prompt Engineering Guide · Query Expansion</td><td><a href="https://www.promptingguide.ai/zh" target="_blank" rel="noopener">https://www.promptingguide.ai/zh</a></td></tr><tr><td>Step 7 重排</td><td>all-in-rag · Rerank 章节</td><td><a href="https://datawhalechina.github.io/all-in-rag/" target="_blank" rel="noopener">https://datawhalechina.github.io/all-in-rag/</a></td></tr></tbody></table></div>
+<hr class="rule">
+<h2 id="project-交付清单">交付清单</h2>
+<ul>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text"><code>eval_set.json</code> 20 题，含 gold_ids</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text"><code>python -m evaluate</code> 能跑完并打印四个指标</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">至少 2 个&quot;开关&quot;（<code>USE_HYBRID</code> / <code>USE_EXPAND</code>），且关掉能回到基线</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text"><code>report.md</code> 有对比表和归因</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">能说出&quot;哪个优化对哪类题有效&quot;</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">能说出&quot;代价是什么&quot;（token、延迟）</span></li>
+</ul>
+<blockquote class="callout">
+<p>做完这个，你的简历可以写：
+<strong>&quot;构建 20 题 RAG 评测集，量化 Recall/Precision/答对率；通过父块扩展 + BM25 混合检索，将精确信息类问题答对率从 33% 提升到 100%，整体答对率 60%→80%。&quot;</strong></p>
+<p>这句话里有<strong>方法、有数字、有归因</strong>。这是我见过的最有说服力的简历句式。</p>
+</blockquote></div>
+  </div>
+        <nav class="module-pager" aria-label="模块切换">
+    <a class="pager-link" href="m4.html"><span>← 上一模块</span><b>M4 · RAG 核心</b></a>
+    <a class="pager-link pager-link--next" href="m6.html"><span>下一模块 →</span><b>M6 · Agent</b></a>
+  </nav>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="../index.html">
+          <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+  <path d="M20 2.6 35 11v18L20 37.4 5 29V11z" fill="#fff" stroke="#080b16" stroke-width="1.8"/>
+  <path d="M20 2.6 35 11v9L20 28.6 5 20v-9z" fill="#00d5e8" opacity=".9"/>
+  <path d="M35 20v9L20 37.4V28.6z" fill="#ff3d9a" opacity=".85"/>
+  <path d="M13.2 24V16l6.8-3.9L26.8 16v8L20 27.9z" fill="#fff" stroke="#080b16" stroke-width="1.4"/>
+  <circle cx="20" cy="20" r="2.1" fill="#080b16"/>
+</svg>
+          <span class="brand-text">
+            <span class="brand-name">BEGINNER_IN_AI</span>
+            <span class="brand-sub">from python basics to rag &amp; agents</span>
+          </span>
+        </a>
+        <p>为「会一点 Python、数学基本忘光、看英文吃力、只有周末能集中学」的人准备的 16 周路线。理论 → 练习 → 项目，每个模块都走一遍。</p>
+      </div>
+      <div class="footer-col">
+        <h4>Route</h4>
+        <ul>
+          <li><a href="../roadmap.html">16 周排期</a></li>
+          <li><a href="../modules.html">8 个模块</a></li>
+          <li><a href="../projects.html">8 个实践项目</a></li>
+          <li><a href="../graph.html">知识图谱</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Modules</h4>
+        <ul><li><a href="../modules/m0.html">M0 · 开局</a></li><li><a href="../modules/m1.html">M1 · 提示工程</a></li><li><a href="../modules/m2.html">M2 · 对话应用</a></li><li><a href="../modules/m3.html">M3 · 语义检索</a></li><li><a href="../modules/m4.html">M4 · RAG 核心</a></li><li><a href="../modules/m5.html">M5 · RAG 进阶</a></li><li><a href="../modules/m6.html">M6 · Agent</a></li><li><a href="../modules/m7.html">M7 · 部署上线</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Beginner_in_AI · 内容来自个人学习计划，持续迭代中</span>
+      <span>
+        <a href="https://github.com/zonevenom/Beginner_in_AI" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="../resources.html">资料出处</a> ·
+        <button class="reset-btn" type="button" data-to-top>回到顶部 ↑</button>
+      </span>
+    </div>
+  </div>
+</footer>
+<div class="search-overlay" data-search-overlay role="dialog" aria-modal="true" aria-label="站内搜索">
+  <div class="search-panel">
+    <div class="search-field">
+      <svg class="icon " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.4"/><path d="m15.6 15.6 4.4 4.4"/></svg>
+      <input type="search" placeholder="搜索模块、概念、题目、项目…" aria-label="搜索关键词" autocomplete="off">
+      <button class="search-esc" type="button" data-search-close>ESC</button>
+    </div>
+    <ul class="search-results" data-search-results></ul>
+    <p class="search-empty" hidden>没有匹配结果，换个关键词试试。</p>
+  </div>
+</div>
+<script src="../assets/vendor/mermaid.min.js" defer></script>
+<script src="../assets/js/site.js" defer></script>
+
+</body>
+</html>

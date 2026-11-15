@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>知识图谱 · Beginner_in_AI</title>
+<meta name="description" content="16 周学习路线的知识图谱：Python 地基、M0–M7 八个模块的学习顺序与依赖关系、每个模块能干什么、三条学习主线。">
+<meta name="author" content="zonevenom">
+<meta name="theme-color" content="#eef1f8">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Beginner_in_AI">
+<meta property="og:title" content="知识图谱 · Beginner_in_AI">
+<meta property="og:description" content="16 周学习路线的知识图谱：Python 地基、M0–M7 八个模块的学习顺序与依赖关系、每个模块能干什么、三条学习主线。">
+<meta property="og:url" content="https://zonevenom.github.io/Beginner_in_AI/">
+<meta property="og:image" content="https://zonevenom.github.io/Beginner_in_AI/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="知识图谱 · Beginner_in_AI">
+<meta name="twitter:description" content="16 周学习路线的知识图谱：Python 地基、M0–M7 八个模块的学习顺序与依赖关系、每个模块能干什么、三条学习主线。">
+<meta name="twitter:image" content="https://zonevenom.github.io/Beginner_in_AI/assets/img/og-cover.png">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/favicon.svg">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/content.css">
+
+</head>
+<body data-root="">
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-header">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html" aria-label="Beginner_in_AI 首页">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+  <path d="M20 2.6 35 11v18L20 37.4 5 29V11z" fill="#fff" stroke="#080b16" stroke-width="1.8"/>
+  <path d="M20 2.6 35 11v9L20 28.6 5 20v-9z" fill="#00d5e8" opacity=".9"/>
+  <path d="M35 20v9L20 37.4V28.6z" fill="#ff3d9a" opacity=".85"/>
+  <path d="M13.2 24V16l6.8-3.9L26.8 16v8L20 27.9z" fill="#fff" stroke="#080b16" stroke-width="1.4"/>
+  <circle cx="20" cy="20" r="2.1" fill="#080b16"/>
+</svg>
+      <span class="brand-text">
+        <span class="brand-name">BEGINNER_IN_AI</span>
+        <span class="brand-sub">16 weeks · llm application dev</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="展开导航">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a class="nav-link" href="index.html">首页</a></li><li><a class="nav-link" href="modules.html">模块</a></li><li><a class="nav-link" href="roadmap.html">路线图</a></li><li><a class="nav-link" href="projects.html">项目</a></li><li><a class="nav-link" href="graph.html" aria-current="page">图谱</a></li><li><a class="nav-link" href="resources.html">资料</a></li><li><a class="nav-link" href="progress.html">进度</a></li>
+      <li><button class="search-open" type="button" data-search-open aria-label="搜索全站（Ctrl K）">
+        <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.4"/><path d="m15.6 15.6 4.4 4.4"/></svg><span>搜索</span><kbd>⌘K</kbd>
+      </button></li>
+      <li class="nav-cta"><a class="btn btn--sm" href="https://github.com/zonevenom/Beginner_in_AI" target="_blank" rel="noopener">
+        <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11 11 0 0 1 6 0C18 4.7 19 5 19 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5Z"/></svg>GitHub</a></li>
+    </ul>
+  </div>
+</header>
+<main id="main">
+<section class="page-head">
+    <div class="container">
+      <div class="page-head__inner">
+        <div>
+          <span class="eyebrow">knowledge graph</span>
+          <h1>这 16 周，<br>要爬几座山</h1>
+          <p class="lead">图是给你「看清全貌」的，不用背。看不懂术语没关系，学到对应模块自然会懂。每学完一个模块，回来看一眼：我现在站在哪一格？</p>
+        </div>
+        <div class="page-head__meta">
+          <div><b>5</b>层能力</div>
+          <div><b>8</b>个模块</div>
+          <div><b>1</b>条主线</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="container" style="padding-bottom:36px">
+    <div class="graph-wrap">
+      <div class="graph-legend">
+        <span class="graph-legend__item"><i style="background:#080b16"></i>实线 = 学习顺序</span>
+        <span class="graph-legend__item"><i style="background:transparent;border:1px dashed #080b16"></i>虚线 = 选修 / 地基</span>
+        <span class="graph-legend__item">点击模块卡片直达内容</span>
+      </div>
+      <svg class="graph-canvas" viewBox="0 0 900 992" role="img"
+    aria-label="知识图谱：从 Python 地基到 M0–M7 八个模块的路线图">
+    <defs>
+      <pattern id="graph-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+        <path d="M40 0H0v40" fill="none" stroke="#080b16" stroke-width="1" opacity=".035"/>
+      </pattern>
+      <marker id="graph-arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+        <path d="M0 0 10 5 0 10z" fill="#080b16" opacity=".55"/>
+      </marker>
+    </defs>
+    <rect x="0" y="0" width="900" height="992" fill="url(#graph-grid)"/>
+    <text x="150" y="32" text-anchor="end" class="ha-mono" style="font-size:9.5px;letter-spacing:.16em" fill="#626b83">L0 · 地基</text>
+    <g><rect x="190" y="46" width="118" height="30" rx="2" fill="#f7f9fd" stroke="#ccd3e4"/>
+        <text x="249" y="65" text-anchor="middle" style="font-size:10px" fill="#243b3f">Python 够用就好</text></g><g><rect x="315" y="46" width="118" height="30" rx="2" fill="#f7f9fd" stroke="#ccd3e4"/>
+        <text x="374" y="65" text-anchor="middle" style="font-size:10px" fill="#243b3f">命令行与文件</text></g><g><rect x="440" y="46" width="118" height="30" rx="2" fill="#f7f9fd" stroke="#ccd3e4"/>
+        <text x="499" y="65" text-anchor="middle" style="font-size:10px" fill="#243b3f">Git 与 GitHub</text></g>
+    <path d="M249 76V108H380M374 76V108M499 76V108" fill="none" stroke="#080b16" stroke-width="1.2" opacity=".28"/>
+    <path d="M380 108V142" fill="none" stroke="#080b16" stroke-width="1.2" opacity=".28" marker-end="url(#graph-arrow)"/>
+    <g>
+      <path d="M164 175V283" stroke="#00d5e8" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="164" cy="175" r="3" fill="#00d5e8"/>
+      <circle cx="164" cy="283" r="3" fill="#00d5e8"/>
+      <text x="150" y="178" text-anchor="end" style="font-size:11.5px;font-weight:700" fill="#080b16">阶段 01 · 能跑起来</text>
+      <text x="150" y="194" text-anchor="end" class="ha-mono" style="font-size:9px;letter-spacing:.12em" fill="#626b83">W1–W4</text>
+    </g><g>
+      <path d="M164 359V559" stroke="#6a4cff" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="164" cy="359" r="3" fill="#6a4cff"/>
+      <circle cx="164" cy="559" r="3" fill="#6a4cff"/>
+      <text x="150" y="362" text-anchor="end" style="font-size:11.5px;font-weight:700" fill="#080b16">阶段 02 · 会做产品</text>
+      <text x="150" y="378" text-anchor="end" class="ha-mono" style="font-size:9px;letter-spacing:.12em" fill="#626b83">W5–W10</text>
+    </g><g>
+      <path d="M164 635V743" stroke="#00c2a8" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="164" cy="635" r="3" fill="#00c2a8"/>
+      <circle cx="164" cy="743" r="3" fill="#00c2a8"/>
+      <text x="150" y="638" text-anchor="end" style="font-size:11.5px;font-weight:700" fill="#080b16">阶段 03 · 做好</text>
+      <text x="150" y="654" text-anchor="end" class="ha-mono" style="font-size:9px;letter-spacing:.12em" fill="#626b83">W11–W14</text>
+    </g><g>
+      <path d="M164 819V835" stroke="#ffb020" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="164" cy="819" r="3" fill="#ffb020"/>
+      <circle cx="164" cy="835" r="3" fill="#ffb020"/>
+      <text x="150" y="822" text-anchor="end" style="font-size:11.5px;font-weight:700" fill="#080b16">阶段 04 · 交付</text>
+      <text x="150" y="838" text-anchor="end" class="ha-mono" style="font-size:9px;letter-spacing:.12em" fill="#626b83">W15–W16</text>
+    </g>
+    <g>
+        <path d="M380 216V234" stroke="#080b16" stroke-width="1.5" opacity=".38"/>
+        <path d="m375.5 232 4.5 6 4.5-6" fill="none" stroke="#080b16" stroke-width="1.5" opacity=".5"/>
+      </g><g>
+        <path d="M380 308V326" stroke="#080b16" stroke-width="1.5" opacity=".38"/>
+        <path d="m375.5 324 4.5 6 4.5-6" fill="none" stroke="#080b16" stroke-width="1.5" opacity=".5"/>
+      </g><g>
+        <path d="M380 400V418" stroke="#080b16" stroke-width="1.5" opacity=".38"/>
+        <path d="m375.5 416 4.5 6 4.5-6" fill="none" stroke="#080b16" stroke-width="1.5" opacity=".5"/>
+      </g><g>
+        <path d="M380 492V510" stroke="#080b16" stroke-width="1.5" opacity=".38"/>
+        <path d="m375.5 508 4.5 6 4.5-6" fill="none" stroke="#080b16" stroke-width="1.5" opacity=".5"/>
+      </g><g>
+        <path d="M380 584V602" stroke="#080b16" stroke-width="1.5" opacity=".38"/>
+        <path d="m375.5 600 4.5 6 4.5-6" fill="none" stroke="#080b16" stroke-width="1.5" opacity=".5"/>
+      </g><g>
+        <path d="M380 676V694" stroke="#080b16" stroke-width="1.5" opacity=".38"/>
+        <path d="m375.5 692 4.5 6 4.5-6" fill="none" stroke="#080b16" stroke-width="1.5" opacity=".5"/>
+      </g><g>
+        <path d="M380 768V786" stroke="#080b16" stroke-width="1.5" opacity=".38"/>
+        <path d="m375.5 784 4.5 6 4.5-6" fill="none" stroke="#080b16" stroke-width="1.5" opacity=".5"/>
+      </g>
+    <a href="modules/m0.html" class="graph-node" aria-label="M0 开局：把电脑变成 AI 工作台">
+      <g>
+        <rect x="190" y="150" width="380" height="66" rx="3" fill="#fff" stroke="#080b16" stroke-width="1.5"/>
+        <rect x="190" y="150" width="5" height="66" fill="#00d5e8"/>
+        <text x="210" y="189" class="ha-mono" style="font-size:16px;font-weight:700;letter-spacing:.02em" fill="#00707d">M0</text>
+        <text x="258" y="181" style="font-size:13.5px;font-weight:700" fill="#080b16">开局：把电脑变成 AI 工作台</text>
+        <text x="258" y="200" class="ha-mono" style="font-size:9px;letter-spacing:.12em" fill="#626b83">第 1–2 周 · 理论 + 练习 + P1</text>
+        <path d="M570 183h16" stroke="#00d5e8" stroke-width="1.5"/>
+        <circle cx="590" cy="183" r="2.5" fill="#00d5e8"/>
+        <text x="606" y="179" class="ha-mono" style="font-size:8.5px;letter-spacing:.16em" fill="#626b83">DELIVERABLE</text>
+        <text x="606" y="195" style="font-size:11px" fill="#242b3f">P1 命令行问答工具</text>
+      </g>
+    </a><a href="modules/m1.html" class="graph-node" aria-label="M1 提示工程：怎么跟模型说话">
+      <g>
+        <rect x="190" y="242" width="380" height="66" rx="3" fill="#fff" stroke="#080b16" stroke-width="1.5"/>
+        <rect x="190" y="242" width="5" height="66" fill="#ff3d9a"/>
+        <text x="210" y="281" class="ha-mono" style="font-size:16px;font-weight:700;letter-spacing:.02em" fill="#b8005f">M1</text>
+        <text x="258" y="273" style="font-size:13.5px;font-weight:700" fill="#080b16">提示工程：怎么跟模型说话</text>
+        <text x="258" y="292" class="ha-mono" style="font-size:9px;letter-spacing:.12em" fill="#626b83">第 3–4 周 · 理论 + 练习 + P2</text>
+        <path d="M570 275h16" stroke="#ff3d9a" stroke-width="1.5"/>
+        <circle cx="590" cy="275" r="2.5" fill="#ff3d9a"/>
+        <text x="606" y="271" class="ha-mono" style="font-size:8.5px;letter-spacing:.16em" fill="#626b83">DELIVERABLE</text>
+        <text x="606" y="287" style="font-size:11px" fill="#242b3f">P2 提示词实验台</text>
+      </g>
+    </a><a href="modules/m2.html" class="graph-node" aria-label="M2 对话应用工程">
+      <g>
+        <rect x="190" y="334" width="380" height="66" rx="3" fill="#fff" stroke="#080b16" stroke-width="1.5"/>
+        <rect x="190" y="334" width="5" height="66" fill="#6a4cff"/>
+        <text x="210" y="373" class="ha-mono" style="font-size:16px;font-weight:700;letter-spacing:.02em" fill="#4a2bd6">M2</text>
+        <text x="258" y="365" style="font-size:13.5px;font-weight:700" fill="#080b16">对话应用工程</text>
+        <text x="258" y="384" class="ha-mono" style="font-size:9px;letter-spacing:.12em" fill="#626b83">第 5–6 周 · 理论 + 练习 + P3</text>
+        <path d="M570 367h16" stroke="#6a4cff" stroke-width="1.5"/>
+        <circle cx="590" cy="367" r="2.5" fill="#6a4cff"/>
+        <text x="606" y="363" class="ha-mono" style="font-size:8.5px;letter-spacing:.16em" fill="#626b83">DELIVERABLE</text>
+        <text x="606" y="379" style="font-size:11px" fill="#242b3f">P3 带记忆的聊天助手</text>
+      </g>
+    </a><a href="modules/m3.html" class="graph-node" aria-label="M3 语义检索">
+      <g>
+        <rect x="190" y="426" width="380" height="66" rx="3" fill="#fff" stroke="#080b16" stroke-width="1.5"/>
+        <rect x="190" y="426" width="5" height="66" fill="#b9e012"/>
+        <text x="210" y="465" class="ha-mono" style="font-size:16px;font-weight:700;letter-spacing:.02em" fill="#4f6b00">M3</text>
+        <text x="258" y="457" style="font-size:13.5px;font-weight:700" fill="#080b16">语义检索</text>
+        <text x="258" y="476" class="ha-mono" style="font-size:9px;letter-spacing:.12em" fill="#626b83">第 7–8 周 · 理论 + 练习 + P4</text>
+        <path d="M570 459h16" stroke="#b9e012" stroke-width="1.5"/>
+        <circle cx="590" cy="459" r="2.5" fill="#b9e012"/>
+        <text x="606" y="455" class="ha-mono" style="font-size:8.5px;letter-spacing:.16em" fill="#626b83">DELIVERABLE</text>
+        <text x="606" y="471" style="font-size:11px" fill="#242b3f">P4 语义搜索器</text>
+      </g>
+    </a><a href="modules/m4.html" class="graph-node" aria-label="M4 RAG 核心">
+      <g>
+        <rect x="190" y="518" width="380" height="66" rx="3" fill="#fff" stroke="#080b16" stroke-width="1.5"/>
+        <rect x="190" y="518" width="5" height="66" fill="#ff6b35"/>
+        <text x="210" y="557" class="ha-mono" style="font-size:16px;font-weight:700;letter-spacing:.02em" fill="#a5330c">M4</text>
+        <text x="258" y="549" style="font-size:13.5px;font-weight:700" fill="#080b16">RAG 核心</text>
+        <text x="258" y="568" class="ha-mono" style="font-size:9px;letter-spacing:.12em" fill="#626b83">第 9–10 周 · 理论 + 练习 + P5</text>
+        <path d="M570 551h16" stroke="#ff6b35" stroke-width="1.5"/>
+        <circle cx="590" cy="551" r="2.5" fill="#ff6b35"/>
+        <text x="606" y="547" class="ha-mono" style="font-size:8.5px;letter-spacing:.16em" fill="#626b83">DELIVERABLE</text>
+        <text x="606" y="563" style="font-size:11px" fill="#242b3f">P5 个人文档问答机器人 v1</text>
+      </g>
+    </a><a href="modules/m5.html" class="graph-node" aria-label="M5 RAG 进阶与评估">
+      <g>
+        <rect x="190" y="610" width="380" height="66" rx="3" fill="#fff" stroke="#080b16" stroke-width="1.5"/>
+        <rect x="190" y="610" width="5" height="66" fill="#00c2a8"/>
+        <text x="210" y="649" class="ha-mono" style="font-size:16px;font-weight:700;letter-spacing:.02em" fill="#00736a">M5</text>
+        <text x="258" y="641" style="font-size:13.5px;font-weight:700" fill="#080b16">RAG 进阶与评估</text>
+        <text x="258" y="660" class="ha-mono" style="font-size:9px;letter-spacing:.12em" fill="#626b83">第 11–12 周 · 理论 + 练习 + P6</text>
+        <path d="M570 643h16" stroke="#00c2a8" stroke-width="1.5"/>
+        <circle cx="590" cy="643" r="2.5" fill="#00c2a8"/>
+        <text x="606" y="639" class="ha-mono" style="font-size:8.5px;letter-spacing:.16em" fill="#626b83">DELIVERABLE</text>
+        <text x="606" y="655" style="font-size:11px" fill="#242b3f">P6 带评测的 RAG v2</text>
+      </g>
+    </a><a href="modules/m6.html" class="graph-node" aria-label="M6 Agent 与工具调用">
+      <g>
+        <rect x="190" y="702" width="380" height="66" rx="3" fill="#fff" stroke="#080b16" stroke-width="1.5"/>
+        <rect x="190" y="702" width="5" height="66" fill="#2f6bff"/>
+        <text x="210" y="741" class="ha-mono" style="font-size:16px;font-weight:700;letter-spacing:.02em" fill="#1a45c8">M6</text>
+        <text x="258" y="733" style="font-size:13.5px;font-weight:700" fill="#080b16">Agent 与工具调用</text>
+        <text x="258" y="752" class="ha-mono" style="font-size:9px;letter-spacing:.12em" fill="#626b83">第 13–14 周 · 理论 + 练习 + P7</text>
+        <path d="M570 735h16" stroke="#2f6bff" stroke-width="1.5"/>
+        <circle cx="590" cy="735" r="2.5" fill="#2f6bff"/>
+        <text x="606" y="731" class="ha-mono" style="font-size:8.5px;letter-spacing:.16em" fill="#626b83">DELIVERABLE</text>
+        <text x="606" y="747" style="font-size:11px" fill="#242b3f">P7 多功能 Agent</text>
+      </g>
+    </a><a href="modules/m7.html" class="graph-node" aria-label="M7 部署上线">
+      <g>
+        <rect x="190" y="794" width="380" height="66" rx="3" fill="#fff" stroke="#080b16" stroke-width="1.5"/>
+        <rect x="190" y="794" width="5" height="66" fill="#ffb020"/>
+        <text x="210" y="833" class="ha-mono" style="font-size:16px;font-weight:700;letter-spacing:.02em" fill="#8a5300">M7</text>
+        <text x="258" y="825" style="font-size:13.5px;font-weight:700" fill="#080b16">部署上线</text>
+        <text x="258" y="844" class="ha-mono" style="font-size:9px;letter-spacing:.12em" fill="#626b83">第 15–16 周 · 理论 + 练习 + P8</text>
+        <path d="M570 827h16" stroke="#ffb020" stroke-width="1.5"/>
+        <circle cx="590" cy="827" r="2.5" fill="#ffb020"/>
+        <text x="606" y="823" class="ha-mono" style="font-size:8.5px;letter-spacing:.16em" fill="#626b83">DELIVERABLE</text>
+        <text x="606" y="839" style="font-size:11px" fill="#242b3f">P8 部署好的网页链接</text>
+      </g>
+    </a>
+    <g>
+    <path d="M380 860V888" stroke="#080b16" stroke-width="1.5" stroke-dasharray="4 5" opacity=".4"/>
+    <rect x="190" y="896" width="380" height="54" rx="3" fill="#fff" stroke="#ccd3e4" stroke-dasharray="5 4"/>
+    <text x="210" y="918" class="ha-mono" style="font-size:10px;letter-spacing:.16em" fill="#626b83">F1 · OPTIONAL</text>
+    <text x="210" y="937" style="font-size:11.5px" fill="#242b3f">微调 / 本地模型（LoRA、量化、私有化部署）</text>
+  </g>
+  </svg>
+      <div class="graph-list"><a class="graph-list__item" href="modules/m0.html" style="--accent:#00d5e8">
+      <span class="graph-list__code">M0</span>
+      <span>
+        <b>开局：把电脑变成 AI 工作台</b>
+        <small>能跑起来 · 第 1–2 周 · P1</small>
+      </span>
+      <svg class="icon " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg>
+    </a><a class="graph-list__item" href="modules/m1.html" style="--accent:#ff3d9a">
+      <span class="graph-list__code">M1</span>
+      <span>
+        <b>提示工程：怎么跟模型说话</b>
+        <small>能跑起来 · 第 3–4 周 · P2</small>
+      </span>
+      <svg class="icon " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg>
+    </a><a class="graph-list__item" href="modules/m2.html" style="--accent:#6a4cff">
+      <span class="graph-list__code">M2</span>
+      <span>
+        <b>对话应用工程</b>
+        <small>会做产品 · 第 5–6 周 · P3</small>
+      </span>
+      <svg class="icon " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg>
+    </a><a class="graph-list__item" href="modules/m3.html" style="--accent:#b9e012">
+      <span class="graph-list__code">M3</span>
+      <span>
+        <b>语义检索</b>
+        <small>会做产品 · 第 7–8 周 · P4</small>
+      </span>
+      <svg class="icon " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg>
+    </a><a class="graph-list__item" href="modules/m4.html" style="--accent:#ff6b35">
+      <span class="graph-list__code">M4</span>
+      <span>
+        <b>RAG 核心</b>
+        <small>会做产品 · 第 9–10 周 · P5</small>
+      </span>
+      <svg class="icon " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg>
+    </a><a class="graph-list__item" href="modules/m5.html" style="--accent:#00c2a8">
+      <span class="graph-list__code">M5</span>
+      <span>
+        <b>RAG 进阶与评估</b>
+        <small>做好 · 第 11–12 周 · P6</small>
+      </span>
+      <svg class="icon " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg>
+    </a><a class="graph-list__item" href="modules/m6.html" style="--accent:#2f6bff">
+      <span class="graph-list__code">M6</span>
+      <span>
+        <b>Agent 与工具调用</b>
+        <small>做好 · 第 13–14 周 · P7</small>
+      </span>
+      <svg class="icon " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg>
+    </a><a class="graph-list__item" href="modules/m7.html" style="--accent:#ffb020">
+      <span class="graph-list__code">M7</span>
+      <span>
+        <b>部署上线</b>
+        <small>交付 · 第 15–16 周 · P8</small>
+      </span>
+      <svg class="icon " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg>
+    </a></div>
+    </div>
+    <div class="split" style="margin-top:28px">
+      <div class="law-card">
+        <span class="law-card__num">DATA FLOW</span>
+        <h3>按「数据流」理解</h3>
+        <p>用户输入 → 提示词拼装 → 模型生成 → 后处理 → 返回。<br>RAG 是在链条中间插了「检索」，Agent 是插了「调工具」。</p>
+      </div>
+      <div class="law-card">
+        <span class="law-card__num">FAILURE MODE</span>
+        <h3>按「出错方式」理解</h3>
+        <p>不知道 → 要 RAG；不会算 / 不能操作 → 要工具；不听话 → 要提示工程；太贵太慢 → 要工程优化。</p>
+      </div>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div class="prose" style="max-width:900px"><h2 id="graph-二每个模块的内部结构三件套">二、每个模块的内部结构（三件套）</h2>
+<p>你对我的要求是「每个小安排 = 理论 + 练习 + 项目」，所以每个模块内部都是同一个形状：</p>
+<div class="mermaid-wrap"><div class="mermaid">flowchart LR
+    T["① 理论讲稿<br/>大白话 + 比喻<br/>+ 资料出处"] --> Q["② 练习题 5~8 道<br/>概念/代码/动手<br/>+ 详细解析"]
+    Q --> P["③ 项目计划书<br/>工具环境/结构/流程图<br/>/逐步操作/进化方向"]
+    P --> R["④ 复盘<br/>错题本 + 一句话总结"]</div></div>
+<p><strong>为什么必须是这个顺序？</strong></p>
+<ul>
+<li>只听理论 → 以为自己会了，一动手全懵（&quot;知识的错觉&quot;）</li>
+<li>只做项目 → 换个需求就不会了，因为你不知道为什么这么写</li>
+<li>练习是理论到项目之间的<strong>缓冲垫</strong>，故意设计得比理论难一点点、比项目简单一点点</li>
+</ul>
+<hr class="rule">
+<h2 id="graph-三能力地图学完你具体能干什么">三、能力地图（学完你具体能干什么）</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>模块</th><th>学完你能做到</th><th>对应岗位能力</th></tr></thead><tbody><tr><td>M0</td><td>在自己的电脑上跑通一次大模型调用，看懂返回的 JSON</td><td>入门门槛</td></tr><tr><td>M1</td><td>写出稳定输出的提示词，让模型按 JSON 格式回答</td><td>Prompt 工程师</td></tr><tr><td>M2</td><td>做出有上下文记忆的聊天界面，控制成本</td><td>AI 应用开发</td></tr><tr><td>M3</td><td>用向量把&quot;意思相近&quot;的文本找出来</td><td>检索/RAG 基础</td></tr><tr><td>M4</td><td>把一堆 PDF 变成能问答的知识库，答案带出处</td><td><strong>RAG 工程师（最热门）</strong></td></tr><tr><td>M5</td><td>说清楚&quot;我的 RAG 准确率是多少&quot;，并优化它</td><td>RAG 工程师（进阶）</td></tr><tr><td>M6</td><td>让模型自己调工具、分步骤完成任务</td><td><strong>Agent 开发（最抢手）</strong></td></tr><tr><td>M7</td><td>部署成链接发给别人用，写进简历</td><td>独立交付能力</td></tr></tbody></table></div>
+<hr class="rule">
+<h2 id="graph-四三条学习主线同一批知识三种切法">四、三条学习主线（同一批知识，三种切法）</h2>
+<ol>
+<li><strong>按&quot;数据流&quot;切</strong>：用户输入 → 提示词拼装 → 模型生成 → 后处理 → 返回用户。
+RAG 就是在这个链条中间插了&quot;检索&quot;，Agent 就是插了&quot;调工具&quot;。</li>
+<li><strong>按&quot;出错方式&quot;切</strong>：模型不知道 → 要 RAG；模型不会算/不能操作 → 要工具；模型不听话 → 要提示工程；模型太贵太慢 → 要工程优化。</li>
+<li><strong>按&quot;交付物&quot;切</strong>：脚本 → 界面 → 服务 → 产品。每升一级，多一层工程能力。</li>
+</ol>
+<blockquote class="callout">
+<p>建议你每学完一个模块，回到这张图上用手指一下：&quot;我现在站在哪一格？&quot;——这是防止迷路最有效的办法。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="graph-五各模块资料对应速查">五、各模块资料对应速查</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>模块</th><th>主要参考（详见资料区）</th></tr></thead><tbody><tr><td>M0</td><td>李宏毅 生成式AI导论 第1讲；llm-universe 第1章；DeepSeek API 文档</td></tr><tr><td>M1</td><td>李宏毅 第2–4讲；Prompt Engineering Guide 中文版；llm-universe 第2章</td></tr><tr><td>M2</td><td>llm-universe 第3–4章；OpenAI Cookbook；Streamlit 文档</td></tr><tr><td>M3</td><td>happy-llm 第2章；all-in-rag 第2章；Chroma 文档</td></tr><tr><td>M4</td><td>all-in-rag 第3–5章；llm-universe 第5章；LlamaIndex 文档</td></tr><tr><td>M5</td><td>all-in-rag 第6–8章；复旦《大规模语言模型》第7章</td></tr><tr><td>M6</td><td>李宏毅 第9讲；复旦书 第8章；LangChain / AutoGen 文档</td></tr><tr><td>M7</td><td>FastAPI 中文文档；Streamlit 文档；llm-universe 第6章</td></tr></tbody></table></div></div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+  <path d="M20 2.6 35 11v18L20 37.4 5 29V11z" fill="#fff" stroke="#080b16" stroke-width="1.8"/>
+  <path d="M20 2.6 35 11v9L20 28.6 5 20v-9z" fill="#00d5e8" opacity=".9"/>
+  <path d="M35 20v9L20 37.4V28.6z" fill="#ff3d9a" opacity=".85"/>
+  <path d="M13.2 24V16l6.8-3.9L26.8 16v8L20 27.9z" fill="#fff" stroke="#080b16" stroke-width="1.4"/>
+  <circle cx="20" cy="20" r="2.1" fill="#080b16"/>
+</svg>
+          <span class="brand-text">
+            <span class="brand-name">BEGINNER_IN_AI</span>
+            <span class="brand-sub">from python basics to rag &amp; agents</span>
+          </span>
+        </a>
+        <p>为「会一点 Python、数学基本忘光、看英文吃力、只有周末能集中学」的人准备的 16 周路线。理论 → 练习 → 项目，每个模块都走一遍。</p>
+      </div>
+      <div class="footer-col">
+        <h4>Route</h4>
+        <ul>
+          <li><a href="roadmap.html">16 周排期</a></li>
+          <li><a href="modules.html">8 个模块</a></li>
+          <li><a href="projects.html">8 个实践项目</a></li>
+          <li><a href="graph.html">知识图谱</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Modules</h4>
+        <ul><li><a href="modules/m0.html">M0 · 开局</a></li><li><a href="modules/m1.html">M1 · 提示工程</a></li><li><a href="modules/m2.html">M2 · 对话应用</a></li><li><a href="modules/m3.html">M3 · 语义检索</a></li><li><a href="modules/m4.html">M4 · RAG 核心</a></li><li><a href="modules/m5.html">M5 · RAG 进阶</a></li><li><a href="modules/m6.html">M6 · Agent</a></li><li><a href="modules/m7.html">M7 · 部署上线</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Beginner_in_AI · 内容来自个人学习计划，持续迭代中</span>
+      <span>
+        <a href="https://github.com/zonevenom/Beginner_in_AI" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="resources.html">资料出处</a> ·
+        <button class="reset-btn" type="button" data-to-top>回到顶部 ↑</button>
+      </span>
+    </div>
+  </div>
+</footer>
+<div class="search-overlay" data-search-overlay role="dialog" aria-modal="true" aria-label="站内搜索">
+  <div class="search-panel">
+    <div class="search-field">
+      <svg class="icon " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.4"/><path d="m15.6 15.6 4.4 4.4"/></svg>
+      <input type="search" placeholder="搜索模块、概念、题目、项目…" aria-label="搜索关键词" autocomplete="off">
+      <button class="search-esc" type="button" data-search-close>ESC</button>
+    </div>
+    <ul class="search-results" data-search-results></ul>
+    <p class="search-empty" hidden>没有匹配结果，换个关键词试试。</p>
+  </div>
+</div>
+<script src="assets/vendor/mermaid.min.js" defer></script>
+<script src="assets/js/site.js" defer></script>
+
+</body>
+</html>

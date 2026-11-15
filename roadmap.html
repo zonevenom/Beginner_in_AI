@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>16 周路线图 · Beginner_in_AI</title>
+<meta name="description" content="16 周 · 周末制的大模型应用开发排期：4 个阶段、16 周课表、每周固定动作、模块考核标准与断档后的弹性规则。">
+<meta name="author" content="zonevenom">
+<meta name="theme-color" content="#eef1f8">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Beginner_in_AI">
+<meta property="og:title" content="16 周路线图 · Beginner_in_AI">
+<meta property="og:description" content="16 周 · 周末制的大模型应用开发排期：4 个阶段、16 周课表、每周固定动作、模块考核标准与断档后的弹性规则。">
+<meta property="og:url" content="https://zonevenom.github.io/Beginner_in_AI/">
+<meta property="og:image" content="https://zonevenom.github.io/Beginner_in_AI/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="16 周路线图 · Beginner_in_AI">
+<meta name="twitter:description" content="16 周 · 周末制的大模型应用开发排期：4 个阶段、16 周课表、每周固定动作、模块考核标准与断档后的弹性规则。">
+<meta name="twitter:image" content="https://zonevenom.github.io/Beginner_in_AI/assets/img/og-cover.png">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/favicon.svg">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/content.css">
+
+</head>
+<body data-root="">
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-header">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html" aria-label="Beginner_in_AI 首页">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+  <path d="M20 2.6 35 11v18L20 37.4 5 29V11z" fill="#fff" stroke="#080b16" stroke-width="1.8"/>
+  <path d="M20 2.6 35 11v9L20 28.6 5 20v-9z" fill="#00d5e8" opacity=".9"/>
+  <path d="M35 20v9L20 37.4V28.6z" fill="#ff3d9a" opacity=".85"/>
+  <path d="M13.2 24V16l6.8-3.9L26.8 16v8L20 27.9z" fill="#fff" stroke="#080b16" stroke-width="1.4"/>
+  <circle cx="20" cy="20" r="2.1" fill="#080b16"/>
+</svg>
+      <span class="brand-text">
+        <span class="brand-name">BEGINNER_IN_AI</span>
+        <span class="brand-sub">16 weeks · llm application dev</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="展开导航">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a class="nav-link" href="index.html">首页</a></li><li><a class="nav-link" href="modules.html">模块</a></li><li><a class="nav-link" href="roadmap.html" aria-current="page">路线图</a></li><li><a class="nav-link" href="projects.html">项目</a></li><li><a class="nav-link" href="graph.html">图谱</a></li><li><a class="nav-link" href="resources.html">资料</a></li><li><a class="nav-link" href="progress.html">进度</a></li>
+      <li><button class="search-open" type="button" data-search-open aria-label="搜索全站（Ctrl K）">
+        <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.4"/><path d="m15.6 15.6 4.4 4.4"/></svg><span>搜索</span><kbd>⌘K</kbd>
+      </button></li>
+      <li class="nav-cta"><a class="btn btn--sm" href="https://github.com/zonevenom/Beginner_in_AI" target="_blank" rel="noopener">
+        <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11 11 0 0 1 6 0C18 4.7 19 5 19 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5Z"/></svg>GitHub</a></li>
+    </ul>
+  </div>
+</header>
+<main id="main">
+<section class="page-head">
+    <div class="container">
+      <div class="page-head__inner">
+        <div>
+          <span class="eyebrow">roadmap / 16 weeks</span>
+          <h1>16 周排期，<br>周末啃硬骨头</h1>
+          <p class="lead">只有周末能集中学、平时零散，所以：周末啃硬骨头，平日只做「轻动作」。一周真实投入约 5 小时，16 周约 80 小时。</p>
+        </div>
+        <div class="page-head__meta">
+          <div><b>4</b>个阶段</div>
+          <div><b>16</b>周课表</div>
+          <div><b>≈5h</b>每周投入</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="container">
+    <div class="stage-stack"><section class="stage-block" id="stage-1" style="--accent:#00d5e8">
+      <div class="stage-block__head">
+        <div class="stage-block__num">阶段 01 · BOOT · W1–W4</div>
+        <h2>能跑起来</h2>
+        <p>装环境、调通 API、学会怎么跟模型说话。这一阶段的目标只有一个：让代码跑起来。</p>
+        <div class="stage-block__meta">
+          <a class="chip" href="modules/m0.html">M0 开局</a><a class="chip" href="modules/m1.html">M1 提示工程</a>
+          <span class="chip">4 周</span>
+        </div>
+      </div>
+      <div class="week-list"><div class="week-item" style="--accent:#00d5e8">
+      <div class="week-num">W01</div>
+      <div class="week-mod">
+        <a class="chip chip--accent" style="--accent:#00d5e8" href="modules/m0.html">M0</a>
+      </div>
+      <div class="week-task">
+        <p>装 Python 环境、跑通第一次 API 调用（理论 1.1–1.3 + 练习 1–3）</p>
+        <small><span class="week-task__tag">平日</span>每天读 10 分钟讲稿，把不懂的词圈出来</small>
+      </div>
+      <div class="week-out">
+        <span>本周产出</span>
+        <b>一个能跑通的 hello_llm.py</b>
+      </div>
+    </div><div class="week-item" style="--accent:#00d5e8">
+      <div class="week-num">W02</div>
+      <div class="week-mod">
+        <a class="chip chip--accent" style="--accent:#00d5e8" href="modules/m0.html">M0</a>
+      </div>
+      <div class="week-task">
+        <p>讲完理论 1.4、做完练习 4–6、开始 P1 项目</p>
+        <small><span class="week-task__tag">平日</span>改 hello_llm.py 里的 temperature，观察输出变化</small>
+      </div>
+      <div class="week-out">
+        <span>本周产出</span>
+        <b>P1 命令行问答工具 v1</b>
+      </div>
+    </div><div class="week-item" style="--accent:#ff3d9a">
+      <div class="week-num">W03</div>
+      <div class="week-mod">
+        <a class="chip chip--accent" style="--accent:#ff3d9a" href="modules/m1.html">M1</a>
+      </div>
+      <div class="week-task">
+        <p>提示工程四要素、few-shot、结构化输出（理论全部 + 练习 1–4）</p>
+        <small><span class="week-task__tag">平日</span>每天用「角色+任务+格式+约束」重写一句你平时问 AI 的话</small>
+      </div>
+      <div class="week-out">
+        <span>本周产出</span>
+        <b>一份 10 条的提示词卡片</b>
+      </div>
+    </div><div class="week-item" style="--accent:#ff3d9a">
+      <div class="week-num">W04</div>
+      <div class="week-mod">
+        <a class="chip chip--accent" style="--accent:#ff3d9a" href="modules/m1.html">M1</a>
+      </div>
+      <div class="week-task">
+        <p>JSON 输出 + 提示注入 + 做完练习 5–7、做 P2</p>
+        <small><span class="week-task__tag">平日</span>用 P2 对比两种提示词，记下差异</small>
+      </div>
+      <div class="week-out">
+        <span>本周产出</span>
+        <b>P2 提示词实验台</b>
+      </div>
+    </div></div>
+    </section><section class="stage-block" id="stage-2" style="--accent:#6a4cff">
+      <div class="stage-block__head">
+        <div class="stage-block__num">阶段 02 · BUILD · W5–W10</div>
+        <h2>会做产品</h2>
+        <p>对话、向量、RAG。从「能收到回复」走到「能对着自己的文档提问」。</p>
+        <div class="stage-block__meta">
+          <a class="chip" href="modules/m2.html">M2 对话应用</a><a class="chip" href="modules/m3.html">M3 语义检索</a><a class="chip" href="modules/m4.html">M4 RAG 核心</a>
+          <span class="chip">6 周</span>
+        </div>
+      </div>
+      <div class="week-list"><div class="week-item" style="--accent:#6a4cff">
+      <div class="week-num">W05</div>
+      <div class="week-mod">
+        <a class="chip chip--accent" style="--accent:#6a4cff" href="modules/m2.html">M2</a>
+      </div>
+      <div class="week-task">
+        <p>流式输出原理、多轮对话消息数组（理论 2.1–2.2）</p>
+        <small><span class="week-task__tag">平日</span>观察 ChatGPT 打字机效果，想「它为什么不一次给完」</small>
+      </div>
+      <div class="week-out">
+        <span>本周产出</span>
+        <b>理解 messages 结构</b>
+      </div>
+    </div><div class="week-item" style="--accent:#6a4cff">
+      <div class="week-num">W06</div>
+      <div class="week-mod">
+        <a class="chip chip--accent" style="--accent:#6a4cff" href="modules/m2.html">M2</a>
+      </div>
+      <div class="week-task">
+        <p>上下文窗口、截断策略、成本控制；做 P3</p>
+        <small><span class="week-task__tag">平日</span>给你的聊天助手加一句 system，看风格变化</small>
+      </div>
+      <div class="week-out">
+        <span>本周产出</span>
+        <b>P3 带记忆的聊天助手</b>
+      </div>
+    </div><div class="week-item" style="--accent:#b9e012">
+      <div class="week-num">W07</div>
+      <div class="week-mod">
+        <a class="chip chip--accent" style="--accent:#b9e012" href="modules/m3.html">M3</a>
+      </div>
+      <div class="week-task">
+        <p>向量与相似度直觉、Embedding 调用（理论 3.1–3.2）</p>
+        <small><span class="week-task__tag">平日</span>用一句话找同义句，人工感受「语义相似」</small>
+      </div>
+      <div class="week-out">
+        <span>本周产出</span>
+        <b>能把句子变成一串数字</b>
+      </div>
+    </div><div class="week-item" style="--accent:#b9e012">
+      <div class="week-num">W08</div>
+      <div class="week-mod">
+        <a class="chip chip--accent" style="--accent:#b9e012" href="modules/m3.html">M3</a>
+      </div>
+      <div class="week-task">
+        <p>向量库（Chroma）增删改查；做 P4</p>
+        <small><span class="week-task__tag">平日</span>给向量库加 5 条你自己的笔记</small>
+      </div>
+      <div class="week-out">
+        <span>本周产出</span>
+        <b>P4 语义搜索器</b>
+      </div>
+    </div><div class="week-item" style="--accent:#ff6b35">
+      <div class="week-num">W09</div>
+      <div class="week-mod">
+        <a class="chip chip--accent" style="--accent:#ff6b35" href="modules/m4.html">M4</a>
+      </div>
+      <div class="week-task">
+        <p>RAG 全景：切分→检索→拼提示→生成→引用（理论 4.1–4.3）</p>
+        <small><span class="week-task__tag">平日</span>手写一遍「检索到的片段怎么塞进提示词」</small>
+      </div>
+      <div class="week-out">
+        <span>本周产出</span>
+        <b>画得出 RAG 数据流</b>
+      </div>
+    </div><div class="week-item" style="--accent:#ff6b35">
+      <div class="week-num">W10</div>
+      <div class="week-mod">
+        <a class="chip chip--accent" style="--accent:#ff6b35" href="modules/m4.html">M4</a>
+      </div>
+      <div class="week-task">
+        <p>做 P5：PDF → 切片 → 入库 → 问答 → 显示出处</p>
+        <small><span class="week-task__tag">平日</span>换一本你自己的 PDF 试试</small>
+      </div>
+      <div class="week-out">
+        <span>本周产出</span>
+        <b>P5 个人文档问答机器人 v1</b>
+      </div>
+    </div></div>
+    </section><section class="stage-block" id="stage-3" style="--accent:#00c2a8">
+      <div class="stage-block__head">
+        <div class="stage-block__num">阶段 03 · TUNE · W11–W14</div>
+        <h2>做好</h2>
+        <p>让检索更准、让答案可量化、让模型自己调工具。这一阶段决定面试时你有没有话说。</p>
+        <div class="stage-block__meta">
+          <a class="chip" href="modules/m5.html">M5 RAG 进阶</a><a class="chip" href="modules/m6.html">M6 Agent</a>
+          <span class="chip">4 周</span>
+        </div>
+      </div>
+      <div class="week-list"><div class="week-item" style="--accent:#00c2a8">
+      <div class="week-num">W11</div>
+      <div class="week-mod">
+        <a class="chip chip--accent" style="--accent:#00c2a8" href="modules/m5.html">M5</a>
+      </div>
+      <div class="week-task">
+        <p>检索为什么会错：切分粒度、混合检索、重排（理论 5.1–5.2）</p>
+        <small><span class="week-task__tag">平日</span>故意问一个库里没有的问题，看它是否承认「不知道」</small>
+      </div>
+      <div class="week-out">
+        <span>本周产出</span>
+        <b>列出 5 个失败案例</b>
+      </div>
+    </div><div class="week-item" style="--accent:#00c2a8">
+      <div class="week-num">W12</div>
+      <div class="week-mod">
+        <a class="chip chip--accent" style="--accent:#00c2a8" href="modules/m5.html">M5</a>
+      </div>
+      <div class="week-task">
+        <p>搭 20 条评测集、算命中率；做 P6 升级</p>
+        <small><span class="week-task__tag">平日</span>每周给你的 RAG 打一次分</small>
+      </div>
+      <div class="week-out">
+        <span>本周产出</span>
+        <b>P6 带评测的 RAG v2</b>
+      </div>
+    </div><div class="week-item" style="--accent:#2f6bff">
+      <div class="week-num">W13</div>
+      <div class="week-mod">
+        <a class="chip chip--accent" style="--accent:#2f6bff" href="modules/m6.html">M6</a>
+      </div>
+      <div class="week-task">
+        <p>工具调用原理（JSON Schema / function calling）、ReAct（理论 6.1–6.2）</p>
+        <small><span class="week-task__tag">平日</span>想 3 个「模型自己算不对但工具能算对」的例子</small>
+      </div>
+      <div class="week-out">
+        <span>本周产出</span>
+        <b>一个能算数的工具</b>
+      </div>
+    </div><div class="week-item" style="--accent:#2f6bff">
+      <div class="week-num">W14</div>
+      <div class="week-mod">
+        <a class="chip chip--accent" style="--accent:#2f6bff" href="modules/m6.html">M6</a>
+      </div>
+      <div class="week-task">
+        <p>多工具 + 失败重试 + 防死循环；做 P7</p>
+        <small><span class="week-task__tag">平日</span>观察 Agent 调用顺序日志</small>
+      </div>
+      <div class="week-out">
+        <span>本周产出</span>
+        <b>P7 多功能 Agent</b>
+      </div>
+    </div></div>
+    </section><section class="stage-block" id="stage-4" style="--accent:#ffb020">
+      <div class="stage-block__head">
+        <div class="stage-block__num">阶段 04 · SHIP · W15–W16</div>
+        <h2>交付</h2>
+        <p>界面、接口、部署、作品集。把「我做过」变成一条别人能打开的链接。</p>
+        <div class="stage-block__meta">
+          <a class="chip" href="modules/m7.html">M7 部署上线</a>
+          <span class="chip">2 周</span>
+        </div>
+      </div>
+      <div class="week-list"><div class="week-item" style="--accent:#ffb020">
+      <div class="week-num">W15</div>
+      <div class="week-mod">
+        <a class="chip chip--accent" style="--accent:#ffb020" href="modules/m7.html">M7</a>
+      </div>
+      <div class="week-task">
+        <p>Web 界面（Streamlit）+ 接口（FastAPI）+ 密钥管理</p>
+        <small><span class="week-task__tag">平日</span>把应用发给一个朋友试用，收集 3 条吐槽</small>
+      </div>
+      <div class="week-out">
+        <span>本周产出</span>
+        <b>能打开的网页版</b>
+      </div>
+    </div><div class="week-item" style="--accent:#ffb020">
+      <div class="week-num">W16</div>
+      <div class="week-mod">
+        <a class="chip chip--accent" style="--accent:#ffb020" href="modules/m7.html">M7</a>
+      </div>
+      <div class="week-task">
+        <p>部署、README、演示视频、简历三句话；做 P8</p>
+        <small><span class="week-task__tag">平日</span>回看 16 周错题本</small>
+      </div>
+      <div class="week-out">
+        <span>本周产出</span>
+        <b>作品集（3 个项目）</b>
+      </div>
+    </div></div>
+    </section></div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div class="doc-main prose" style="max-width:900px"><h2 id="plan-一时间怎么分先看这个比课表重要">一、时间怎么分（先看这个，比课表重要）</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>时段</th><th>时长</th><th>干什么</th><th>不要干什么</th></tr></thead><tbody><tr><td>周六上午</td><td>2 小时</td><td><strong>读理论讲稿 + 做练习</strong></td><td>不要开新项目</td></tr><tr><td>周日上午</td><td>2 小时</td><td><strong>写项目代码</strong>（按计划书一步一停）</td><td>不要重读理论</td></tr><tr><td>平日（任选 3 天）</td><td>每次 15–20 分钟</td><td>① 把周末代码再跑一遍 ② 改一个参数看变化 ③ 在我的讲稿里划一句重点</td><td>不要学新内容</td></tr><tr><td>每周日晚上</td><td>10 分钟</td><td>填 <code>02_学习进度看板.md</code> + 错题本加一条</td><td>不要&quot;下周一定补上&quot;</td></tr></tbody></table></div>
+<p><strong>一周真实投入 ≈ 5 小时</strong>。16 周 ≈ 80 小时。这个量足够你从&quot;会一点 Python&quot;走到&quot;能交付 RAG 应用&quot;，前提是<strong>不断档</strong>。</p>
+<blockquote class="callout">
+<p>断档是最大的敌人。缺一周不可怕，缺三周就回不去了。应对办法见第五节。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="plan-三每周的固定动作抄下来贴墙上">三、每周的固定动作（抄下来贴墙上）</h2>
+<p><strong>周六 2h</strong></p>
+<ol>
+<li>（10 min）打开进度看板，看上周错题</li>
+<li>（50 min）读讲稿，<strong>只读一遍</strong>，不懂的地方画问号，别停</li>
+<li>（30 min）做练习，<strong>先不看解析</strong></li>
+<li>（20 min）对解析，把错的题抄进错题本</li>
+<li>（10 min）用一句话总结&quot;这周我学会了什么&quot;</li>
+</ol>
+<p><strong>周日 2h</strong></p>
+<ol>
+<li>（10 min）打开项目计划书，看今天的任务清单</li>
+<li>（80 min）照着敲，<strong>每敲 10 行运行一次</strong></li>
+<li>（20 min）故意改坏一个地方，看报错长什么样（这一步最值钱）</li>
+<li>（10 min）commit 一次代码</li>
+</ol>
+<p><strong>平日 3×15 min</strong>：只做&quot;回锅肉&quot;——重跑代码、改参数、背 3 个术语。</p>
+<hr class="rule">
+<h2 id="plan-四考核标准怎么算这个模块过了">四、考核标准（怎么算&quot;这个模块过了&quot;）</h2>
+<p>每个模块必须同时满足三条，才允许进入下一个模块：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>门槛</th><th>具体标准</th></tr></thead><tbody><tr><td>理论</td><td>能不看讲稿，用自己的话把核心概念讲给一个外行听（3 分钟）</td></tr><tr><td>练习</td><td>≥5 题里至少 4 题独立做对；做错的题能说出&quot;我当时错在哪一步&quot;</td></tr><tr><td>项目</td><td>代码能跑通；能说出<strong>每一行关键代码为什么这么写</strong>；故意改坏能自己修回来</td></tr></tbody></table></div>
+<blockquote class="callout">
+<p>只满足&quot;代码能跑&quot;不算过。<strong>能改、能修、能解释</strong>才算过。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="plan-五断档了怎么办弹性规则">五、断档了怎么办（弹性规则）</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>情况</th><th>处理</th></tr></thead><tbody><tr><td>某周只完成一半</td><td>不补课，直接把剩余部分并入下周，<strong>砍掉&quot;进阶&quot;部分</strong>，保住主线</td></tr><tr><td>连续两周没动</td><td>不要从头再来。先花 30 分钟把上次的代码跑一遍，<strong>跑通即恢复</strong></td></tr><tr><td>某个模块学不懂</td><td>不要硬扛。跳到项目，<strong>先做出来再回头理解</strong>（做中学对初学者更有效）</td></tr><tr><td>想加速</td><td>只加速 M1/M3，M4 和 M6 不能跳，它们是面试硬通货</td></tr><tr><td>想放弃</td><td>打开 <code>02_学习进度看板.md</code>，看已经打了多少个勾</td></tr></tbody></table></div>
+<hr class="rule">
+<h2 id="plan-六16-周后你手里有什么">六、16 周后你手里有什么</h2>
+<ol>
+<li><strong>P5/P6 个人知识库问答系统</strong>（带评测、带出处）→ 简历第一行</li>
+<li><strong>P7 多功能 Agent</strong>（会调工具、会重试）→ 简历第二行</li>
+<li><strong>P8 部署好的网页链接</strong> → 面试时直接打开给对方看</li>
+<li>一个<strong>错题本</strong>和一个<strong>能讲清楚的脑子</strong></li>
+</ol>
+<blockquote class="callout">
+<p>面试官不缺会调 API 的人。缺的是能说&quot;我的 RAG 召回率从 62% 提到 81%，因为改了三处&quot;的人。M5 就是为这句话准备的。</p>
+</blockquote></div>
+    </div>
+  </section>
+  <section class="section section--line">
+    <div class="container">
+      <div class="section-head">
+  <div>
+    <span class="eyebrow">before you start</span>
+    <h2>开工前：账号与工具清单</h2>
+  </div>
+  <div class="section-head__side">
+    <p class="lead">现在只看，别急着注册。需要安装软件 / 申请账号的动作，到 M0 那一步再决定。</p>
+    
+  </div>
+</div>
+      <div class="prose"><h2 id="acc-五你的账号准备清单现在只看别急着注册">五、你的账号准备清单（现在只看，别急着注册）</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>需要什么</th><th>用途</th><th>是否必须</th><th>备注</th></tr></thead><tbody><tr><td>DeepSeek / 通义 / 智谱 任一 API Key</td><td>调模型</td><td>必须</td><td>国内可直接支付宝/微信充值，<strong>最便宜</strong></td></tr><tr><td>GitHub 账号</td><td>存代码、抄参考项目</td><td>必须</td><td>免费</td></tr><tr><td>魔搭 ModelScope 账号</td><td>免费云 GPU（后期选修）</td><td>选修</td><td>阿里系，国内速度快</td></tr><tr><td>Google 账号</td><td>Colab 免费 GPU</td><td>选修</td><td>需要能访问</td></tr><tr><td>Kaggle 账号</td><td>免费 GPU + 数据集</td><td>选修</td><td>注册简单</td></tr></tbody></table></div>
+<blockquote class="callout">
+<p>⚠️ 我不会替你注册、不会替你付款。到 M0 那一步我会再提醒你一次，你点头了再动。</p>
+</blockquote>
+<hr class="rule"></div>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+  <path d="M20 2.6 35 11v18L20 37.4 5 29V11z" fill="#fff" stroke="#080b16" stroke-width="1.8"/>
+  <path d="M20 2.6 35 11v9L20 28.6 5 20v-9z" fill="#00d5e8" opacity=".9"/>
+  <path d="M35 20v9L20 37.4V28.6z" fill="#ff3d9a" opacity=".85"/>
+  <path d="M13.2 24V16l6.8-3.9L26.8 16v8L20 27.9z" fill="#fff" stroke="#080b16" stroke-width="1.4"/>
+  <circle cx="20" cy="20" r="2.1" fill="#080b16"/>
+</svg>
+          <span class="brand-text">
+            <span class="brand-name">BEGINNER_IN_AI</span>
+            <span class="brand-sub">from python basics to rag &amp; agents</span>
+          </span>
+        </a>
+        <p>为「会一点 Python、数学基本忘光、看英文吃力、只有周末能集中学」的人准备的 16 周路线。理论 → 练习 → 项目，每个模块都走一遍。</p>
+      </div>
+      <div class="footer-col">
+        <h4>Route</h4>
+        <ul>
+          <li><a href="roadmap.html">16 周排期</a></li>
+          <li><a href="modules.html">8 个模块</a></li>
+          <li><a href="projects.html">8 个实践项目</a></li>
+          <li><a href="graph.html">知识图谱</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Modules</h4>
+        <ul><li><a href="modules/m0.html">M0 · 开局</a></li><li><a href="modules/m1.html">M1 · 提示工程</a></li><li><a href="modules/m2.html">M2 · 对话应用</a></li><li><a href="modules/m3.html">M3 · 语义检索</a></li><li><a href="modules/m4.html">M4 · RAG 核心</a></li><li><a href="modules/m5.html">M5 · RAG 进阶</a></li><li><a href="modules/m6.html">M6 · Agent</a></li><li><a href="modules/m7.html">M7 · 部署上线</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Beginner_in_AI · 内容来自个人学习计划，持续迭代中</span>
+      <span>
+        <a href="https://github.com/zonevenom/Beginner_in_AI" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="resources.html">资料出处</a> ·
+        <button class="reset-btn" type="button" data-to-top>回到顶部 ↑</button>
+      </span>
+    </div>
+  </div>
+</footer>
+<div class="search-overlay" data-search-overlay role="dialog" aria-modal="true" aria-label="站内搜索">
+  <div class="search-panel">
+    <div class="search-field">
+      <svg class="icon " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.4"/><path d="m15.6 15.6 4.4 4.4"/></svg>
+      <input type="search" placeholder="搜索模块、概念、题目、项目…" aria-label="搜索关键词" autocomplete="off">
+      <button class="search-esc" type="button" data-search-close>ESC</button>
+    </div>
+    <ul class="search-results" data-search-results></ul>
+    <p class="search-empty" hidden>没有匹配结果，换个关键词试试。</p>
+  </div>
+</div>
+<script src="assets/vendor/mermaid.min.js" defer></script>
+<script src="assets/js/site.js" defer></script>
+
+</body>
+</html>

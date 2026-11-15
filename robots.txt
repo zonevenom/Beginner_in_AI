@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zonevenom.github.io/Beginner_in_AI/sitemap.xml

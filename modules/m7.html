@@ -1,0 +1,1062 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M7 部署上线 · Beginner_in_AI</title>
+<meta name="description" content="M7 部署上线：部署、打包、写进简历——把作品交到别人手里。 含理论讲稿、6 道练习题与解析、P8 项目计划书。">
+<meta name="author" content="zonevenom">
+<meta name="theme-color" content="#eef1f8">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Beginner_in_AI">
+<meta property="og:title" content="M7 部署上线 · Beginner_in_AI">
+<meta property="og:description" content="M7 部署上线：部署、打包、写进简历——把作品交到别人手里。 含理论讲稿、6 道练习题与解析、P8 项目计划书。">
+<meta property="og:url" content="https://zonevenom.github.io/Beginner_in_AI/">
+<meta property="og:image" content="https://zonevenom.github.io/Beginner_in_AI/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="M7 部署上线 · Beginner_in_AI">
+<meta name="twitter:description" content="M7 部署上线：部署、打包、写进简历——把作品交到别人手里。 含理论讲稿、6 道练习题与解析、P8 项目计划书。">
+<meta name="twitter:image" content="https://zonevenom.github.io/Beginner_in_AI/assets/img/og-cover.png">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/img/favicon.svg">
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/content.css">
+<style>:root{--accent:#ffb020;--accent-ink:#8a5300}</style>
+</head>
+<body data-root="../">
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-header">
+  <div class="container nav-inner">
+    <a class="brand" href="../index.html" aria-label="Beginner_in_AI 首页">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+  <path d="M20 2.6 35 11v18L20 37.4 5 29V11z" fill="#fff" stroke="#080b16" stroke-width="1.8"/>
+  <path d="M20 2.6 35 11v9L20 28.6 5 20v-9z" fill="#00d5e8" opacity=".9"/>
+  <path d="M35 20v9L20 37.4V28.6z" fill="#ff3d9a" opacity=".85"/>
+  <path d="M13.2 24V16l6.8-3.9L26.8 16v8L20 27.9z" fill="#fff" stroke="#080b16" stroke-width="1.4"/>
+  <circle cx="20" cy="20" r="2.1" fill="#080b16"/>
+</svg>
+      <span class="brand-text">
+        <span class="brand-name">BEGINNER_IN_AI</span>
+        <span class="brand-sub">16 weeks · llm application dev</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="展开导航">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a class="nav-link" href="../index.html">首页</a></li><li><a class="nav-link" href="../modules.html" aria-current="page">模块</a></li><li><a class="nav-link" href="../roadmap.html">路线图</a></li><li><a class="nav-link" href="../projects.html">项目</a></li><li><a class="nav-link" href="../graph.html">图谱</a></li><li><a class="nav-link" href="../resources.html">资料</a></li><li><a class="nav-link" href="../progress.html">进度</a></li>
+      <li><button class="search-open" type="button" data-search-open aria-label="搜索全站（Ctrl K）">
+        <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.4"/><path d="m15.6 15.6 4.4 4.4"/></svg><span>搜索</span><kbd>⌘K</kbd>
+      </button></li>
+      <li class="nav-cta"><a class="btn btn--sm" href="https://github.com/zonevenom/Beginner_in_AI" target="_blank" rel="noopener">
+        <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11 11 0 0 1 6 0C18 4.7 19 5 19 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5Z"/></svg>GitHub</a></li>
+    </ul>
+  </div>
+</header>
+<main id="main">
+<section class="module-hero">
+    <div class="module-hero__glow" aria-hidden="true"></div>
+    <div class="container">
+      <div class="module-hero__top">
+        <a class="chip chip--outline" href="../modules.html"><svg class="icon " width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 12H5M10.5 6.5 5 12l5.5 5.5"/></svg> 全部模块</a>
+        <span class="module-hero__code">M7<span>MODULE 08</span></span>
+        <span class="chip">第 15–16 周</span>
+        <span class="chip chip--accent" style="--accent:#ffb020">阶段 04 · 交付</span>
+      </div>
+      <div class="module-hero__inner">
+        <div>
+          <h1>部署上线</h1>
+          <p class="module-hero__sub">部署、打包、写进简历——把作品交到别人手里。 部署成链接发给别人用，写进简历。</p>
+          <div class="module-hero__facts">
+            <span class="chip chip--outline">理论讲稿</span>
+            <span class="chip chip--outline">6 道练习 + 解析</span>
+            <span class="chip chip--outline">P8 项目</span>
+            <span class="chip chip--accent" style="--accent:#ffb020">交付 · P8 部署好的网页链接</span>
+          </div>
+        </div>
+        <div class="module-hero__icon" aria-hidden="true"><svg class="icon " width="84" height="84" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2.8c3 2.6 4.4 6 4.4 9.6L12 17l-4.4-4.6C7.6 8.8 9 5.4 12 2.8Z"/><path d="M9.2 16.4 6.4 20l3.6-.9M14.8 16.4 17.6 20l-3.6-.9"/><circle cx="12" cy="9" r="1.6"/></svg></div>
+      </div>
+    </div>
+  </section>
+  <div class="container">
+    <div class="doc-layout">
+      <aside class="doc-sidebar" aria-label="本页目录">
+    <div class="toc-title">本页导航</div>
+    <div class="toc-group" data-toc-group="panel-theory"><ul class="toc-list"><li><a href="#theory-这一讲要解决什么">【这一讲要解决什么】</a></li><li><a href="#theory-一先搞清楚上线有三个层次">一、先搞清楚"上线"有三个层次</a></li><li><a href="#theory-二三种部署方案怎么选">二、三种部署方案，怎么选</a></li><li><a href="#theory-三密钥管理这一节做错会真出事">三、密钥管理：这一节做错，会真出事</a></li><li><a href="#theory-四什么时候需要-fastapi而不是-streamlit">四、什么时候需要 FastAPI（而不是 Streamlit）</a></li><li><a href="#theory-五上线后必须做的四件事">五、上线后必须做的四件事</a></li><li><a href="#theory-六作品集三个项目怎么包装">六、作品集：三个项目怎么包装</a></li><li><a href="#theory-常见误解">【常见误解】</a></li><li><a href="#theory-自检清单">【自检清单】</a></li><li><a href="#theory-下一站">【下一站】</a></li></ul></div>
+    <div class="toc-group" data-toc-group="panel-quiz" hidden><ul class="toc-list"><li><a href="#quiz-第-1-题概念-该部署到哪">🧠 第 1 题（概念）· 该部署到哪</a></li><li><a href="#quiz-第-2-题代码-补全接口">💻 第 2 题（代码）· 补全接口</a></li><li><a href="#quiz-第-3-题排错-上线后的四个灵异事件">🔧 第 3 题（排错）· 上线后的四个"灵异事件"</a></li><li><a href="#quiz-第-4-题概念-密钥的四种写法">🧠 第 4 题（概念）· 密钥的四种写法</a></li><li><a href="#quiz-第-5-题计算-免费额度能撑多久">💻 第 5 题（计算）· 免费额度能撑多久</a></li><li><a href="#quiz-第-6-题动手-把你的项目发出去">🛠️ 第 6 题（动手）· 把你的项目发出去</a></li><li><a href="#quiz-提交前自检">提交前自检</a></li></ul></div>
+    <div class="toc-group" data-toc-group="panel-answers" hidden><ul class="toc-list"><li><a href="#answers-第-1-题-该部署到哪">第 1 题 · 该部署到哪</a></li><li><a href="#answers-第-2-题-补全接口">第 2 题 · 补全接口</a></li><li><a href="#answers-第-3-题-上线后的四个灵异事件">第 3 题 · 上线后的四个"灵异事件"</a></li><li><a href="#answers-第-4-题-密钥的四种写法">第 4 题 · 密钥的四种写法</a></li><li><a href="#answers-第-5-题-免费额度能撑多久">第 5 题 · 免费额度能撑多久</a></li><li><a href="#answers-第-6-题-把你的项目发出去">第 6 题 · 把你的项目发出去</a></li><li><a href="#answers-自评标准">自评标准</a></li></ul></div>
+    <div class="toc-group" data-toc-group="panel-project" hidden><ul class="toc-list"><li><a href="#project-1-项目要做什么">1. 项目要做什么</a></li><li><a href="#project-2-工具与开发环境">2. 工具与开发环境</a></li><li><a href="#project-3-项目文件结构">3. 项目文件结构</a></li><li><a href="#project-4-项目流程图部署全流程">4. 项目流程图（部署全流程）</a></li><li><a href="#project-5-分步实现">5. 分步实现</a></li><li><a href="#project-6-项目进化方向">6. 项目进化方向</a></li><li><a href="#project-7-本项目采用的资料">7. 本项目采用的资料</a></li><li><a href="#project-交付清单逐条打勾全部完成才算结课">交付清单（逐条打勾，全部完成才算结课）</a></li><li><a href="#project-结课之后">结课之后</a></li></ul></div>
+    <div style="margin-top:18px;padding-top:14px;border-top:1px solid var(--line)">
+      <a class="btn btn--ghost btn--sm" href="../progress.html" style="width:100%;justify-content:center">去打卡 <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m4.5 12.5 5 5 10-11"/></svg></a>
+    </div>
+  </aside>
+      <div class="doc-main">
+        <div class="tabs" role="tablist" aria-label="模块内容" data-tabs>
+    <button class="tab" role="tab" id="tab-panel-theory" aria-controls="panel-theory"
+      aria-selected="true" tabindex="0">
+      理论讲稿<i>1</i></button><button class="tab" role="tab" id="tab-panel-quiz" aria-controls="panel-quiz"
+      aria-selected="false" tabindex="-1">
+      练习题<i>6</i></button><button class="tab" role="tab" id="tab-panel-answers" aria-controls="panel-answers"
+      aria-selected="false" tabindex="-1">
+      答案解析<i>6</i></button><button class="tab" role="tab" id="tab-panel-project" aria-controls="panel-project"
+      aria-selected="false" tabindex="-1">
+      项目计划书<i>P8</i></button>
+  </div>
+        
+  <div class="tab-panel" id="panel-theory" role="tabpanel" aria-labelledby="tab-panel-theory">
+    <div class="prose"><blockquote class="callout">
+<p><strong>【资料出处】</strong></p>
+<ul>
+<li>Datawhale《llm-universe》第 6 章（Streamlit 部署）—— <a href="https://datawhalechina.github.io/llm-universe/" target="_blank" rel="noopener">https://datawhalechina.github.io/llm-universe/</a></li>
+<li>FastAPI 官方中文文档 —— <a href="https://fastapi.tiangolo.com/zh/" target="_blank" rel="noopener">https://fastapi.tiangolo.com/zh/</a></li>
+<li>Streamlit 官方文档 · Deploy —— <a href="https://docs.streamlit.io/" target="_blank" rel="noopener">https://docs.streamlit.io/</a></li>
+<li>仓库06《AI-Guide-and-Demos-zh_CN》部署篇 —— <a href="https://github.com/Hoper-J/AI-Guide-and-Demos-zh_CN" target="_blank" rel="noopener">https://github.com/Hoper-J/AI-Guide-and-Demos-zh_CN</a></li>
+</ul>
+</blockquote>
+<hr class="rule">
+<h2 id="theory-这一讲要解决什么">【这一讲要解决什么】</h2>
+<p>学完这一讲，你能：</p>
+<ol>
+<li>判断你的应用该&quot;部署到哪&quot;（三种方案，各有适用场景）</li>
+<li>正确管理密钥（<strong>这一条做错，后果最严重</strong>）</li>
+<li>用 FastAPI 把功能包成一个接口，知道什么时候需要它</li>
+<li>加限流，防止被别人刷爆你的账户</li>
+<li>把三个项目包装成一份<strong>能投的</strong>作品集</li>
+</ol>
+<hr class="rule">
+<h2 id="theory-一先搞清楚上线有三个层次">一、先搞清楚&quot;上线&quot;有三个层次</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>层次</th><th>长什么样</th><th>谁能用</th><th>技术难度</th></tr></thead><tbody><tr><td><strong>L1 本地脚本</strong></td><td><code>streamlit run app.py</code></td><td>只有你</td><td>⭐</td></tr><tr><td><strong>L2 内网/临时链接</strong></td><td>局域网 IP / 临时隧道</td><td>你和同事</td><td>⭐⭐</td></tr><tr><td><strong>L3 公网服务</strong></td><td><code>https://xxx.com</code></td><td>任何人</td><td>⭐⭐⭐</td></tr></tbody></table></div>
+<p><strong>大多数人卡在 L1 到 L2 之间，不是因为技术难，是因为&quot;没做过，不知道从哪下手&quot;。</strong></p>
+<p>这一讲就是把这条路走通。</p>
+<hr class="rule">
+<h2 id="theory-二三种部署方案怎么选">二、三种部署方案，怎么选</h2>
+<h3 id="theory-方案-astreamlit-community-cloud最快免费">方案 A：Streamlit Community Cloud（最快，免费）</h3>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>项</th><th>说明</th></tr></thead><tbody><tr><td>怎么做</td><td>代码推到 GitHub → 在 share.streamlit.io 点几下 → 拿到链接</td></tr><tr><td>成本</td><td>免费</td></tr><tr><td>限制</td><td>需要 GitHub；国内访问速度一般；资源小（内存 1G 左右）</td></tr><tr><td>适合</td><td><strong>你的 P3/P5/P6/P7</strong></td></tr></tbody></table></div>
+<p><strong>这是你该先走的路。</strong> 从&quot;没部署过&quot;到&quot;有链接&quot;，最快 20 分钟。</p>
+<h3 id="theory-方案-bhugging-face-spaces免费ai-圈常用">方案 B：Hugging Face Spaces（免费，AI 圈常用）</h3>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>项</th><th>说明</th></tr></thead><tbody><tr><td>怎么做</td><td>建 Space → 选 Streamlit/Gradio → 上传文件</td></tr><tr><td>成本</td><td>免费（CPU 基础版）</td></tr><tr><td>限制</td><td>需要 HF 账号；国内访问需要条件</td></tr><tr><td>适合</td><td>想让<strong>海外同行/招聘方</strong>看到</td></tr></tbody></table></div>
+<h3 id="theory-方案-c国内云服务器要花钱但最真">方案 C：国内云服务器（要花钱，但最&quot;真&quot;）</h3>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>项</th><th>说明</th></tr></thead><tbody><tr><td>怎么做</td><td>买一台轻量应用服务器（2 核 2G 起）→ 装 Python → 跑服务 → 配域名</td></tr><tr><td>成本</td><td>新用户首年通常有优惠，之后每月几十元</td></tr><tr><td>限制</td><td>要会一点 Linux；要备案（用域名的话）</td></tr><tr><td>适合</td><td>想写&quot;独立部署&quot;进简历；或要给国内用户稳定访问</td></tr></tbody></table></div>
+<blockquote class="callout">
+<p>🛑 <strong>买服务器之前先问我。</strong> 我会告诉你买什么配置、有没有必要买、怎么避免&quot;买了一台不会用&quot;。</p>
+</blockquote>
+<h3 id="theory-方案-d内网穿透临时演示用">方案 D：内网穿透（临时演示用）</h3>
+<p>一行命令把本地端口暴露成公网地址（如 <code>cloudflared tunnel</code>、<code>ngrok</code>）。</p>
+<p><strong>优点</strong>：立刻能用，零配置。
+<strong>缺点</strong>：<strong>电脑一关就断</strong>，且地址每次变。</p>
+<blockquote class="callout">
+<p>只适合&quot;临时发给朋友看 5 分钟&quot;，<strong>不适合写进简历</strong>。</p>
+</blockquote>
+<h3 id="theory-选择建议">选择建议</h3>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">想快速有链接 → A
+想给海外看   → B
+想写&quot;独立部署&quot; → C
+临时演示     → D</code></pre></figure>
+<hr class="rule">
+<h2 id="theory-三密钥管理这一节做错会真出事">三、密钥管理：这一节做错，会真出事</h2>
+<h3 id="theory-三种错误做法每一种都有人踩">三种错误做法（每一种都有人踩）</h3>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>❌ 做法</th><th>后果</th></tr></thead><tbody><tr><td>把 key 写进代码</td><td>推到 GitHub 后，<strong>几分钟内</strong>被爬虫扫走，当天账单爆掉</td></tr><tr><td>把 <code>.env</code> 一起提交</td><td>同上。<code>.gitignore</code> 忘了写 <code>.env</code>，等于没写</td></tr><tr><td>把 key 写在 Streamlit 界面的输入框里</td><td>用户能看到、能复制、能拿去用你的钱</td></tr></tbody></table></div>
+<h3 id="theory-正确做法">✅ 正确做法</h3>
+<p><strong>本地开发</strong>：<code>.env</code> + <code>.gitignore</code></p>
+<figure class="code-block" data-lang="gitignore"><figcaption><span class="code-lang">gitignore</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-gitignore">.env
+.venv/
+__pycache__/
+*.log</code></pre></figure>
+<p><strong>Streamlit Cloud</strong>：用 <code>st.secrets</code></p>
+<figure class="code-block" data-lang="toml"><figcaption><span class="code-lang">toml</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-toml"># .streamlit/secrets.toml （本地，不提交）
+DEEPSEEK_API_KEY = &quot;sk-xxx&quot;</code></pre></figure>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-com"># 代码里统一这样读</span>
+<span class="tok-kw">import</span> os
+<span class="tok-kw">try</span><span class="tok-op">:</span>
+    <span class="tok-kw">import</span> streamlit <span class="tok-kw">as</span> st
+    KEY <span class="tok-op">=</span> st.secrets[<span class="tok-str">&quot;DEEPSEEK_API_KEY&quot;</span>]
+<span class="tok-kw">except</span> Exception<span class="tok-op">:</span>
+    <span class="tok-kw">from</span> dotenv <span class="tok-kw">import</span> load_dotenv
+    <span class="tok-fn">load_dotenv</span>()
+    KEY <span class="tok-op">=</span> os.<span class="tok-fn">getenv</span>(<span class="tok-str">&quot;DEEPSEEK_API_KEY&quot;</span>)</code></pre></figure>
+<p><strong>云服务器</strong>：系统环境变量，或 systemd 的 <code>EnvironmentFile</code></p>
+<figure class="code-block" data-lang="bash"><figcaption><span class="code-lang">bash</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-bash">export DEEPSEEK_API_KEY<span class="tok-op">=</span>sk-xxx    <span class="tok-com"># 写进 ~/.bashrc 或 systemd unit</span></code></pre></figure>
+<h3 id="theory-一条铁律">一条铁律</h3>
+<blockquote class="callout">
+<p><strong>密钥只存在于&quot;运行环境&quot;，不存在于&quot;代码仓库&quot;。</strong></p>
+</blockquote>
+<p>检查方法（在项目目录执行）：</p>
+<figure class="code-block" data-lang="bash"><figcaption><span class="code-lang">bash</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-bash">git log -p <span class="tok-op">|</span> findstr <span class="tok-str">&quot;sk-&quot;</span>     <span class="tok-com"># Windows</span>
+git log -p <span class="tok-op">|</span> grep <span class="tok-str">&quot;sk-&quot;</span>        <span class="tok-com"># Mac/Linux</span></code></pre></figure>
+<p><strong>有输出 = 你已经泄露了</strong>，立刻去平台吊销那个 key 重新生成。</p>
+<hr class="rule">
+<h2 id="theory-四什么时候需要-fastapi而不是-streamlit">四、什么时候需要 FastAPI（而不是 Streamlit）</h2>
+<p>Streamlit 有个硬限制：<strong>它是给人点的，不是给程序调的。</strong></p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>场景</th><th>用 Streamlit</th><th>用 FastAPI</th></tr></thead><tbody><tr><td>你自己/同事在网页上问问题</td><td>✅</td><td>也可以</td></tr><tr><td>别的程序要调用你的能力</td><td>❌</td><td>✅</td></tr><tr><td>要做成微信机器人/小程序后端</td><td>❌</td><td>✅</td></tr><tr><td>要返回 JSON 给前端</td><td>❌</td><td>✅</td></tr></tbody></table></div>
+<h3 id="theory-最小-fastapi20-行">最小 FastAPI（20 行）</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">from</span> fastapi <span class="tok-kw">import</span> FastAPI, HTTPException
+<span class="tok-kw">from</span> pydantic <span class="tok-kw">import</span> BaseModel
+
+app <span class="tok-op">=</span> <span class="tok-fn">FastAPI</span>(title<span class="tok-op">=</span><span class="tok-str">&quot;我的 RAG 服务&quot;</span>)
+
+
+<span class="tok-kw">class</span> <span class="tok-fn">AskRequest</span>(BaseModel)<span class="tok-op">:</span>
+    question<span class="tok-op">:</span> str
+    top_k<span class="tok-op">:</span> int <span class="tok-op">=</span> <span class="tok-num">3</span>
+
+
+<span class="tok-kw">class</span> <span class="tok-fn">AskResponse</span>(BaseModel)<span class="tok-op">:</span>
+    answer<span class="tok-op">:</span> str
+    sources<span class="tok-op">:</span> list[str]
+
+
+@app.<span class="tok-fn">get</span>(<span class="tok-str">&quot;/health&quot;</span>)
+<span class="tok-kw">def</span> <span class="tok-fn">health</span>()<span class="tok-op">:</span>
+    <span class="tok-kw">return</span> {<span class="tok-str">&quot;status&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;ok&quot;</span>}
+
+
+@app.<span class="tok-fn">post</span>(<span class="tok-str">&quot;/ask&quot;</span>, response_model<span class="tok-op">=</span>AskResponse)
+<span class="tok-kw">def</span> <span class="tok-fn">ask</span>(req<span class="tok-op">:</span> AskRequest)<span class="tok-op">:</span>
+    <span class="tok-kw">if</span> <span class="tok-kw">not</span> req.question.<span class="tok-fn">strip</span>()<span class="tok-op">:</span>
+        <span class="tok-kw">raise</span> <span class="tok-fn">HTTPException</span>(status_code<span class="tok-op">=</span><span class="tok-num">400</span>, detail<span class="tok-op">=</span><span class="tok-str">&quot;问题不能为空&quot;</span>)
+    <span class="tok-kw">if</span> <span class="tok-fn">len</span>(req.question) <span class="tok-op">&gt;</span> <span class="tok-num">500</span><span class="tok-op">:</span>
+        <span class="tok-kw">raise</span> <span class="tok-fn">HTTPException</span>(status_code<span class="tok-op">=</span><span class="tok-num">400</span>, detail<span class="tok-op">=</span><span class="tok-str">&quot;问题太长&quot;</span>)
+
+    answer, refs <span class="tok-op">=</span> <span class="tok-fn">do_rag</span>(req.question, req.top_k)   <span class="tok-com"># 你的 RAG 函数</span>
+    <span class="tok-kw">return</span> <span class="tok-fn">AskResponse</span>(answer<span class="tok-op">=</span>answer, sources<span class="tok-op">=</span><span class="tok-fn">list</span>(refs.<span class="tok-fn">values</span>()))</code></pre></figure>
+<p><strong>跑起来</strong>：<code>uvicorn main:app --reload</code>，然后访问 <code>http://127.0.0.1:8000/docs</code>——<strong>FastAPI 自动给你一个能点的接口文档页面</strong>。</p>
+<blockquote class="callout">
+<p>这个 <code>/docs</code> 页面是 FastAPI 最香的地方：<strong>你不用写前端，就能测接口</strong>。</p>
+</blockquote>
+<h3 id="theory-什么时候不需要-fastapi">什么时候<strong>不需要</strong> FastAPI</h3>
+<p><strong>你现在不需要。</strong> 三个人用的小工具，Streamlit 足够。</p>
+<p>加 FastAPI 的唯一理由是：<strong>&quot;有别的程序要调我&quot;</strong>。没有这个需求，加了只是多一层。</p>
+<blockquote class="callout">
+<p>面试时被问&quot;为什么用 Streamlit 不用 FastAPI&quot;，答&quot;因为我的用户是人不是程序，Streamlit 让我 2 小时做出界面&quot;——这是加分回答。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="theory-五上线后必须做的四件事">五、上线后必须做的四件事</h2>
+<h3 id="theory-①-限流防刷">① 限流（防刷）</h3>
+<p>你的 key 挂在公网，就有人能刷。<strong>哪怕是免费的额度，也会被刷光。</strong></p>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">import</span> time
+
+_last_call <span class="tok-op">=</span> {}
+
+<span class="tok-kw">def</span> <span class="tok-fn">allow</span>(user_id<span class="tok-op">:</span> str, interval<span class="tok-op">:</span> float <span class="tok-op">=</span> <span class="tok-num">2.0</span>) <span class="tok-op">-&gt;</span> bool<span class="tok-op">:</span>
+    now <span class="tok-op">=</span> time.<span class="tok-fn">time</span>()
+    <span class="tok-kw">if</span> now <span class="tok-op">-</span> _last_call.<span class="tok-fn">get</span>(user_id, <span class="tok-num">0</span>) <span class="tok-op">&lt;</span> interval<span class="tok-op">:</span>
+        <span class="tok-kw">return</span> <span class="tok-bool">False</span>
+    _last_call[user_id] <span class="tok-op">=</span> now
+    <span class="tok-kw">return</span> <span class="tok-bool">True</span></code></pre></figure>
+<p><strong>更简单的做法</strong>：每次请求之间 <code>time.sleep(1)</code>，或在界面上禁用按钮直到返回。</p>
+<h3 id="theory-②-输入长度限制">② 输入长度限制</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">if</span> <span class="tok-fn">len</span>(question) <span class="tok-op">&gt;</span> <span class="tok-num">1000</span><span class="tok-op">:</span>
+    st.<span class="tok-fn">warning</span>(<span class="tok-str">&quot;问题太长了，请精简到 1000 字以内。&quot;</span>)
+    st.<span class="tok-fn">stop</span>()</code></pre></figure>
+<p><strong>为什么</strong>：一次 10 万字的问题，可能直接烧掉你几块钱。</p>
+<h3 id="theory-③-日志">③ 日志</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">import</span> logging
+
+logging.<span class="tok-fn">basicConfig</span>(
+    filename<span class="tok-op">=</span><span class="tok-str">&quot;app.log&quot;</span>,
+    level<span class="tok-op">=</span>logging.INFO,
+    format<span class="tok-op">=</span><span class="tok-str">&quot;%(asctime)s %(levelname)s %(message)s&quot;</span>,
+    encoding<span class="tok-op">=</span><span class="tok-str">&quot;utf-8&quot;</span>,
+)
+logging.<span class="tok-fn">info</span>(<span class="tok-str">&quot;Q=%s tokens=%s&quot;</span>, question[<span class="tok-op">:</span><span class="tok-num">50</span>], total_tokens)</code></pre></figure>
+<p><strong>没有日志，出问题你只能靠猜。</strong></p>
+<h3 id="theory-④-错误兜底">④ 错误兜底</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">try</span><span class="tok-op">:</span>
+    answer <span class="tok-op">=</span> <span class="tok-fn">do_rag</span>(q)
+<span class="tok-kw">except</span> Exception <span class="tok-kw">as</span> e<span class="tok-op">:</span>
+    logging.<span class="tok-fn">exception</span>(<span class="tok-str">&quot;RAG 失败&quot;</span>)
+    st.<span class="tok-fn">error</span>(<span class="tok-str">&quot;服务暂时不可用，请稍后再试。&quot;</span>)
+    answer <span class="tok-op">=</span> <span class="tok-bool">None</span></code></pre></figure>
+<p><strong>用户不需要看堆栈，你需要看日志。</strong> 两者分开。</p>
+<hr class="rule">
+<h2 id="theory-六作品集三个项目怎么包装">六、作品集：三个项目怎么包装</h2>
+<h3 id="theory-你手里有什么">你手里有什么</h3>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>项目</th><th>技术点</th><th>可量化成果</th></tr></thead><tbody><tr><td>P5 RAG v1</td><td>解析/切分/检索/生成/引用</td><td>10 题评测</td></tr><tr><td>P6 RAG v2</td><td>混合检索/父块/评测体系</td><td>命中率 62%→81%</td></tr><tr><td>P7 Agent</td><td>Function Calling/工具设计/刹车</td><td>6 任务 + 3 破坏测试</td></tr></tbody></table></div>
+<p><strong>这三个是递进的</strong>：从&quot;能用&quot;到&quot;好用&quot;到&quot;会决策&quot;。<strong>这个递进关系本身就是故事。</strong></p>
+<h3 id="theory-readme-的标准结构每个项目都要有">README 的标准结构（每个项目都要有）</h3>
+<figure class="code-block" data-lang="markdown"><figcaption><span class="code-lang">markdown</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-markdown"># 项目名
+
+一句话说明它解决什么问题（不要写&quot;这是一个基于...的系统&quot;，写人话）
+
+## 演示
+[截图 or 30 秒视频链接]
+
+## 它解决了什么问题
+- 痛点 1
+- 痛点 2
+
+## 技术方案
+- 架构图（一张图）
+- 关键决策：为什么选 A 不选 B
+
+## 效果
+- 指标：Recall@5 0.85，答对率 0.80
+- 对比：优化前后表格
+
+## 怎么跑起来
+3 行命令
+
+## 我踩过的坑
+- 坑 1：... 怎么解决的
+- 坑 2：...</code></pre></figure>
+<h3 id="theory-我踩过的坑这一节是最值钱的一节">&quot;我踩过的坑&quot;这一节，是最值钱的一节</h3>
+<p>因为它证明<strong>你真的做过</strong>。招聘方看 10 份 README，9 份都在吹功能，只有 1 份在讲踩坑——<strong>那份会被记住</strong>。</p>
+<p>例子：</p>
+<blockquote class="callout">
+<p><strong>坑：Chroma 默认会用自己的 embedding 模型</strong>
+我传了自定义向量但没传 <code>embeddings</code> 参数，导致库里存的是另一套坐标系的向量。查询不报错，但排序完全随机。排查了两小时才发现要用 <code>col.get(include=[&quot;embeddings&quot;])</code> 看实际维度。</p>
+</blockquote>
+<h3 id="theory-简历三句话照这个模板写">简历三句话（照这个模板写）</h3>
+<blockquote class="callout">
+<p><strong>① 做了什么</strong>：独立实现文档问答系统，支持 PDF 解析、语义检索与答案溯源。
+<strong>② 怎么做的</strong>：自建 20 题评测集，量化 Recall/Precision；通过父块扩展与 BM25 混合检索优化检索层。
+<strong>③ 结果如何</strong>：整体答对率从 60% 提升至 80%，精确信息类问题从 33% 提升至 100%。</p>
+</blockquote>
+<p><strong>注意每一句都有&quot;动词 + 方法 + 数字&quot;。</strong> 没有数字的简历句，等于没写。</p>
+<h3 id="theory-面试会被问什么提前准备">面试会被问什么（提前准备）</h3>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>问题</th><th>你要能答出</th></tr></thead><tbody><tr><td>&quot;你的 RAG 怎么评估的？&quot;</td><td>20 题、四指标、怎么标 gold</td></tr><tr><td>&quot;为什么用混合检索？&quot;</td><td>向量擅长语义、BM25 擅长精确词，RRF 融合因为量纲不同</td></tr><tr><td>&quot;Agent 怎么防死循环？&quot;</td><td>步数上限、重复签名检测、错误回传</td></tr><tr><td>&quot;密钥怎么管的？&quot;</td><td>.env + .gitignore + 平台 secrets，从不在代码里</td></tr><tr><td>&quot;如果用户量涨 100 倍怎么办？&quot;</td><td>缓存、限流、向量库换 Milvus、异步、成本监控</td></tr></tbody></table></div>
+<blockquote class="callout">
+<p>最后那个问题没有标准答案，<strong>它考的是你有没有想过</strong>。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="theory-常见误解">【常见误解】</h2>
+<p><strong>误解 1：&quot;部署就是把代码传上去。&quot;</strong>
+不。部署要处理：依赖版本、密钥、端口、日志、限流、错误兜底。<strong>传代码只占 20%。</strong></p>
+<p><strong>误解 2：&quot;Streamlit 做的不是真产品。&quot;</strong>
+对，它不是。但它能让你<strong>在 2 小时内验证想法</strong>。产品化是后面的事，别在验证阶段就追求产品级。</p>
+<p><strong>误解 3：&quot;免费额度够用，不用管限流。&quot;</strong>
+错。公网链接一旦被转发到群里，<strong>十分钟就能刷光</strong>。限流不是&quot;以防万一&quot;，是&quot;必然需要&quot;。</p>
+<p><strong>误解 4：&quot;作品集要有 5 个项目才够。&quot;</strong>
+错。<strong>3 个做深 &gt; 10 个做浅。</strong> 面试官会挑一个往死里问，你答不出细节就完了。</p>
+<hr class="rule">
+<h2 id="theory-自检清单">【自检清单】</h2>
+<ol>
+<li>上线的三个层次是什么？你现在在哪一层？</li>
+<li>三种部署方案各适合什么场景？</li>
+<li>密钥管理的一条铁律是什么？怎么检查自己有没有泄露？</li>
+<li>什么时候需要 FastAPI？什么时候不需要？</li>
+<li>上线后必须做的四件事是什么？</li>
+<li>简历三句话的模板是哪三句？</li>
+</ol>
+<hr class="rule">
+<h2 id="theory-下一站">【下一站】</h2>
+<ul>
+<li><strong>练习</strong>：<code>03_练习题目区/M7_部署上线/01_题目.md</code></li>
+<li><strong>项目</strong>：<code>04_实践项目区/P8_部署上线/00_项目计划书.md</code></li>
+<li><strong>之后</strong>：回到 <code>00_知识图谱总览区/02_学习进度看板.md</code>，把最后一个勾打上。</li>
+</ul></div>
+  </div>
+  <div class="tab-panel" id="panel-quiz" role="tabpanel" aria-labelledby="tab-panel-quiz" hidden>
+    <div class="callout" style="margin-bottom:22px">
+      <strong>先做，再看解析。</strong> 题目按「概念 / 代码 / 动手」三类排列，建议用时：概念题 3 分钟，代码题 10 分钟，动手题 30 分钟。
+      做完再去下一个标签页对答案，否则等于没做。
+    </div>
+    <div class="prose exercise-doc"><blockquote class="callout">
+<p>对应讲稿：<code>02_理论讲解区/M7_部署上线/00_理论讲稿.md</code></p>
+</blockquote>
+<hr class="rule">
+<h2 id="quiz-第-1-题概念-该部署到哪">🧠 第 1 题（概念）· 该部署到哪</h2>
+<p>下面 4 个场景，选<strong>最合适的部署方案</strong>（Streamlit Cloud / HF Spaces / 国内云服务器 / 内网穿透），并说明理由。</p>
+<ol>
+<li>你周末做了个演示，想<strong>今晚</strong>发链接给两个朋友看</li>
+<li>你要把它写进简历，希望招聘方点开就能用，且<strong>三个月后链接还活着</strong></li>
+<li>你想让海外的 AI 社区用户试用，并收集反馈</li>
+<li>公司内网要用，不能上公网</li>
+</ol>
+<hr class="rule">
+<h2 id="quiz-第-2-题代码-补全接口">💻 第 2 题（代码）· 补全接口</h2>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">from</span> fastapi <span class="tok-kw">import</span> FastAPI, HTTPException
+<span class="tok-kw">from</span> pydantic <span class="tok-kw">import</span> BaseModel
+
+app <span class="tok-op">=</span> <span class="tok-fn">FastAPI</span>()
+
+<span class="tok-kw">class</span> <span class="tok-fn">AskRequest</span>(BaseModel)<span class="tok-op">:</span>
+    question<span class="tok-op">:</span> str
+    top_k<span class="tok-op">:</span> int <span class="tok-op">=</span> <span class="tok-num">3</span>
+
+@app.<span class="tok-fn">post</span>(<span class="tok-str">&quot;/ask&quot;</span>)
+<span class="tok-kw">def</span> <span class="tok-fn">ask</span>(req<span class="tok-op">:</span> AskRequest)<span class="tok-op">:</span>
+    <span class="tok-com"># ① 校验：问题为空 → 400</span>
+    <span class="tok-com"># ② 校验：问题超过 500 字 → 400</span>
+    <span class="tok-com"># ③ 校验：top_k 不在 1~5 → 400</span>
+    <span class="tok-com"># ④ 调用 do_rag，返回 {&quot;answer&quot;: ..., &quot;sources&quot;: [...]}</span>
+    ...</code></pre></figure>
+<p><strong>任务：</strong></p>
+<ol>
+<li>补全 ①~④。</li>
+<li>加一个 <code>/health</code> 接口，说明它有什么用。</li>
+<li>这个接口上线后，别人可以无限调用。你会加什么防护？（至少 2 条）</li>
+</ol>
+<hr class="rule">
+<h2 id="quiz-第-3-题排错-上线后的四个灵异事件">🔧 第 3 题（排错）· 上线后的四个&quot;灵异事件&quot;</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>#</th><th>现象</th></tr></thead><tbody><tr><td>A</td><td>本地跑得好好的，部署后一打开就 500，日志里是 <code>ModuleNotFoundError: No module named &#39;pypdf&#39;</code></td></tr><tr><td>B</td><td>页面能打开，但一点&quot;发送&quot;就白屏，没有任何报错</td></tr><tr><td>C</td><td>部署后正常用了三天，突然开始报 401</td></tr><tr><td>D</td><td>每次请求要等 30 秒才出结果，本地只要 3 秒</td></tr></tbody></table></div>
+<p><strong>任务：</strong>逐个说明最可能的原因和排查动作。</p>
+<hr class="rule">
+<h2 id="quiz-第-4-题概念-密钥的四种写法">🧠 第 4 题（概念）· 密钥的四种写法</h2>
+<p>判断下面 4 种做法<strong>是否可以接受</strong>，说明理由：</p>
+<ol>
+<li><code>api_key = &quot;sk-abc123...&quot;</code> 直接写在 <code>app.py</code> 里，但<strong>没有推到 GitHub</strong></li>
+<li><code>api_key = os.getenv(&quot;DEEPSEEK_API_KEY&quot;)</code>，<code>.env</code> 写在 <code>.gitignore</code> 里</li>
+<li>在 Streamlit 界面做一个输入框，让用户填自己的 key</li>
+<li>用 <code>st.secrets[&quot;DEEPSEEK_API_KEY&quot;]</code>，<code>secrets.toml</code> 不提交</li>
+</ol>
+<p><strong>附加问</strong>：如果你不小心把带 key 的文件提交到 GitHub 了，<strong>第一件事</strong>该做什么？</p>
+<hr class="rule">
+<h2 id="quiz-第-5-题计算-免费额度能撑多久">💻 第 5 题（计算）· 免费额度能撑多久</h2>
+<p>假设：</p>
+<ul>
+<li>你的应用每次问答消耗 <strong>1500 token</strong>（含检索 + 生成）</li>
+<li>平台给你 <strong>500 万 token</strong> 的免费额度</li>
+<li>每个用户平均每天问 <strong>5 次</strong></li>
+</ul>
+<p><strong>任务：</strong></p>
+<ol>
+<li>一个用户一天消耗多少 token？</li>
+<li>免费额度够<strong>一个用户</strong>用多少天？</li>
+<li>如果有 <strong>50 个用户</strong>同时用，额度几天用完？</li>
+<li>如果加限流&quot;每人每分钟最多 1 次&quot;，能延长多少？（假设用户会在 5 分钟内问完 5 次）</li>
+<li><strong>思考</strong>：除了限流，还有什么办法能让额度撑更久？（至少 2 条）</li>
+</ol>
+<hr class="rule">
+<h2 id="quiz-第-6-题动手-把你的项目发出去">🛠️ 第 6 题（动手）· 把你的项目发出去</h2>
+<p><strong>任务：</strong></p>
+<ol>
+<li>选 P5 或 P7，部署到一个公开链接</li>
+<li>确保：
+<ul>
+<li>密钥不在代码里</li>
+<li>有 <code>requirements.txt</code></li>
+<li>出错时显示人话，不是堆栈</li>
+</ul></li>
+<li>写一份 <code>README.md</code>（按讲稿第六节的结构，<strong>必须包含&quot;我踩过的坑&quot;</strong>）</li>
+<li>录一个 <strong>30 秒</strong>的演示视频（手机拍屏幕也行）</li>
+<li>写<strong>简历三句话</strong>（做了什么 / 怎么做的 / 结果如何）</li>
+</ol>
+<p><strong>交付</strong>：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>项</th><th>内容</th></tr></thead><tbody><tr><td>公开链接</td><td></td></tr><tr><td>README 里&quot;我踩过的坑&quot;</td><td>至少 2 条</td></tr><tr><td>视频</td><td>30 秒，能看清核心功能</td></tr><tr><td>简历三句话</td><td>每句都要有动词和数字</td></tr></tbody></table></div>
+<p><strong>加分</strong>：让一个<strong>不懂技术</strong>的朋友试用 5 分钟，记录他卡在哪、问了什么。<strong>这比你自己的测试有价值 10 倍。</strong></p>
+<hr class="rule">
+<h2 id="quiz-提交前自检">提交前自检</h2>
+<ul>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">链接真的能打开（不是 <code>localhost</code>）</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">在<strong>手机上</strong>也能打开（很多人只在电脑上测）</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">密钥搜索检查：<code>git log -p | findstr &quot;sk-&quot;</code> 无输出</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">README 里的命令，换一台电脑能跑通</span></li>
+</ul></div>
+  </div>
+  <div class="tab-panel" id="panel-answers" role="tabpanel" aria-labelledby="tab-panel-answers" hidden>
+    <div class="prose"><hr class="rule">
+<h2 id="answers-第-1-题-该部署到哪">第 1 题 · 该部署到哪</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>#</th><th>选择</th><th>理由</th></tr></thead><tbody><tr><td>1</td><td><strong>内网穿透</strong></td><td>今晚就要，零配置。缺点（地址会变、电脑要开着）在这个场景不重要</td></tr><tr><td>2</td><td><strong>Streamlit Cloud（或国内云）</strong></td><td>要&quot;长期活着 + 点开就能用&quot;。Cloud 免费且稳定；如果面向国内用户、要更稳，选国内云</td></tr><tr><td>3</td><td><strong>HF Spaces</strong></td><td>海外访问快，AI 社区习惯在这看 demo</td></tr><tr><td>4</td><td><strong>内网服务器</strong></td><td>不能上公网 → 只能在公司内网跑，或用 Docker 部署到内网机器</td></tr></tbody></table></div>
+<h3 id="answers-判断口诀">判断口诀</h3>
+<blockquote class="callout">
+<p><strong>&quot;给谁看、看多久、在哪看&quot;</strong> —— 三个问题定方案。</p>
+</blockquote>
+<ul>
+<li>给谁：自己/朋友 → 临时；招聘方 → 稳定；海外 → HF</li>
+<li>看多久：5 分钟 → 穿透；3 个月 → Cloud；长期 → 云服务器</li>
+<li>在哪：公网 / 内网 / 海外</li>
+</ul>
+<h3 id="answers-常见错误">常见错误</h3>
+<ul>
+<li>❌ 第 1 题选 Cloud。<strong>部署 Cloud 要推 GitHub、等构建，20 分钟起步</strong>，而穿透 1 分钟。<strong>场景决定方案，不是&quot;越正式越好&quot;。</strong></li>
+</ul>
+<hr class="rule">
+<h2 id="answers-第-2-题-补全接口">第 2 题 · 补全接口</h2>
+<h3 id="answers-第-1-问补全">第 1 问：补全</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python">@app.<span class="tok-fn">post</span>(<span class="tok-str">&quot;/ask&quot;</span>)
+<span class="tok-kw">def</span> <span class="tok-fn">ask</span>(req<span class="tok-op">:</span> AskRequest)<span class="tok-op">:</span>
+    <span class="tok-kw">if</span> <span class="tok-kw">not</span> req.question.<span class="tok-fn">strip</span>()<span class="tok-op">:</span>                                  <span class="tok-com"># ①</span>
+        <span class="tok-kw">raise</span> <span class="tok-fn">HTTPException</span>(status_code<span class="tok-op">=</span><span class="tok-num">400</span>, detail<span class="tok-op">=</span><span class="tok-str">&quot;问题不能为空&quot;</span>)
+    <span class="tok-kw">if</span> <span class="tok-fn">len</span>(req.question) <span class="tok-op">&gt;</span> <span class="tok-num">500</span><span class="tok-op">:</span>                                   <span class="tok-com"># ②</span>
+        <span class="tok-kw">raise</span> <span class="tok-fn">HTTPException</span>(status_code<span class="tok-op">=</span><span class="tok-num">400</span>, detail<span class="tok-op">=</span><span class="tok-str">&quot;问题不能超过 500 字&quot;</span>)
+    <span class="tok-kw">if</span> <span class="tok-kw">not</span> (<span class="tok-num">1</span> <span class="tok-op">&lt;=</span> req.top_k <span class="tok-op">&lt;=</span> <span class="tok-num">5</span>)<span class="tok-op">:</span>                                 <span class="tok-com"># ③</span>
+        <span class="tok-kw">raise</span> <span class="tok-fn">HTTPException</span>(status_code<span class="tok-op">=</span><span class="tok-num">400</span>, detail<span class="tok-op">=</span><span class="tok-str">&quot;top_k 必须在 1~5 之间&quot;</span>)
+
+    answer, sources <span class="tok-op">=</span> <span class="tok-fn">do_rag</span>(req.question, req.top_k)             <span class="tok-com"># ④</span>
+    <span class="tok-kw">return</span> {<span class="tok-str">&quot;answer&quot;</span><span class="tok-op">:</span> answer, <span class="tok-str">&quot;sources&quot;</span><span class="tok-op">:</span> sources}</code></pre></figure>
+<h3 id="answers-第-2-问health-的作用">第 2 问：<code>/health</code> 的作用</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python">@app.<span class="tok-fn">get</span>(<span class="tok-str">&quot;/health&quot;</span>)
+<span class="tok-kw">def</span> <span class="tok-fn">health</span>()<span class="tok-op">:</span>
+    <span class="tok-kw">return</span> {<span class="tok-str">&quot;status&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;ok&quot;</span>}</code></pre></figure>
+<p>三个用途：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>用途</th><th>说明</th></tr></thead><tbody><tr><td><strong>存活探测</strong></td><td>云平台/负载均衡定期访问它，返回 200 就认为服务活着</td></tr><tr><td><strong>部署验证</strong></td><td>部署完先访问 <code>/health</code>，能通说明&quot;服务和路由都对&quot;，再去测业务接口</td></tr><tr><td><strong>快速定位</strong></td><td>业务接口 500 时，先访问 <code>/health</code>：通了 → 业务逻辑问题；不通 → 服务本身没起来</td></tr></tbody></table></div>
+<blockquote class="callout">
+<p><strong>这是&quot;排查分层&quot;的思路</strong>：先确认&quot;活着&quot;，再确认&quot;能干活&quot;。</p>
+</blockquote>
+<h3 id="answers-第-3-问防护">第 3 问：防护</h3>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>防护</th><th>做法</th></tr></thead><tbody><tr><td><strong>限流</strong></td><td>每个 IP 每分钟最多 N 次（<code>slowapi</code> 库，或自己用字典记时间戳）</td></tr><tr><td><strong>鉴权</strong></td><td>加一个 <code>X-API-Key</code> 头，只有知道 key 的人能调</td></tr><tr><td><strong>输入上限</strong></td><td>问题长度、<code>top_k</code> 上限（你已经做了）</td></tr><tr><td><strong>预算熔断</strong></td><td>当天累计 token 超过阈值就返回 503</td></tr><tr><td><strong>CORS 白名单</strong></td><td>只允许你的前端域名调用</td></tr></tbody></table></div>
+<blockquote class="callout">
+<p><strong>最低配也要做&quot;限流 + 长度限制&quot;。</strong> 这两个加起来能挡住 90% 的&quot;无意刷爆&quot;。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="answers-第-3-题-上线后的四个灵异事件">第 3 题 · 上线后的四个&quot;灵异事件&quot;</h2>
+<h3 id="answers-amodulenotfounderror-no-module-named-pypdf">A：<code>ModuleNotFoundError: No module named &#39;pypdf&#39;</code></h3>
+<p><strong>原因</strong>：<code>requirements.txt</code> 里没有 <code>pypdf</code>（或拼错了）。</p>
+<p><strong>排查</strong>：</p>
+<ol>
+<li>看部署平台的构建日志，找 <code>pip install</code> 那一段</li>
+<li>本地 <code>pip freeze | findstr pypdf</code> 确认版本</li>
+<li>补进 <code>requirements.txt</code>，重新部署</li>
+</ol>
+<p><strong>根因</strong>：<strong>本地能跑是因为你装过，云端是全新环境。</strong> 这是&quot;本地 vs 云端&quot;第一课。</p>
+<blockquote class="callout">
+<p><strong>预防</strong>：养成习惯——只在 <code>requirements.txt</code> 里列依赖，<strong>不在本地全局环境里随意 <code>pip install</code></strong>。</p>
+</blockquote>
+<h3 id="answers-b页面能开点发送就白屏">B：页面能开，点发送就白屏</h3>
+<p><strong>原因（按概率）</strong>：</p>
+<ol>
+<li><strong>异常没被捕获</strong>，Streamlit 把整个脚本崩了 → 页面空白</li>
+<li>前端 JS 报错（少见）</li>
+<li>无限循环导致超时</li>
+</ol>
+<p><strong>排查</strong>：</p>
+<ol>
+<li>看平台日志（Streamlit Cloud 有 &quot;Manage app&quot; → 日志）</li>
+<li>本地复现：<code>streamlit run app.py</code>，看终端有没有红色堆栈</li>
+<li>在白屏前的位置加 <code>st.write(&quot;到了这里 1&quot;)</code> 打点</li>
+</ol>
+<p><strong>修法</strong>：所有外部调用（API、文件、模型）都包 <code>try/except</code>，出错时 <code>st.error(&quot;...&quot;)</code>。</p>
+<h3 id="answers-c用了三天突然-401">C：用了三天突然 401</h3>
+<p><strong>原因</strong>：key 失效了。三种可能：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>可能</th><th>怎么确认</th></tr></thead><tbody><tr><td><strong>余额耗尽</strong></td><td>登录平台看账单</td></tr><tr><td><strong>key 被平台自动吊销</strong>（检测到泄露）</td><td>平台有安全通知</td></tr><tr><td><strong>你换了 key 但没更新 secrets</strong></td><td>对比代码和平台配置</td></tr></tbody></table></div>
+<p><strong>排查</strong>：先在本地用<strong>同一个 key</strong> 跑一次。本地也 401 → key 的问题；本地正常 → 部署环境的配置问题（比如 secrets 名字拼错）。</p>
+<h3 id="answers-d部署后-30-秒本地-3-秒">D：部署后 30 秒，本地 3 秒</h3>
+<p><strong>原因</strong>：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>原因</th><th>说明</th></tr></thead><tbody><tr><td><strong>冷启动</strong></td><td>免费平台会休眠，第一个请求要唤醒容器（10~30 秒），<strong>这是最常见原因</strong></td></tr><tr><td><strong>网络</strong></td><td>云端调 API 的链路更长</td></tr><tr><td><strong>资源小</strong></td><td>免费版 CPU 只有 0.1~1 核</td></tr><tr><td><strong>每次重建索引</strong></td><td>如果你的代码在启动时重算 embedding，那每次冷启动都要重跑</td></tr></tbody></table></div>
+<p><strong>排查</strong>：连续请求 3 次，看是不是只有第 1 次慢。<strong>只有第 1 次慢 = 冷启动，这是正常现象，不是你代码的问题。</strong></p>
+<p><strong>优化</strong>：</p>
+<ul>
+<li>把&quot;建索引&quot;改成<strong>离线做好、直接加载文件</strong>（P5 的 <code>store.load()</code> 就是这个思路）</li>
+<li>用 <code>@st.cache_resource</code> 缓存模型/索引</li>
+</ul>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python">@st.cache_resource
+<span class="tok-kw">def</span> <span class="tok-fn">get_index</span>()<span class="tok-op">:</span>
+    <span class="tok-kw">return</span> <span class="tok-fn">load</span>()</code></pre></figure>
+<blockquote class="callout">
+<p><code>@st.cache_resource</code> 是 Streamlit 最重要的装饰器：<strong>它让&quot;加载索引&quot;只做一次，而不是每次交互都做。</strong></p>
+</blockquote>
+<hr class="rule">
+<h2 id="answers-第-4-题-密钥的四种写法">第 4 题 · 密钥的四种写法</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>#</th><th>可以接受吗</th><th>理由</th></tr></thead><tbody><tr><td>1</td><td>⚠️ <strong>不建议，即使没推 GitHub</strong></td><td>你永远不知道哪天会 <code>git add .</code>；也可能发给同事、发到群里。<strong>&quot;暂时没泄露&quot;不等于&quot;安全&quot;</strong></td></tr><tr><td>2</td><td>✅ <strong>可以</strong></td><td>标准做法。key 在环境里，代码里只有变量名</td></tr><tr><td>3</td><td>⚠️ <strong>看场景</strong></td><td>让用户填<strong>自己的</strong> key 是可以的（BYOK 模式），但要明确提示&quot;你的 key 只存在本次会话&quot;；<strong>绝不能</strong>拿它当&quot;绕过自己成本&quot;的手段还不告知</td></tr><tr><td>4</td><td>✅ <strong>可以</strong></td><td>平台提供的 secrets 机制，就是干这个的</td></tr></tbody></table></div>
+<h3 id="answers-附加问不小心提交了怎么办">附加问：不小心提交了怎么办</h3>
+<p><strong>第一件事：立刻去平台吊销（revoke）那个 key，重新生成。</strong></p>
+<p>顺序不能反：</p>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">❌ 先删文件、先改 git 历史 → key 已经泄露了，删了也没用
+✅ 先吊销 → 再清理仓库 → 再重新部署</code></pre></figure>
+<p><strong>为什么</strong>：GitHub 上有专门的爬虫，<strong>提交后几分钟内</strong>就会扫到并开始用。你的&quot;删除提交&quot;救不了已经泄露的 key。</p>
+<p>吊销之后再做：</p>
+<figure class="code-block" data-lang="bash"><figcaption><span class="code-lang">bash</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-bash"><span class="tok-com"># 从 git 历史里彻底移除（需要 git-filter-repo 或 BFG）</span>
+git filter-repo --path .env --invert-paths</code></pre></figure>
+<blockquote class="callout">
+<p><strong>记住这个顺序：吊销 &gt; 清理 &gt; 复盘。</strong> 先止损，再善后。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="answers-第-5-题-免费额度能撑多久">第 5 题 · 免费额度能撑多久</h2>
+<h3 id="answers-第-1-问一个用户一天">第 1 问：一个用户一天</h3>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">5 次 × 1500 token = 7500 token/天</code></pre></figure>
+<h3 id="answers-第-2-问一个用户能用多少天">第 2 问：一个用户能用多少天</h3>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">5,000,000 / 7500 ≈ 666.7 天 ≈ 1.8 年</code></pre></figure>
+<h3 id="answers-第-3-问50-个用户">第 3 问：50 个用户</h3>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">50 × 7500 = 375,000 token/天
+5,000,000 / 375,000 ≈ 13.3 天</code></pre></figure>
+<p><strong>两周就没了。</strong></p>
+<h3 id="answers-第-4-问限流能延长多少">第 4 问：限流能延长多少</h3>
+<p><strong>关键：限流不减少&quot;总次数&quot;，只减少&quot;并发冲击&quot;。</strong></p>
+<p>如果用户本来一天问 5 次，限流&quot;每分钟 1 次&quot;<strong>不会减少总量</strong>——只是把 5 次分散到 5 分钟。</p>
+<p>所以：</p>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">延长倍数 ≈ 1（对总量几乎无影响）</code></pre></figure>
+<p><strong>但如果限流是&quot;每人每天最多 3 次&quot;</strong>：</p>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">50 × 3 × 1500 = 225,000/天
+5,000,000 / 225,000 ≈ 22 天</code></pre></figure>
+<p><strong>延长约 67%。</strong></p>
+<blockquote class="callout">
+<p><strong>这题的重点</strong>：区分&quot;限速（rate limit）&quot;和&quot;限配额（quota）&quot;。</p>
+<ul>
+<li>限速：防瞬时冲击（防刷）</li>
+<li>限配额：防总量耗尽（防破产）</li>
+</ul>
+<p><strong>两个都要，但它们解决不同问题。</strong></p>
+</blockquote>
+<h3 id="answers-第-5-问还有什么办法">第 5 问：还有什么办法</h3>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>办法</th><th>省多少</th><th>代价</th></tr></thead><tbody><tr><td><strong>压缩 system 提示词</strong></td><td>5~15%</td><td>可能损失一点效果</td></tr><tr><td><strong>减少 top_k（3→2）</strong></td><td>10~20%</td><td>可能掉召回</td></tr><tr><td><strong>限制输出长度</strong>（&quot;不超过 100 字&quot;）</td><td><strong>20~40%</strong>（输出通常更贵）</td><td>答案可能不够详细</td></tr><tr><td><strong>缓存相同问题</strong></td><td>取决于重复率，热点问题能省 50%+</td><td>要设计缓存键</td></tr><tr><td><strong>用小模型做初筛</strong>（简单问题不走大模型）</td><td>20~30%</td><td>实现复杂</td></tr><tr><td><strong>前端做输入建议</strong>（减少无效提问）</td><td>不定</td><td>产品设计</td></tr></tbody></table></div>
+<blockquote class="callout">
+<p><strong>最有效的是&quot;限制输出长度&quot;。</strong> 因为输出 token 通常比输入贵 2~4 倍（M0 第 3 题算过）。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="answers-第-6-题-把你的项目发出去">第 6 题 · 把你的项目发出去</h2>
+<h3 id="answers-参考交付">参考交付</h3>
+<p><strong>公开链接</strong>：<code>https://xxx.streamlit.app</code></p>
+<p><strong>README 的&quot;我踩过的坑&quot;（示例）</strong>：</p>
+<figure class="code-block" data-lang="markdown"><figcaption><span class="code-lang">markdown</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-markdown">## 我踩过的坑
+
+1. **Chroma 默认用自己的 embedding 模型。**
+   我传了自定义向量但没传 embeddings 参数，导致库里存的是另一套坐标系的向量。
+   Chroma 不报错，排序完全随机。排查两小时，最后用
+   `col.get(include=[&quot;embeddings&quot;])` 看实际维度才发现是 384 而不是 1024。
+
+2. **Streamlit 每次交互都重跑整个脚本。**
+   我把建索引写在了模块顶层，结果每点一次按钮就重建一次索引，
+   一次请求 20 秒。改成 `@st.cache_resource` 后降到 2 秒。
+
+3. **中文 CSV 用 Excel 打开乱码。**
+   `encoding=&quot;utf-8&quot;` 不够，必须 `utf-8-sig`（带 BOM）。</code></pre></figure>
+<p><strong>简历三句话（示例）</strong>：</p>
+<blockquote class="callout">
+<p>独立实现基于向量检索的文档问答系统，支持 PDF 解析、语义检索与答案页码溯源。
+自建 20 题评测集量化 Recall/Precision，通过父块扩展与 BM25 混合检索优化检索层。
+整体答对率由 60% 提升至 80%，精确信息类问题由 33% 提升至 100%，已部署为公开可访问的 Web 应用。</p>
+</blockquote>
+<h3 id="answers-加分题找不懂技术的人试用">加分题：找不懂技术的人试用</h3>
+<p><strong>你会观察到的事</strong>：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>现象</th><th>说明什么</th></tr></thead><tbody><tr><td>他不知道能问什么</td><td>你的界面缺&quot;示例问题&quot;</td></tr><tr><td>他问了一个你文档里没有的问题，看到&quot;无法回答&quot;就以为坏了</td><td>你的拒答提示太生硬，应该加&quot;你可以试试问：...&quot;</td></tr><tr><td>他连续问了 3 个几乎一样的问题</td><td>你的第一次回答没解决他的问题</td></tr><tr><td>他说&quot;这跟 ChatGPT 有什么区别&quot;</td><td><strong>这是最致命的问题</strong>——说明你的价值没说清</td></tr></tbody></table></div>
+<blockquote class="callout">
+<p>最后一条最重要。<strong>如果你的 RAG 和直接问 ChatGPT 没区别，那你的项目就没有存在理由。</strong>
+差异点应该是：<strong>你的文档、你的出处、你的时效性。</strong></p>
+</blockquote>
+<hr class="rule">
+<h2 id="answers-自评标准">自评标准</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>答对</th><th>评价</th></tr></thead><tbody><tr><td>6/6</td><td>优秀：你已经具备&quot;独立交付&quot;的能力</td></tr><tr><td>4~5</td><td>合格：重点补第 3、4 题（排错和安全）</td></tr><tr><td>2~3</td><td>需要回炉：重读讲稿第三、五节</td></tr><tr><td>0~1</td><td>别慌：先按 P8 把链接发出去，跑通比理解更重要</td></tr></tbody></table></div></div>
+  </div>
+  <div class="tab-panel" id="panel-project" role="tabpanel" aria-labelledby="tab-panel-project" hidden>
+    <div class="callout" style="margin-bottom:22px">
+      <strong>P8 项目计划书 · P8 部署好的网页链接</strong><br>
+      按「目标 → 代码 → 为什么 → 怎么验证」一步步敲。卡住的地方，才是真正学到的地方。
+    </div>
+    <div class="prose"><blockquote class="callout">
+<p>难度：⭐⭐⭐⭐⭐ ｜ 周期：一个周末（约 4 小时）｜ 学习模块：M7
+<strong>这是最后一个项目，也是前 7 个项目的&quot;变现&quot;环节。</strong>
+<strong>采用的资料</strong>：见文末第 7 节</p>
+</blockquote>
+<hr class="rule">
+<h2 id="project-1-项目要做什么">1. 项目要做什么</h2>
+<h3 id="project-一句话">一句话</h3>
+<p>把你最好的那个项目（P5 或 P7）<strong>部署成一个别人能点开的链接</strong>，并打包成一套能投简历的作品集。</p>
+<h3 id="project-验收标准">验收标准</h3>
+<ul>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">有公网链接，手机能打开</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">换一台电脑，只按 README 的 3 条命令能跑起来</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">仓库里搜不到任何 <code>sk-</code> 开头的字符串</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">有 30 秒演示视频</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">有 README（含&quot;我踩过的坑&quot;）</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">有简历三句话</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">有 6 个面试问答的答案（写在纸上，能背）</span></li>
+</ul>
+<h3 id="project-明确不做">明确不做</h3>
+<ul>
+<li>❌ 不做登录系统</li>
+<li>❌ 不买域名（除非你已经买了）</li>
+<li>❌ 不追求 UI 精美</li>
+<li>❌ 不接支付</li>
+</ul>
+<blockquote class="callout">
+<p><strong>目标：让别人 30 秒内看懂你在做什么，并能亲手试。</strong> 其他都是次要的。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="project-2-工具与开发环境">2. 工具与开发环境</h2>
+<blockquote class="callout">
+<p>🛑 <strong>本项目原则：不装新东西。</strong>
+需要的只有一个 GitHub 账号 + 一个部署平台账号（都免费）。</p>
+</blockquote>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>项</th><th>状态</th><th>说明</th></tr></thead><tbody><tr><td>GitHub 账号</td><td><strong>需要</strong>（免费）</td><td>存代码、触发部署</td></tr><tr><td>Streamlit Community Cloud</td><td><strong>需要</strong>（免费，用 GitHub 登录）</td><td>部署</td></tr><tr><td>你的项目（P5 或 P7）</td><td>已有</td><td>待部署</td></tr><tr><td>一个新的虚拟环境</td><td>现场建</td><td>用于&quot;裸环境验证&quot;</td></tr><tr><td>录屏工具</td><td>系统自带</td><td>Win+G / 手机拍</td></tr></tbody></table></div>
+<h3 id="project-关于裸环境验证">关于&quot;裸环境验证&quot;</h3>
+<p><strong>这是本项目最重要的一步，也是最容易被跳过的一步。</strong></p>
+<figure class="code-block" data-lang="bash"><figcaption><span class="code-lang">bash</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-bash"><span class="tok-com"># 在一个全新目录，克隆你的仓库</span>
+git clone https<span class="tok-op">://</span>github.com<span class="tok-op">/</span>你的名字<span class="tok-op">/</span>你的项目.git
+cd 你的项目
+
+<span class="tok-com"># 建全新环境</span>
+python -m venv .venv-test
+.venv-test\Scripts\activate
+pip install -r requirements.txt
+streamlit run app.py</code></pre></figure>
+<p><strong>为什么必须做</strong>：你在自己的环境里&quot;能跑&quot;，是因为你半年里陆续装了几十个包。<strong>别人拿到你的代码，只有 <code>requirements.txt</code>。</strong></p>
+<blockquote class="callout">
+<p>90% 的&quot;部署失败&quot;在这一步就能提前发现。<strong>在本地花 10 分钟，胜过在云端瞎猜 1 小时。</strong></p>
+</blockquote>
+<hr class="rule">
+<h2 id="project-3-项目文件结构">3. 项目文件结构</h2>
+<p>一个&quot;能交付&quot;的仓库长这样：</p>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">my-rag-app/
+├── .gitignore              ← 必须有，且必须含 .env
+├── README.md               ← 必须有，且必须能照着跑
+├── requirements.txt        ← 只列真正用到的包
+├── .streamlit/
+│   └── config.toml         ← 可选：主题、端口
+├── app.py                  ← 入口
+├── config.py
+├── rag.py
+├── store.py
+├── data/
+│   └── 售后政策.pdf
+├── index/
+│   ├── chunks.json         ← 提前建好，随仓库提交
+│   └── vectors.npy
+├── eval_set.json
+└── docs/
+    ├── demo.mp4            ← 演示视频（或放外链）
+    └── screenshot.png</code></pre></figure>
+<h3 id="project-三个关键决策">三个关键决策</h3>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>决策</th><th>说明</th></tr></thead><tbody><tr><td><strong>索引文件要不要提交？</strong></td><td><strong>要</strong>。它只有几百 KB，提交后云端不用重建，启动快 10 倍。<strong>大文件（&gt;50MB）才用外部存储</strong></td></tr><tr><td><strong><code>data/</code> 里的 PDF 要不要提交？</strong></td><td>要（如果是你自己的、不涉密的）。否则云端没法建库</td></tr><tr><td><strong><code>.env</code> 绝对不能提交</strong></td><td>一条铁律，不再解释</td></tr></tbody></table></div>
+<h3 id="project-requirementstxt-怎么写才干净"><code>requirements.txt</code> 怎么写才&quot;干净&quot;</h3>
+<figure class="code-block" data-lang="bash"><figcaption><span class="code-lang">bash</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-bash"><span class="tok-com"># 不要用 pip freeze 直接导（会带上一堆无关的包）</span>
+<span class="tok-com"># 手写，只写你 import 了的</span></code></pre></figure>
+<figure class="code-block" data-lang="txt"><figcaption><span class="code-lang">txt</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-txt">openai&gt;=1.0
+python-dotenv
+streamlit
+numpy
+pypdf</code></pre></figure>
+<blockquote class="callout">
+<p><code>pip freeze</code> 会把 <code>pip</code>、<code>setuptools</code> 甚至你三个月前装的无关包全列进去，导致云端安装慢、还可能版本冲突。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="project-4-项目流程图部署全流程">4. 项目流程图（部署全流程）</h2>
+<div class="mermaid-wrap"><div class="mermaid">flowchart TD
+    A[选定项目 P5 或 P7] --> B[整理仓库<br/>.gitignore / requirements / README]
+    B --> C[裸环境验证<br/>新建 venv 装依赖跑通]
+    C --> D{能跑?}
+    D -- 否 --> E[补 requirements / 修路径]
+    E --> C
+    D -- 是 --> F[推 GitHub]
+    F --> G[密钥扫描<br/>git log -p 搜 sk-]
+    G --> H{有泄露?}
+    H -- 是 --> I[吊销 key → 清理 → 重新生成]
+    I --> F
+    H -- 否 --> J[Streamlit Cloud 部署]
+    J --> K[验证清单<br/>手机/报错/限流]
+    K --> L{通过?}
+    L -- 否 --> M[看日志修]
+    M --> J
+    L -- 是 --> N[录 30 秒视频]
+    N --> O[写简历三句话 + 面试问答]
+    O --> P([作品集完成])</div></div>
+<h3 id="project-为什么密钥扫描要放在推-github-之后部署之前">为什么&quot;密钥扫描&quot;要放在推 GitHub 之后、部署之前</h3>
+<p>因为<strong>推上去的那一刻就已经泄露了</strong>。扫描是为了<strong>立刻发现并止损</strong>，不是为了&quot;预防&quot;。</p>
+<p>真正的预防是在 <code>.gitignore</code> 里写 <code>.env</code>——但那只能防&quot;以后&quot;，防不了&quot;你已经在本地 commit 过&quot;。</p>
+<hr class="rule">
+<h2 id="project-5-分步实现">5. 分步实现</h2>
+<h3 id="project-step-1-整理仓库40-分钟">Step 1 · 整理仓库（40 分钟）</h3>
+<p><strong>① 写 <code>.gitignore</code></strong></p>
+<figure class="code-block" data-lang="gitignore"><figcaption><span class="code-lang">gitignore</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-gitignore">.env
+.venv/
+.venv-test/
+__pycache__/
+*.pyc
+*.log
+.streamlit/secrets.toml
+.DS_Store</code></pre></figure>
+<p><strong>② 写 <code>requirements.txt</code></strong>（手写，见上）</p>
+<p><strong>③ 写 <code>README.md</code></strong></p>
+<figure class="code-block" data-lang="markdown"><figcaption><span class="code-lang">markdown</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-markdown"># 文档问答助手
+
+上传一份 PDF，用大白话提问，答案带页码出处。
+
+## 演示
+![demo](docs/screenshot.png)
+[30 秒视频](docs/demo.mp4)
+
+## 它解决什么问题
+- 手册 50 页，找一个条款要翻半天
+- 直接问 ChatGPT，它不知道你的文档，还爱编
+
+## 技术方案
+PDF 解析(pypdf) → 按页切分 → Embedding → 自建向量索引 → 检索 top-3 → 带引用生成
+
+关键决策：
+- 为什么不用 LangChain：只有一条链路，原生实现更可控
+- 为什么按页切：保证引用能定位到页码
+
+## 效果
+20 题评测集：Recall@5 = 0.85，答对率 = 0.80，拒答正确率 = 1.00
+
+## 怎么跑起来
+```bash
+pip install -r requirements.txt
+# 在 .env 里配置 DEEPSEEK_API_KEY 和 EMBED_API_KEY
+python build.py          # 建索引（已提交索引可跳过）
+streamlit run app.py
+```
+
+## 我踩过的坑
+1. ...
+2. ...</code></pre></figure>
+<p><strong>注意 README 的第一句</strong>：不要写&quot;这是一个基于 XXX 的系统&quot;，要写<strong>人话</strong>——&quot;上传一份 PDF，用大白话提问，答案带页码出处&quot;。</p>
+<blockquote class="callout">
+<p>招聘方只看 10 秒。<strong>前两句决定他往不往下看。</strong></p>
+</blockquote>
+<hr class="rule">
+<h3 id="project-step-2-裸环境验证30-分钟别跳">Step 2 · 裸环境验证（30 分钟，<strong>别跳</strong>）</h3>
+<figure class="code-block" data-lang="bash"><figcaption><span class="code-lang">bash</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-bash">mkdir D<span class="tok-op">:</span>\test-clone
+cd D<span class="tok-op">:</span>\test-clone
+git clone <span class="tok-op">&lt;</span>你的仓库地址<span class="tok-op">&gt;</span>
+cd <span class="tok-op">&lt;</span>项目名<span class="tok-op">&gt;</span>
+python -m venv .venv-test
+.venv-test\Scripts\activate
+pip install -r requirements.txt
+streamlit run app.py</code></pre></figure>
+<p><strong>会遇到的问题和修法</strong>：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>报错</th><th>原因</th><th>修法</th></tr></thead><tbody><tr><td><code>ModuleNotFoundError</code></td><td>requirements 漏了</td><td>补上</td></tr><tr><td><code>FileNotFoundError: data/xxx.pdf</code></td><td>用了绝对路径 <code>D:\...</code></td><td>改成相对路径 <code>Path(__file__).parent / &quot;data/...&quot;</code></td></tr><tr><td><code>FileNotFoundError: index/...</code></td><td>索引没提交</td><td>提交索引，或加&quot;首次运行自动建库&quot;</td></tr><tr><td><code>KeyError: &#39;DEEPSEEK_API_KEY&#39;</code></td><td>没有 <code>.env</code></td><td>README 里写清楚要配什么</td></tr></tbody></table></div>
+<p><strong>绝对路径是最高频的坑</strong>。修法：</p>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">from</span> pathlib <span class="tok-kw">import</span> Path
+BASE <span class="tok-op">=</span> <span class="tok-fn">Path</span>(__file__).parent
+DATA <span class="tok-op">=</span> BASE <span class="tok-op">/</span> <span class="tok-str">&quot;data&quot;</span> <span class="tok-op">/</span> <span class="tok-str">&quot;售后政策.pdf&quot;</span></code></pre></figure>
+<blockquote class="callout">
+<p><code>Path(__file__).parent</code> 的意思是&quot;以这个文件所在目录为基准&quot;，<strong>换到任何电脑都对</strong>。</p>
+</blockquote>
+<hr class="rule">
+<h3 id="project-step-3-推-github-密钥扫描20-分钟">Step 3 · 推 GitHub + 密钥扫描（20 分钟）</h3>
+<figure class="code-block" data-lang="bash"><figcaption><span class="code-lang">bash</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-bash">git init
+git add .
+git commit -m <span class="tok-str">&quot;init: 文档问答助手&quot;</span>
+git remote add origin https<span class="tok-op">://</span>github.com<span class="tok-op">/</span>你的名字<span class="tok-op">/</span>my-rag-app.git
+git push -u origin main</code></pre></figure>
+<p><strong>立刻扫描</strong>：</p>
+<figure class="code-block" data-lang="bash"><figcaption><span class="code-lang">bash</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-bash">git log -p <span class="tok-op">|</span> findstr <span class="tok-str">&quot;sk-&quot;</span>        <span class="tok-com"># Windows</span>
+git log -p <span class="tok-op">|</span> grep -E <span class="tok-str">&quot;sk-[a-zA-Z0-9]{20,}&quot;</span>   <span class="tok-com"># Mac/Linux</span></code></pre></figure>
+<p><strong>有输出 → 按这个顺序处理</strong>：</p>
+<ol>
+<li><strong>去平台吊销 key</strong>（第一件事，别犹豫）</li>
+<li>生成新 key</li>
+<li>清理仓库（如果只提交了一次，可以 <code>git reset</code> 重来；多次的话用 <code>git filter-repo</code>）</li>
+<li>重新推</li>
+</ol>
+<blockquote class="callout">
+<p>强调三遍也不为过：<strong>先吊销，再清理。</strong> 反过来做，key 已经被人拿去用了。</p>
+</blockquote>
+<hr class="rule">
+<h3 id="project-step-4-部署到-streamlit-cloud30-分钟">Step 4 · 部署到 Streamlit Cloud（30 分钟）</h3>
+<ol>
+<li>访问 <a href="https://share.streamlit.io" target="_blank" rel="noopener">https://share.streamlit.io</a> ，用 GitHub 登录</li>
+<li>New app → 选仓库 → 选分支 → 主文件填 <code>app.py</code></li>
+<li><strong>Advanced settings → Secrets</strong>，填入：</li>
+</ol>
+<figure class="code-block" data-lang="toml"><figcaption><span class="code-lang">toml</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-toml">DEEPSEEK_API_KEY = &quot;sk-xxx&quot;
+EMBED_API_KEY = &quot;xxx&quot;
+EMBED_BASE_URL = &quot;https://...&quot;
+EMBED_MODEL = &quot;embedding-3&quot;</code></pre></figure>
+<ol start="4">
+<li>Deploy，等 2~5 分钟</li>
+</ol>
+<p><strong>代码里这样读</strong>（兼容本地和云端）：</p>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">import</span> os
+
+<span class="tok-kw">def</span> <span class="tok-fn">get_secret</span>(name<span class="tok-op">:</span> str, default<span class="tok-op">=</span><span class="tok-bool">None</span>)<span class="tok-op">:</span>
+    <span class="tok-kw">try</span><span class="tok-op">:</span>
+        <span class="tok-kw">import</span> streamlit <span class="tok-kw">as</span> st
+        <span class="tok-kw">if</span> name <span class="tok-kw">in</span> st.secrets<span class="tok-op">:</span>
+            <span class="tok-kw">return</span> st.secrets[name]
+    <span class="tok-kw">except</span> Exception<span class="tok-op">:</span>
+        <span class="tok-kw">pass</span>
+    <span class="tok-kw">return</span> os.<span class="tok-fn">getenv</span>(name, default)</code></pre></figure>
+<blockquote class="callout">
+<p>这个函数让<strong>同一份代码在本地和云端都能跑</strong>。这是&quot;可移植&quot;的关键。</p>
+</blockquote>
+<hr class="rule">
+<h3 id="project-step-5-验证清单20-分钟">Step 5 · 验证清单（20 分钟）</h3>
+<p>部署完<strong>逐条</strong>打勾：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>#</th><th>检查</th><th>怎么查</th></tr></thead><tbody><tr><td>1</td><td>链接能打开</td><td>无痕窗口打开（避免缓存骗你）</td></tr><tr><td>2</td><td><strong>手机能打开</strong></td><td>用手机流量，不用 WiFi（模拟真实网络）</td></tr><tr><td>3</td><td>首次加载多久</td><td>计个时。&gt;30 秒要优化（多半是建索引）</td></tr><tr><td>4</td><td>问一个正常问题</td><td>有答案、有引用</td></tr><tr><td>5</td><td>问一个库里没有的</td><td>正确拒答</td></tr><tr><td>6</td><td>把 Key 改错一次</td><td>显示人话错误，不是堆栈</td></tr><tr><td>7</td><td>输入超长文本</td><td>有长度限制提示</td></tr><tr><td>8</td><td>连续快速点 5 次</td><td>有防抖/限流，不报错</td></tr></tbody></table></div>
+<blockquote class="callout">
+<p>第 2 和第 3 条最容易被跳过，也最容易翻车。<strong>手机端布局经常是坏的。</strong></p>
+</blockquote>
+<hr class="rule">
+<h3 id="project-step-6-加最基本的防护30-分钟">Step 6 · 加最基本的防护（30 分钟）</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">import</span> time
+
+MAX_QUESTION_LEN <span class="tok-op">=</span> <span class="tok-num">500</span>
+MIN_INTERVAL <span class="tok-op">=</span> <span class="tok-num">1.5</span>     <span class="tok-com"># 秒</span>
+
+<span class="tok-kw">if</span> <span class="tok-str">&quot;last_call&quot;</span> <span class="tok-kw">not</span> <span class="tok-kw">in</span> st.session_state<span class="tok-op">:</span>
+    st.session_state.last_call <span class="tok-op">=</span> <span class="tok-num">0.0</span>
+
+q <span class="tok-op">=</span> st.<span class="tok-fn">chat_input</span>(<span class="tok-str">&quot;说点什么&quot;</span>)
+
+<span class="tok-kw">if</span> q<span class="tok-op">:</span>
+    <span class="tok-kw">if</span> <span class="tok-fn">len</span>(q) <span class="tok-op">&gt;</span> MAX_QUESTION_LEN<span class="tok-op">:</span>
+        st.<span class="tok-fn">warning</span>(f<span class="tok-str">&quot;问题太长了，请精简到 {MAX_QUESTION_LEN} 字以内。&quot;</span>)
+        st.<span class="tok-fn">stop</span>()
+
+    now <span class="tok-op">=</span> time.<span class="tok-fn">time</span>()
+    <span class="tok-kw">if</span> now <span class="tok-op">-</span> st.session_state.last_call <span class="tok-op">&lt;</span> MIN_INTERVAL<span class="tok-op">:</span>
+        st.<span class="tok-fn">warning</span>(<span class="tok-str">&quot;慢一点，我还在想上一个问题。&quot;</span>)
+        st.<span class="tok-fn">stop</span>()
+    st.session_state.last_call <span class="tok-op">=</span> now
+
+    <span class="tok-com"># ... 正常流程</span></code></pre></figure>
+<p><strong>四行防护，挡住 90% 的&quot;无意刷爆&quot;。</strong></p>
+<blockquote class="callout">
+<p>注意：这是<strong>前端防抖</strong>，不是真正的服务端限流。对个人作品集够用；真实产品要在服务端做。</p>
+</blockquote>
+<hr class="rule">
+<h3 id="project-step-7-录-30-秒视频30-分钟">Step 7 · 录 30 秒视频（30 分钟）</h3>
+<p><strong>脚本（照着念/照着做）</strong>：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>秒</th><th>画面</th><th>说什么</th></tr></thead><tbody><tr><td>0–5</td><td>打开链接</td><td>&quot;这是我的文档问答助手&quot;</td></tr><tr><td>5–12</td><td>输入&quot;退款多久到账&quot;</td><td>&quot;它从我的 PDF 里找答案&quot;</td></tr><tr><td>12–18</td><td>展开引用</td><td>&quot;每个答案都有页码出处，能点开核对&quot;</td></tr><tr><td>18–25</td><td>问一个文档里没有的</td><td>&quot;不知道就说不知道，不瞎编&quot;</td></tr><tr><td>25–30</td><td>收起</td><td>&quot;完&quot;</td></tr></tbody></table></div>
+<p><strong>录制建议</strong>：</p>
+<ul>
+<li>Win + G 录屏，或手机直接拍屏幕（<strong>手机拍反而更真实</strong>）</li>
+<li><strong>不要剪辑</strong>，一口气录完，磕巴也没关系</li>
+<li><strong>不要配乐</strong>，不要片头</li>
+<li>视频放 <code>docs/demo.mp4</code>，或传到 B 站/YouTube 放链接</li>
+</ul>
+<blockquote class="callout">
+<p>30 秒足够。<strong>超过 1 分钟的视频，招聘方不会点开。</strong></p>
+</blockquote>
+<hr class="rule">
+<h3 id="project-step-8-简历三句话-面试问答40-分钟">Step 8 · 简历三句话 + 面试问答（40 分钟）</h3>
+<p><strong>简历三句话（模板填空）</strong>：</p>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">① 做了什么：独立实现【什么系统】，支持【3 个核心能力】。
+② 怎么做的：采用【技术方案】，自建【N 题评测集】，通过【优化手段】提升【指标】。
+③ 结果如何：【指标】从【X】提升至【Y】，已部署为【公开可访问的 Web 应用】。</code></pre></figure>
+<p><strong>面试问答（写在纸上，能背）</strong>：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>问题</th><th>你要能答出（关键词）</th></tr></thead><tbody><tr><td>1. 你的 RAG 怎么评估的？</td><td>20 题评测集、四指标、gold chunk 人工标注、按题型分组分析</td></tr><tr><td>2. 为什么用混合检索？</td><td>向量擅长语义、BM25 擅长精确词；RRF 因为量纲不同不能直接加</td></tr><tr><td>3. 切分参数怎么定的？</td><td>试了 300/500/800，用评测集选；500 最好，300 会切断跨页答案</td></tr><tr><td>4. Agent 怎么防死循环？</td><td>步数上限、重复签名检测、错误转可读字符串回传</td></tr><tr><td>5. 密钥怎么管的？</td><td>.env + .gitignore + 平台 secrets；泄露先吊销再清理</td></tr><tr><td>6. 用户量涨 100 倍怎么办？</td><td>缓存、限流、向量库换 Milvus、异步、成本监控、按题型路由到小模型</td></tr></tbody></table></div>
+<blockquote class="callout">
+<p><strong>第 6 题没有标准答案，它考的是&quot;你有没有想过&quot;。</strong> 能说出 3 条就已经很好。</p>
+</blockquote>
+<hr class="rule">
+<h3 id="project-step-9可选-fastapi-版本">Step 9（可选）· FastAPI 版本</h3>
+<p>如果你想让&quot;别的程序也能调&quot;，加一个 <code>api.py</code>：</p>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">from</span> fastapi <span class="tok-kw">import</span> FastAPI, HTTPException
+<span class="tok-kw">from</span> pydantic <span class="tok-kw">import</span> BaseModel
+<span class="tok-kw">from</span> rag <span class="tok-kw">import</span> answer
+<span class="tok-kw">from</span> store <span class="tok-kw">import</span> load
+
+app <span class="tok-op">=</span> <span class="tok-fn">FastAPI</span>(title<span class="tok-op">=</span><span class="tok-str">&quot;RAG API&quot;</span>)
+chunks, matrix <span class="tok-op">=</span> <span class="tok-fn">load</span>()
+
+
+<span class="tok-kw">class</span> <span class="tok-fn">AskRequest</span>(BaseModel)<span class="tok-op">:</span>
+    question<span class="tok-op">:</span> str
+    top_k<span class="tok-op">:</span> int <span class="tok-op">=</span> <span class="tok-num">3</span>
+
+
+@app.<span class="tok-fn">get</span>(<span class="tok-str">&quot;/health&quot;</span>)
+<span class="tok-kw">def</span> <span class="tok-fn">health</span>()<span class="tok-op">:</span>
+    <span class="tok-kw">return</span> {<span class="tok-str">&quot;status&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;ok&quot;</span>, <span class="tok-str">&quot;chunks&quot;</span><span class="tok-op">:</span> <span class="tok-fn">len</span>(chunks)}
+
+
+@app.<span class="tok-fn">post</span>(<span class="tok-str">&quot;/ask&quot;</span>)
+<span class="tok-kw">def</span> <span class="tok-fn">ask</span>(req<span class="tok-op">:</span> AskRequest)<span class="tok-op">:</span>
+    <span class="tok-kw">if</span> <span class="tok-kw">not</span> req.question.<span class="tok-fn">strip</span>()<span class="tok-op">:</span>
+        <span class="tok-kw">raise</span> <span class="tok-fn">HTTPException</span>(<span class="tok-num">400</span>, <span class="tok-str">&quot;问题不能为空&quot;</span>)
+    text, refs, best <span class="tok-op">=</span> <span class="tok-fn">answer</span>(req.question, chunks, matrix, k<span class="tok-op">=</span>req.top_k)
+    <span class="tok-kw">return</span> {<span class="tok-str">&quot;answer&quot;</span><span class="tok-op">:</span> text, <span class="tok-str">&quot;sources&quot;</span><span class="tok-op">:</span> refs, <span class="tok-str">&quot;best_score&quot;</span><span class="tok-op">:</span> best}</code></pre></figure>
+<figure class="code-block" data-lang="bash"><figcaption><span class="code-lang">bash</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-bash">uvicorn api<span class="tok-op">:</span>app --host <span class="tok-num">0.0</span>.<span class="tok-num">0.0</span> --port <span class="tok-num">8000</span></code></pre></figure>
+<p>访问 <code>http://127.0.0.1:8000/docs</code> 就有可交互的接口文档。</p>
+<blockquote class="callout">
+<p><strong>这一步是可选的。</strong> 加上它能让你在简历里多写一句&quot;提供 RESTful API&quot;，但会多花 1 小时。<strong>先保证 Streamlit 版本活着。</strong></p>
+</blockquote>
+<hr class="rule">
+<h2 id="project-6-项目进化方向">6. 项目进化方向</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>等级</th><th>加什么</th><th>价值</th></tr></thead><tbody><tr><td>Lv.1</td><td>加&quot;示例问题&quot;按钮</td><td>新人上手率提升巨大</td></tr><tr><td>Lv.2</td><td>加&quot;答案反馈&quot;（👍/👎）</td><td>收集真实评测数据</td></tr><tr><td>Lv.3</td><td>加 FastAPI 版本</td><td>证明工程能力</td></tr><tr><td>Lv.4</td><td>用 Docker 打包</td><td>部署到任何云</td></tr><tr><td>Lv.5</td><td>加监控（Sentry / 自建日志看板）</td><td>生产意识</td></tr><tr><td>Lv.6</td><td>换成真前端（Next.js）</td><td>产品化</td></tr></tbody></table></div>
+<h3 id="project-关于-docker要不要学">关于 Docker（要不要学）</h3>
+<p><strong>建议：M7 之后，花 2 小时学最小 Docker。</strong></p>
+<figure class="code-block" data-lang="dockerfile"><figcaption><span class="code-lang">dockerfile</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-dockerfile">FROM python:3.11-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY . .
+CMD [&quot;streamlit&quot;, &quot;run&quot;, &quot;app.py&quot;, &quot;--server.port=8501&quot;, &quot;--server.address=0.0.0.0&quot;]</code></pre></figure>
+<p><strong>为什么值</strong>：一句 <code>docker build</code> + <code>docker run</code> 能跑在<strong>任何</strong>装了 Docker 的机器上。这是&quot;部署能力&quot;的通用语言。</p>
+<blockquote class="callout">
+<p>🛑 <strong>装 Docker Desktop 之前先问我</strong>（它比较大，且 Windows 需要 WSL2）。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="project-7-本项目采用的资料">7. 本项目采用的资料</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>步骤</th><th>参考</th><th>出处</th></tr></thead><tbody><tr><td>Step 1 README 结构</td><td>llm-universe 第 6 章（项目展示）</td><td><a href="https://datawhalechina.github.io/llm-universe/" target="_blank" rel="noopener">https://datawhalechina.github.io/llm-universe/</a></td></tr><tr><td>Step 2 裸环境验证</td><td>仓库06 环境排错篇</td><td><a href="https://github.com/Hoper-J/AI-Guide-and-Demos-zh_CN" target="_blank" rel="noopener">https://github.com/Hoper-J/AI-Guide-and-Demos-zh_CN</a></td></tr><tr><td>Step 4 部署</td><td>Streamlit 官方文档 · Deploy your app</td><td><a href="https://docs.streamlit.io/deploy" target="_blank" rel="noopener">https://docs.streamlit.io/deploy</a></td></tr><tr><td>Step 4 secrets</td><td>Streamlit · Secrets management</td><td><a href="https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/secrets-management" target="_blank" rel="noopener">https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/secrets-management</a></td></tr><tr><td>Step 9 接口</td><td>FastAPI 中文文档 · 第一步</td><td><a href="https://fastapi.tiangolo.com/zh/tutorial/first-steps/" target="_blank" rel="noopener">https://fastapi.tiangolo.com/zh/tutorial/first-steps/</a></td></tr><tr><td>Step 9 数据校验</td><td>FastAPI · 请求体与 Pydantic</td><td><a href="https://fastapi.tiangolo.com/zh/tutorial/body/" target="_blank" rel="noopener">https://fastapi.tiangolo.com/zh/tutorial/body/</a></td></tr></tbody></table></div>
+<hr class="rule">
+<h2 id="project-交付清单逐条打勾全部完成才算结课">交付清单（逐条打勾，全部完成才算结课）</h2>
+<ul>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">GitHub 仓库公开可访问</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">仓库里搜不到 <code>sk-</code>（<code>git log -p</code> 验证过）</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">裸环境（新建 venv）按 README 能跑通</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">有公网链接，手机能打开</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">5 类输入都测试过（正常/超长/空/无关/连续点）</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">有 30 秒视频</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">README 含&quot;我踩过的坑&quot;≥2 条</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">简历三句话写好</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">6 个面试问答能背</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">进度看板最后一个勾打上</span></li>
+</ul>
+<hr class="rule">
+<h2 id="project-结课之后">结课之后</h2>
+<p>你已经走完了 16 周。回头看，你手里有：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>项目</th><th>证明的能力</th></tr></thead><tbody><tr><td>P5 文档问答</td><td>会搭 RAG</td></tr><tr><td>P6 带评测的 RAG</td><td>会<strong>衡量</strong>和<strong>优化</strong></td></tr><tr><td>P7 多功能 Agent</td><td>会做<strong>决策型</strong>应用</td></tr><tr><td>P8 部署上线</td><td>能<strong>交付</strong></td></tr></tbody></table></div>
+<p><strong>这四件事加起来，就是&quot;AI 应用工程师&quot;的完整画像。</strong></p>
+<h3 id="project-接下来三个方向选一个深挖">接下来三个方向（选一个深挖）</h3>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>方向</th><th>学什么</th><th>能做什么岗位</th></tr></thead><tbody><tr><td><strong>RAG 深水区</strong></td><td>多模态检索、GraphRAG、检索评估体系</td><td>RAG 工程师</td></tr><tr><td><strong>Agent 深水区</strong></td><td>多 Agent 协作、规划、记忆系统</td><td>Agent 工程师</td></tr><tr><td><strong>工程化</strong></td><td>Docker、K8s、可观测性、成本优化</td><td>AI 平台/后端</td></tr></tbody></table></div>
+<blockquote class="callout">
+<p><strong>别三个都学。</strong> 选一个，再做 2 个真实项目。<strong>深度 &gt; 广度</strong>，在这个阶段尤其如此。</p>
+</blockquote>
+<h3 id="project-最后一句">最后一句</h3>
+<blockquote class="callout">
+<p>你现在的水平，大概超过了 80% &quot;在学 AI&quot; 的人。
+不是因为你聪明，是因为<strong>你把东西做出来了，还量了数字</strong>。
+大多数人停在&quot;看完了教程&quot;。</p>
+</blockquote></div>
+  </div>
+        <nav class="module-pager" aria-label="模块切换">
+    <a class="pager-link" href="m6.html"><span>← 上一模块</span><b>M6 · Agent</b></a>
+    <a class="pager-link pager-link--next" href="../projects.html"><span>继续 →</span><b>项目总览</b></a>
+  </nav>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="../index.html">
+          <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+  <path d="M20 2.6 35 11v18L20 37.4 5 29V11z" fill="#fff" stroke="#080b16" stroke-width="1.8"/>
+  <path d="M20 2.6 35 11v9L20 28.6 5 20v-9z" fill="#00d5e8" opacity=".9"/>
+  <path d="M35 20v9L20 37.4V28.6z" fill="#ff3d9a" opacity=".85"/>
+  <path d="M13.2 24V16l6.8-3.9L26.8 16v8L20 27.9z" fill="#fff" stroke="#080b16" stroke-width="1.4"/>
+  <circle cx="20" cy="20" r="2.1" fill="#080b16"/>
+</svg>
+          <span class="brand-text">
+            <span class="brand-name">BEGINNER_IN_AI</span>
+            <span class="brand-sub">from python basics to rag &amp; agents</span>
+          </span>
+        </a>
+        <p>为「会一点 Python、数学基本忘光、看英文吃力、只有周末能集中学」的人准备的 16 周路线。理论 → 练习 → 项目，每个模块都走一遍。</p>
+      </div>
+      <div class="footer-col">
+        <h4>Route</h4>
+        <ul>
+          <li><a href="../roadmap.html">16 周排期</a></li>
+          <li><a href="../modules.html">8 个模块</a></li>
+          <li><a href="../projects.html">8 个实践项目</a></li>
+          <li><a href="../graph.html">知识图谱</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Modules</h4>
+        <ul><li><a href="../modules/m0.html">M0 · 开局</a></li><li><a href="../modules/m1.html">M1 · 提示工程</a></li><li><a href="../modules/m2.html">M2 · 对话应用</a></li><li><a href="../modules/m3.html">M3 · 语义检索</a></li><li><a href="../modules/m4.html">M4 · RAG 核心</a></li><li><a href="../modules/m5.html">M5 · RAG 进阶</a></li><li><a href="../modules/m6.html">M6 · Agent</a></li><li><a href="../modules/m7.html">M7 · 部署上线</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Beginner_in_AI · 内容来自个人学习计划，持续迭代中</span>
+      <span>
+        <a href="https://github.com/zonevenom/Beginner_in_AI" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="../resources.html">资料出处</a> ·
+        <button class="reset-btn" type="button" data-to-top>回到顶部 ↑</button>
+      </span>
+    </div>
+  </div>
+</footer>
+<div class="search-overlay" data-search-overlay role="dialog" aria-modal="true" aria-label="站内搜索">
+  <div class="search-panel">
+    <div class="search-field">
+      <svg class="icon " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.4"/><path d="m15.6 15.6 4.4 4.4"/></svg>
+      <input type="search" placeholder="搜索模块、概念、题目、项目…" aria-label="搜索关键词" autocomplete="off">
+      <button class="search-esc" type="button" data-search-close>ESC</button>
+    </div>
+    <ul class="search-results" data-search-results></ul>
+    <p class="search-empty" hidden>没有匹配结果，换个关键词试试。</p>
+  </div>
+</div>
+<script src="../assets/vendor/mermaid.min.js" defer></script>
+<script src="../assets/js/site.js" defer></script>
+
+</body>
+</html>

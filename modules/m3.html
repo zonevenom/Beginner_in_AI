@@ -1,0 +1,1056 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M3 语义检索 · Beginner_in_AI</title>
+<meta name="description" content="M3 语义检索：让电脑「按意思」找东西，而不是按关键词。 含理论讲稿、6 道练习题与解析、P4 项目计划书。">
+<meta name="author" content="zonevenom">
+<meta name="theme-color" content="#eef1f8">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Beginner_in_AI">
+<meta property="og:title" content="M3 语义检索 · Beginner_in_AI">
+<meta property="og:description" content="M3 语义检索：让电脑「按意思」找东西，而不是按关键词。 含理论讲稿、6 道练习题与解析、P4 项目计划书。">
+<meta property="og:url" content="https://zonevenom.github.io/Beginner_in_AI/">
+<meta property="og:image" content="https://zonevenom.github.io/Beginner_in_AI/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="M3 语义检索 · Beginner_in_AI">
+<meta name="twitter:description" content="M3 语义检索：让电脑「按意思」找东西，而不是按关键词。 含理论讲稿、6 道练习题与解析、P4 项目计划书。">
+<meta name="twitter:image" content="https://zonevenom.github.io/Beginner_in_AI/assets/img/og-cover.png">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/img/favicon.svg">
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/content.css">
+<style>:root{--accent:#b9e012;--accent-ink:#4f6b00}</style>
+</head>
+<body data-root="../">
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-header">
+  <div class="container nav-inner">
+    <a class="brand" href="../index.html" aria-label="Beginner_in_AI 首页">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+  <path d="M20 2.6 35 11v18L20 37.4 5 29V11z" fill="#fff" stroke="#080b16" stroke-width="1.8"/>
+  <path d="M20 2.6 35 11v9L20 28.6 5 20v-9z" fill="#00d5e8" opacity=".9"/>
+  <path d="M35 20v9L20 37.4V28.6z" fill="#ff3d9a" opacity=".85"/>
+  <path d="M13.2 24V16l6.8-3.9L26.8 16v8L20 27.9z" fill="#fff" stroke="#080b16" stroke-width="1.4"/>
+  <circle cx="20" cy="20" r="2.1" fill="#080b16"/>
+</svg>
+      <span class="brand-text">
+        <span class="brand-name">BEGINNER_IN_AI</span>
+        <span class="brand-sub">16 weeks · llm application dev</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="展开导航">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a class="nav-link" href="../index.html">首页</a></li><li><a class="nav-link" href="../modules.html" aria-current="page">模块</a></li><li><a class="nav-link" href="../roadmap.html">路线图</a></li><li><a class="nav-link" href="../projects.html">项目</a></li><li><a class="nav-link" href="../graph.html">图谱</a></li><li><a class="nav-link" href="../resources.html">资料</a></li><li><a class="nav-link" href="../progress.html">进度</a></li>
+      <li><button class="search-open" type="button" data-search-open aria-label="搜索全站（Ctrl K）">
+        <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.4"/><path d="m15.6 15.6 4.4 4.4"/></svg><span>搜索</span><kbd>⌘K</kbd>
+      </button></li>
+      <li class="nav-cta"><a class="btn btn--sm" href="https://github.com/zonevenom/Beginner_in_AI" target="_blank" rel="noopener">
+        <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11 11 0 0 1 6 0C18 4.7 19 5 19 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5Z"/></svg>GitHub</a></li>
+    </ul>
+  </div>
+</header>
+<main id="main">
+<section class="module-hero">
+    <div class="module-hero__glow" aria-hidden="true"></div>
+    <div class="container">
+      <div class="module-hero__top">
+        <a class="chip chip--outline" href="../modules.html"><svg class="icon " width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 12H5M10.5 6.5 5 12l5.5 5.5"/></svg> 全部模块</a>
+        <span class="module-hero__code">M3<span>MODULE 04</span></span>
+        <span class="chip">第 7–8 周</span>
+        <span class="chip chip--accent" style="--accent:#6a4cff">阶段 02 · 会做产品</span>
+      </div>
+      <div class="module-hero__inner">
+        <div>
+          <h1>语义检索</h1>
+          <p class="module-hero__sub">让电脑「按意思」找东西，而不是按关键词。 用向量把「意思相近」的文本找出来。</p>
+          <div class="module-hero__facts">
+            <span class="chip chip--outline">理论讲稿</span>
+            <span class="chip chip--outline">6 道练习 + 解析</span>
+            <span class="chip chip--outline">P4 项目</span>
+            <span class="chip chip--accent" style="--accent:#b9e012">交付 · P4 语义搜索器</span>
+          </div>
+        </div>
+        <div class="module-hero__icon" aria-hidden="true"><svg class="icon " width="84" height="84" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="5" cy="12" r="2.4"/><circle cx="19" cy="5" r="2.4"/><circle cx="19" cy="19" r="2.4"/><path d="M7.3 10.9 16.7 6.1M7.3 13.1l9.4 4.8"/></svg></div>
+      </div>
+    </div>
+  </section>
+  <div class="container">
+    <div class="doc-layout">
+      <aside class="doc-sidebar" aria-label="本页目录">
+    <div class="toc-title">本页导航</div>
+    <div class="toc-group" data-toc-group="panel-theory"><ul class="toc-list"><li><a href="#theory-这一讲要解决什么">【这一讲要解决什么】</a></li><li><a href="#theory-一关键词搜索的三个死穴">一、关键词搜索的三个死穴</a></li><li><a href="#theory-二embedding把一句话变成一个坐标">二、Embedding：把一句话变成一个"坐标"</a></li><li><a href="#theory-三怎么算近余弦相似度">三、怎么算"近"：余弦相似度</a></li><li><a href="#theory-四embedding-从哪来三个现实选择">四、Embedding 从哪来：三个现实选择</a></li><li><a href="#theory-五向量库为什么不直接存成一个-list">五、向量库：为什么不直接存成一个 list</a></li><li><a href="#theory-六五个决定效果的工程细节">六、五个决定效果的工程细节</a></li><li><a href="#theory-七语义检索的三个死穴你必须知道">七、语义检索的三个死穴（你必须知道）</a></li><li><a href="#theory-常见误解">【常见误解】</a></li><li><a href="#theory-自检清单">【自检清单】</a></li><li><a href="#theory-下一站">【下一站】</a></li></ul></div>
+    <div class="toc-group" data-toc-group="panel-quiz" hidden><ul class="toc-list"><li><a href="#quiz-第-1-题概念-三种死穴">🧠 第 1 题（概念）· 三种死穴</a></li><li><a href="#quiz-第-2-题计算-手算余弦相似度">💻 第 2 题（计算）· 手算余弦相似度</a></li><li><a href="#quiz-第-3-题代码-实现最小语义搜索">💻 第 3 题（代码）· 实现最小语义搜索</a></li><li><a href="#quiz-第-4-题排错-三个看起来能跑但结果不对">🔧 第 4 题（排错）· 三个"看起来能跑但结果不对"</a></li><li><a href="#quiz-第-5-题概念-该用哪种检索">🧠 第 5 题（概念）· 该用哪种检索</a></li><li><a href="#quiz-第-6-题动手-给你的笔记做语义搜索">🛠️ 第 6 题（动手）· 给你的笔记做语义搜索</a></li><li><a href="#quiz-提交前自检">提交前自检</a></li></ul></div>
+    <div class="toc-group" data-toc-group="panel-answers" hidden><ul class="toc-list"><li><a href="#answers-第-1-题-三种死穴">第 1 题 · 三种死穴</a></li><li><a href="#answers-第-2-题-手算余弦相似度">第 2 题 · 手算余弦相似度</a></li><li><a href="#answers-第-3-题-最小语义搜索">第 3 题 · 最小语义搜索</a></li><li><a href="#answers-第-4-题-三个看起来能跑但结果不对">第 4 题 · 三个"看起来能跑但结果不对"</a></li><li><a href="#answers-第-5-题-该用哪种检索">第 5 题 · 该用哪种检索</a></li><li><a href="#answers-第-6-题-给你的笔记做语义搜索">第 6 题 · 给你的笔记做语义搜索</a></li><li><a href="#answers-自评标准">自评标准</a></li></ul></div>
+    <div class="toc-group" data-toc-group="panel-project" hidden><ul class="toc-list"><li><a href="#project-1-项目要做什么">1. 项目要做什么</a></li><li><a href="#project-2-工具与开发环境">2. 工具与开发环境</a></li><li><a href="#project-3-项目文件结构">3. 项目文件结构</a></li><li><a href="#project-4-项目流程图">4. 项目流程图</a></li><li><a href="#project-5-分步实现">5. 分步实现</a></li><li><a href="#project-6-项目进化方向">6. 项目进化方向</a></li><li><a href="#project-7-本项目采用的资料">7. 本项目采用的资料</a></li><li><a href="#project-交付清单">交付清单</a></li></ul></div>
+    <div style="margin-top:18px;padding-top:14px;border-top:1px solid var(--line)">
+      <a class="btn btn--ghost btn--sm" href="../progress.html" style="width:100%;justify-content:center">去打卡 <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m4.5 12.5 5 5 10-11"/></svg></a>
+    </div>
+  </aside>
+      <div class="doc-main">
+        <div class="tabs" role="tablist" aria-label="模块内容" data-tabs>
+    <button class="tab" role="tab" id="tab-panel-theory" aria-controls="panel-theory"
+      aria-selected="true" tabindex="0">
+      理论讲稿<i>1</i></button><button class="tab" role="tab" id="tab-panel-quiz" aria-controls="panel-quiz"
+      aria-selected="false" tabindex="-1">
+      练习题<i>6</i></button><button class="tab" role="tab" id="tab-panel-answers" aria-controls="panel-answers"
+      aria-selected="false" tabindex="-1">
+      答案解析<i>6</i></button><button class="tab" role="tab" id="tab-panel-project" aria-controls="panel-project"
+      aria-selected="false" tabindex="-1">
+      项目计划书<i>P4</i></button>
+  </div>
+        
+  <div class="tab-panel" id="panel-theory" role="tabpanel" aria-labelledby="tab-panel-theory">
+    <div class="prose"><blockquote class="callout">
+<p><strong>【资料出处】</strong></p>
+<ul>
+<li>Datawhale《all-in-rag》向量与检索基础章节 —— <a href="https://datawhalechina.github.io/all-in-rag/" target="_blank" rel="noopener">https://datawhalechina.github.io/all-in-rag/</a></li>
+<li>Datawhale《happy-llm》分词与表示章节 —— <a href="https://github.com/datawhalechina/happy-llm" target="_blank" rel="noopener">https://github.com/datawhalechina/happy-llm</a></li>
+<li>《动手学深度学习》第 10 章（注意力直觉，只读图）—— <a href="https://zh.d2l.ai/" target="_blank" rel="noopener">https://zh.d2l.ai/</a></li>
+<li>复旦《大规模语言模型》第 7 章前半（RAG 为什么需要向量）—— <a href="https://llmbook-zh.github.io/" target="_blank" rel="noopener">https://llmbook-zh.github.io/</a></li>
+</ul>
+</blockquote>
+<hr class="rule">
+<h2 id="theory-这一讲要解决什么">【这一讲要解决什么】</h2>
+<p>学完这一讲，你能：</p>
+<ol>
+<li>解释&quot;为什么关键词搜索不够用&quot;，并说出它会失败的 3 种典型情况</li>
+<li>用一句话解释 <strong>Embedding（向量）</strong> 是什么，不用任何数学</li>
+<li>自己写代码：把句子变成向量 → 算相似度 → 排序 → 返回最像的</li>
+<li>知道<strong>什么时候语义检索会输给关键词搜索</strong>（这点比会用更重要）</li>
+</ol>
+<hr class="rule">
+<h2 id="theory-一关键词搜索的三个死穴">一、关键词搜索的三个死穴</h2>
+<p>你在文档里按 <code>Ctrl+F</code> 搜&quot;退款&quot;，这是关键词匹配：<strong>字面一样才算命中</strong>。</p>
+<p>它会在三种情况下彻底失效：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>情况</th><th>例子</th><th>结果</th></tr></thead><tbody><tr><td><strong>同义词</strong></td><td>你搜&quot;退货&quot;，文档里写的是&quot;退还商品&quot;</td><td>搜不到</td></tr><tr><td><strong>跨语言</strong></td><td>你搜&quot;退款&quot;，文档是英文 &quot;refund policy&quot;</td><td>搜不到</td></tr><tr><td><strong>表述不同</strong></td><td>你搜&quot;东西坏了能换吗&quot;，文档写&quot;商品质量问题支持换货&quot;</td><td>搜不到</td></tr></tbody></table></div>
+<p>而人不是这么找东西的。你说&quot;东西坏了能换吗&quot;，你脑子里已经知道这和&quot;质量问题换货&quot;是一回事——<strong>你比的是&quot;意思&quot;，不是&quot;字&quot;。</strong></p>
+<p><strong>语义检索要做的，就是让电脑也学会比&quot;意思&quot;。</strong></p>
+<hr class="rule">
+<h2 id="theory-二embedding把一句话变成一个坐标">二、Embedding：把一句话变成一个&quot;坐标&quot;</h2>
+<h3 id="theory-核心比喻把每句话放到一张巨大的地图上">核心比喻：把每句话放到一张巨大的地图上</h3>
+<p>想象有一张地图：</p>
+<ul>
+<li>意思相近的句子，<strong>住得近</strong></li>
+<li>意思无关的句子，<strong>住得远</strong></li>
+</ul>
+<p>&quot;如何申请退款&quot;和&quot;钱怎么退回来&quot;，这两句话在这张地图上是<strong>邻居</strong>。
+&quot;如何申请退款&quot;和&quot;今天天气不错&quot;，一个在城东一个在城西。</p>
+<p><strong>Embedding（嵌入）就是&quot;算出这句话在地图上的坐标&quot;这件事。</strong></p>
+<p>只不过这张地图不是 2 维的，而是 <strong>几百到几千维</strong>的（常见 768、1024、1536、3072）。人脑想象不了 1536 维，但电脑算距离毫无压力。</p>
+<h3 id="theory-一句话定义">一句话定义</h3>
+<blockquote class="callout">
+<p><strong>Embedding = 把一段文字，转换成固定长度的一串数字。这串数字代表它的&quot;意思坐标&quot;。</strong></p>
+</blockquote>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">&quot;如何申请退款&quot;  →  [0.021, -0.153, 0.887, ..., 0.004]   （1536 个数字）
+&quot;钱怎么退回来&quot;  →  [0.019, -0.148, 0.879, ..., 0.011]   （很接近！）
+&quot;今天天气不错&quot;  →  [-0.442, 0.771, 0.003, ..., 0.619]   （差很远）</code></pre></figure>
+<h3 id="theory-为什么这招有效不用公式的解释">为什么这招有效（不用公式的解释）</h3>
+<p>模型在训练时读过海量文本。它学到一件事：<strong>&quot;在相似的上下文里出现的词，意思应该相近&quot;</strong>。</p>
+<p>比如&quot;退款&quot;和&quot;退货&quot;经常出现在同一类句子里，&quot;退款&quot;和&quot;天气&quot;几乎不一起出现。训练的結果就是：前者坐标接近，后者坐标远离。</p>
+<blockquote class="callout">
+<p>这个思想叫&quot;分布式假设&quot;：<strong>一个词的意思，由它周围常出现的词决定。</strong>
+你不需要记这个名字，只需要记住&quot;<strong>住得近 = 意思近</strong>&quot;。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="theory-三怎么算近余弦相似度">三、怎么算&quot;近&quot;：余弦相似度</h2>
+<h3 id="theory-直觉">直觉</h3>
+<p>两个向量之间可以算&quot;夹角&quot;：</p>
+<ul>
+<li>夹角<strong>小</strong>（方向一致）→ 相似度高，接近 1</li>
+<li>夹角<strong>90°</strong>（垂直）→ 无关，接近 0</li>
+<li>夹角<strong>大</strong>（方向相反）→ 负相关，接近 -1</li>
+</ul>
+<p><strong>余弦相似度</strong>就是这个夹角的余弦值，范围 -1 到 1。</p>
+<h3 id="theory-为什么用方向而不是距离">为什么用&quot;方向&quot;而不是&quot;距离&quot;</h3>
+<p>因为<strong>长度不重要，方向才重要</strong>。</p>
+<p>&quot;退款&quot;和&quot;我要申请退款，因为商品有质量问题，希望尽快处理&quot;——后者字数多、向量&quot;长&quot;，但它们说的是同一件事，<strong>方向一致</strong>。</p>
+<p>用方向比，长短不影响；用直线距离比，长句子会被&quot;冤枉&quot;。</p>
+<h3 id="theory-代码实现三行">代码实现（三行）</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">import</span> numpy <span class="tok-kw">as</span> np
+
+<span class="tok-kw">def</span> <span class="tok-fn">cosine</span>(a, b)<span class="tok-op">:</span>
+    a, b <span class="tok-op">=</span> np.<span class="tok-fn">array</span>(a), np.<span class="tok-fn">array</span>(b)
+    <span class="tok-kw">return</span> <span class="tok-fn">float</span>(a @ b <span class="tok-op">/</span> (np.linalg.<span class="tok-fn">norm</span>(a) <span class="tok-op">*</span> np.linalg.<span class="tok-fn">norm</span>(b)))</code></pre></figure>
+<p><code>a @ b</code> 是点积，<code>np.linalg.norm</code> 是长度。<strong>看不懂没关系，你需要知道的是</strong>：</p>
+<blockquote class="callout">
+<p>如果先把所有向量&quot;归一化&quot;（长度都变成 1），那余弦相似度就等于<strong>点积</strong>，可以一次性批量算完，快几十倍。</p>
+</blockquote>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">def</span> <span class="tok-fn">normalize</span>(v)<span class="tok-op">:</span>
+    v <span class="tok-op">=</span> np.<span class="tok-fn">array</span>(v, dtype<span class="tok-op">=</span>np.float32)
+    <span class="tok-kw">return</span> v <span class="tok-op">/</span> (np.linalg.<span class="tok-fn">norm</span>(v) <span class="tok-op">+</span> <span class="tok-num">1e-10</span>)     <span class="tok-com"># +1e-10 防止除以 0</span></code></pre></figure>
+<blockquote class="callout">
+<p><strong><code>1e-10</code> 这个小尾巴是工程习惯</strong>：万一模型返回了全 0 向量，不加它会得到 <code>nan</code>，然后你排查半天。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="theory-四embedding-从哪来三个现实选择">四、Embedding 从哪来：三个现实选择</h2>
+<h3 id="theory-一个你必须知道的事实">⚠️ 一个你必须知道的事实</h3>
+<p><strong>不是所有大模型厂商都提供 embedding 接口。</strong></p>
+<p>比如 DeepSeek 目前（以官网为准）主推对话模型，<strong>没有 embedding 接口</strong>。所以到 M3 你会发现：</p>
+<blockquote class="callout">
+<p><strong>&quot;聊天&quot;和&quot;向量&quot;往往是两个不同的服务，甚至两家不同的公司。</strong></p>
+</blockquote>
+<p>这不是坏事，这是真实工程的样子。你的架构要能容纳&quot;多厂商&quot;。</p>
+<h3 id="theory-三条路">三条路</h3>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>方案</th><th>代表</th><th>优点</th><th>缺点</th><th>适合</th></tr></thead><tbody><tr><td><strong>A. 国内 API</strong></td><td>智谱 <code>embedding-3</code>、阿里百炼 <code>text-embedding-v*</code></td><td>中文效果好、免部署、便宜</td><td>要注册新账号、要联网</td><td><strong>推荐</strong></td></tr><tr><td><strong>B. 聚合平台</strong></td><td>硅基流动等，OpenAI 兼容</td><td>一个 key 调多种模型</td><td>多一层中间商</td><td>备选</td></tr><tr><td><strong>C. 本地模型</strong></td><td><code>sentence-transformers</code> + <code>bge-small-zh</code></td><td>免费、离线、数据不外传</td><td>要下载几百 MB，CPU 慢一点</td><td>数据敏感时</td></tr></tbody></table></div>
+<p><strong>对你的建议</strong>：先用 <strong>A</strong>（注册一个 embedding 服务），跑通全流程。等 M5 要反复做实验时，再考虑 C（省 API 调用费）。</p>
+<blockquote class="callout">
+<p>🛑 <strong>注册新账号、装新库之前，先跟我说。</strong> 我会告诉你哪个最便宜、有没有免费额度。</p>
+</blockquote>
+<h3 id="theory-调用长什么样openai-兼容格式">调用长什么样（OpenAI 兼容格式）</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">from</span> openai <span class="tok-kw">import</span> OpenAI
+
+emb_client <span class="tok-op">=</span> <span class="tok-fn">OpenAI</span>(
+    api_key<span class="tok-op">=</span>os.<span class="tok-fn">getenv</span>(<span class="tok-str">&quot;EMBED_API_KEY&quot;</span>),
+    base_url<span class="tok-op">=</span><span class="tok-str">&quot;https://open.bigmodel.cn/api/paas/v4&quot;</span>,   <span class="tok-com"># 以你选的厂商文档为准</span>
+)
+
+resp <span class="tok-op">=</span> emb_client.embeddings.<span class="tok-fn">create</span>(
+    model<span class="tok-op">=</span><span class="tok-str">&quot;embedding-3&quot;</span>,
+    input<span class="tok-op">=</span>[<span class="tok-str">&quot;如何申请退款&quot;</span>, <span class="tok-str">&quot;钱怎么退回来&quot;</span>, <span class="tok-str">&quot;今天天气不错&quot;</span>],
+)
+
+vectors <span class="tok-op">=</span> [d.embedding <span class="tok-kw">for</span> d <span class="tok-kw">in</span> resp.data]</code></pre></figure>
+<p><strong>注意 <code>input</code> 可以是字符串列表</strong>——一次传多条，比一条条调快得多、也便宜得多（很多厂商按次计费或有批量优惠）。</p>
+<hr class="rule">
+<h2 id="theory-五向量库为什么不直接存成一个-list">五、向量库：为什么不直接存成一个 list</h2>
+<p>你可以把所有向量存进一个 Python 列表，查询时暴力算一遍。<strong>几十条数据完全够用。</strong></p>
+<p>但数据一多就崩：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>数据量</th><th>暴力算法（numpy）</th><th>需要向量库吗</th></tr></thead><tbody><tr><td>100 条</td><td>毫秒级</td><td>不需要</td></tr><tr><td>1 万条</td><td>几十毫秒</td><td>勉强</td></tr><tr><td>100 万条</td><td>几秒~几十秒</td><td><strong>必须</strong></td></tr></tbody></table></div>
+<p>向量库（Chroma、FAISS、Milvus、Qdrant…）帮你解决四件事：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>能力</th><th>说明</th></tr></thead><tbody><tr><td><strong>近似最近邻（ANN）</strong></td><td>不追求 100% 精确，用索引换速度，毫秒级返回</td></tr><tr><td><strong>持久化</strong></td><td>存硬盘，重启不丢</td></tr><tr><td><strong>元数据过滤</strong></td><td>&quot;只在 2024 年的文档里搜&quot;</td></tr><tr><td><strong>增删改</strong></td><td>不用每次全量重算</td></tr></tbody></table></div>
+<h3 id="theory-你只需要会四个动作">你只需要会四个动作</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">import</span> chromadb
+
+client <span class="tok-op">=</span> chromadb.<span class="tok-fn">PersistentClient</span>(path<span class="tok-op">=</span><span class="tok-str">&quot;./chroma_db&quot;</span>)
+col <span class="tok-op">=</span> client.<span class="tok-fn">get_or_create_collection</span>(<span class="tok-str">&quot;notes&quot;</span>)
+
+<span class="tok-com"># ① 增</span>
+col.<span class="tok-fn">add</span>(ids<span class="tok-op">=</span>[<span class="tok-str">&quot;1&quot;</span>, <span class="tok-str">&quot;2&quot;</span>], documents<span class="tok-op">=</span>[<span class="tok-str">&quot;文本A&quot;</span>, <span class="tok-str">&quot;文本B&quot;</span>], metadatas<span class="tok-op">=</span>[{<span class="tok-str">&quot;src&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;a&quot;</span>}, {<span class="tok-str">&quot;src&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;b&quot;</span>}])
+
+<span class="tok-com"># ② 查（传文本，它会自动用默认 embedding 函数；也可以自己传向量）</span>
+res <span class="tok-op">=</span> col.<span class="tok-fn">query</span>(query_texts<span class="tok-op">=</span>[<span class="tok-str">&quot;怎么退款&quot;</span>], n_results<span class="tok-op">=</span><span class="tok-num">3</span>)
+
+<span class="tok-com"># ③ 删</span>
+col.<span class="tok-fn">delete</span>(ids<span class="tok-op">=</span>[<span class="tok-str">&quot;2&quot;</span>])
+
+<span class="tok-com"># ④ 看</span>
+<span class="tok-fn">print</span>(col.<span class="tok-fn">count</span>())</code></pre></figure>
+<blockquote class="callout">
+<p>⚠️ <strong>Chroma 默认会自己下一个 embedding 模型</strong>，这会让你以为&quot;我在用 API 的向量&quot;，其实是两套东西混在一起。<strong>一定要显式传入自己的向量</strong>，否则你会得到莫名其妙的排序。</p>
+</blockquote>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python">col.<span class="tok-fn">add</span>(ids<span class="tok-op">=</span>ids, documents<span class="tok-op">=</span>texts, embeddings<span class="tok-op">=</span>my_vectors)   <span class="tok-com"># 显式传</span>
+res <span class="tok-op">=</span> col.<span class="tok-fn">query</span>(query_embeddings<span class="tok-op">=</span>[q_vec], n_results<span class="tok-op">=</span><span class="tok-num">3</span>)     <span class="tok-com"># 显式查</span></code></pre></figure>
+<blockquote class="callout">
+<p>这是新手在 Chroma 上最常踩的坑，没有之一。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="theory-六五个决定效果的工程细节">六、五个决定效果的工程细节</h2>
+<p>这些细节，教程很少讲，但直接决定&quot;你的搜索是不是好用&quot;。</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>细节</th><th>说明</th><th>建议</th></tr></thead><tbody><tr><td><strong>① 归一化</strong></td><td>存之前把所有向量长度变成 1</td><td>一定要做，省事又提速</td></tr><tr><td><strong>② 批量</strong></td><td>一次传 32/64 条，不要一条一条调</td><td>快 10 倍，还可能更便宜</td></tr><tr><td><strong>③ 相似度阈值</strong></td><td>低于某个分数就认为&quot;没有相关内容&quot;</td><td>关键！否则永远返回 top-1，哪怕完全不相关</td></tr><tr><td><strong>④ top-k 的选择</strong></td><td>k 太小漏，k 太大吵</td><td>3~5 起步，M5 再调</td></tr><tr><td><strong>⑤ 文本要&quot;干净&quot;</strong></td><td>去掉页眉页脚、乱码、重复空行</td><td>脏数据会污染向量</td></tr></tbody></table></div>
+<h3 id="theory-关于-③-阈值最重要">关于 ③ 阈值（最重要）</h3>
+<p>没有阈值的搜索，是&quot;必须给你一个答案&quot;的搜索。</p>
+<p>用户问&quot;怎么给猫剪指甲&quot;，你的知识库全是退款政策。没有阈值 → 它会把最像的那条退款政策硬塞给你。用户看到的就是&quot;这 AI 在胡说&quot;。</p>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python">THRESHOLD <span class="tok-op">=</span> <span class="tok-num">0.5</span>   <span class="tok-com"># 需要按你的模型/数据实测调整</span>
+
+hits <span class="tok-op">=</span> [(s, t) <span class="tok-kw">for</span> s, t <span class="tok-kw">in</span> results <span class="tok-kw">if</span> s <span class="tok-op">&gt;=</span> THRESHOLD]
+<span class="tok-kw">if</span> <span class="tok-kw">not</span> hits<span class="tok-op">:</span>
+    <span class="tok-kw">return</span> <span class="tok-str">&quot;抱歉，我的资料里没有相关内容。&quot;</span></code></pre></figure>
+<blockquote class="callout">
+<p><strong>&quot;敢说不知道&quot;，是检索系统成熟的标志。</strong> 这句话在 M4/M5 会反复出现。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="theory-七语义检索的三个死穴你必须知道">七、语义检索的三个死穴（你必须知道）</h2>
+<p>语义检索不是万能药。它在下面这些场景会<strong>输给</strong>关键词搜索：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>场景</th><th>为什么</th><th>例子</th></tr></thead><tbody><tr><td><strong>精确标识符</strong></td><td>向量不理解&quot;字符级&quot;的精确匹配</td><td>搜订单号 <code>A20240315001</code>，语义检索可能返回一堆别的订单</td></tr><tr><td><strong>否定与数量</strong></td><td>&quot;不含糖&quot;和&quot;含糖&quot;在向量空间非常接近</td><td>搜&quot;不含防腐剂的食品&quot;可能返回&quot;含防腐剂&quot;</td></tr><tr><td><strong>罕见专有名词</strong></td><td>训练时没见过，向量不准</td><td>搜内部项目代号&quot;凤凰计划&quot;</td></tr></tbody></table></div>
+<h3 id="theory-所以工业界的正确答案是混合检索">所以工业界的正确答案是：<strong>混合检索</strong></h3>
+<p>关键词（BM25）+ 语义（向量），两路都跑，再合并排序。这叫 <strong>Hybrid Search</strong>，是 M5 的核心内容。</p>
+<blockquote class="callout">
+<p>记住这个判断：<strong>用户搜的是&quot;概念&quot;→ 用向量；用户搜的是&quot;编号/代码/精确词&quot;→ 用关键词；不知道 → 两个都用。</strong></p>
+</blockquote>
+<hr class="rule">
+<h2 id="theory-常见误解">【常见误解】</h2>
+<p><strong>误解 1：&quot;Embedding 是加密/压缩。&quot;</strong>
+不是。它是<strong>语义映射</strong>，不可逆（你没法从向量还原原文），也不保证保真（相似的意思可能被映射得不够近）。</p>
+<p><strong>误解 2：&quot;维度越高越好。&quot;</strong>
+不一定。高维更细，但更慢更贵，而且<strong>在数据量小时反而容易&quot;过拟合噪声&quot;</strong>。中小规模用 512~1024 维足够。</p>
+<p><strong>误解 3：&quot;相似度高就一定相关。&quot;</strong>
+不一定。向量只捕捉&quot;语义相近&quot;，不捕捉&quot;是否回答了问题&quot;。问&quot;退款流程&quot;，可能召回&quot;退款政策说明&quot;——很像，但不是你要的。<strong>这就是 M5 要上&quot;重排（rerank）&quot;的原因。</strong></p>
+<p><strong>误解 4：&quot;用了向量库就不用管数据质量了。&quot;</strong>
+完全相反。<strong>垃圾进，垃圾出</strong>，而且向量库会让垃圾看起来&quot;很有道理&quot;（因为它总能返回 top-3）。</p>
+<hr class="rule">
+<h2 id="theory-自检清单">【自检清单】</h2>
+<ol>
+<li>关键词搜索会在哪三种情况下失败？各举一例。</li>
+<li>用一句话解释 Embedding，不许出现&quot;向量&quot;&quot;维度&quot;&quot;空间&quot;这三个词。</li>
+<li>余弦相似度衡量的是&quot;方向&quot;还是&quot;距离&quot;？为什么？</li>
+<li>为什么存向量前要归一化？</li>
+<li>没有相似度阈值会发生什么？举一个用户体验上的后果。</li>
+<li>什么情况下语义检索会输给关键词搜索？工业界的解法是什么？</li>
+</ol>
+<hr class="rule">
+<h2 id="theory-下一站">【下一站】</h2>
+<ul>
+<li><strong>练习</strong>：<code>03_练习题目区/M3_语义检索/01_题目.md</code></li>
+<li><strong>项目</strong>：<code>04_实践项目区/P4_语义搜索器/00_项目计划书.md</code></li>
+</ul></div>
+  </div>
+  <div class="tab-panel" id="panel-quiz" role="tabpanel" aria-labelledby="tab-panel-quiz" hidden>
+    <div class="callout" style="margin-bottom:22px">
+      <strong>先做，再看解析。</strong> 题目按「概念 / 代码 / 动手」三类排列，建议用时：概念题 3 分钟，代码题 10 分钟，动手题 30 分钟。
+      做完再去下一个标签页对答案，否则等于没做。
+    </div>
+    <div class="prose exercise-doc"><blockquote class="callout">
+<p>对应讲稿：<code>02_理论讲解区/M3_语义检索/00_理论讲稿.md</code></p>
+</blockquote>
+<hr class="rule">
+<h2 id="quiz-第-1-题概念-三种死穴">🧠 第 1 题（概念）· 三种死穴</h2>
+<p>你在做一个&quot;公司制度问答&quot;搜索框，用户搜下面 3 句话，<strong>关键词搜索全部搜不到</strong>：</p>
+<ol>
+<li>搜&quot;请假怎么请&quot;，制度里写的是&quot;休假申请流程&quot;</li>
+<li>搜&quot;refund&quot;，制度里写的是&quot;退款&quot;</li>
+<li>搜&quot;加班有补贴吗&quot;，制度里写的是&quot;延时工作补偿标准&quot;</li>
+</ol>
+<p><strong>任务：</strong></p>
+<ol>
+<li>分别说明这属于哪种失败（同义词 / 跨语言 / 表述不同）。</li>
+<li>这三句话如果改用语义检索，为什么大概率能搜到？</li>
+<li>再想一个<strong>语义检索也会失败</strong>的制度类查询，并说明原因。</li>
+</ol>
+<hr class="rule">
+<h2 id="quiz-第-2-题计算-手算余弦相似度">💻 第 2 题（计算）· 手算余弦相似度</h2>
+<p>不用代码，手算下面三组的余弦相似度（保留 2 位小数）：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>组</th><th>向量 A</th><th>向量 B</th></tr></thead><tbody><tr><td>①</td><td><code>[1, 0]</code></td><td><code>[1, 1]</code></td></tr><tr><td>②</td><td><code>[1, 0]</code></td><td><code>[-1, 0]</code></td></tr><tr><td>③</td><td><code>[1, 2]</code></td><td><code>[2, 4]</code></td></tr></tbody></table></div>
+<p><strong>任务：</strong></p>
+<ol>
+<li>算出三个值。</li>
+<li>第 ③ 组两个向量长度不同，为什么相似度是 1？这说明余弦相似度衡量的是什么？</li>
+<li>如果先把 A、B 都归一化（长度变 1），第 ③ 组的余弦相似度还能用&quot;点积&quot;直接算吗？为什么？</li>
+</ol>
+<hr class="rule">
+<h2 id="quiz-第-3-题代码-实现最小语义搜索">💻 第 3 题（代码）· 实现最小语义搜索</h2>
+<p>写一个脚本，完成：</p>
+<ol>
+<li>准备 6 条文本（你自己编，比如 6 条商品描述）</li>
+<li>调用 embedding 接口，<strong>一次性批量</strong>拿到 6 个向量</li>
+<li>保存到 <code>vectors.json</code>（格式：<code>[{&quot;text&quot;: &quot;...&quot;, &quot;vec&quot;: [...]}, ...]</code>）</li>
+<li>输入一个查询，算出它和 6 条的相似度，按分数从高到低打印前 3 条</li>
+<li>加一个阈值：低于 0.5 的不要</li>
+</ol>
+<p><strong>要求</strong>：不要用第三方向量库，用 <code>numpy</code> 手写。<strong>这一步必须自己写一遍，否则你不会真正理解向量库在干什么。</strong></p>
+<hr class="rule">
+<h2 id="quiz-第-4-题排错-三个看起来能跑但结果不对">🔧 第 4 题（排错）· 三个&quot;看起来能跑但结果不对&quot;</h2>
+<p><strong>问题 A</strong>：你用 Chroma 存了文档，但<strong>没有传 <code>embeddings</code> 参数</strong>，直接 <code>col.add(documents=[...])</code>。查询时传的是你自己算的向量。结果排序完全乱套。</p>
+<p><strong>问题 B</strong>：你换了 embedding 模型（从 1024 维换到 1536 维），但旧的 <code>vectors.json</code> 没删。程序报错。</p>
+<p><strong>问题 C</strong>：你存向量时没做归一化，有两个文本，一个是短句、一个是长段落，讲的是同一件事，但短句的相似度分数总是偏低。</p>
+<p><strong>任务</strong>：逐个说明原因和修法。<strong>特别注意 A，这是 Chroma 上最常见、也最难发现的坑。</strong></p>
+<hr class="rule">
+<h2 id="quiz-第-5-题概念-该用哪种检索">🧠 第 5 题（概念）· 该用哪种检索</h2>
+<p>下面 6 个查询，判断该用<strong>关键词</strong>、<strong>语义</strong>，还是<strong>两种都用</strong>：</p>
+<ol>
+<li>&quot;订单号 A20240315001 到哪了&quot;</li>
+<li>&quot;东西坏了怎么办&quot;</li>
+<li>&quot;报错 <code>ERR_CONN_RESET</code> 是什么原因&quot;</li>
+<li>&quot;怎么取消自动续费&quot;</li>
+<li>&quot;找一下提到&#39;张伟&#39;的会议记录&quot;</li>
+<li>&quot;上次说的那个关于预算的事儿&quot;</li>
+</ol>
+<hr class="rule">
+<h2 id="quiz-第-6-题动手-给你的笔记做语义搜索">🛠️ 第 6 题（动手）· 给你的笔记做语义搜索</h2>
+<p><strong>任务：</strong></p>
+<ol>
+<li>从你自己的笔记/收藏/微信收藏里，挑 <strong>20 条</strong>中文短文本，存成 <code>notes.json</code></li>
+<li>把 20 条全部向量化，存下来</li>
+<li>设计 <strong>5 个查询</strong>，其中：
+<ul>
+<li>2 个是&quot;同义改写&quot;（你确定库里没有原词）</li>
+<li>2 个是&quot;跨表述&quot;（意思对，说法完全不同）</li>
+<li>1 个是<strong>库里根本没有</strong>的内容</li>
+</ul></li>
+<li>对每个查询，记录 top-3 结果和分数</li>
+<li><strong>重点观察第 5 个查询</strong>：不相关的那条，分数是多少？如果你的 top-1 分数是 0.42，那阈值设 0.5 就能正确地说&quot;没找到&quot;</li>
+</ol>
+<p><strong>产出</strong>：一张表</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>查询</th><th>期望命中</th><th>top-1 内容</th><th>top-1 分数</th><th>是否符合预期</th></tr></thead><tbody></tbody></table></div>
+<p><strong>加分</strong>：把阈值从 0.3 到 0.9 每 0.1 试一遍，记录&quot;误召回&quot;和&quot;漏召回&quot;的变化，找出你觉得最舒服的阈值。</p>
+<hr class="rule">
+<h2 id="quiz-提交前自检">提交前自检</h2>
+<ul>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">第 3 题的代码是自己写的，没抄</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">第 6 题的表格填完了，且第 5 个查询真的&quot;没找到&quot;</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">能说出&quot;为什么第 4 题 A 会导致排序乱套&quot;</span></li>
+</ul></div>
+  </div>
+  <div class="tab-panel" id="panel-answers" role="tabpanel" aria-labelledby="tab-panel-answers" hidden>
+    <div class="prose"><hr class="rule">
+<h2 id="answers-第-1-题-三种死穴">第 1 题 · 三种死穴</h2>
+<h3 id="answers-第-1-问分别属于哪种">第 1 问：分别属于哪种</h3>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>#</th><th>类型</th><th>说明</th></tr></thead><tbody><tr><td>1</td><td><strong>表述不同</strong>（近义但字面不同）</td><td>&quot;请假怎么请&quot; vs &quot;休假申请流程&quot;，没有共同的关键词</td></tr><tr><td>2</td><td><strong>跨语言</strong></td><td>中文库、英文查询，字面零重叠</td></tr><tr><td>3</td><td><strong>同义词 / 口语 vs 书面语</strong></td><td>&quot;加班&quot; vs &quot;延时工作&quot;，&quot;补贴&quot; vs &quot;补偿&quot;</td></tr></tbody></table></div>
+<blockquote class="callout">
+<p>严格说，1 和 3 都属于&quot;词汇不匹配（vocabulary mismatch）&quot;。分三类是为了让你记住<strong>触发条件是&quot;字面不同&quot;</strong>。</p>
+</blockquote>
+<h3 id="answers-第-2-问语义检索为什么能搜到">第 2 问：语义检索为什么能搜到</h3>
+<p>因为 embedding 是在<strong>大量真实语料</strong>上学的，它见过：</p>
+<ul>
+<li>&quot;请假&quot;和&quot;休假&quot;经常出现在同一类句子里</li>
+<li>&quot;refund&quot;和&quot;退款&quot;在中英对照语料里是邻居</li>
+<li>&quot;加班补贴&quot;和&quot;延时工作补偿&quot;是同一个概念的不同说法</li>
+</ul>
+<p>所以它们的<strong>坐标很近</strong>，即使一个字都不重合。</p>
+<blockquote class="callout">
+<p>关键认知：<strong>语义检索不看你用了什么词，只看你的意思落在哪。</strong></p>
+</blockquote>
+<h3 id="answers-第-3-问一个语义检索也会失败的制度类查询">第 3 问：一个语义检索也会失败的制度类查询</h3>
+<p><strong>参考答案</strong>：</p>
+<blockquote class="callout">
+<p>搜&quot;年假有多少天&quot;。</p>
+</blockquote>
+<p>失败原因：制度里可能有一张<strong>表格</strong>（&quot;工龄 1-3 年：5 天；3-10 年：10 天&quot;），表格在向量化时会被压成一段文字，<strong>&quot;你的工龄&quot;这个条件被丢了</strong>。向量只捕捉了&quot;年假、天数&quot;的语义，无法做&quot;按我的工龄查表&quot;这种<strong>条件计算</strong>。</p>
+<p>其他好答案：</p>
+<ul>
+<li>&quot;报销标准是每小时多少钱&quot;——需要<strong>数值精确匹配</strong>，向量不擅长</li>
+<li>&quot;第 3.2 条说的是什么&quot;——需要<strong>精确定位条款编号</strong>，关键词更准</li>
+</ul>
+<blockquote class="callout">
+<p>这题想让你明白：<strong>语义检索解决&quot;表述不同&quot;，不解决&quot;计算&quot;和&quot;精确定位&quot;。</strong> 后者要靠结构化查询或工具调用（M6）。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="answers-第-2-题-手算余弦相似度">第 2 题 · 手算余弦相似度</h2>
+<h3 id="answers-第-1-问三个值">第 1 问：三个值</h3>
+<p>公式：<code>cos = (A·B) / (|A| × |B|)</code></p>
+<p><strong>① A=[1,0]，B=[1,1]</strong></p>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">A·B = 1×1 + 0×1 = 1
+|A| = 1，|B| = √2 ≈ 1.414
+cos = 1 / 1.414 ≈ 0.71</code></pre></figure>
+<p><strong>② A=[1,0]，B=[-1,0]</strong></p>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">A·B = -1
+|A| = 1，|B| = 1
+cos = -1 / 1 = -1.00</code></pre></figure>
+<p><strong>③ A=[1,2]，B=[2,4]</strong></p>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">A·B = 2 + 8 = 10
+|A| = √5 ≈ 2.236，|B| = √20 ≈ 4.472
+cos = 10 / (2.236 × 4.472) = 10 / 10 = 1.00</code></pre></figure>
+<h3 id="answers-第-2-问为什么-③-是-1">第 2 问：为什么 ③ 是 1</h3>
+<p>因为 <code>[2,4] = 2 × [1,2]</code>，<strong>两个向量方向完全相同，只是长度差 2 倍</strong>。</p>
+<p>而余弦只看夹角，不看长度。</p>
+<blockquote class="callout">
+<p><strong>结论：余弦相似度衡量的是&quot;方向是否一致&quot;，不是&quot;距离有多近&quot;。</strong></p>
+</blockquote>
+<p>这也解释了为什么短句和长段落说同一件事时，余弦相似度依然很高——这正是我们想要的行为。</p>
+<h3 id="answers-第-3-问归一化后还能用点积吗">第 3 问：归一化后还能用点积吗</h3>
+<p><strong>能。而且必须用。</strong></p>
+<p>推导（一行）：</p>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">cos(A,B) = (A·B) / (|A||B|)
+若 |A| = |B| = 1，则 cos(A,B) = A·B</code></pre></figure>
+<p>所以工程上标准做法是：</p>
+<ol>
+<li>入库前把每条向量归一化</li>
+<li>查询时把查询向量也归一化</li>
+<li>直接用点积（矩阵乘法）批量算，<strong>一次算 100 万条也只要毫秒级</strong></li>
+</ol>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-com"># 归一化后，批量相似度就是一次矩阵乘法</span>
+scores <span class="tok-op">=</span> matrix @ query_vec      <span class="tok-com"># matrix: (N, d), query_vec: (d,) → (N,)</span></code></pre></figure>
+<blockquote class="callout">
+<p>这就是&quot;为什么所有向量库都默认归一化&quot;的原因：<strong>不只是数值稳定，更是为了能用矩阵乘法提速。</strong></p>
+</blockquote>
+<h3 id="answers-常见错误">常见错误</h3>
+<ul>
+<li>❌ ② 算成 0。<strong>方向相反是 -1，不是 0</strong>；垂直才是 0。</li>
+<li>❌ ③ 看到长度不同就以为相似度低。<strong>这是最典型的直觉错误。</strong></li>
+</ul>
+<hr class="rule">
+<h2 id="answers-第-3-题-最小语义搜索">第 3 题 · 最小语义搜索</h2>
+<h3 id="answers-参考实现">参考实现</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">import</span> json
+<span class="tok-kw">import</span> os
+
+<span class="tok-kw">import</span> numpy <span class="tok-kw">as</span> np
+<span class="tok-kw">from</span> dotenv <span class="tok-kw">import</span> load_dotenv
+<span class="tok-kw">from</span> openai <span class="tok-kw">import</span> OpenAI
+
+<span class="tok-fn">load_dotenv</span>()
+
+<span class="tok-com"># 以你实际选用的厂商为准：这里用&quot;OpenAI 兼容&quot;的写法</span>
+client <span class="tok-op">=</span> <span class="tok-fn">OpenAI</span>(
+    api_key<span class="tok-op">=</span>os.<span class="tok-fn">getenv</span>(<span class="tok-str">&quot;EMBED_API_KEY&quot;</span>),
+    base_url<span class="tok-op">=</span>os.<span class="tok-fn">getenv</span>(<span class="tok-str">&quot;EMBED_BASE_URL&quot;</span>, <span class="tok-str">&quot;https://api.example.com/v1&quot;</span>),
+)
+EMBED_MODEL <span class="tok-op">=</span> os.<span class="tok-fn">getenv</span>(<span class="tok-str">&quot;EMBED_MODEL&quot;</span>, <span class="tok-str">&quot;embedding-3&quot;</span>)
+
+TEXTS <span class="tok-op">=</span> [
+    <span class="tok-str">&quot;这款保温杯 500ml，能保温 12 小时&quot;</span>,
+    <span class="tok-str">&quot;无线鼠标，静音按键，适合办公&quot;</span>,
+    <span class="tok-str">&quot;纯棉 T 恤，透气吸汗，夏天穿很舒服&quot;</span>,
+    <span class="tok-str">&quot;充电宝 10000mAh，支持快充&quot;</span>,
+    <span class="tok-str">&quot;笔记本支架，铝合金，可调节高度&quot;</span>,
+    <span class="tok-str">&quot;蓝牙耳机，降噪，续航 30 小时&quot;</span>,
+]
+
+THRESHOLD <span class="tok-op">=</span> <span class="tok-num">0.5</span>
+
+
+<span class="tok-kw">def</span> <span class="tok-fn">embed_batch</span>(texts)<span class="tok-op">:</span>
+    <span class="tok-str">&quot;&quot;&quot;一次性批量拿向量。&quot;&quot;&quot;</span>
+    resp <span class="tok-op">=</span> client.embeddings.<span class="tok-fn">create</span>(model<span class="tok-op">=</span>EMBED_MODEL, input<span class="tok-op">=</span>texts)
+    <span class="tok-kw">return</span> [np.<span class="tok-fn">array</span>(d.embedding, dtype<span class="tok-op">=</span>np.float32) <span class="tok-kw">for</span> d <span class="tok-kw">in</span> resp.data]
+
+
+<span class="tok-kw">def</span> <span class="tok-fn">normalize</span>(v)<span class="tok-op">:</span>
+    <span class="tok-kw">return</span> v <span class="tok-op">/</span> (np.linalg.<span class="tok-fn">norm</span>(v) <span class="tok-op">+</span> <span class="tok-num">1e-10</span>)
+
+
+<span class="tok-kw">def</span> <span class="tok-fn">build_index</span>(path<span class="tok-op">=</span><span class="tok-str">&quot;vectors.json&quot;</span>)<span class="tok-op">:</span>
+    vecs <span class="tok-op">=</span> <span class="tok-fn">embed_batch</span>(TEXTS)
+    data <span class="tok-op">=</span> [
+        {<span class="tok-str">&quot;text&quot;</span><span class="tok-op">:</span> t, <span class="tok-str">&quot;vec&quot;</span><span class="tok-op">:</span> [<span class="tok-fn">float</span>(x) <span class="tok-kw">for</span> x <span class="tok-kw">in</span> <span class="tok-fn">normalize</span>(v)]}
+        <span class="tok-kw">for</span> t, v <span class="tok-kw">in</span> <span class="tok-fn">zip</span>(TEXTS, vecs)
+    ]
+    <span class="tok-kw">with</span> <span class="tok-fn">open</span>(path, <span class="tok-str">&quot;w&quot;</span>, encoding<span class="tok-op">=</span><span class="tok-str">&quot;utf-8&quot;</span>) <span class="tok-kw">as</span> f<span class="tok-op">:</span>
+        json.<span class="tok-fn">dump</span>(data, f, ensure_ascii<span class="tok-op">=</span><span class="tok-bool">False</span>)
+    <span class="tok-kw">return</span> data
+
+
+<span class="tok-kw">def</span> <span class="tok-fn">load_index</span>(path<span class="tok-op">=</span><span class="tok-str">&quot;vectors.json&quot;</span>)<span class="tok-op">:</span>
+    <span class="tok-kw">if</span> <span class="tok-kw">not</span> os.path.<span class="tok-fn">exists</span>(path)<span class="tok-op">:</span>
+        <span class="tok-kw">return</span> <span class="tok-fn">build_index</span>(path)
+    <span class="tok-kw">with</span> <span class="tok-fn">open</span>(path, encoding<span class="tok-op">=</span><span class="tok-str">&quot;utf-8&quot;</span>) <span class="tok-kw">as</span> f<span class="tok-op">:</span>
+        data <span class="tok-op">=</span> json.<span class="tok-fn">load</span>(f)
+    matrix <span class="tok-op">=</span> np.<span class="tok-fn">array</span>([d[<span class="tok-str">&quot;vec&quot;</span>] <span class="tok-kw">for</span> d <span class="tok-kw">in</span> data], dtype<span class="tok-op">=</span>np.float32)
+    <span class="tok-kw">return</span> data, matrix
+
+
+<span class="tok-kw">def</span> <span class="tok-fn">search</span>(q, data, matrix, top_k<span class="tok-op">=</span><span class="tok-num">3</span>)<span class="tok-op">:</span>
+    qv <span class="tok-op">=</span> <span class="tok-fn">normalize</span>(<span class="tok-fn">embed_batch</span>([q])[<span class="tok-num">0</span>])
+    scores <span class="tok-op">=</span> matrix @ qv                      <span class="tok-com"># 归一化后，点积即余弦</span>
+    order <span class="tok-op">=</span> np.<span class="tok-fn">argsort</span>(<span class="tok-op">-</span>scores)[<span class="tok-op">:</span>top_k]
+
+    <span class="tok-fn">print</span>(f<span class="tok-str">&quot;\n查询：{q}&quot;</span>)
+    hit <span class="tok-op">=</span> <span class="tok-bool">False</span>
+    <span class="tok-kw">for</span> i <span class="tok-kw">in</span> order<span class="tok-op">:</span>
+        s <span class="tok-op">=</span> <span class="tok-fn">float</span>(scores[i])
+        <span class="tok-kw">if</span> s <span class="tok-op">&lt;</span> THRESHOLD<span class="tok-op">:</span>
+            <span class="tok-kw">continue</span>
+        hit <span class="tok-op">=</span> <span class="tok-bool">True</span>
+        <span class="tok-fn">print</span>(f<span class="tok-str">&quot;  {s:.4f}  {data[i][&#39;text&#39;]}&quot;</span>)
+    <span class="tok-kw">if</span> <span class="tok-kw">not</span> hit<span class="tok-op">:</span>
+        <span class="tok-fn">print</span>(<span class="tok-str">&quot;  （没有相关内容，最高分低于阈值）&quot;</span>)
+
+
+<span class="tok-kw">if</span> __name__ <span class="tok-op">==</span> <span class="tok-str">&quot;__main__&quot;</span><span class="tok-op">:</span>
+    data, matrix <span class="tok-op">=</span> <span class="tok-fn">load_index</span>()
+    <span class="tok-kw">for</span> q <span class="tok-kw">in</span> [<span class="tok-str">&quot;能保温多久&quot;</span>, <span class="tok-str">&quot;礼物送什么好&quot;</span>, <span class="tok-str">&quot;给手机充电用啥&quot;</span>]<span class="tok-op">:</span>
+        <span class="tok-fn">search</span>(q, data, matrix)</code></pre></figure>
+<h3 id="answers-关键点解释">关键点解释</h3>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>代码</th><th>为什么</th></tr></thead><tbody><tr><td><code>embed_batch</code> 一次传列表</td><td>6 次请求变 1 次，快且可能更便宜</td></tr><tr><td><code>normalize</code> 在<strong>存的时候</strong>做</td><td>保证库里的一致；查询时也做，才能用点积</td></tr><tr><td><code>matrix @ qv</code></td><td>一次算完所有相似度，不用 for 循环</td></tr><tr><td><code>np.argsort(-scores)</code></td><td>负号 = 降序</td></tr><tr><td><code>if s &lt; THRESHOLD: continue</code></td><td><strong>不是 break</strong>。break 会漏掉后面可能高分的（虽然排好序了不会，但养成 continue 的习惯更安全）</td></tr></tbody></table></div>
+<h3 id="answers-常见错误-2">常见错误</h3>
+<ul>
+<li>❌ 用 <code>for</code> 循环一个个算余弦，再 <code>sorted</code>。<strong>能跑，但慢 100 倍，而且没机会体会矩阵乘法的好处。</strong></li>
+<li>❌ 存的时候归一化，查的时候忘了。<strong>分数还是对的</strong>（因为除法抵消），但你会困惑&quot;为什么点积能当余弦用&quot;。</li>
+<li>✅ 高分答案会把&quot;查询文本&quot;和&quot;库文本&quot;用<strong>同一个模型</strong>编码。<strong>用了两个不同模型，分数完全无意义</strong>——这是比什么都重要的铁律。</li>
+</ul>
+<hr class="rule">
+<h2 id="answers-第-4-题-三个看起来能跑但结果不对">第 4 题 · 三个&quot;看起来能跑但结果不对&quot;</h2>
+<h3 id="answers-问题-achroma-没传-embeddings">问题 A：Chroma 没传 embeddings</h3>
+<p><strong>原因</strong>：Chroma 在 <code>add()</code> 时如果不给 <code>embeddings</code>，会<strong>自动用它的默认 embedding 函数</strong>（通常是一个内置的 ONNX 小模型，会静默下载）。</p>
+<p>于是：库里存的是<strong>默认模型的向量</strong>，查询时你传的是<strong>你自己模型的向量</strong>。</p>
+<blockquote class="callout">
+<p><strong>两套坐标系统，混在一起比距离。</strong> 结果就是随机排序，而且<strong>不报错</strong>。</p>
+</blockquote>
+<p><strong>修法</strong>：</p>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python">col.<span class="tok-fn">add</span>(ids<span class="tok-op">=</span>ids, documents<span class="tok-op">=</span>texts, embeddings<span class="tok-op">=</span>my_vectors)   <span class="tok-com"># 显式传</span>
+res <span class="tok-op">=</span> col.<span class="tok-fn">query</span>(query_embeddings<span class="tok-op">=</span>[q_vec], n_results<span class="tok-op">=</span><span class="tok-num">3</span>)     <span class="tok-com"># 显式查</span></code></pre></figure>
+<p><strong>如何验证你在踩这个坑</strong>：</p>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python">n <span class="tok-op">=</span> col.<span class="tok-fn">count</span>()
+got <span class="tok-op">=</span> col.<span class="tok-fn">get</span>(include<span class="tok-op">=</span>[<span class="tok-str">&quot;embeddings&quot;</span>], limit<span class="tok-op">=</span><span class="tok-num">1</span>)
+<span class="tok-fn">print</span>(<span class="tok-fn">len</span>(got[<span class="tok-str">&quot;embeddings&quot;</span>][<span class="tok-num">0</span>]))    <span class="tok-com"># 输出的维度，应该和你的模型一致</span></code></pre></figure>
+<p>维度对不上（比如你的是 1024，出来是 384）→ 中招了。</p>
+<h3 id="answers-问题-b换模型后旧向量没删">问题 B：换模型后旧向量没删</h3>
+<p><strong>原因</strong>：不同模型的向量空间<strong>互不兼容</strong>。1024 维和 1536 维连矩阵乘法都做不了，直接报维度错。</p>
+<p>即使维度碰巧相同（比如两个模型都是 1024 维），<strong>空间也不同，分数毫无意义</strong>。</p>
+<p><strong>修法</strong>：</p>
+<ol>
+<li>删除旧库/旧 json</li>
+<li>全量重算</li>
+<li><strong>在库里记录模型名和维度</strong>（比如 collection 名字带上 <code>_bge_1024</code>），避免以后混用</li>
+</ol>
+<blockquote class="callout">
+<p>这是工程上的重要习惯：<strong>向量数据必须和&quot;生成它的模型&quot;绑定。</strong> 换模型 = 全量重建，没有捷径。</p>
+</blockquote>
+<h3 id="answers-问题-c没归一化导致短句分数偏低">问题 C：没归一化导致短句分数偏低</h3>
+<p><strong>原因</strong>：这题是个&quot;陷阱题&quot;——<strong>如果用的是余弦相似度，归一化与否结果相同</strong>（除法会抵消）。</p>
+<p>真正会导致&quot;短句分数偏低&quot;的原因通常是：</p>
+<ol>
+<li>你用的是<strong>点积</strong>或<strong>欧氏距离</strong>，而不是余弦</li>
+<li>长段落里混进了大量无关内容，<strong>把语义&quot;稀释&quot;了</strong>（这是真的，不是归一化的问题）</li>
+</ol>
+<p><strong>修法</strong>：</p>
+<ul>
+<li>统一用余弦（或先归一化再用点积）</li>
+<li>对长文本做<strong>切分</strong>（chunk），别把一整段塞成一个向量 —— <strong>这正是 M4 要讲的</strong></li>
+<li>给标题/关键句更高权重（M5 的混合检索）</li>
+</ul>
+<blockquote class="callout">
+<p>这题的设计意图：<strong>让你学会区分&quot;归一化问题&quot;和&quot;长文本稀释问题&quot;。</strong> 它们的症状像，病因完全不同。</p>
+</blockquote>
+<h3 id="answers-常见错误-3">常见错误</h3>
+<ul>
+<li>❌ 认为 A 会报错。<strong>它不报错，这才是最坑的。</strong></li>
+<li>✅ 高分答案会提出&quot;给 collection 名字加模型标识&quot;这种工程习惯。</li>
+</ul>
+<hr class="rule">
+<h2 id="answers-第-5-题-该用哪种检索">第 5 题 · 该用哪种检索</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>#</th><th>查询</th><th>选择</th><th>理由</th></tr></thead><tbody><tr><td>1</td><td>订单号 <code>A20240315001</code></td><td><strong>关键词</strong></td><td>精确标识符，向量会把它当&quot;一串文本&quot;，召回一堆别的订单</td></tr><tr><td>2</td><td>&quot;东西坏了怎么办&quot;</td><td><strong>语义</strong></td><td>口语化，和文档里&quot;质量问题处理&quot;字面完全不同</td></tr><tr><td>3</td><td>报错 <code>ERR_CONN_RESET</code></td><td><strong>关键词</strong></td><td>错误码是精确字符串，必须原样匹配</td></tr><tr><td>4</td><td>&quot;怎么取消自动续费&quot;</td><td><strong>语义</strong>（+关键词兜底）</td><td>概念查询，但&quot;自动续费&quot;本身也可能是关键词，混合更稳</td></tr><tr><td>5</td><td>找提到&quot;张伟&quot;的记录</td><td><strong>关键词</strong></td><td>人名需要精确匹配。&quot;张伟&quot;和&quot;张玮&quot;在向量空间极近，会互相污染</td></tr><tr><td>6</td><td>&quot;上次说的那个关于预算的事儿&quot;</td><td><strong>语义</strong></td><td>模糊指代，关键词完全无能</td></tr></tbody></table></div>
+<h3 id="answers-判断口诀">判断口诀</h3>
+<blockquote class="callout">
+<p><strong>&quot;能一字不差打出来的&quot; → 关键词；&quot;只能描述出意思的&quot; → 语义。</strong></p>
+</blockquote>
+<p>再加一条工程经验：<strong>只要你的系统里同时有&quot;编号/代码/人名/错误码&quot;，就必须做混合检索</strong>，不能只上向量。这就是 M5 的第一课。</p>
+<hr class="rule">
+<h2 id="answers-第-6-题-给你的笔记做语义搜索">第 6 题 · 给你的笔记做语义搜索</h2>
+<h3 id="answers-参考产出">参考产出</h3>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>查询</th><th>期望命中</th><th>top-1 内容</th><th>top-1 分数</th><th>符合预期</th></tr></thead><tbody><tr><td>同义改写：&quot;怎么把钱要回来&quot;</td><td>&quot;退款流程说明&quot;</td><td>退款流程说明</td><td>0.78</td><td>✅</td></tr><tr><td>同义改写：&quot;电脑好卡&quot;</td><td>&quot;清理后台程序释放内存&quot;</td><td>清理后台程序…</td><td>0.72</td><td>✅</td></tr><tr><td>跨表述：&quot;想换个活法&quot;</td><td>&quot;职业转型的三个阶段&quot;</td><td>职业转型…</td><td>0.65</td><td>✅</td></tr><tr><td>跨表述：&quot;东西送到一半不动了&quot;</td><td>&quot;物流停滞处理办法&quot;</td><td>物流停滞…</td><td>0.74</td><td>✅</td></tr><tr><td><strong>库里没有：&quot;怎么给猫剪指甲&quot;</strong></td><td><strong>无</strong></td><td>宠物用品采购清单</td><td><strong>0.42</strong></td><td>✅（低于阈值，正确拒绝）</td></tr></tbody></table></div>
+<h3 id="answers-关键观察">关键观察</h3>
+<p>第 5 个查询的 top-1 是 <strong>0.42</strong>。如果你把阈值设成 0.5，系统会正确地说&quot;没找到&quot;。
+如果阈值是 0.3，它就会把&quot;宠物用品采购清单&quot;糊到你脸上。</p>
+<blockquote class="callout">
+<p><strong>这就是阈值的全部意义：它是&quot;敢不敢说不知道&quot;的开关。</strong></p>
+</blockquote>
+<h3 id="answers-加分题阈值扫描的方法">加分题：阈值扫描的方法</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">for</span> th <span class="tok-kw">in</span> [<span class="tok-num">0.3</span>, <span class="tok-num">0.4</span>, <span class="tok-num">0.5</span>, <span class="tok-num">0.6</span>, <span class="tok-num">0.7</span>, <span class="tok-num">0.8</span>, <span class="tok-num">0.9</span>]<span class="tok-op">:</span>
+    tp <span class="tok-op">=</span> fp <span class="tok-op">=</span> fn <span class="tok-op">=</span> <span class="tok-num">0</span>
+    <span class="tok-kw">for</span> q, expect <span class="tok-kw">in</span> LABELED_QUERIES<span class="tok-op">:</span>      <span class="tok-com"># 你人工标注好的&quot;该不该命中&quot;</span>
+        got <span class="tok-op">=</span> <span class="tok-fn">search</span>(q, ...)               <span class="tok-com"># 返回是否命中</span>
+        <span class="tok-kw">if</span> expect <span class="tok-kw">and</span> got<span class="tok-op">:</span> tp <span class="tok-op">+=</span> <span class="tok-num">1</span>
+        <span class="tok-kw">elif</span> <span class="tok-kw">not</span> expect <span class="tok-kw">and</span> got<span class="tok-op">:</span> fp <span class="tok-op">+=</span> <span class="tok-num">1</span>
+        <span class="tok-kw">elif</span> expect <span class="tok-kw">and</span> <span class="tok-kw">not</span> got<span class="tok-op">:</span> fn <span class="tok-op">+=</span> <span class="tok-num">1</span>
+    <span class="tok-fn">print</span>(th, <span class="tok-str">&quot;误召回&quot;</span>, fp, <span class="tok-str">&quot;漏召回&quot;</span>, fn)</code></pre></figure>
+<p><strong>你会看到一条典型曲线</strong>：阈值低 → 误召回多；阈值高 → 漏召回多。中间有个&quot;甜点&quot;。</p>
+<blockquote class="callout">
+<p>这个&quot;找甜点&quot;的动作，就是 M5 里&quot;评估驱动优化&quot;的雏形。你现在已经在做评测了。</p>
+</blockquote>
+<h3 id="answers-常见错误-4">常见错误</h3>
+<ul>
+<li>❌ 5 个查询全是&quot;库里明显有的&quot;。<strong>那样测不出系统的边界。</strong></li>
+<li>✅ 高分答案会保留&quot;不相关查询&quot;的分数，作为将来定阈值的依据。</li>
+</ul>
+<hr class="rule">
+<h2 id="answers-自评标准">自评标准</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>答对</th><th>评价</th><th>下一步</th></tr></thead><tbody><tr><td>6/6</td><td>优秀</td><td>直接做 P4</td></tr><tr><td>4~5</td><td>合格</td><td>重做第 4 题（三个坑都很真实）</td></tr><tr><td>2~3</td><td>需要回炉</td><td>重读讲稿第二、五、六节</td></tr><tr><td>0~1</td><td>别慌</td><td>先把第 3 题的代码跑通，再回来</td></tr></tbody></table></div></div>
+  </div>
+  <div class="tab-panel" id="panel-project" role="tabpanel" aria-labelledby="tab-panel-project" hidden>
+    <div class="callout" style="margin-bottom:22px">
+      <strong>P4 项目计划书 · P4 语义搜索器</strong><br>
+      按「目标 → 代码 → 为什么 → 怎么验证」一步步敲。卡住的地方，才是真正学到的地方。
+    </div>
+    <div class="prose"><blockquote class="callout">
+<p>难度：⭐⭐ ｜ 周期：一个周末（约 3 小时）｜ 学习模块：M3
+<strong>采用的资料</strong>：见文末第 7 节</p>
+</blockquote>
+<hr class="rule">
+<h2 id="project-1-项目要做什么">1. 项目要做什么</h2>
+<h3 id="project-一句话">一句话</h3>
+<p>给你自己的 20~50 条笔记/收藏/商品描述，做一个<strong>按意思搜索</strong>的小工具：输入&quot;怎么把钱要回来&quot;，它能找到&quot;退款流程说明&quot;。</p>
+<h3 id="project-验收标准">验收标准</h3>
+<ul>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">有 ≥20 条自己的真实文本</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">一次命令能建好索引，存成文件，重启不丢</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">查询返回 top-3 + 分数</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">有阈值：问库里没有的东西，会说&quot;没找到&quot;</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">能一键切换 top-k 和阈值（不改代码）</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">有一个网页界面（Streamlit）</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">有一张自己填的&quot;5 个查询&quot;评测表</span></li>
+</ul>
+<h3 id="project-明确不做">明确不做</h3>
+<ul>
+<li>❌ 不做文档解析（PDF/Word）—— 那是 P5</li>
+<li>❌ 不做生成回答，<strong>只做检索</strong> —— 这是关键区别</li>
+<li>❌ 不做重排、混合检索 —— 那是 M5</li>
+</ul>
+<blockquote class="callout">
+<p><strong>这一版只做&quot;找&quot;，不做&quot;答&quot;。</strong> 先把&quot;找得准&quot;这件事做扎实，M4 才有意义。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="project-2-工具与开发环境">2. 工具与开发环境</h2>
+<blockquote class="callout">
+<p>🛑 <strong>这里有两个新东西要装/要注册，动手前先问我。</strong></p>
+</blockquote>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>项</th><th>状态</th><th>说明</th></tr></thead><tbody><tr><td>Python 3.10+</td><td>已有</td><td>—</td></tr><tr><td><code>numpy</code></td><td><strong>可能需要装</strong></td><td>矩阵运算，<code>pip install numpy</code></td></tr><tr><td><code>openai</code></td><td>已有</td><td>调 OpenAI 兼容接口</td></tr><tr><td><code>python-dotenv</code></td><td>已有</td><td>读 Key</td></tr><tr><td><strong>一个 embedding 服务</strong></td><td><strong>需要注册</strong></td><td>见下</td></tr><tr><td><code>streamlit</code></td><td>P3 已装</td><td>界面</td></tr><tr><td><code>chromadb</code></td><td><strong>选修，先别装</strong></td><td>数据 &gt;1000 条再考虑</td></tr></tbody></table></div>
+<h3 id="project-关于-embedding-服务重要">⚠️ 关于 embedding 服务（重要）</h3>
+<p><strong>DeepSeek 目前没有 embedding 接口</strong>（以官网为准）。所以这一步你必须换一家。三个选择：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>方案</th><th>需要做什么</th><th>成本</th><th>推荐度</th></tr></thead><tbody><tr><td><strong>智谱 BigModel</strong></td><td>注册 → 拿 key → <code>embedding-3</code></td><td>有免费额度</td><td>⭐⭐⭐⭐</td></tr><tr><td><strong>阿里百炼</strong></td><td>注册 → 拿 key → <code>text-embedding-v*</code></td><td>有免费额度</td><td>⭐⭐⭐⭐</td></tr><tr><td><strong>本地 <code>sentence-transformers</code></strong></td><td><code>pip install</code> + 下载 <code>bge-small-zh</code>（约 100MB）</td><td>免费，但慢</td><td>⭐⭐⭐</td></tr></tbody></table></div>
+<p><strong>建议</strong>：先用 API（最快跑通），M5 要反复实验时再考虑本地模型。</p>
+<blockquote class="callout">
+<p>这也是一堂真实的工程课：<strong>&quot;聊天&quot;和&quot;向量&quot;常常是两家公司。</strong> 你的代码要能把它们分开配置。</p>
+</blockquote>
+<h3 id="project-env-里要两个-key"><code>.env</code> 里要两个 key</h3>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">DEEPSEEK_API_KEY=sk-xxx          # 聊天用（M2 已有）
+EMBED_API_KEY=xxx                # 向量用（新）
+EMBED_BASE_URL=https://open.bigmodel.cn/api/paas/v4
+EMBED_MODEL=embedding-3</code></pre></figure>
+<blockquote class="callout">
+<p>把 <code>base_url</code> 和 <code>model</code> 也放进 <code>.env</code>，这样换厂商<strong>不用改代码</strong>。这是个小习惯，能救你很多时间。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="project-3-项目文件结构">3. 项目文件结构</h2>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">p4-semantic-search/
+├── .env
+├── .gitignore
+├── requirements.txt
+├── config.py            ← 读环境变量，集中常量
+├── embed.py             ← 唯一负责&quot;文本→向量&quot;的地方
+├── index.py             ← 建索引、存/读 vectors.json
+├── search.py            ← 查询、打分、阈值、top-k
+├── data/
+│   └── notes.json       ← 你的 20 条原始文本
+├── vectors.json         ← 索引（自动生成）
+└── app.py               ← Streamlit 界面</code></pre></figure>
+<h3 id="project-为什么-embedpy-要单独一个文件">为什么 <code>embed.py</code> 要单独一个文件</h3>
+<p>因为<strong>&quot;换 embedding 模型&quot;是必然会发生的</strong>（换厂商、升级模型、换成本地）。把它关在一个文件里，将来只改一处。</p>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-com"># embed.py 的接口设计——只有两个函数，外部只认这两个</span>
+<span class="tok-kw">def</span> <span class="tok-fn">embed_texts</span>(texts<span class="tok-op">:</span> list[str]) <span class="tok-op">-&gt;</span> list[list[float]]<span class="tok-op">:</span> ...
+<span class="tok-kw">def</span> <span class="tok-fn">embed_one</span>(text<span class="tok-op">:</span> str) <span class="tok-op">-&gt;</span> list[float]<span class="tok-op">:</span> ...</code></pre></figure>
+<blockquote class="callout">
+<p><strong>接口越窄，越好维护。</strong> 这是软件工程最朴素也最有用的一条。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="project-4-项目流程图">4. 项目流程图</h2>
+<div class="mermaid-wrap"><div class="mermaid">flowchart TD
+    subgraph 建索引
+        A1[读 data/notes.json] --> A2[清洗文本<br/>去空行/去重]
+        A2 --> A3[批量 embed<br/>每批 32 条]
+        A3 --> A4[归一化]
+        A4 --> A5[写入 vectors.json<br/>含 text + vec + model 名]
+    end
+
+    subgraph 查询
+        B1[/输入查询/] --> B2[embed 查询<br/>同一模型！]
+        B2 --> B3[归一化]
+        B3 --> B4[矩阵乘法算全部分数]
+        B4 --> B5[排序取 top-k]
+        B5 --> B6{最高分 ≥ 阈值?}
+        B6 -- 否 --> B7[返回"没找到"]
+        B6 -- 是 --> B8[返回结果 + 分数]
+    end
+
+    A5 -.-> B4</div></div>
+<h3 id="project-三个必须看懂的连线">三个必须看懂的连线</h3>
+<ol>
+<li><strong>建索引和查询必须用同一个模型</strong>（图里我特意标了&quot;同一模型！&quot;）。混用 = 分数无意义。</li>
+<li><strong>归一化在两边都要做</strong>，这样才能用矩阵乘法。</li>
+<li><strong>阈值判断在排序之后</strong>，判断的是&quot;最高分&quot;，不是&quot;每条都判断&quot;。</li>
+</ol>
+<hr class="rule">
+<h2 id="project-5-分步实现">5. 分步实现</h2>
+<h3 id="project-step-1-准备你的数据20-分钟">Step 1 · 准备你的数据（20 分钟）</h3>
+<p><code>data/notes.json</code>：</p>
+<figure class="code-block" data-lang="json"><figcaption><span class="code-lang">json</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-json">[
+  {<span class="tok-str">&quot;id&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;n1&quot;</span>, <span class="tok-str">&quot;text&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;退款需要 3-5 个工作日原路退回，运费由买家承担&quot;</span>},
+  {<span class="tok-str">&quot;id&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;n2&quot;</span>, <span class="tok-str">&quot;text&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;质量问题支持 7 天无理由退换，需提供开箱视频&quot;</span>},
+  {<span class="tok-str">&quot;id&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;n3&quot;</span>, <span class="tok-str">&quot;text&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;订单发货后可在【我的订单】里查看物流单号&quot;</span>},
+  {<span class="tok-str">&quot;id&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;n4&quot;</span>, <span class="tok-str">&quot;text&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;会员积分 100 分抵 1 元，单笔最多抵 20 元&quot;</span>},
+  {<span class="tok-str">&quot;id&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;n5&quot;</span>, <span class="tok-str">&quot;text&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;优惠券不可叠加使用，满 199 减 20&quot;</span>}
+]</code></pre></figure>
+<p><strong>数据要求（很重要）</strong>：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>要求</th><th>为什么</th></tr></thead><tbody><tr><td>每条 <strong>20~100 字</strong></td><td>太短没语义，太长会稀释</td></tr><tr><td>至少 20 条</td><td>少于 20 条，测不出排序效果</td></tr><tr><td><strong>包含 3~5 组&quot;同一件事的不同说法&quot;</strong></td><td>不然你测不出语义检索的价值</td></tr><tr><td>包含 2~3 条&quot;明显无关&quot;的</td><td>用来测试阈值</td></tr></tbody></table></div>
+<blockquote class="callout">
+<p>偷懒的办法：直接用你的微信收藏、备忘录、知乎收藏导出。<strong>用真实数据，你才会有真实感受。</strong></p>
+</blockquote>
+<hr class="rule">
+<h3 id="project-step-2-写-configpy10-分钟">Step 2 · 写 <code>config.py</code>（10 分钟）</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">import</span> os
+<span class="tok-kw">from</span> dotenv <span class="tok-kw">import</span> load_dotenv
+
+<span class="tok-fn">load_dotenv</span>()
+
+EMBED_API_KEY <span class="tok-op">=</span> os.<span class="tok-fn">getenv</span>(<span class="tok-str">&quot;EMBED_API_KEY&quot;</span>)
+EMBED_BASE_URL <span class="tok-op">=</span> os.<span class="tok-fn">getenv</span>(<span class="tok-str">&quot;EMBED_BASE_URL&quot;</span>, <span class="tok-str">&quot;https://api.example.com/v1&quot;</span>)
+EMBED_MODEL <span class="tok-op">=</span> os.<span class="tok-fn">getenv</span>(<span class="tok-str">&quot;EMBED_MODEL&quot;</span>, <span class="tok-str">&quot;embedding-3&quot;</span>)
+
+BATCH_SIZE <span class="tok-op">=</span> <span class="tok-num">32</span>
+DEFAULT_TOP_K <span class="tok-op">=</span> <span class="tok-num">3</span>
+DEFAULT_THRESHOLD <span class="tok-op">=</span> <span class="tok-num">0.5</span>
+VECTOR_FILE <span class="tok-op">=</span> <span class="tok-str">&quot;vectors.json&quot;</span>
+DATA_FILE <span class="tok-op">=</span> <span class="tok-str">&quot;data/notes.json&quot;</span></code></pre></figure>
+<p><strong>为什么全大写</strong>：Python 约定，全大写 = 常量，告诉读代码的人&quot;这个不该改&quot;。</p>
+<hr class="rule">
+<h3 id="project-step-3-写-embedpy25-分钟">Step 3 · 写 <code>embed.py</code>（25 分钟）</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">import</span> numpy <span class="tok-kw">as</span> np
+<span class="tok-kw">from</span> openai <span class="tok-kw">import</span> OpenAI
+
+<span class="tok-kw">from</span> config <span class="tok-kw">import</span> BATCH_SIZE, EMBED_API_KEY, EMBED_BASE_URL, EMBED_MODEL
+
+client <span class="tok-op">=</span> <span class="tok-fn">OpenAI</span>(api_key<span class="tok-op">=</span>EMBED_API_KEY, base_url<span class="tok-op">=</span>EMBED_BASE_URL)
+
+
+<span class="tok-kw">def</span> <span class="tok-fn">embed_texts</span>(texts<span class="tok-op">:</span> list[str]) <span class="tok-op">-&gt;</span> list[list[float]]<span class="tok-op">:</span>
+    <span class="tok-str">&quot;&quot;&quot;批量取向量。自动分批，避免一次传太多被拒。&quot;&quot;&quot;</span>
+    out <span class="tok-op">=</span> []
+    <span class="tok-kw">for</span> i <span class="tok-kw">in</span> <span class="tok-fn">range</span>(<span class="tok-num">0</span>, <span class="tok-fn">len</span>(texts), BATCH_SIZE)<span class="tok-op">:</span>
+        batch <span class="tok-op">=</span> texts[i<span class="tok-op">:</span>i <span class="tok-op">+</span> BATCH_SIZE]
+        resp <span class="tok-op">=</span> client.embeddings.<span class="tok-fn">create</span>(model<span class="tok-op">=</span>EMBED_MODEL, input<span class="tok-op">=</span>batch)
+        <span class="tok-com"># 注意：返回顺序不一定等于输入顺序，要按 index 排</span>
+        items <span class="tok-op">=</span> <span class="tok-fn">sorted</span>(resp.data, key<span class="tok-op">=</span><span class="tok-kw">lambda</span> d<span class="tok-op">:</span> d.index)
+        out.<span class="tok-fn">extend</span>([d.embedding <span class="tok-kw">for</span> d <span class="tok-kw">in</span> items])
+    <span class="tok-kw">return</span> out
+
+
+<span class="tok-kw">def</span> <span class="tok-fn">embed_one</span>(text<span class="tok-op">:</span> str) <span class="tok-op">-&gt;</span> list[float]<span class="tok-op">:</span>
+    <span class="tok-kw">return</span> <span class="tok-fn">embed_texts</span>([text])[<span class="tok-num">0</span>]
+
+
+<span class="tok-kw">def</span> <span class="tok-fn">normalize</span>(v)<span class="tok-op">:</span>
+    v <span class="tok-op">=</span> np.<span class="tok-fn">asarray</span>(v, dtype<span class="tok-op">=</span>np.float32)
+    <span class="tok-kw">return</span> v <span class="tok-op">/</span> (np.linalg.<span class="tok-fn">norm</span>(v) <span class="tok-op">+</span> <span class="tok-num">1e-10</span>)</code></pre></figure>
+<p><strong><code>sorted(..., key=lambda d: d.index)</code> 这一行是重点。</strong></p>
+<p>有些厂商返回的 <code>data</code> <strong>不保证顺序</strong>。你不排序，向量和文本就会错位——<strong>而且不报错</strong>，你会得到&quot;搜 A 出来 B&quot;的诡异结果。</p>
+<blockquote class="callout">
+<p>这个坑我特意放在这里，因为它是&quot;看不见的错误&quot;，比报错可怕得多。</p>
+</blockquote>
+<hr class="rule">
+<h3 id="project-step-4-写-indexpy30-分钟">Step 4 · 写 <code>index.py</code>（30 分钟）</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">import</span> json
+<span class="tok-kw">import</span> os
+
+<span class="tok-kw">import</span> numpy <span class="tok-kw">as</span> np
+
+<span class="tok-kw">from</span> config <span class="tok-kw">import</span> DATA_FILE, EMBED_MODEL, VECTOR_FILE
+<span class="tok-kw">from</span> embed <span class="tok-kw">import</span> embed_texts, normalize
+
+
+<span class="tok-kw">def</span> <span class="tok-fn">load_notes</span>(path<span class="tok-op">=</span>DATA_FILE)<span class="tok-op">:</span>
+    <span class="tok-kw">with</span> <span class="tok-fn">open</span>(path, encoding<span class="tok-op">=</span><span class="tok-str">&quot;utf-8&quot;</span>) <span class="tok-kw">as</span> f<span class="tok-op">:</span>
+        raw <span class="tok-op">=</span> json.<span class="tok-fn">load</span>(f)
+
+    seen, notes <span class="tok-op">=</span> <span class="tok-fn">set</span>(), []
+    <span class="tok-kw">for</span> n <span class="tok-kw">in</span> raw<span class="tok-op">:</span>
+        t <span class="tok-op">=</span> <span class="tok-str">&quot; &quot;</span>.<span class="tok-fn">join</span>(n[<span class="tok-str">&quot;text&quot;</span>].<span class="tok-fn">split</span>())        <span class="tok-com"># 压掉多余空白</span>
+        <span class="tok-kw">if</span> <span class="tok-kw">not</span> t <span class="tok-kw">or</span> t <span class="tok-kw">in</span> seen<span class="tok-op">:</span>
+            <span class="tok-kw">continue</span>
+        seen.<span class="tok-fn">add</span>(t)
+        notes.<span class="tok-fn">append</span>({<span class="tok-str">&quot;id&quot;</span><span class="tok-op">:</span> n.<span class="tok-fn">get</span>(<span class="tok-str">&quot;id&quot;</span>, <span class="tok-fn">str</span>(<span class="tok-fn">len</span>(notes))), <span class="tok-str">&quot;text&quot;</span><span class="tok-op">:</span> t})
+    <span class="tok-kw">return</span> notes
+
+
+<span class="tok-kw">def</span> <span class="tok-fn">build</span>(path<span class="tok-op">=</span>VECTOR_FILE)<span class="tok-op">:</span>
+    notes <span class="tok-op">=</span> <span class="tok-fn">load_notes</span>()
+    vecs <span class="tok-op">=</span> <span class="tok-fn">embed_texts</span>([n[<span class="tok-str">&quot;text&quot;</span>] <span class="tok-kw">for</span> n <span class="tok-kw">in</span> notes])
+
+    data <span class="tok-op">=</span> {
+        <span class="tok-str">&quot;model&quot;</span><span class="tok-op">:</span> EMBED_MODEL,                  <span class="tok-com"># 记录模型名，防止混用</span>
+        <span class="tok-str">&quot;dim&quot;</span><span class="tok-op">:</span> <span class="tok-fn">len</span>(vecs[<span class="tok-num">0</span>]),
+        <span class="tok-str">&quot;items&quot;</span><span class="tok-op">:</span> [
+            {<span class="tok-str">&quot;id&quot;</span><span class="tok-op">:</span> n[<span class="tok-str">&quot;id&quot;</span>], <span class="tok-str">&quot;text&quot;</span><span class="tok-op">:</span> n[<span class="tok-str">&quot;text&quot;</span>], <span class="tok-str">&quot;vec&quot;</span><span class="tok-op">:</span> <span class="tok-fn">normalize</span>(v).<span class="tok-fn">tolist</span>()}
+            <span class="tok-kw">for</span> n, v <span class="tok-kw">in</span> <span class="tok-fn">zip</span>(notes, vecs)
+        ],
+    }
+    <span class="tok-kw">with</span> <span class="tok-fn">open</span>(path, <span class="tok-str">&quot;w&quot;</span>, encoding<span class="tok-op">=</span><span class="tok-str">&quot;utf-8&quot;</span>) <span class="tok-kw">as</span> f<span class="tok-op">:</span>
+        json.<span class="tok-fn">dump</span>(data, f, ensure_ascii<span class="tok-op">=</span><span class="tok-bool">False</span>)
+    <span class="tok-fn">print</span>(f<span class="tok-str">&quot;✅ 已索引 {len(data[&#39;items&#39;])} 条，维度 {data[&#39;dim&#39;]}，模型 {data[&#39;model&#39;]}&quot;</span>)
+    <span class="tok-kw">return</span> data
+
+
+<span class="tok-kw">def</span> <span class="tok-fn">load</span>(path<span class="tok-op">=</span>VECTOR_FILE)<span class="tok-op">:</span>
+    <span class="tok-kw">if</span> <span class="tok-kw">not</span> os.path.<span class="tok-fn">exists</span>(path)<span class="tok-op">:</span>
+        <span class="tok-kw">return</span> <span class="tok-fn">build</span>(path)
+    <span class="tok-kw">with</span> <span class="tok-fn">open</span>(path, encoding<span class="tok-op">=</span><span class="tok-str">&quot;utf-8&quot;</span>) <span class="tok-kw">as</span> f<span class="tok-op">:</span>
+        data <span class="tok-op">=</span> json.<span class="tok-fn">load</span>(f)
+
+    <span class="tok-kw">if</span> data[<span class="tok-str">&quot;model&quot;</span>] <span class="tok-op">!=</span> EMBED_MODEL<span class="tok-op">:</span>
+        <span class="tok-fn">print</span>(f<span class="tok-str">&quot;⚠️ 索引是用 {data[&#39;model&#39;]} 建的，当前是 {EMBED_MODEL}，需要重建。&quot;</span>)
+        <span class="tok-kw">return</span> <span class="tok-fn">build</span>(path)
+
+    matrix <span class="tok-op">=</span> np.<span class="tok-fn">array</span>([it[<span class="tok-str">&quot;vec&quot;</span>] <span class="tok-kw">for</span> it <span class="tok-kw">in</span> data[<span class="tok-str">&quot;items&quot;</span>]], dtype<span class="tok-op">=</span>np.float32)
+    <span class="tok-kw">return</span> data, matrix</code></pre></figure>
+<p><strong>记录 <code>model</code> 和 <code>dim</code> 这两个字段，是整个文件里最重要的设计。</strong></p>
+<p>它让你（和未来的你）在换模型时<strong>立刻收到警告</strong>，而不是得到一堆莫名其妙的分数。</p>
+<blockquote class="callout">
+<p>工程上这叫&quot;<strong>数据自描述</strong>&quot;。好的数据文件应该能自己说清楚&quot;我是谁生成的&quot;。</p>
+</blockquote>
+<hr class="rule">
+<h3 id="project-step-5-写-searchpy25-分钟">Step 5 · 写 <code>search.py</code>（25 分钟）</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">import</span> numpy <span class="tok-kw">as</span> np
+
+<span class="tok-kw">from</span> config <span class="tok-kw">import</span> DEFAULT_THRESHOLD, DEFAULT_TOP_K
+<span class="tok-kw">from</span> embed <span class="tok-kw">import</span> embed_one, normalize
+
+
+<span class="tok-kw">def</span> <span class="tok-fn">search</span>(query<span class="tok-op">:</span> str, data, matrix, top_k<span class="tok-op">=</span>DEFAULT_TOP_K, threshold<span class="tok-op">=</span>DEFAULT_THRESHOLD)<span class="tok-op">:</span>
+    qv <span class="tok-op">=</span> <span class="tok-fn">normalize</span>(<span class="tok-fn">embed_one</span>(query))
+    scores <span class="tok-op">=</span> matrix @ qv
+    order <span class="tok-op">=</span> np.<span class="tok-fn">argsort</span>(<span class="tok-op">-</span>scores)[<span class="tok-op">:</span>top_k]
+
+    results <span class="tok-op">=</span> [
+        {
+            <span class="tok-str">&quot;score&quot;</span><span class="tok-op">:</span> <span class="tok-fn">float</span>(scores[i]),
+            <span class="tok-str">&quot;text&quot;</span><span class="tok-op">:</span> data[<span class="tok-str">&quot;items&quot;</span>][i][<span class="tok-str">&quot;text&quot;</span>],
+            <span class="tok-str">&quot;id&quot;</span><span class="tok-op">:</span> data[<span class="tok-str">&quot;items&quot;</span>][i][<span class="tok-str">&quot;id&quot;</span>],
+        }
+        <span class="tok-kw">for</span> i <span class="tok-kw">in</span> order
+    ]
+
+    best <span class="tok-op">=</span> results[<span class="tok-num">0</span>][<span class="tok-str">&quot;score&quot;</span>] <span class="tok-kw">if</span> results <span class="tok-kw">else</span> <span class="tok-num">0.0</span>
+    <span class="tok-kw">if</span> best <span class="tok-op">&lt;</span> threshold<span class="tok-op">:</span>
+        <span class="tok-kw">return</span> [], best
+
+    <span class="tok-kw">return</span> [r <span class="tok-kw">for</span> r <span class="tok-kw">in</span> results <span class="tok-kw">if</span> r[<span class="tok-str">&quot;score&quot;</span>] <span class="tok-op">&gt;=</span> threshold], best
+
+
+<span class="tok-kw">def</span> <span class="tok-fn">pprint</span>(query, results, best)<span class="tok-op">:</span>
+    <span class="tok-fn">print</span>(f<span class="tok-str">&quot;\n🔍 {query}&quot;</span>)
+    <span class="tok-kw">if</span> <span class="tok-kw">not</span> results<span class="tok-op">:</span>
+        <span class="tok-fn">print</span>(f<span class="tok-str">&quot;   没有相关内容（最高分 {best:.3f} &lt; 阈值）&quot;</span>)
+        <span class="tok-kw">return</span>
+    <span class="tok-kw">for</span> r <span class="tok-kw">in</span> results<span class="tok-op">:</span>
+        <span class="tok-fn">print</span>(f<span class="tok-str">&quot;   {r[&#39;score&#39;]:.3f}  {r[&#39;text&#39;][:60]}&quot;</span>)</code></pre></figure>
+<h3 id="project-step-6-命令行入口15-分钟">Step 6 · 命令行入口（15 分钟）</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-com"># main.py</span>
+<span class="tok-kw">import</span> sys
+
+<span class="tok-kw">from</span> index <span class="tok-kw">import</span> load
+<span class="tok-kw">from</span> search <span class="tok-kw">import</span> pprint, search
+
+<span class="tok-kw">if</span> __name__ <span class="tok-op">==</span> <span class="tok-str">&quot;__main__&quot;</span><span class="tok-op">:</span>
+    <span class="tok-kw">if</span> <span class="tok-fn">len</span>(sys.argv) <span class="tok-op">&gt;</span> <span class="tok-num">1</span> <span class="tok-kw">and</span> sys.argv[<span class="tok-num">1</span>] <span class="tok-op">==</span> <span class="tok-str">&quot;build&quot;</span><span class="tok-op">:</span>
+        <span class="tok-fn">load</span>(force<span class="tok-op">=</span><span class="tok-bool">True</span>)
+        sys.<span class="tok-fn">exit</span>(<span class="tok-num">0</span>)
+
+    data, matrix <span class="tok-op">=</span> <span class="tok-fn">load</span>()
+    <span class="tok-fn">print</span>(<span class="tok-str">&quot;输入查询，回车搜索，输入 exit 退出。&quot;</span>)
+    <span class="tok-kw">while</span> <span class="tok-bool">True</span><span class="tok-op">:</span>
+        q <span class="tok-op">=</span> <span class="tok-fn">input</span>(<span class="tok-str">&quot;\n查询：&quot;</span>).<span class="tok-fn">strip</span>()
+        <span class="tok-kw">if</span> q.<span class="tok-fn">lower</span>() <span class="tok-op">==</span> <span class="tok-str">&quot;exit&quot;</span><span class="tok-op">:</span>
+            <span class="tok-kw">break</span>
+        <span class="tok-kw">if</span> q<span class="tok-op">:</span>
+            res, best <span class="tok-op">=</span> <span class="tok-fn">search</span>(q, data, matrix)
+            <span class="tok-fn">pprint</span>(q, res, best)</code></pre></figure>
+<p><strong>运行</strong>：</p>
+<figure class="code-block" data-lang="bash"><figcaption><span class="code-lang">bash</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-bash">python main.py build     <span class="tok-com"># 建索引</span>
+python main.py           <span class="tok-com"># 开始搜</span></code></pre></figure>
+<hr class="rule">
+<h3 id="project-step-7-加-streamlit-界面30-分钟">Step 7 · 加 Streamlit 界面（30 分钟）</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">import</span> streamlit <span class="tok-kw">as</span> st
+
+<span class="tok-kw">from</span> index <span class="tok-kw">import</span> load
+<span class="tok-kw">from</span> search <span class="tok-kw">import</span> search
+
+st.<span class="tok-fn">set_page_config</span>(page_title<span class="tok-op">=</span><span class="tok-str">&quot;语义搜索器&quot;</span>, page_icon<span class="tok-op">=</span><span class="tok-str">&quot;🔍&quot;</span>)
+st.<span class="tok-fn">title</span>(<span class="tok-str">&quot;🔍 语义搜索器&quot;</span>)
+st.<span class="tok-fn">caption</span>(<span class="tok-str">&quot;按意思找，不是按字找&quot;</span>)
+
+data, matrix <span class="tok-op">=</span> <span class="tok-fn">load</span>()
+
+<span class="tok-kw">with</span> st.sidebar<span class="tok-op">:</span>
+    st.<span class="tok-fn">header</span>(<span class="tok-str">&quot;参数&quot;</span>)
+    top_k <span class="tok-op">=</span> st.<span class="tok-fn">slider</span>(<span class="tok-str">&quot;返回条数&quot;</span>, <span class="tok-num">1</span>, <span class="tok-num">10</span>, <span class="tok-num">3</span>)
+    th <span class="tok-op">=</span> st.<span class="tok-fn">slider</span>(<span class="tok-str">&quot;相似度阈值&quot;</span>, <span class="tok-num">0.0</span>, <span class="tok-num">1.0</span>, <span class="tok-num">0.5</span>, <span class="tok-num">0.01</span>)
+
+q <span class="tok-op">=</span> st.<span class="tok-fn">text_input</span>(<span class="tok-str">&quot;你想找什么？&quot;</span>, placeholder<span class="tok-op">=</span><span class="tok-str">&quot;例如：怎么把钱要回来&quot;</span>)
+
+<span class="tok-kw">if</span> q<span class="tok-op">:</span>
+    res, best <span class="tok-op">=</span> <span class="tok-fn">search</span>(q, data, matrix, top_k<span class="tok-op">=</span>top_k, threshold<span class="tok-op">=</span>th)
+    <span class="tok-kw">if</span> <span class="tok-kw">not</span> res<span class="tok-op">:</span>
+        st.<span class="tok-fn">warning</span>(f<span class="tok-str">&quot;没有相关内容（最高分 {best:.3f}，低于阈值 {th:.2f}）&quot;</span>)
+    <span class="tok-kw">for</span> r <span class="tok-kw">in</span> res<span class="tok-op">:</span>
+        <span class="tok-kw">with</span> st.<span class="tok-fn">container</span>(border<span class="tok-op">=</span><span class="tok-bool">True</span>)<span class="tok-op">:</span>
+            st.<span class="tok-fn">progress</span>(<span class="tok-fn">min</span>(<span class="tok-fn">max</span>(r[<span class="tok-str">&quot;score&quot;</span>], <span class="tok-num">0.0</span>), <span class="tok-num">1.0</span>), text<span class="tok-op">=</span>f<span class="tok-str">&quot;相似度 {r[&#39;score&#39;]:.3f}&quot;</span>)
+            st.<span class="tok-fn">write</span>(r[<span class="tok-str">&quot;text&quot;</span>])</code></pre></figure>
+<p><strong>为什么把阈值做成滑块</strong>：让你能<strong>亲手感受</strong>阈值对结果的影响。这比看十篇文章都管用。</p>
+<hr class="rule">
+<h3 id="project-step-8-做评测表20-分钟">Step 8 · 做评测表（20 分钟）</h3>
+<p>建 <code>eval.md</code>，填这张表：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>#</th><th>查询</th><th>类型</th><th>期望命中的那条</th><th>实际 top-1</th><th>分数</th><th>判定</th></tr></thead><tbody><tr><td>1</td><td>怎么把钱要回来</td><td>同义</td><td>n1 退款</td><td></td><td></td><td></td></tr><tr><td>2</td><td>东西坏了能换吗</td><td>跨表述</td><td>n2 质量问题</td><td></td><td></td><td></td></tr><tr><td>3</td><td>怎么看快递单号</td><td>跨表述</td><td>n3 物流</td><td></td><td></td><td></td></tr><tr><td>4</td><td>积分怎么用</td><td>同义</td><td>n4 会员积分</td><td></td><td></td><td></td></tr><tr><td>5</td><td><strong>怎么做红烧肉</strong></td><td><strong>库里没有</strong></td><td><strong>无</strong></td><td></td><td></td><td>应该判&quot;没找到&quot;</td></tr></tbody></table></div>
+<p><strong>这张表就是你 M5 评测集的雏形。</strong> 现在只有 5 条，M5 会扩到 20 条，并且自动化。</p>
+<hr class="rule">
+<h2 id="project-6-项目进化方向">6. 项目进化方向</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>等级</th><th>加什么</th><th>学什么</th><th>难度</th></tr></thead><tbody><tr><td>Lv.1</td><td>加&quot;按分数过滤 + 高亮关键词&quot;</td><td>文本处理</td><td>⭐</td></tr><tr><td>Lv.2</td><td>数据量到 1000 条，换 Chroma</td><td>向量库</td><td>⭐⭐</td></tr><tr><td>Lv.3</td><td>加元数据过滤（按类型/日期）</td><td>结构化过滤</td><td>⭐⭐</td></tr><tr><td>Lv.4</td><td>加关键词检索，做混合排序</td><td>BM25 + 融合</td><td>⭐⭐⭐（M5）</td></tr><tr><td>Lv.5</td><td>检索完让模型&quot;回答问题&quot;</td><td><strong>RAG</strong></td><td>⭐⭐⭐⭐（M4）</td></tr><tr><td>Lv.6</td><td>支持 PDF/Word 导入</td><td>文档解析</td><td>⭐⭐⭐（M4）</td></tr></tbody></table></div>
+<blockquote class="callout">
+<p><strong>Lv.2 的判断标准</strong>：不是&quot;数据多不多&quot;，而是&quot;你有没有觉得慢&quot;。20 条数据上 Chroma 是浪费时间。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="project-7-本项目采用的资料">7. 本项目采用的资料</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>步骤</th><th>参考</th><th>出处</th></tr></thead><tbody><tr><td>Step 2–3 embedding 调用</td><td>你选用的厂商 API 文档</td><td>以注册后拿到的文档为准</td></tr><tr><td>Step 3 批量与顺序</td><td>OpenAI Cookbook · embeddings 示例</td><td><a href="https://github.com/openai/openai-cookbook" target="_blank" rel="noopener">https://github.com/openai/openai-cookbook</a></td></tr><tr><td>Step 4 索引设计</td><td>all-in-rag · 向量索引章节</td><td><a href="https://datawhalechina.github.io/all-in-rag/" target="_blank" rel="noopener">https://datawhalechina.github.io/all-in-rag/</a></td></tr><tr><td>Step 5 归一化与余弦</td><td>本讲稿第三节</td><td>本地</td></tr><tr><td>Step 6 阈值设计</td><td>本讲稿第六节</td><td>本地</td></tr><tr><td>Step 7 界面</td><td>Streamlit 文档</td><td><a href="https://docs.streamlit.io/" target="_blank" rel="noopener">https://docs.streamlit.io/</a></td></tr><tr><td>Step 8 评测思路</td><td>all-in-rag · 评估章节（提前预习）</td><td><a href="https://datawhalechina.github.io/all-in-rag/" target="_blank" rel="noopener">https://datawhalechina.github.io/all-in-rag/</a></td></tr></tbody></table></div>
+<hr class="rule">
+<h2 id="project-交付清单">交付清单</h2>
+<ul>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text"><code>python main.py build</code> 能建索引并打印条数/维度/模型名</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">5 个查询的评测表填完，第 5 个正确返回&quot;没找到&quot;</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text"><code>vectors.json</code> 里有 <code>model</code> 和 <code>dim</code> 字段</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">手动把 <code>EMBED_MODEL</code> 改成别的值，程序会提示&quot;需要重建&quot;（而不是静默出错）</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">Streamlit 界面能拖阈值，实时看到结果变化</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">能一句话解释&quot;为什么查询和入库必须用同一个模型&quot;</span></li>
+</ul>
+<blockquote class="callout">
+<p>做完这个项目，你就理解了 RAG 的一半。
+RAG 的另一半（切分 + 生成 + 引用）在下一站。</p>
+</blockquote></div>
+  </div>
+        <nav class="module-pager" aria-label="模块切换">
+    <a class="pager-link" href="m2.html"><span>← 上一模块</span><b>M2 · 对话应用</b></a>
+    <a class="pager-link pager-link--next" href="m4.html"><span>下一模块 →</span><b>M4 · RAG 核心</b></a>
+  </nav>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="../index.html">
+          <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+  <path d="M20 2.6 35 11v18L20 37.4 5 29V11z" fill="#fff" stroke="#080b16" stroke-width="1.8"/>
+  <path d="M20 2.6 35 11v9L20 28.6 5 20v-9z" fill="#00d5e8" opacity=".9"/>
+  <path d="M35 20v9L20 37.4V28.6z" fill="#ff3d9a" opacity=".85"/>
+  <path d="M13.2 24V16l6.8-3.9L26.8 16v8L20 27.9z" fill="#fff" stroke="#080b16" stroke-width="1.4"/>
+  <circle cx="20" cy="20" r="2.1" fill="#080b16"/>
+</svg>
+          <span class="brand-text">
+            <span class="brand-name">BEGINNER_IN_AI</span>
+            <span class="brand-sub">from python basics to rag &amp; agents</span>
+          </span>
+        </a>
+        <p>为「会一点 Python、数学基本忘光、看英文吃力、只有周末能集中学」的人准备的 16 周路线。理论 → 练习 → 项目，每个模块都走一遍。</p>
+      </div>
+      <div class="footer-col">
+        <h4>Route</h4>
+        <ul>
+          <li><a href="../roadmap.html">16 周排期</a></li>
+          <li><a href="../modules.html">8 个模块</a></li>
+          <li><a href="../projects.html">8 个实践项目</a></li>
+          <li><a href="../graph.html">知识图谱</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Modules</h4>
+        <ul><li><a href="../modules/m0.html">M0 · 开局</a></li><li><a href="../modules/m1.html">M1 · 提示工程</a></li><li><a href="../modules/m2.html">M2 · 对话应用</a></li><li><a href="../modules/m3.html">M3 · 语义检索</a></li><li><a href="../modules/m4.html">M4 · RAG 核心</a></li><li><a href="../modules/m5.html">M5 · RAG 进阶</a></li><li><a href="../modules/m6.html">M6 · Agent</a></li><li><a href="../modules/m7.html">M7 · 部署上线</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Beginner_in_AI · 内容来自个人学习计划，持续迭代中</span>
+      <span>
+        <a href="https://github.com/zonevenom/Beginner_in_AI" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="../resources.html">资料出处</a> ·
+        <button class="reset-btn" type="button" data-to-top>回到顶部 ↑</button>
+      </span>
+    </div>
+  </div>
+</footer>
+<div class="search-overlay" data-search-overlay role="dialog" aria-modal="true" aria-label="站内搜索">
+  <div class="search-panel">
+    <div class="search-field">
+      <svg class="icon " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.4"/><path d="m15.6 15.6 4.4 4.4"/></svg>
+      <input type="search" placeholder="搜索模块、概念、题目、项目…" aria-label="搜索关键词" autocomplete="off">
+      <button class="search-esc" type="button" data-search-close>ESC</button>
+    </div>
+    <ul class="search-results" data-search-results></ul>
+    <p class="search-empty" hidden>没有匹配结果，换个关键词试试。</p>
+  </div>
+</div>
+<script src="../assets/vendor/mermaid.min.js" defer></script>
+<script src="../assets/js/site.js" defer></script>
+
+</body>
+</html>

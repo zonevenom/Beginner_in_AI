@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>学习进度看板 · Beginner_in_AI</title>
+<meta name="description" content="16 周学习计划的进度看板：按模块打卡理论 / 练习 / 项目 / 能讲给外行听，统计总体完成度与里程碑。">
+<meta name="author" content="zonevenom">
+<meta name="theme-color" content="#eef1f8">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Beginner_in_AI">
+<meta property="og:title" content="学习进度看板 · Beginner_in_AI">
+<meta property="og:description" content="16 周学习计划的进度看板：按模块打卡理论 / 练习 / 项目 / 能讲给外行听，统计总体完成度与里程碑。">
+<meta property="og:url" content="https://zonevenom.github.io/Beginner_in_AI/">
+<meta property="og:image" content="https://zonevenom.github.io/Beginner_in_AI/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="学习进度看板 · Beginner_in_AI">
+<meta name="twitter:description" content="16 周学习计划的进度看板：按模块打卡理论 / 练习 / 项目 / 能讲给外行听，统计总体完成度与里程碑。">
+<meta name="twitter:image" content="https://zonevenom.github.io/Beginner_in_AI/assets/img/og-cover.png">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/favicon.svg">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/content.css">
+
+</head>
+<body data-root="">
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-header">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html" aria-label="Beginner_in_AI 首页">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+  <path d="M20 2.6 35 11v18L20 37.4 5 29V11z" fill="#fff" stroke="#080b16" stroke-width="1.8"/>
+  <path d="M20 2.6 35 11v9L20 28.6 5 20v-9z" fill="#00d5e8" opacity=".9"/>
+  <path d="M35 20v9L20 37.4V28.6z" fill="#ff3d9a" opacity=".85"/>
+  <path d="M13.2 24V16l6.8-3.9L26.8 16v8L20 27.9z" fill="#fff" stroke="#080b16" stroke-width="1.4"/>
+  <circle cx="20" cy="20" r="2.1" fill="#080b16"/>
+</svg>
+      <span class="brand-text">
+        <span class="brand-name">BEGINNER_IN_AI</span>
+        <span class="brand-sub">16 weeks · llm application dev</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="展开导航">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a class="nav-link" href="index.html">首页</a></li><li><a class="nav-link" href="modules.html">模块</a></li><li><a class="nav-link" href="roadmap.html">路线图</a></li><li><a class="nav-link" href="projects.html">项目</a></li><li><a class="nav-link" href="graph.html">图谱</a></li><li><a class="nav-link" href="resources.html">资料</a></li><li><a class="nav-link" href="progress.html" aria-current="page">进度</a></li>
+      <li><button class="search-open" type="button" data-search-open aria-label="搜索全站（Ctrl K）">
+        <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.4"/><path d="m15.6 15.6 4.4 4.4"/></svg><span>搜索</span><kbd>⌘K</kbd>
+      </button></li>
+      <li class="nav-cta"><a class="btn btn--sm" href="https://github.com/zonevenom/Beginner_in_AI" target="_blank" rel="noopener">
+        <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11 11 0 0 1 6 0C18 4.7 19 5 19 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5Z"/></svg>GitHub</a></li>
+    </ul>
+  </div>
+</header>
+<main id="main">
+<section class="page-head">
+    <div class="container">
+      <div class="page-head__inner">
+        <div>
+          <span class="eyebrow">progress board</span>
+          <h1>看得见的进度，<br>才是坚持的动力</h1>
+          <p class="lead">每周日晚上花 10 分钟打勾。记录保存在你自己的浏览器里（localStorage），不上传、不联网——换设备就会重新开始。</p>
+        </div>
+        <div class="page-head__meta">
+          <div><b data-pct>0%</b>总体进度</div>
+          <div><b data-count="all">0/40</b>已完成项</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="container">
+    <div class="board" data-progress-board>
+      <div class="board-head">
+        <h2>模块打卡</h2>
+        <span class="progress-note">本地保存 · 不上传</span>
+        <button class="reset-btn" type="button" data-reset>清空记录</button>
+      </div>
+      <div class="overall">
+        <div class="overall__row">
+          <span>理论讲稿 <b data-count="theory">0/8</b></span>
+          <div class="bar"><i data-bar="theory"></i></div>
+          <span></span>
+        </div>
+        <div class="overall__row">
+          <span>练习题 <b data-count="quiz">0/8</b></span>
+          <div class="bar"><i data-bar="quiz"></i></div>
+          <span></span>
+        </div>
+        <div class="overall__row">
+          <span>项目实践 <b data-count="project">0/8</b></span>
+          <div class="bar"><i data-bar="project"></i></div>
+          <span></span>
+        </div>
+        <div class="overall__row">
+          <span>能讲给外行听 <b data-count="explain">0/8</b></span>
+          <div class="bar"><i data-bar="explain"></i></div>
+          <span></span>
+        </div>
+      </div>
+      <div class="board-row board-row--head">
+        <span>模块</span><span>理论</span><span>练习</span><span>项目</span><span>能讲</span><span>完成日期</span>
+      </div>
+      <div class="board-row">
+      <div class="board-row__name"><i>M0</i>开局</div>
+      <label class="check">
+        <input type="checkbox" data-key="m0-theory" data-group="theory" aria-label="M0 理论">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>理论</span>
+      </label><label class="check">
+        <input type="checkbox" data-key="m0-quiz" data-group="quiz" aria-label="M0 练习">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>练习</span>
+      </label><label class="check">
+        <input type="checkbox" data-key="m0-project" data-group="project" aria-label="M0 项目">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>项目</span>
+      </label><label class="check">
+        <input type="checkbox" data-key="m0-explain" data-group="explain" aria-label="M0 能讲">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>能讲</span>
+      </label>
+      <input type="date" data-date="date-m0" aria-label="M0 完成日期">
+    </div><div class="board-row">
+      <div class="board-row__name"><i>M1</i>提示工程</div>
+      <label class="check">
+        <input type="checkbox" data-key="m1-theory" data-group="theory" aria-label="M1 理论">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>理论</span>
+      </label><label class="check">
+        <input type="checkbox" data-key="m1-quiz" data-group="quiz" aria-label="M1 练习">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>练习</span>
+      </label><label class="check">
+        <input type="checkbox" data-key="m1-project" data-group="project" aria-label="M1 项目">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>项目</span>
+      </label><label class="check">
+        <input type="checkbox" data-key="m1-explain" data-group="explain" aria-label="M1 能讲">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>能讲</span>
+      </label>
+      <input type="date" data-date="date-m1" aria-label="M1 完成日期">
+    </div><div class="board-row">
+      <div class="board-row__name"><i>M2</i>对话应用</div>
+      <label class="check">
+        <input type="checkbox" data-key="m2-theory" data-group="theory" aria-label="M2 理论">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>理论</span>
+      </label><label class="check">
+        <input type="checkbox" data-key="m2-quiz" data-group="quiz" aria-label="M2 练习">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>练习</span>
+      </label><label class="check">
+        <input type="checkbox" data-key="m2-project" data-group="project" aria-label="M2 项目">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>项目</span>
+      </label><label class="check">
+        <input type="checkbox" data-key="m2-explain" data-group="explain" aria-label="M2 能讲">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>能讲</span>
+      </label>
+      <input type="date" data-date="date-m2" aria-label="M2 完成日期">
+    </div><div class="board-row">
+      <div class="board-row__name"><i>M3</i>语义检索</div>
+      <label class="check">
+        <input type="checkbox" data-key="m3-theory" data-group="theory" aria-label="M3 理论">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>理论</span>
+      </label><label class="check">
+        <input type="checkbox" data-key="m3-quiz" data-group="quiz" aria-label="M3 练习">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>练习</span>
+      </label><label class="check">
+        <input type="checkbox" data-key="m3-project" data-group="project" aria-label="M3 项目">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>项目</span>
+      </label><label class="check">
+        <input type="checkbox" data-key="m3-explain" data-group="explain" aria-label="M3 能讲">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>能讲</span>
+      </label>
+      <input type="date" data-date="date-m3" aria-label="M3 完成日期">
+    </div><div class="board-row">
+      <div class="board-row__name"><i>M4</i>RAG 核心</div>
+      <label class="check">
+        <input type="checkbox" data-key="m4-theory" data-group="theory" aria-label="M4 理论">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>理论</span>
+      </label><label class="check">
+        <input type="checkbox" data-key="m4-quiz" data-group="quiz" aria-label="M4 练习">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>练习</span>
+      </label><label class="check">
+        <input type="checkbox" data-key="m4-project" data-group="project" aria-label="M4 项目">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>项目</span>
+      </label><label class="check">
+        <input type="checkbox" data-key="m4-explain" data-group="explain" aria-label="M4 能讲">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>能讲</span>
+      </label>
+      <input type="date" data-date="date-m4" aria-label="M4 完成日期">
+    </div><div class="board-row">
+      <div class="board-row__name"><i>M5</i>RAG 进阶</div>
+      <label class="check">
+        <input type="checkbox" data-key="m5-theory" data-group="theory" aria-label="M5 理论">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>理论</span>
+      </label><label class="check">
+        <input type="checkbox" data-key="m5-quiz" data-group="quiz" aria-label="M5 练习">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>练习</span>
+      </label><label class="check">
+        <input type="checkbox" data-key="m5-project" data-group="project" aria-label="M5 项目">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>项目</span>
+      </label><label class="check">
+        <input type="checkbox" data-key="m5-explain" data-group="explain" aria-label="M5 能讲">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>能讲</span>
+      </label>
+      <input type="date" data-date="date-m5" aria-label="M5 完成日期">
+    </div><div class="board-row">
+      <div class="board-row__name"><i>M6</i>Agent</div>
+      <label class="check">
+        <input type="checkbox" data-key="m6-theory" data-group="theory" aria-label="M6 理论">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>理论</span>
+      </label><label class="check">
+        <input type="checkbox" data-key="m6-quiz" data-group="quiz" aria-label="M6 练习">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>练习</span>
+      </label><label class="check">
+        <input type="checkbox" data-key="m6-project" data-group="project" aria-label="M6 项目">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>项目</span>
+      </label><label class="check">
+        <input type="checkbox" data-key="m6-explain" data-group="explain" aria-label="M6 能讲">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>能讲</span>
+      </label>
+      <input type="date" data-date="date-m6" aria-label="M6 完成日期">
+    </div><div class="board-row">
+      <div class="board-row__name"><i>M7</i>部署上线</div>
+      <label class="check">
+        <input type="checkbox" data-key="m7-theory" data-group="theory" aria-label="M7 理论">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>理论</span>
+      </label><label class="check">
+        <input type="checkbox" data-key="m7-quiz" data-group="quiz" aria-label="M7 练习">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>练习</span>
+      </label><label class="check">
+        <input type="checkbox" data-key="m7-project" data-group="project" aria-label="M7 项目">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>项目</span>
+      </label><label class="check">
+        <input type="checkbox" data-key="m7-explain" data-group="explain" aria-label="M7 能讲">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>能讲</span>
+      </label>
+      <input type="date" data-date="date-m7" aria-label="M7 完成日期">
+    </div>
+    </div>
+
+    <div class="section section--tight" style="padding-inline:0">
+      <span class="eyebrow">milestones</span>
+      <h2 style="font-size:clamp(24px,3vw,34px);margin:12px 0 18px">里程碑：到了就奖励自己</h2>
+      <ul class="milestones"><li class="milestone">
+      <span class="idx">01</span>
+      <label class="check">
+        <input type="checkbox" data-key="milestone-0" data-group="milestone" aria-label="第一次成功调用 API，看到模型回话">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>第一次成功调用 API，看到模型回话</span>
+      </label>
+    </li><li class="milestone">
+      <span class="idx">02</span>
+      <label class="check">
+        <input type="checkbox" data-key="milestone-1" data-group="milestone" aria-label="第一次让模型稳定输出 JSON">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>第一次让模型稳定输出 JSON</span>
+      </label>
+    </li><li class="milestone">
+      <span class="idx">03</span>
+      <label class="check">
+        <input type="checkbox" data-key="milestone-2" data-group="milestone" aria-label="第一次做出能连续对话的界面">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>第一次做出能连续对话的界面</span>
+      </label>
+    </li><li class="milestone">
+      <span class="idx">04</span>
+      <label class="check">
+        <input type="checkbox" data-key="milestone-3" data-group="milestone" aria-label="第一次用向量找到「意思相近」的句子">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>第一次用向量找到「意思相近」的句子</span>
+      </label>
+    </li><li class="milestone">
+      <span class="idx">05</span>
+      <label class="check">
+        <input type="checkbox" data-key="milestone-4" data-group="milestone" aria-label="第一次让 RAG 答对并给出正确出处">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>第一次让 RAG 答对并给出正确出处</span>
+      </label>
+    </li><li class="milestone">
+      <span class="idx">06</span>
+      <label class="check">
+        <input type="checkbox" data-key="milestone-5" data-group="milestone" aria-label="第一次算出一个数字（比如「命中率 75%」）而不是「感觉还行」">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>第一次算出一个数字（比如「命中率 75%」）而不是「感觉还行」</span>
+      </label>
+    </li><li class="milestone">
+      <span class="idx">07</span>
+      <label class="check">
+        <input type="checkbox" data-key="milestone-6" data-group="milestone" aria-label="第一次让模型自己选工具完成任务">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>第一次让模型自己选工具完成任务</span>
+      </label>
+    </li><li class="milestone">
+      <span class="idx">08</span>
+      <label class="check">
+        <input type="checkbox" data-key="milestone-7" data-group="milestone" aria-label="第一次把链接发给别人，对方能打开">
+        <span class="check__box" aria-hidden="true"></span>
+        <span>第一次把链接发给别人，对方能打开</span>
+      </label>
+    </li></ul>
+    </div>
+
+    <div class="split" style="margin-bottom:60px">
+      <div class="panel">
+        <span class="eyebrow">module gate</span>
+        <h3 style="font-size:20px;margin:10px 0 10px">模块过了才算过</h3>
+        <p style="font-size:13.5px;color:var(--muted);line-height:1.75">
+          理论：不看讲稿能用自己的话讲给外行听 3 分钟。<br>
+          练习：5 题里至少 4 题独立做对，错题能说出错在哪一步。<br>
+          项目：代码能跑，能解释关键行为什么这么写，故意改坏能自己修回来。
+        </p>
+      </div>
+      <div class="panel">
+        <span class="eyebrow">if you fall behind</span>
+        <h3 style="font-size:20px;margin:10px 0 10px">断档了怎么办</h3>
+        <p style="font-size:13.5px;color:var(--muted);line-height:1.75">
+          只完成一半 → 剩余并入下周，砍掉「进阶」部分。<br>
+          连续两周没动 → 别从头再来，先花 30 分钟把上次的代码跑一遍，跑通即恢复。<br>
+          学不懂 → 跳到项目，先做出来再回头理解。
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+  <path d="M20 2.6 35 11v18L20 37.4 5 29V11z" fill="#fff" stroke="#080b16" stroke-width="1.8"/>
+  <path d="M20 2.6 35 11v9L20 28.6 5 20v-9z" fill="#00d5e8" opacity=".9"/>
+  <path d="M35 20v9L20 37.4V28.6z" fill="#ff3d9a" opacity=".85"/>
+  <path d="M13.2 24V16l6.8-3.9L26.8 16v8L20 27.9z" fill="#fff" stroke="#080b16" stroke-width="1.4"/>
+  <circle cx="20" cy="20" r="2.1" fill="#080b16"/>
+</svg>
+          <span class="brand-text">
+            <span class="brand-name">BEGINNER_IN_AI</span>
+            <span class="brand-sub">from python basics to rag &amp; agents</span>
+          </span>
+        </a>
+        <p>为「会一点 Python、数学基本忘光、看英文吃力、只有周末能集中学」的人准备的 16 周路线。理论 → 练习 → 项目，每个模块都走一遍。</p>
+      </div>
+      <div class="footer-col">
+        <h4>Route</h4>
+        <ul>
+          <li><a href="roadmap.html">16 周排期</a></li>
+          <li><a href="modules.html">8 个模块</a></li>
+          <li><a href="projects.html">8 个实践项目</a></li>
+          <li><a href="graph.html">知识图谱</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Modules</h4>
+        <ul><li><a href="modules/m0.html">M0 · 开局</a></li><li><a href="modules/m1.html">M1 · 提示工程</a></li><li><a href="modules/m2.html">M2 · 对话应用</a></li><li><a href="modules/m3.html">M3 · 语义检索</a></li><li><a href="modules/m4.html">M4 · RAG 核心</a></li><li><a href="modules/m5.html">M5 · RAG 进阶</a></li><li><a href="modules/m6.html">M6 · Agent</a></li><li><a href="modules/m7.html">M7 · 部署上线</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Beginner_in_AI · 内容来自个人学习计划，持续迭代中</span>
+      <span>
+        <a href="https://github.com/zonevenom/Beginner_in_AI" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="resources.html">资料出处</a> ·
+        <button class="reset-btn" type="button" data-to-top>回到顶部 ↑</button>
+      </span>
+    </div>
+  </div>
+</footer>
+<div class="search-overlay" data-search-overlay role="dialog" aria-modal="true" aria-label="站内搜索">
+  <div class="search-panel">
+    <div class="search-field">
+      <svg class="icon " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.4"/><path d="m15.6 15.6 4.4 4.4"/></svg>
+      <input type="search" placeholder="搜索模块、概念、题目、项目…" aria-label="搜索关键词" autocomplete="off">
+      <button class="search-esc" type="button" data-search-close>ESC</button>
+    </div>
+    <ul class="search-results" data-search-results></ul>
+    <p class="search-empty" hidden>没有匹配结果，换个关键词试试。</p>
+  </div>
+</div>
+<script src="assets/vendor/mermaid.min.js" defer></script>
+<script src="assets/js/site.js" defer></script>
+
+</body>
+</html>

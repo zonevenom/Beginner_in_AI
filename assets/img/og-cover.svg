@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0v40" fill="none" stroke="#080b16" stroke-width="1" opacity=".05"/>
+    </pattern>
+    <radialGradient id="glow" cx="78%" cy="18%" r="62%">
+      <stop offset="0%" stop-color="#00d5e8" stop-opacity=".3"/>
+      <stop offset="55%" stop-color="#6a4cff" stop-opacity=".12"/>
+      <stop offset="100%" stop-color="#ff3d9a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00d5e8"/>
+      <stop offset="50%" stop-color="#6a4cff"/>
+      <stop offset="100%" stop-color="#ff3d9a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="#eef1f8"/>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <g transform="translate(72,64)">
+    <path d="M20 2.6 35 11v18L20 37.4 5 29V11z" fill="#fff" stroke="#080b16" stroke-width="2"/>
+    <path d="M20 2.6 35 11v9L20 28.6 5 20v-9z" fill="#00d5e8" opacity=".9"/>
+    <path d="M35 20v9L20 37.4V28.6z" fill="#ff3d9a" opacity=".85"/>
+    <path d="M13 24V16l7-4 7 4v8l-7 4z" fill="#fff" stroke="#080b16" stroke-width="1.6"/>
+    <circle cx="20" cy="20" r="2.2" fill="#080b16"/>
+  </g>
+  <text x="128" y="101" font-family="Bahnschrift, 'Segoe UI', sans-serif" font-size="27" font-weight="700" letter-spacing="1.5" fill="#080b16">BEGINNER_IN_AI</text>
+
+  <g font-family="'Cascadia Code', Consolas, monospace" font-size="13" letter-spacing="4" fill="#626b83">
+    <text x="72" y="186">16 WEEKS · 8 MODULES · 51 EXERCISES</text>
+    <text x="72" y="212">THEORY → PRACTICE → PROJECT</text>
+  </g>
+
+  <text x="72" y="330" font-family="Bahnschrift, 'Microsoft YaHei UI', sans-serif" font-size="104" font-weight="700" letter-spacing="-3" fill="#080b16">从零到</text>
+  <text x="72" y="432" font-family="Bahnschrift, 'Microsoft YaHei UI', sans-serif" font-size="104" font-weight="700" letter-spacing="-3" fill="none" stroke="#080b16" stroke-width="2">AI 应用工程师</text>
+  <rect x="72" y="458" width="150" height="9" fill="#c9f227"/>
+
+  <text x="72" y="500" font-family="'Microsoft YaHei UI','PingFang SC',sans-serif" font-size="21" fill="#242b3f">8 个模块 · 8 个实践项目 · 理论 / 练习 / 项目 三件套</text>
+  <text x="72" y="534" font-family="'Microsoft YaHei UI','PingFang SC',sans-serif" font-size="21" fill="#626b83">RAG 知识库问答 · Agent 工具调用 · 可分享的 Web 应用</text>
+
+  <g font-family="'Cascadia Code', Consolas, monospace" font-size="11" letter-spacing="1">
+    <rect x="72" y="566" width="92" height="30" rx="2" fill="#080b16"/>
+    <text x="118" y="586" fill="#c9f227" text-anchor="middle">M0 · M1 · M2</text>
+    <rect x="172" y="566" width="92" height="30" rx="2" fill="#fff" stroke="#ccd3e4"/>
+    <text x="218" y="586" fill="#080b16" text-anchor="middle">M3 · M4 · M5</text>
+    <rect x="272" y="566" width="92" height="30" rx="2" fill="#fff" stroke="#ccd3e4"/>
+    <text x="318" y="586" fill="#080b16" text-anchor="middle">M6 · M7</text>
+    <text x="392" y="586" fill="#626b83">github.com/zonevenom/Beginner_in_AI</text>
+  </g>
+
+  <g transform="translate(880,180)">
+    <circle cx="110" cy="110" r="104" fill="none" stroke="#080b16" stroke-width="1" opacity=".18"/>
+    <circle cx="110" cy="110" r="80" fill="none" stroke="#080b16" stroke-width="1" stroke-dasharray="1 7" opacity=".35"/>
+    <circle cx="110" cy="110" r="56" fill="#fff" opacity=".7"/>
+    <path d="M110 60 158 88v44l-48 28-48-28V88z" fill="#fff" stroke="#080b16" stroke-width="2.5"/>
+    <path d="M110 60 158 88v22l-48 28-48-28V88z" fill="#c9f227" opacity=".9"/>
+    <path d="M158 110v22l-48 28v-22z" fill="#00d5e8"/>
+    <circle cx="110" cy="118" r="4.5" fill="#080b16"/>
+    <g font-family="'Cascadia Code', Consolas, monospace" font-size="9" letter-spacing="2" fill="#626b83">
+      <text x="110" y="34" text-anchor="middle">RAG</text>
+      <text x="110" y="196" text-anchor="middle">AGENT</text>
+      <text x="222" y="113" text-anchor="middle">DEPLOY</text>
+      <text x="-2" y="113" text-anchor="end">PROMPT</text>
+    </g>
+    <circle cx="110" cy="26" r="3" fill="#ff3d9a"/>
+    <circle cx="110" cy="194" r="3" fill="#00d5e8"/>
+    <circle cx="194" cy="110" r="3" fill="#6a4cff"/>
+    <circle cx="26" cy="110" r="3" fill="#ffb020"/>
+  </g>
+
+  <rect x="0" y="620" width="1200" height="10" fill="url(#fade)"/>
+</svg>

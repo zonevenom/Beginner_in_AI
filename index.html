@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beginner in AI · 16 周大模型应用开发路线</title>
+<meta name="description" content="一份为「会一点 Python、数学基本忘光、看英文吃力、只有周末能集中学」的人定制的 16 周大模型应用开发学习计划：8 个模块、8 个实践项目、理论 / 练习 / 项目三件套。">
+<meta name="author" content="zonevenom">
+<meta name="theme-color" content="#eef1f8">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Beginner_in_AI">
+<meta property="og:title" content="Beginner in AI · 16 周大模型应用开发路线">
+<meta property="og:description" content="一份为「会一点 Python、数学基本忘光、看英文吃力、只有周末能集中学」的人定制的 16 周大模型应用开发学习计划：8 个模块、8 个实践项目、理论 / 练习 / 项目三件套。">
+<meta property="og:url" content="https://zonevenom.github.io/Beginner_in_AI/">
+<meta property="og:image" content="https://zonevenom.github.io/Beginner_in_AI/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Beginner in AI · 16 周大模型应用开发路线">
+<meta name="twitter:description" content="一份为「会一点 Python、数学基本忘光、看英文吃力、只有周末能集中学」的人定制的 16 周大模型应用开发学习计划：8 个模块、8 个实践项目、理论 / 练习 / 项目三件套。">
+<meta name="twitter:image" content="https://zonevenom.github.io/Beginner_in_AI/assets/img/og-cover.png">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/favicon.svg">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/content.css">
+
+</head>
+<body data-root="">
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-header">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html" aria-label="Beginner_in_AI 首页">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+  <path d="M20 2.6 35 11v18L20 37.4 5 29V11z" fill="#fff" stroke="#080b16" stroke-width="1.8"/>
+  <path d="M20 2.6 35 11v9L20 28.6 5 20v-9z" fill="#00d5e8" opacity=".9"/>
+  <path d="M35 20v9L20 37.4V28.6z" fill="#ff3d9a" opacity=".85"/>
+  <path d="M13.2 24V16l6.8-3.9L26.8 16v8L20 27.9z" fill="#fff" stroke="#080b16" stroke-width="1.4"/>
+  <circle cx="20" cy="20" r="2.1" fill="#080b16"/>
+</svg>
+      <span class="brand-text">
+        <span class="brand-name">BEGINNER_IN_AI</span>
+        <span class="brand-sub">16 weeks · llm application dev</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="展开导航">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a class="nav-link" href="index.html" aria-current="page">首页</a></li><li><a class="nav-link" href="modules.html">模块</a></li><li><a class="nav-link" href="roadmap.html">路线图</a></li><li><a class="nav-link" href="projects.html">项目</a></li><li><a class="nav-link" href="graph.html">图谱</a></li><li><a class="nav-link" href="resources.html">资料</a></li><li><a class="nav-link" href="progress.html">进度</a></li>
+      <li><button class="search-open" type="button" data-search-open aria-label="搜索全站（Ctrl K）">
+        <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.4"/><path d="m15.6 15.6 4.4 4.4"/></svg><span>搜索</span><kbd>⌘K</kbd>
+      </button></li>
+      <li class="nav-cta"><a class="btn btn--sm" href="https://github.com/zonevenom/Beginner_in_AI" target="_blank" rel="noopener">
+        <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11 11 0 0 1 6 0C18 4.7 19 5 19 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5Z"/></svg>GitHub</a></li>
+    </ul>
+  </div>
+</header>
+<main id="main">
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <div class="hero-kicker">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        <span class="eyebrow">16 weeks · beginner → rag / agent</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="line">16 周，</span>
+        <span class="line"><span class="accent">从零</span>到</span>
+        <span class="line glitch"><span class="outline">AI 应用</span></span>
+      </h1>
+      <p class="hero-sub">
+        不啃 533 页教材，不推一个公式。每个周末 4 小时，按
+        <strong>理论 → 练习 → 项目</strong> 走完 8 个模块，
+        最后手里是三个能发给别人的作品：RAG 知识库、Agent 助手、部署上线的 Web 链接。
+      </p>
+      <div class="hero-actions">
+        <a class="btn" href="modules/m0.html">开始第 1 周 <svg class="icon " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></a>
+        <a class="btn btn--ghost" href="roadmap.html">看 16 周排期</a>
+      </div>
+      <div class="hero-meta">
+        <span class="hero-meta__item"><b>8</b> 模块</span>
+        <span class="hero-meta__item"><b>16</b> 周</span>
+        <span class="hero-meta__item"><b>51</b> 道题</span>
+        <span class="hero-meta__item"><b>8</b> 个项目</span>
+        <span class="hero-meta__item"><b>≈80</b> 小时</span>
+      </div>
+    </div>
+    <div class="hero-art hud" aria-hidden="true">
+  <span class="hero-art__tag hero-art__tag--a">SYS / ROADMAP v1.0</span>
+  <span class="hero-art__tag hero-art__tag--b">16 WEEKS · 8 MODULES</span>
+  <svg viewBox="0 0 560 560" role="img" aria-label="八个模块围绕 AI 应用开发核心的路线图">
+    <defs>
+      <radialGradient id="ha-glow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#00d5e8" stop-opacity=".42"/>
+        <stop offset="55%" stop-color="#6a4cff" stop-opacity=".14"/>
+        <stop offset="100%" stop-color="#ff3d9a" stop-opacity="0"/>
+      </radialGradient>
+      <pattern id="ha-grid" width="28" height="28" patternUnits="userSpaceOnUse">
+        <path d="M28 0H0v28" fill="none" stroke="#080b16" stroke-width="1" opacity=".055"/>
+      </pattern>
+      <filter id="ha-blur" x="-40%" y="-40%" width="180%" height="180%">
+        <feGaussianBlur stdDeviation="16"/>
+      </filter>
+    </defs>
+    <rect width="560" height="560" fill="url(#ha-grid)"/>
+    <circle cx="280" cy="280" r="196" fill="url(#ha-glow)"/>
+    <circle cx="280" cy="280" r="118" fill="#fff" opacity=".55" filter="url(#ha-blur)"/>
+    <circle cx="280" cy="280" r="252" fill="none" stroke="#080b16" stroke-width="1" opacity=".14"/>
+    <circle cx="280" cy="280" r="202" fill="none" stroke="#080b16" stroke-width="1" opacity=".22" stroke-dasharray="1 7"/>
+    <circle cx="280" cy="280" r="152" fill="none" stroke="#080b16" stroke-width="1" opacity=".12"/>
+    <circle cx="280" cy="280" r="96" fill="none" stroke="#080b16" stroke-width="1.2" opacity=".26"/>
+    <path d="M520.0 280.0L530.0 280.0" stroke="#080b16" stroke-width="1" opacity="0.32"/><path d="M517.9 311.3L522.9 312.0" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M511.8 342.1L516.7 343.4" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M501.7 371.8L506.4 373.8" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M487.8 400.0L496.5 405.0" stroke="#080b16" stroke-width="1" opacity="0.32"/><path d="M470.4 426.1L474.4 429.1" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M449.7 449.7L453.2 453.2" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M426.1 470.4L429.1 474.4" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M400.0 487.8L405.0 496.5" stroke="#080b16" stroke-width="1" opacity="0.32"/><path d="M371.8 501.7L373.8 506.4" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M342.1 511.8L343.4 516.7" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M311.3 517.9L312.0 522.9" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M280.0 520.0L280.0 530.0" stroke="#080b16" stroke-width="1" opacity="0.32"/><path d="M248.7 517.9L248.0 522.9" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M217.9 511.8L216.6 516.7" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M188.2 501.7L186.2 506.4" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M160.0 487.8L155.0 496.5" stroke="#080b16" stroke-width="1" opacity="0.32"/><path d="M133.9 470.4L130.9 474.4" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M110.3 449.7L106.8 453.2" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M89.6 426.1L85.6 429.1" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M72.2 400.0L63.5 405.0" stroke="#080b16" stroke-width="1" opacity="0.32"/><path d="M58.3 371.8L53.6 373.8" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M48.2 342.1L43.3 343.4" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M42.1 311.3L37.1 312.0" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M40.0 280.0L30.0 280.0" stroke="#080b16" stroke-width="1" opacity="0.32"/><path d="M42.1 248.7L37.1 248.0" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M48.2 217.9L43.3 216.6" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M58.3 188.2L53.6 186.2" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M72.2 160.0L63.5 155.0" stroke="#080b16" stroke-width="1" opacity="0.32"/><path d="M89.6 133.9L85.6 130.9" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M110.3 110.3L106.8 106.8" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M133.9 89.6L130.9 85.6" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M160.0 72.2L155.0 63.5" stroke="#080b16" stroke-width="1" opacity="0.32"/><path d="M188.2 58.3L186.2 53.6" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M217.9 48.2L216.6 43.3" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M248.7 42.1L248.0 37.1" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M280.0 40.0L280.0 30.0" stroke="#080b16" stroke-width="1" opacity="0.32"/><path d="M311.3 42.1L312.0 37.1" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M342.1 48.2L343.4 43.3" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M371.8 58.3L373.8 53.6" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M400.0 72.2L405.0 63.5" stroke="#080b16" stroke-width="1" opacity="0.32"/><path d="M426.1 89.6L429.1 85.6" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M449.7 110.3L453.2 106.8" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M470.4 133.9L474.4 130.9" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M487.8 160.0L496.5 155.0" stroke="#080b16" stroke-width="1" opacity="0.32"/><path d="M501.7 188.2L506.4 186.2" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M511.8 217.9L516.7 216.6" stroke="#080b16" stroke-width="1" opacity="0.16"/><path d="M517.9 248.7L522.9 248.0" stroke="#080b16" stroke-width="1" opacity="0.16"/>
+    <g class="ha-spin"><circle cx="506.0" cy="280.0" r="3" fill="#080b16" opacity=".35"/><circle cx="393.0" cy="475.7" r="3" fill="#080b16" opacity=".35"/><circle cx="167.0" cy="475.7" r="3" fill="#080b16" opacity=".35"/><circle cx="54.0" cy="280.0" r="3" fill="#080b16" opacity=".35"/><circle cx="167.0" cy="84.3" r="3" fill="#080b16" opacity=".35"/><circle cx="393.0" cy="84.3" r="3" fill="#080b16" opacity=".35"/></g>
+    <path d="M280 18v44M280 498v44M18 280h44M498 280h44" stroke="#080b16" stroke-width="1" opacity=".3"/>
+    <g class="ha-float">
+      <path d="M280 232 322 256v48L280 328 238 304v-48z" fill="#ffffff" stroke="#080b16" stroke-width="2"/>
+      <path d="M280 232 322 256v24L280 304 238 280v-24z" fill="#c9f227" opacity=".85"/>
+      <path d="M322 280v24L280 328V304z" fill="#00d5e8" opacity=".9"/>
+      <circle cx="280" cy="276" r="4" fill="#080b16"/>
+      <text x="280" y="212" text-anchor="middle" class="ha-mono" fill="#080b16" style="font-size:9px;letter-spacing:.3em">AI CORE</text>
+      <text x="280" y="352" text-anchor="middle" class="ha-mono" fill="#626b83" style="font-size:8.5px;letter-spacing:.22em">LLM APP DEV</text>
+    </g>
+    <g class="ha-node">
+      <path d="M280.0 158.0L280.0 78.0" stroke="#00d5e8" stroke-width="1.4" opacity=".75"/>
+      <circle cx="280.0" cy="158.0" r="2.6" fill="#00d5e8"/>
+      <rect x="251.0" y="64.5" width="58" height="27" rx="3" fill="#ffffff" stroke="#080b16" stroke-width="1.5"/>
+      <rect x="251.0" y="64.5" width="4" height="27" fill="#00d5e8"/>
+      <text x="283.0" y="82.0" text-anchor="middle" class="ha-mono" fill="#080b16" style="font-size:11px;letter-spacing:.06em">M0</text>
+      <text x="280.0" y="104.5" text-anchor="middle" class="ha-mono" fill="#626b83" style="font-size:8px;letter-spacing:.14em">W1</text>
+    </g><g class="ha-node">
+      <path d="M366.3 193.7L422.8 137.2" stroke="#ff3d9a" stroke-width="1.4" opacity=".75"/>
+      <circle cx="366.3" cy="193.7" r="2.6" fill="#ff3d9a"/>
+      <rect x="393.8" y="123.7" width="58" height="27" rx="3" fill="#ffffff" stroke="#080b16" stroke-width="1.5"/>
+      <rect x="393.8" y="123.7" width="4" height="27" fill="#ff3d9a"/>
+      <text x="425.8" y="141.2" text-anchor="middle" class="ha-mono" fill="#080b16" style="font-size:11px;letter-spacing:.06em">M1</text>
+      <text x="422.8" y="163.7" text-anchor="middle" class="ha-mono" fill="#626b83" style="font-size:8px;letter-spacing:.14em">W3</text>
+    </g><g class="ha-node">
+      <path d="M402.0 280.0L482.0 280.0" stroke="#6a4cff" stroke-width="1.4" opacity=".75"/>
+      <circle cx="402.0" cy="280.0" r="2.6" fill="#6a4cff"/>
+      <rect x="453.0" y="266.5" width="58" height="27" rx="3" fill="#ffffff" stroke="#080b16" stroke-width="1.5"/>
+      <rect x="453.0" y="266.5" width="4" height="27" fill="#6a4cff"/>
+      <text x="485.0" y="284.0" text-anchor="middle" class="ha-mono" fill="#080b16" style="font-size:11px;letter-spacing:.06em">M2</text>
+      <text x="482.0" y="306.5" text-anchor="middle" class="ha-mono" fill="#626b83" style="font-size:8px;letter-spacing:.14em">W5</text>
+    </g><g class="ha-node">
+      <path d="M366.3 366.3L422.8 422.8" stroke="#b9e012" stroke-width="1.4" opacity=".75"/>
+      <circle cx="366.3" cy="366.3" r="2.6" fill="#b9e012"/>
+      <rect x="393.8" y="409.3" width="58" height="27" rx="3" fill="#ffffff" stroke="#080b16" stroke-width="1.5"/>
+      <rect x="393.8" y="409.3" width="4" height="27" fill="#b9e012"/>
+      <text x="425.8" y="426.8" text-anchor="middle" class="ha-mono" fill="#080b16" style="font-size:11px;letter-spacing:.06em">M3</text>
+      <text x="422.8" y="449.3" text-anchor="middle" class="ha-mono" fill="#626b83" style="font-size:8px;letter-spacing:.14em">W7</text>
+    </g><g class="ha-node">
+      <path d="M280.0 402.0L280.0 482.0" stroke="#ff6b35" stroke-width="1.4" opacity=".75"/>
+      <circle cx="280.0" cy="402.0" r="2.6" fill="#ff6b35"/>
+      <rect x="251.0" y="468.5" width="58" height="27" rx="3" fill="#ffffff" stroke="#080b16" stroke-width="1.5"/>
+      <rect x="251.0" y="468.5" width="4" height="27" fill="#ff6b35"/>
+      <text x="283.0" y="486.0" text-anchor="middle" class="ha-mono" fill="#080b16" style="font-size:11px;letter-spacing:.06em">M4</text>
+      <text x="280.0" y="508.5" text-anchor="middle" class="ha-mono" fill="#626b83" style="font-size:8px;letter-spacing:.14em">W9</text>
+    </g><g class="ha-node">
+      <path d="M193.7 366.3L137.2 422.8" stroke="#00c2a8" stroke-width="1.4" opacity=".75"/>
+      <circle cx="193.7" cy="366.3" r="2.6" fill="#00c2a8"/>
+      <rect x="108.2" y="409.3" width="58" height="27" rx="3" fill="#ffffff" stroke="#080b16" stroke-width="1.5"/>
+      <rect x="108.2" y="409.3" width="4" height="27" fill="#00c2a8"/>
+      <text x="140.2" y="426.8" text-anchor="middle" class="ha-mono" fill="#080b16" style="font-size:11px;letter-spacing:.06em">M5</text>
+      <text x="137.2" y="449.3" text-anchor="middle" class="ha-mono" fill="#626b83" style="font-size:8px;letter-spacing:.14em">W11</text>
+    </g><g class="ha-node">
+      <path d="M158.0 280.0L78.0 280.0" stroke="#2f6bff" stroke-width="1.4" opacity=".75"/>
+      <circle cx="158.0" cy="280.0" r="2.6" fill="#2f6bff"/>
+      <rect x="49.0" y="266.5" width="58" height="27" rx="3" fill="#ffffff" stroke="#080b16" stroke-width="1.5"/>
+      <rect x="49.0" y="266.5" width="4" height="27" fill="#2f6bff"/>
+      <text x="81.0" y="284.0" text-anchor="middle" class="ha-mono" fill="#080b16" style="font-size:11px;letter-spacing:.06em">M6</text>
+      <text x="78.0" y="306.5" text-anchor="middle" class="ha-mono" fill="#626b83" style="font-size:8px;letter-spacing:.14em">W13</text>
+    </g><g class="ha-node">
+      <path d="M193.7 193.7L137.2 137.2" stroke="#ffb020" stroke-width="1.4" opacity=".75"/>
+      <circle cx="193.7" cy="193.7" r="2.6" fill="#ffb020"/>
+      <rect x="108.2" y="123.7" width="58" height="27" rx="3" fill="#ffffff" stroke="#080b16" stroke-width="1.5"/>
+      <rect x="108.2" y="123.7" width="4" height="27" fill="#ffb020"/>
+      <text x="140.2" y="141.2" text-anchor="middle" class="ha-mono" fill="#080b16" style="font-size:11px;letter-spacing:.06em">M7</text>
+      <text x="137.2" y="163.7" text-anchor="middle" class="ha-mono" fill="#626b83" style="font-size:8px;letter-spacing:.14em">W15</text>
+    </g>
+    <path d="M28 28h20M28 28v20" fill="none" stroke="#080b16" stroke-width="2" opacity=".7"/>
+    <path d="M532 28h-20M532 28v20" fill="none" stroke="#080b16" stroke-width="2" opacity=".7"/>
+    <path d="M28 532h20M28 532v-20" fill="none" stroke="#080b16" stroke-width="2" opacity=".7"/>
+    <path d="M532 532h-20M532 532v-20" fill="none" stroke="#080b16" stroke-width="2" opacity=".7"/>
+  </svg>
+</div>
+  </div>
+</section>
+<div class="ticker" aria-hidden="true"><div class="ticker-track"><div class="ticker-group"><span class="ticker-item">16 weeks · 8 modules</span><span class="ticker-item">理论 → 练习 → 项目</span><span class="ticker-item">rag · agent · deploy</span><span class="ticker-item">周末制 · 每周约 5 小时</span><span class="ticker-item">51 道练习 · 全部带解析</span><span class="ticker-item">8 份项目计划书</span><span class="ticker-item">从 hello_llm.py 到作品集</span></div><div class="ticker-group"><span class="ticker-item">16 weeks · 8 modules</span><span class="ticker-item">理论 → 练习 → 项目</span><span class="ticker-item">rag · agent · deploy</span><span class="ticker-item">周末制 · 每周约 5 小时</span><span class="ticker-item">51 道练习 · 全部带解析</span><span class="ticker-item">8 份项目计划书</span><span class="ticker-item">从 hello_llm.py 到作品集</span></div></div></div>
+<div class="section section--tight" style="padding-top:0"><div class="container"><div class="stat-grid"><div class="stat-cell">
+      <div class="stat-cell__num">8</div>
+      <div class="stat-cell__label">模块 · 理论 + 练习 + 项目</div>
+    </div><div class="stat-cell">
+      <div class="stat-cell__num">16</div>
+      <div class="stat-cell__label">周 · 周末制，每周约 5 小时</div>
+    </div><div class="stat-cell">
+      <div class="stat-cell__num">51</div>
+      <div class="stat-cell__label">道练习 · 全部带详细解析</div>
+    </div><div class="stat-cell">
+      <div class="stat-cell__num">8</div>
+      <div class="stat-cell__label">份项目计划书 · 串成作品集</div>
+    </div></div></div></div>
+<section class="section" id="zones">
+  <div class="container">
+    <div class="section-head">
+  <div>
+    <span class="eyebrow">01 / the material</span>
+    <h2>五个区，一套材料</h2>
+  </div>
+  <div class="section-head__side">
+    <p class="lead">资料是「出处」不是「必读」；讲稿是嚼碎后的中文重写。五块拼在一起，才是一条能走完的路。</p>
+    
+  </div>
+</div>
+    <div class="zone-grid">
+      <a class="zone-card" href="graph.html" style="--accent:#00d5e8">
+  <span class="zone-num">01 / <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 4 3 6.6v13.8L9 17.8l6 2.4 6-2.4V4.2l-6 2.4z"/><path d="M9 4v13.8M15 6.6v13.6"/></svg></span>
+  <h3>知识图谱总览区</h3>
+  <p>全局地图、16 周排期、进度勾选。每周开始前 5 分钟用。</p>
+  <span class="zone-card__go">看地图 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></span>
+</a><a class="zone-card" href="resources.html" style="--accent:#ff3d9a">
+  <span class="zone-num">02 / <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4.5h6a2.5 2.5 0 0 1 2.5 2.5v13A2 2 0 0 0 10.5 18H4z"/><path d="M20 4.5h-4.5A2.5 2.5 0 0 0 13 7v13a2 2 0 0 1 2-2h5z"/></svg></span>
+  <h3>学习资料区</h3>
+  <p>PDF 电子书 / 网页 / GitHub 库的链接与用法。想查原文时用。</p>
+  <span class="zone-card__go">查资料 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></span>
+</a><a class="zone-card" href="modules/m0.html#panel-theory" style="--accent:#6a4cff">
+  <span class="zone-num">03 / <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 3 9 4.5-9 4.5L3 7.5z"/><path d="m3 12.4 9 4.5 9-4.5"/><path d="m3 16.9 9 4.5 9-4.5"/></svg></span>
+  <h3>理论讲解区</h3>
+  <p>把多份资料嚼碎后用大白话重写的中文讲稿，每模块一份。</p>
+  <span class="zone-card__go">读讲稿 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></span>
+</a><a class="zone-card" href="modules/m0.html#panel-quiz" style="--accent:#b9e012">
+  <span class="zone-num">04 / <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg></span>
+  <h3>练习题目区</h3>
+  <p>每模块 5–8 题 + 详细解析，概念 / 代码 / 动手三类。</p>
+  <span class="zone-card__go">做题 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></span>
+</a><a class="zone-card" href="projects.html" style="--accent:#ff6b35">
+  <span class="zone-num">05 / <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 2.8c3 2.6 4.4 6 4.4 9.6L12 17l-4.4-4.6C7.6 8.8 9 5.4 12 2.8Z"/><path d="M9.2 16.4 6.4 20l3.6-.9M14.8 16.4 17.6 20l-3.6-.9"/><circle cx="12" cy="9" r="1.6"/></svg></span>
+  <h3>实践项目区</h3>
+  <p>每模块一份完整项目计划书 + 代码骨架，串起来就是作品集。</p>
+  <span class="zone-card__go">做项目 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></span>
+</a>
+    </div>
+  </div>
+</section>
+<section class="section section--line" id="modules">
+  <div class="container">
+    <div class="section-head">
+  <div>
+    <span class="eyebrow">02 / modules</span>
+    <h2>八个模块，八个闭环</h2>
+  </div>
+  <div class="section-head__side">
+    <p class="lead">每个模块都是同一个形状：先读讲稿，再做练习，最后交付一个项目。顺序反了，你只会变成「会复制代码的人」。</p>
+    <a class="btn btn--ghost btn--sm" href="modules.html">全部模块 <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></a>
+  </div>
+</div>
+    <div class="module-grid">
+      <a class="module-card" href="modules/m0.html"
+    style="--accent:#00d5e8">
+  <div class="module-index">
+    <div class="module-code">M<span>0</span></div>
+    <div class="module-weeks">第 1–2 周</div>
+  </div>
+  <div class="module-body">
+    <h3 class="module-title">开局：把电脑变成 AI 工作台</h3>
+    <p class="module-desc">装好环境，写下人生第一行调用大模型的代码。</p>
+    <div class="module-facts">
+      <span class="chip chip--accent" style="--accent:#00d5e8">P1 项目</span>
+      
+      <span class="chip chip--outline">理论 + 练习 + 项目</span>
+    </div>
+  </div>
+  <span class="module-arrow"><svg class="icon " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></span>
+</a><a class="module-card" href="modules/m1.html"
+    style="--accent:#ff3d9a">
+  <div class="module-index">
+    <div class="module-code">M<span>1</span></div>
+    <div class="module-weeks">第 3–4 周</div>
+  </div>
+  <div class="module-body">
+    <h3 class="module-title">提示工程：怎么跟模型说话</h3>
+    <p class="module-desc">学会「怎么说话」，让模型稳定输出你要的东西。</p>
+    <div class="module-facts">
+      <span class="chip chip--accent" style="--accent:#ff3d9a">P2 项目</span>
+      
+      <span class="chip chip--outline">理论 + 练习 + 项目</span>
+    </div>
+  </div>
+  <span class="module-arrow"><svg class="icon " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></span>
+</a><a class="module-card" href="modules/m2.html"
+    style="--accent:#6a4cff">
+  <div class="module-index">
+    <div class="module-code">M<span>2</span></div>
+    <div class="module-weeks">第 5–6 周</div>
+  </div>
+  <div class="module-body">
+    <h3 class="module-title">对话应用工程</h3>
+    <p class="module-desc">做出会流式输出、记得上下文的聊天助手。</p>
+    <div class="module-facts">
+      <span class="chip chip--accent" style="--accent:#6a4cff">P3 项目</span>
+      
+      <span class="chip chip--outline">理论 + 练习 + 项目</span>
+    </div>
+  </div>
+  <span class="module-arrow"><svg class="icon " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></span>
+</a><a class="module-card" href="modules/m3.html"
+    style="--accent:#b9e012">
+  <div class="module-index">
+    <div class="module-code">M<span>3</span></div>
+    <div class="module-weeks">第 7–8 周</div>
+  </div>
+  <div class="module-body">
+    <h3 class="module-title">语义检索</h3>
+    <p class="module-desc">让电脑「按意思」找东西，而不是按关键词。</p>
+    <div class="module-facts">
+      <span class="chip chip--accent" style="--accent:#b9e012">P4 项目</span>
+      
+      <span class="chip chip--outline">理论 + 练习 + 项目</span>
+    </div>
+  </div>
+  <span class="module-arrow"><svg class="icon " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></span>
+</a><a class="module-card" href="modules/m4.html"
+    style="--accent:#ff6b35">
+  <div class="module-index">
+    <div class="module-code">M<span>4</span></div>
+    <div class="module-weeks">第 9–10 周</div>
+  </div>
+  <div class="module-body">
+    <h3 class="module-title">RAG 核心</h3>
+    <p class="module-desc">让你的文档变成可以提问的知识库。</p>
+    <div class="module-facts">
+      <span class="chip chip--accent" style="--accent:#ff6b35">P5 项目</span>
+      
+      <span class="chip chip--outline">理论 + 练习 + 项目</span>
+    </div>
+  </div>
+  <span class="module-arrow"><svg class="icon " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></span>
+</a><a class="module-card" href="modules/m5.html"
+    style="--accent:#00c2a8">
+  <div class="module-index">
+    <div class="module-code">M<span>5</span></div>
+    <div class="module-weeks">第 11–12 周</div>
+  </div>
+  <div class="module-body">
+    <h3 class="module-title">RAG 进阶与评估</h3>
+    <p class="module-desc">检索变准、答案可评估、不再胡说。</p>
+    <div class="module-facts">
+      <span class="chip chip--accent" style="--accent:#00c2a8">P6 项目</span>
+      
+      <span class="chip chip--outline">理论 + 练习 + 项目</span>
+    </div>
+  </div>
+  <span class="module-arrow"><svg class="icon " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></span>
+</a><a class="module-card" href="modules/m6.html"
+    style="--accent:#2f6bff">
+  <div class="module-index">
+    <div class="module-code">M<span>6</span></div>
+    <div class="module-weeks">第 13–14 周</div>
+  </div>
+  <div class="module-body">
+    <h3 class="module-title">Agent 与工具调用</h3>
+    <p class="module-desc">让模型自己决定「该用哪个工具」。</p>
+    <div class="module-facts">
+      <span class="chip chip--accent" style="--accent:#2f6bff">P7 项目</span>
+      
+      <span class="chip chip--outline">理论 + 练习 + 项目</span>
+    </div>
+  </div>
+  <span class="module-arrow"><svg class="icon " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></span>
+</a><a class="module-card" href="modules/m7.html"
+    style="--accent:#ffb020">
+  <div class="module-index">
+    <div class="module-code">M<span>7</span></div>
+    <div class="module-weeks">第 15–16 周</div>
+  </div>
+  <div class="module-body">
+    <h3 class="module-title">部署上线</h3>
+    <p class="module-desc">部署、打包、写进简历——把作品交到别人手里。</p>
+    <div class="module-facts">
+      <span class="chip chip--accent" style="--accent:#ffb020">P8 项目</span>
+      
+      <span class="chip chip--outline">理论 + 练习 + 项目</span>
+    </div>
+  </div>
+  <span class="module-arrow"><svg class="icon " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></span>
+</a>
+    </div>
+  </div>
+</section>
+<section class="section" id="route">
+  <div class="container">
+    <div class="section-head">
+  <div>
+    <span class="eyebrow">03 / 16-week route</span>
+    <h2>按阶段推进，别跳级</h2>
+  </div>
+  <div class="section-head__side">
+    <p class="lead">四个阶段，每阶段都有明确的「过了才算过」的标准。M4 和 M6 不能跳，它们是面试硬通货。</p>
+    <a class="btn btn--ghost btn--sm" href="roadmap.html">完整排期 <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></a>
+  </div>
+</div>
+    <div class="timeline"><a class="stage-row" href="roadmap.html#stage-1" style="--accent:#00d5e8">
+      <div class="stage-row__num">阶段 01</div>
+      <div>
+        <div class="stage-row__title">能跑起来<small>BOOT · W1–W4</small></div>
+      </div>
+      <div class="stage-row__weeks">
+        <span class="chip">W1</span><span class="chip">W2</span><span class="chip">W3</span><span class="chip">W4</span>
+        <span class="chip chip--accent" style="--accent:#00d5e8">M0</span><span class="chip chip--accent" style="--accent:#00d5e8">M1</span>
+      </div>
+      <div class="stage-row__bar" style="--w:25%"><i></i></div>
+    </a><a class="stage-row" href="roadmap.html#stage-2" style="--accent:#6a4cff">
+      <div class="stage-row__num">阶段 02</div>
+      <div>
+        <div class="stage-row__title">会做产品<small>BUILD · W5–W10</small></div>
+      </div>
+      <div class="stage-row__weeks">
+        <span class="chip">W5</span><span class="chip">W6</span><span class="chip">W7</span><span class="chip">W8</span><span class="chip">W9</span><span class="chip">W10</span>
+        <span class="chip chip--accent" style="--accent:#6a4cff">M2</span><span class="chip chip--accent" style="--accent:#6a4cff">M3</span><span class="chip chip--accent" style="--accent:#6a4cff">M4</span>
+      </div>
+      <div class="stage-row__bar" style="--w:37.5%"><i></i></div>
+    </a><a class="stage-row" href="roadmap.html#stage-3" style="--accent:#00c2a8">
+      <div class="stage-row__num">阶段 03</div>
+      <div>
+        <div class="stage-row__title">做好<small>TUNE · W11–W14</small></div>
+      </div>
+      <div class="stage-row__weeks">
+        <span class="chip">W11</span><span class="chip">W12</span><span class="chip">W13</span><span class="chip">W14</span>
+        <span class="chip chip--accent" style="--accent:#00c2a8">M5</span><span class="chip chip--accent" style="--accent:#00c2a8">M6</span>
+      </div>
+      <div class="stage-row__bar" style="--w:25%"><i></i></div>
+    </a><a class="stage-row" href="roadmap.html#stage-4" style="--accent:#ffb020">
+      <div class="stage-row__num">阶段 04</div>
+      <div>
+        <div class="stage-row__title">交付<small>SHIP · W15–W16</small></div>
+      </div>
+      <div class="stage-row__weeks">
+        <span class="chip">W15</span><span class="chip">W16</span>
+        <span class="chip chip--accent" style="--accent:#ffb020">M7</span>
+      </div>
+      <div class="stage-row__bar" style="--w:12.5%"><i></i></div>
+    </a></div>
+    <div class="stat-grid" style="margin-top:26px">
+      <div class="stat-cell">
+          <div class="stat-cell__num" style="font-size:22px">周六 2h</div>
+          <div class="stat-cell__label" style="text-transform:none;letter-spacing:0;font-family:var(--font-body);font-size:12.5px">读讲稿 → 做练习 → 对解析 → 抄错题</div>
+        </div><div class="stat-cell">
+          <div class="stat-cell__num" style="font-size:22px">周日 2h</div>
+          <div class="stat-cell__label" style="text-transform:none;letter-spacing:0;font-family:var(--font-body);font-size:12.5px">照着计划书敲代码，每 10 行跑一次</div>
+        </div><div class="stat-cell">
+          <div class="stat-cell__num" style="font-size:22px">平日 3×15min</div>
+          <div class="stat-cell__label" style="text-transform:none;letter-spacing:0;font-family:var(--font-body);font-size:12.5px">只做「回锅肉」：重跑、改参数、背术语</div>
+        </div><div class="stat-cell">
+          <div class="stat-cell__num" style="font-size:22px">周日 10min</div>
+          <div class="stat-cell__label" style="text-transform:none;letter-spacing:0;font-family:var(--font-body);font-size:12.5px">填进度看板 + 错题本加一条</div>
+        </div>
+    </div>
+  </div>
+</section>
+<section class="section section--line" id="howto">
+  <div class="container">
+    <div class="split">
+      <div>
+        <span class="eyebrow">04 / how to use</span>
+        <h2 style="font-size:clamp(28px,3.6vw,42px);margin:14px 0 18px">这份材料怎么用</h2>
+        <ol class="howto">
+          <li>
+            <div>
+              <h3>先看全貌（5 分钟）</h3>
+              <p>打开 <a href="graph.html">知识图谱</a>，看清 16 周要爬几座山、模块之间谁先谁后。</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>找到这周的位置</h3>
+              <p>在 <a href="roadmap.html">16 周排期</a> 里找到当前周，看清周末任务和本周产出。</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>读讲稿 → 做练习 → 对解析</h3>
+              <p>从 <a href="modules/m0.html">M0</a> 开始。讲稿只读一遍，不懂的地方画问号；练习先做再看答案。</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>做项目，然后打卡</h3>
+              <p>按计划书一步一停地敲。完成一个模块，去 <a href="progress.html">进度看板</a> 打勾——看得见的进度最管用。</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div>
+        <span class="eyebrow">three laws</span>
+        <h2 style="font-size:clamp(28px,3.6vw,42px);margin:14px 0 18px">三条铁律</h2>
+        <div class="law-grid" style="grid-template-columns:1fr">
+          <div class="law-card">
+            <span class="law-card__num">LAW 01</span>
+            <h3>讲稿读不懂，再去翻原资料</h3>
+            <p>原资料是「出处」，不是「必读」。你不需要把 533 页的书啃完，只需要在卡住时回查那 2 页。</p>
+          </div>
+          <div class="law-card">
+            <span class="law-card__num">LAW 02</span>
+            <h3>理论 → 练习 → 项目，顺序不能反</h3>
+            <p>只听理论，一动手全懵；只做项目，换个需求就不会。练习是中间那块缓冲垫，故意设计得刚好够难。</p>
+          </div>
+          <div class="law-card">
+            <span class="law-card__num">LAW 03</span>
+            <h3>能改、能修、能解释，才算过</h3>
+            <p>代码跑通不算学会。故意改坏一个地方能自己修回来，面试时能说清「每一行为什么这么写」，才算。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" id="projects">
+  <div class="container">
+    <div class="section-head">
+  <div>
+    <span class="eyebrow">05 / portfolio</span>
+    <h2>16 周后，你手里有什么</h2>
+  </div>
+  <div class="section-head__side">
+    <p class="lead">不是「我学过 AI」，而是三条别人能打开、能试用、能追问的交付物。</p>
+    <a class="btn btn--ghost btn--sm" href="projects.html">全部 8 个项目 <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></a>
+  </div>
+</div>
+    <div class="project-grid">
+      <a class="project-card" href="modules/m4.html#panel-project" style="--accent:#ff6b35">
+  <div class="project-card__top">
+    <span>P5</span>
+    <span class="chip chip--outline">M4</span>
+    <span class="diff" style="--accent:#ff6b35" aria-label="难度 3 / 5">★★★☆☆</span>
+  </div>
+  <h3>个人文档问答机器人 v1</h3>
+  <p>能对着你的 PDF 提问</p>
+  <div class="project-card__foot">
+    <span class="chip chip--outline">简历价值 · 高</span>
+    <span class="chip" style="margin-left:auto">看计划书 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></span>
+  </div>
+</a><a class="project-card" href="modules/m5.html#panel-project" style="--accent:#00c2a8">
+  <div class="project-card__top">
+    <span>P6</span>
+    <span class="chip chip--outline">M5</span>
+    <span class="diff" style="--accent:#00c2a8" aria-label="难度 4 / 5">★★★★☆</span>
+  </div>
+  <h3>带评测的 RAG v2</h3>
+  <p>有准确率数字的系统</p>
+  <div class="project-card__foot">
+    <span class="chip chip--outline">简历价值 · 很高</span>
+    <span class="chip" style="margin-left:auto">看计划书 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></span>
+  </div>
+</a><a class="project-card" href="modules/m6.html#panel-project" style="--accent:#2f6bff">
+  <div class="project-card__top">
+    <span>P7</span>
+    <span class="chip chip--outline">M6</span>
+    <span class="diff" style="--accent:#2f6bff" aria-label="难度 4 / 5">★★★★☆</span>
+  </div>
+  <h3>多功能 Agent</h3>
+  <p>会自己调工具的助手</p>
+  <div class="project-card__foot">
+    <span class="chip chip--outline">简历价值 · 很高</span>
+    <span class="chip" style="margin-left:auto">看计划书 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></span>
+  </div>
+</a><a class="project-card" href="modules/m7.html#panel-project" style="--accent:#ffb020">
+  <div class="project-card__top">
+    <span>P8</span>
+    <span class="chip chip--outline">M7</span>
+    <span class="diff" style="--accent:#ffb020" aria-label="难度 5 / 5">★★★★★</span>
+  </div>
+  <h3>部署上线的完整应用</h3>
+  <p>一个能发给别人的链接</p>
+  <div class="project-card__foot">
+    <span class="chip chip--outline">简历价值 · 很高</span>
+    <span class="chip" style="margin-left:auto">看计划书 <svg class="icon " width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></span>
+  </div>
+</a>
+    </div>
+  </div>
+</section>
+<section class="section section--tight">
+  <div class="container">
+    <div class="panel panel--ink" style="position:relative;overflow:hidden">
+      <div style="display:grid;grid-template-columns:minmax(0,1.3fr) auto;gap:28px;align-items:center" class="cta-inner">
+        <div>
+          <span class="eyebrow" style="color:rgba(255,255,255,.6)">start here</span>
+          <h2 style="font-size:clamp(26px,3.4vw,40px);margin:12px 0 10px;color:#fff">
+            第 1 周，从一条 API 调用开始
+          </h2>
+          <p style="color:rgba(255,255,255,.72);font-size:14.5px;max-width:56ch">
+            不用等「准备好」。M0 的第一讲就把大模型拆成「接话机器」，第一天的任务只有一件事：
+            让模型回你一句话。
+          </p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <a class="btn btn--neon" href="modules/m0.html">进入 M0 <svg class="icon " width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/></svg></a>
+          <a class="btn btn--ghost" href="graph.html" style="border-color:rgba(255,255,255,.5);color:#fff">先看知识图谱</a>
+        </div>
+      </div>
+      <div aria-hidden="true" style="position:absolute;right:-40px;bottom:-60px;width:220px;height:220px;border:1px solid rgba(255,255,255,.18);border-radius:50%"></div>
+      <div aria-hidden="true" style="position:absolute;right:60px;bottom:-100px;width:220px;height:220px;border:1px solid rgba(255,255,255,.1);border-radius:50%"></div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+  <path d="M20 2.6 35 11v18L20 37.4 5 29V11z" fill="#fff" stroke="#080b16" stroke-width="1.8"/>
+  <path d="M20 2.6 35 11v9L20 28.6 5 20v-9z" fill="#00d5e8" opacity=".9"/>
+  <path d="M35 20v9L20 37.4V28.6z" fill="#ff3d9a" opacity=".85"/>
+  <path d="M13.2 24V16l6.8-3.9L26.8 16v8L20 27.9z" fill="#fff" stroke="#080b16" stroke-width="1.4"/>
+  <circle cx="20" cy="20" r="2.1" fill="#080b16"/>
+</svg>
+          <span class="brand-text">
+            <span class="brand-name">BEGINNER_IN_AI</span>
+            <span class="brand-sub">from python basics to rag &amp; agents</span>
+          </span>
+        </a>
+        <p>为「会一点 Python、数学基本忘光、看英文吃力、只有周末能集中学」的人准备的 16 周路线。理论 → 练习 → 项目，每个模块都走一遍。</p>
+      </div>
+      <div class="footer-col">
+        <h4>Route</h4>
+        <ul>
+          <li><a href="roadmap.html">16 周排期</a></li>
+          <li><a href="modules.html">8 个模块</a></li>
+          <li><a href="projects.html">8 个实践项目</a></li>
+          <li><a href="graph.html">知识图谱</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Modules</h4>
+        <ul><li><a href="modules/m0.html">M0 · 开局</a></li><li><a href="modules/m1.html">M1 · 提示工程</a></li><li><a href="modules/m2.html">M2 · 对话应用</a></li><li><a href="modules/m3.html">M3 · 语义检索</a></li><li><a href="modules/m4.html">M4 · RAG 核心</a></li><li><a href="modules/m5.html">M5 · RAG 进阶</a></li><li><a href="modules/m6.html">M6 · Agent</a></li><li><a href="modules/m7.html">M7 · 部署上线</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Beginner_in_AI · 内容来自个人学习计划，持续迭代中</span>
+      <span>
+        <a href="https://github.com/zonevenom/Beginner_in_AI" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="resources.html">资料出处</a> ·
+        <button class="reset-btn" type="button" data-to-top>回到顶部 ↑</button>
+      </span>
+    </div>
+  </div>
+</footer>
+<div class="search-overlay" data-search-overlay role="dialog" aria-modal="true" aria-label="站内搜索">
+  <div class="search-panel">
+    <div class="search-field">
+      <svg class="icon " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.4"/><path d="m15.6 15.6 4.4 4.4"/></svg>
+      <input type="search" placeholder="搜索模块、概念、题目、项目…" aria-label="搜索关键词" autocomplete="off">
+      <button class="search-esc" type="button" data-search-close>ESC</button>
+    </div>
+    <ul class="search-results" data-search-results></ul>
+    <p class="search-empty" hidden>没有匹配结果，换个关键词试试。</p>
+  </div>
+</div>
+<script src="assets/vendor/mermaid.min.js" defer></script>
+<script src="assets/js/site.js" defer></script>
+
+</body>
+</html>

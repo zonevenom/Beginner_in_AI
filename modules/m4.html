@@ -1,0 +1,1083 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M4 RAG 核心 · Beginner_in_AI</title>
+<meta name="description" content="M4 RAG 核心：让你的文档变成可以提问的知识库。 含理论讲稿、6 道练习题与解析、P5 项目计划书。">
+<meta name="author" content="zonevenom">
+<meta name="theme-color" content="#eef1f8">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Beginner_in_AI">
+<meta property="og:title" content="M4 RAG 核心 · Beginner_in_AI">
+<meta property="og:description" content="M4 RAG 核心：让你的文档变成可以提问的知识库。 含理论讲稿、6 道练习题与解析、P5 项目计划书。">
+<meta property="og:url" content="https://zonevenom.github.io/Beginner_in_AI/">
+<meta property="og:image" content="https://zonevenom.github.io/Beginner_in_AI/assets/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="M4 RAG 核心 · Beginner_in_AI">
+<meta name="twitter:description" content="M4 RAG 核心：让你的文档变成可以提问的知识库。 含理论讲稿、6 道练习题与解析、P5 项目计划书。">
+<meta name="twitter:image" content="https://zonevenom.github.io/Beginner_in_AI/assets/img/og-cover.png">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/img/favicon.svg">
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/content.css">
+<style>:root{--accent:#ff6b35;--accent-ink:#a5330c}</style>
+</head>
+<body data-root="../">
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-header">
+  <div class="container nav-inner">
+    <a class="brand" href="../index.html" aria-label="Beginner_in_AI 首页">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+  <path d="M20 2.6 35 11v18L20 37.4 5 29V11z" fill="#fff" stroke="#080b16" stroke-width="1.8"/>
+  <path d="M20 2.6 35 11v9L20 28.6 5 20v-9z" fill="#00d5e8" opacity=".9"/>
+  <path d="M35 20v9L20 37.4V28.6z" fill="#ff3d9a" opacity=".85"/>
+  <path d="M13.2 24V16l6.8-3.9L26.8 16v8L20 27.9z" fill="#fff" stroke="#080b16" stroke-width="1.4"/>
+  <circle cx="20" cy="20" r="2.1" fill="#080b16"/>
+</svg>
+      <span class="brand-text">
+        <span class="brand-name">BEGINNER_IN_AI</span>
+        <span class="brand-sub">16 weeks · llm application dev</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="展开导航">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a class="nav-link" href="../index.html">首页</a></li><li><a class="nav-link" href="../modules.html" aria-current="page">模块</a></li><li><a class="nav-link" href="../roadmap.html">路线图</a></li><li><a class="nav-link" href="../projects.html">项目</a></li><li><a class="nav-link" href="../graph.html">图谱</a></li><li><a class="nav-link" href="../resources.html">资料</a></li><li><a class="nav-link" href="../progress.html">进度</a></li>
+      <li><button class="search-open" type="button" data-search-open aria-label="搜索全站（Ctrl K）">
+        <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.4"/><path d="m15.6 15.6 4.4 4.4"/></svg><span>搜索</span><kbd>⌘K</kbd>
+      </button></li>
+      <li class="nav-cta"><a class="btn btn--sm" href="https://github.com/zonevenom/Beginner_in_AI" target="_blank" rel="noopener">
+        <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11 11 0 0 1 6 0C18 4.7 19 5 19 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5Z"/></svg>GitHub</a></li>
+    </ul>
+  </div>
+</header>
+<main id="main">
+<section class="module-hero">
+    <div class="module-hero__glow" aria-hidden="true"></div>
+    <div class="container">
+      <div class="module-hero__top">
+        <a class="chip chip--outline" href="../modules.html"><svg class="icon " width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 12H5M10.5 6.5 5 12l5.5 5.5"/></svg> 全部模块</a>
+        <span class="module-hero__code">M4<span>MODULE 05</span></span>
+        <span class="chip">第 9–10 周</span>
+        <span class="chip chip--accent" style="--accent:#6a4cff">阶段 02 · 会做产品</span>
+      </div>
+      <div class="module-hero__inner">
+        <div>
+          <h1>RAG 核心</h1>
+          <p class="module-hero__sub">让你的文档变成可以提问的知识库。 把一堆 PDF 变成能问答的知识库，答案带出处。</p>
+          <div class="module-hero__facts">
+            <span class="chip chip--outline">理论讲稿</span>
+            <span class="chip chip--outline">6 道练习 + 解析</span>
+            <span class="chip chip--outline">P5 项目</span>
+            <span class="chip chip--accent" style="--accent:#ff6b35">交付 · P5 个人文档问答机器人 v1</span>
+          </div>
+        </div>
+        <div class="module-hero__icon" aria-hidden="true"><svg class="icon " width="84" height="84" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 3 9 4.5-9 4.5L3 7.5z"/><path d="m3 12.4 9 4.5 9-4.5"/><path d="m3 16.9 9 4.5 9-4.5"/></svg></div>
+      </div>
+    </div>
+  </section>
+  <div class="container">
+    <div class="doc-layout">
+      <aside class="doc-sidebar" aria-label="本页目录">
+    <div class="toc-title">本页导航</div>
+    <div class="toc-group" data-toc-group="panel-theory"><ul class="toc-list"><li><a href="#theory-这一讲要解决什么">【这一讲要解决什么】</a></li><li><a href="#theory-一先讲清楚-rag-是什么">一、先讲清楚 RAG 是什么</a></li><li><a href="#theory-二rag-vs-微调-vs-长上下文别再选错">二、RAG vs 微调 vs 长上下文：别再选错</a></li><li><a href="#theory-三rag-的五个环节背下来这是你的地图">三、RAG 的五个环节（背下来，这是你的地图）</a></li><li><a href="#theory-四切分chunkingrag-里最被低估的一步">四、切分（Chunking）：RAG 里最被低估的一步</a></li><li><a href="#theory-五生成提示词长什么样">五、生成：提示词长什么样</a></li><li><a href="#theory-六引用与溯源rag-的产品灵魂">六、引用与溯源：RAG 的产品灵魂</a></li><li><a href="#theory-七rag-的四种典型失败照着这张表排查">七、RAG 的四种典型失败（照着这张表排查）</a></li><li><a href="#theory-八一个完整的最小实现伪代码看懂结构">八、一个完整的最小实现（伪代码，看懂结构）</a></li><li><a href="#theory-常见误解">【常见误解】</a></li><li><a href="#theory-自检清单">【自检清单】</a></li><li><a href="#theory-下一站">【下一站】</a></li></ul></div>
+    <div class="toc-group" data-toc-group="panel-quiz" hidden><ul class="toc-list"><li><a href="#quiz-第-1-题概念-三选一">🧠 第 1 题（概念）· 三选一</a></li><li><a href="#quiz-第-2-题计算-切分与成本">💻 第 2 题（计算）· 切分与成本</a></li><li><a href="#quiz-第-3-题代码-补全提示词与引用">💻 第 3 题（代码）· 补全提示词与引用</a></li><li><a href="#quiz-第-4-题排错-四个症状四个病因">🔧 第 4 题（排错）· 四个症状，四个病因</a></li><li><a href="#quiz-第-5-题概念-为什么说不知道是优点">🧠 第 5 题（概念）· 为什么"说不知道"是优点</a></li><li><a href="#quiz-第-6-题动手-做一个最小-rag">🛠️ 第 6 题（动手）· 做一个最小 RAG</a></li><li><a href="#quiz-提交前自检">提交前自检</a></li></ul></div>
+    <div class="toc-group" data-toc-group="panel-answers" hidden><ul class="toc-list"><li><a href="#answers-第-1-题-三选一">第 1 题 · 三选一</a></li><li><a href="#answers-第-2-题-切分与成本">第 2 题 · 切分与成本</a></li><li><a href="#answers-第-3-题-补全提示词与引用">第 3 题 · 补全提示词与引用</a></li><li><a href="#answers-第-4-题-四个症状四个病因">第 4 题 · 四个症状，四个病因</a></li><li><a href="#answers-第-5-题-为什么说不知道是优点">第 5 题 · 为什么"说不知道"是优点</a></li><li><a href="#answers-第-6-题-做一个最小-rag">第 6 题 · 做一个最小 RAG</a></li><li><a href="#answers-自评标准">自评标准</a></li></ul></div>
+    <div class="toc-group" data-toc-group="panel-project" hidden><ul class="toc-list"><li><a href="#project-1-项目要做什么">1. 项目要做什么</a></li><li><a href="#project-2-工具与开发环境">2. 工具与开发环境</a></li><li><a href="#project-3-项目文件结构">3. 项目文件结构</a></li><li><a href="#project-4-项目流程图">4. 项目流程图</a></li><li><a href="#project-5-分步实现">5. 分步实现</a></li><li><a href="#project-6-项目进化方向">6. 项目进化方向</a></li><li><a href="#project-7-本项目采用的资料">7. 本项目采用的资料</a></li><li><a href="#project-交付清单">交付清单</a></li></ul></div>
+    <div style="margin-top:18px;padding-top:14px;border-top:1px solid var(--line)">
+      <a class="btn btn--ghost btn--sm" href="../progress.html" style="width:100%;justify-content:center">去打卡 <svg class="icon " width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m4.5 12.5 5 5 10-11"/></svg></a>
+    </div>
+  </aside>
+      <div class="doc-main">
+        <div class="tabs" role="tablist" aria-label="模块内容" data-tabs>
+    <button class="tab" role="tab" id="tab-panel-theory" aria-controls="panel-theory"
+      aria-selected="true" tabindex="0">
+      理论讲稿<i>1</i></button><button class="tab" role="tab" id="tab-panel-quiz" aria-controls="panel-quiz"
+      aria-selected="false" tabindex="-1">
+      练习题<i>6</i></button><button class="tab" role="tab" id="tab-panel-answers" aria-controls="panel-answers"
+      aria-selected="false" tabindex="-1">
+      答案解析<i>6</i></button><button class="tab" role="tab" id="tab-panel-project" aria-controls="panel-project"
+      aria-selected="false" tabindex="-1">
+      项目计划书<i>P5</i></button>
+  </div>
+        
+  <div class="tab-panel" id="panel-theory" role="tabpanel" aria-labelledby="tab-panel-theory">
+    <div class="prose"><blockquote class="callout">
+<p><strong>【资料出处】</strong></p>
+<ul>
+<li>Datawhale《all-in-rag》主流程章节（文档解析 → 切分 → 入库 → 检索 → 生成）—— <a href="https://datawhalechina.github.io/all-in-rag/" target="_blank" rel="noopener">https://datawhalechina.github.io/all-in-rag/</a></li>
+<li>Datawhale《llm-universe》第 5 章（构建 RAG 应用）—— <a href="https://datawhalechina.github.io/llm-universe/" target="_blank" rel="noopener">https://datawhalechina.github.io/llm-universe/</a></li>
+<li>复旦《大规模语言模型：从理论到实践》<strong>第 7 章</strong>（检索增强生成）—— <a href="https://llmbook-zh.github.io/" target="_blank" rel="noopener">https://llmbook-zh.github.io/</a></li>
+<li>李宏毅《生成式 AI 导论》第 6–8 讲（模型为什么不知道你的私有数据）—— <a href="https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php" target="_blank" rel="noopener">https://speech.ee.ntu.edu.tw/~hylee/genai/2024-spring.php</a></li>
+</ul>
+</blockquote>
+<hr class="rule">
+<h2 id="theory-这一讲要解决什么">【这一讲要解决什么】</h2>
+<p>学完这一讲，你能：</p>
+<ol>
+<li>用&quot;开卷考试&quot;讲清楚 RAG 是什么，以及它<strong>治好了什么病</strong></li>
+<li>说清 RAG 的<strong>五个环节</strong>，每个环节出错会有什么症状</li>
+<li>自己切分文档、建索引、检索、拼提示词，做出一个<strong>带出处的问答机器人</strong></li>
+<li>知道 RAG 的<strong>四种典型失败</strong>，以及分别该往哪调</li>
+</ol>
+<hr class="rule">
+<h2 id="theory-一先讲清楚-rag-是什么">一、先讲清楚 RAG 是什么</h2>
+<h3 id="theory-一句话">一句话</h3>
+<blockquote class="callout">
+<p><strong>RAG = 检索（Retrieval）+ 增强（Augmented）+ 生成（Generation）。</strong>
+说人话：<strong>先去你的资料里翻出几段相关的，再把这些段落塞给模型，让它照着回答。</strong></p>
+</blockquote>
+<h3 id="theory-开卷考试的比喻">开卷考试的比喻</h3>
+<ul>
+<li><strong>闭卷考试</strong>（现在的模型）：全靠脑子里的记忆答题。记不清就<strong>编</strong>。</li>
+<li><strong>开卷考试</strong>（RAG）：允许翻书。翻到哪页，就照着那页答。</li>
+</ul>
+<p><strong>RAG 就是给模型发了一本书，还配了个图书管理员。</strong></p>
+<p>管理员（检索）负责找到对的那几页；模型（生成）负责读懂并回答。</p>
+<h3 id="theory-它治好了三个病">它治好了三个病</h3>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>病</th><th>症状</th><th>RAG 怎么治</th></tr></thead><tbody><tr><td><strong>幻觉</strong></td><td>不知道也硬编</td><td>把真材料放在它眼前，它从&quot;回忆&quot;变成&quot;阅读理解&quot;</td></tr><tr><td><strong>知识过时</strong></td><td>训练截止日期之后的事不知道</td><td>资料换成最新的，模型不用重训</td></tr><tr><td><strong>私有数据</strong></td><td>不知道你公司的制度、你的笔记</td><td>把私有资料放进库，它就能答</td></tr></tbody></table></div>
+<blockquote class="callout">
+<p>第三条是商业价值最大的：<strong>企业不需要训练模型，只需要把自己的文档接进去。</strong></p>
+</blockquote>
+<hr class="rule">
+<h2 id="theory-二rag-vs-微调-vs-长上下文别再选错">二、RAG vs 微调 vs 长上下文：别再选错</h2>
+<p>很多人一上来就想&quot;微调&quot;，这是最常见的战略错误。</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>方案</th><th>做法</th><th>成本</th><th>适合什么</th><th>不适合什么</th></tr></thead><tbody><tr><td><strong>RAG</strong></td><td>检索资料塞进提示词</td><td>低</td><td><strong>知识型问答、文档问答、需要出处</strong></td><td>改变说话风格、学新技能</td></tr><tr><td><strong>微调（Fine-tune）</strong></td><td>用你的数据继续训练</td><td>中高</td><td><strong>固定风格、固定格式、特定任务</strong></td><td>灌知识（效果差且易忘）</td></tr><tr><td><strong>长上下文</strong></td><td>把整本书塞进去</td><td>高（按 token 付费）</td><td>一次性分析一份长文档</td><td>反复查询（每次都付全款）</td></tr></tbody></table></div>
+<h3 id="theory-一句话判断">一句话判断</h3>
+<blockquote class="callout">
+<p><strong>&quot;它不知道&quot; → 用 RAG；&quot;它不会做/做得不像&quot; → 用微调；&quot;就这一次，材料不多&quot; → 直接塞上下文。</strong></p>
+</blockquote>
+<p>对你来说：<strong>16 周内不碰微调</strong>。RAG 能解决你 90% 的需求，而且面试问得更多。</p>
+<hr class="rule">
+<h2 id="theory-三rag-的五个环节背下来这是你的地图">三、RAG 的五个环节（背下来，这是你的地图）</h2>
+<div class="mermaid-wrap"><div class="mermaid">flowchart LR
+    A["① 加载<br/>Load"] --> B["② 切分<br/>Split"]
+    B --> C["③ 嵌入入库<br/>Embed & Store"]
+    C --> D["④ 检索<br/>Retrieve"]
+    D --> E["⑤ 生成<br/>Generate"]
+    E --> F["带出处的回答"]</div></div>
+<p>前三个是<strong>离线</strong>做的（建库，只做一次）；后两个是<strong>在线</strong>做的（每次提问都跑）。</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>环节</th><th>干什么</th><th>出错的症状</th></tr></thead><tbody><tr><td>① 加载</td><td>把 PDF/Word/网页变成纯文本</td><td>表格变乱码、页眉页脚混进来、段落顺序乱</td></tr><tr><td>② 切分</td><td>把长文切成几百字的小块</td><td><strong>切断了语义</strong>，一块里只有半句话</td></tr><tr><td>③ 嵌入入库</td><td>每块变成向量存起来</td><td>模型混用、维度不一致、没归一化</td></tr><tr><td>④ 检索</td><td>找出最相关的几块</td><td>找错、找不到、找太多</td></tr><tr><td>⑤ 生成</td><td>把几块塞进提示词让模型答</td><td>不引用、答超出材料、把不相关的也答进去</td></tr></tbody></table></div>
+<blockquote class="callout">
+<p><strong>排查 RAG 的第一原则：先看&quot;检索到的内容对不对&quot;，再看&quot;回答写得好不好&quot;。</strong>
+90% 的&quot;答得烂&quot;，其实是&quot;根本没检索到&quot;。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="theory-四切分chunkingrag-里最被低估的一步">四、切分（Chunking）：RAG 里最被低估的一步</h2>
+<h3 id="theory-为什么必须切">为什么必须切</h3>
+<p>三个原因：</p>
+<ol>
+<li><strong>上下文窗口有限</strong>，整本书塞不进去</li>
+<li><strong>太长的块会&quot;稀释&quot;语义</strong>（M3 讲过）：一块 5000 字里只有 100 字相关，向量就被带偏</li>
+<li><strong>成本</strong>：每次塞 10 万字，你会破产</li>
+</ol>
+<h3 id="theory-三种切法">三种切法</h3>
+<h4 id="theory-切法-1固定长度-重叠最常用">切法 1：固定长度 + 重叠（最常用）</h4>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">def</span> <span class="tok-fn">split_fixed</span>(text, chunk_size<span class="tok-op">=</span><span class="tok-num">500</span>, overlap<span class="tok-op">=</span><span class="tok-num">50</span>)<span class="tok-op">:</span>
+    chunks <span class="tok-op">=</span> []
+    start <span class="tok-op">=</span> <span class="tok-num">0</span>
+    <span class="tok-kw">while</span> start <span class="tok-op">&lt;</span> <span class="tok-fn">len</span>(text)<span class="tok-op">:</span>
+        chunks.<span class="tok-fn">append</span>(text[start<span class="tok-op">:</span>start <span class="tok-op">+</span> chunk_size])
+        start <span class="tok-op">+=</span> chunk_size <span class="tok-op">-</span> overlap
+    <span class="tok-kw">return</span> chunks</code></pre></figure>
+<ul>
+<li><code>chunk_size</code>：每块多长（按<strong>字符</strong>算，中文 1 字 ≈ 1~2 token）</li>
+<li><code>overlap</code>：相邻块重叠多少</li>
+</ul>
+<p><strong>为什么要 overlap？</strong></p>
+<p>因为句子会被切断。假设切在&quot;退款需要 3-5 个工&quot;和&quot;作日原路退回&quot;之间，两块都读不通。
+<strong>重叠 50 字，就能保证每句话至少在一块里是完整的。</strong></p>
+<p><strong>参数怎么定</strong>：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>文档类型</th><th>chunk_size</th><th>overlap</th></tr></thead><tbody><tr><td>制度/条款（一句话就是一个规定）</td><td>300~500</td><td>50</td></tr><tr><td>教程/文章（一段一个意思）</td><td>500~800</td><td>80~100</td></tr><tr><td>论文/报告（逻辑长）</td><td>800~1200</td><td>150</td></tr></tbody></table></div>
+<blockquote class="callout">
+<p><strong>没有&quot;最佳参数&quot;，只有&quot;测出来的参数&quot;。</strong> M5 会让你用评测集找出你自己的最优值。</p>
+</blockquote>
+<h4 id="theory-切法-2按结构切更好但要有结构">切法 2：按结构切（更好，但要有结构）</h4>
+<p>按标题、段落、列表项切。比如按 <code>## 二级标题</code> 切，每节一块。</p>
+<p><strong>优点</strong>：语义完整，天然带层级。
+<strong>缺点</strong>：依赖文档本身有结构（PDF 转出来常常没有）。</p>
+<h4 id="theory-切法-3父子块最实用进阶">切法 3：父子块（最实用进阶）</h4>
+<ul>
+<li><strong>小块</strong>用来检索（精准）</li>
+<li><strong>大块</strong>用来喂给模型（上下文完整）</li>
+</ul>
+<p>比如：用 200 字的块去检索，命中后把它所属的 1000 字的大段一起给模型。</p>
+<p><strong>这叫&quot;小块检索、大块生成&quot;</strong>，是目前效果最好的通用策略之一。</p>
+<h3 id="theory-三个必须处理的脏数据">三个必须处理的脏数据</h3>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>脏东西</th><th>怎么处理</th></tr></thead><tbody><tr><td><strong>页眉页脚、页码</strong></td><td>正则删掉重复出现的行</td></tr><tr><td><strong>断行</strong>（PDF 每行都硬换行）</td><td>把单个 <code>\n</code> 换成空格，保留 <code>\n\n</code></td></tr><tr><td><strong>表格</strong></td><td>单独处理，转成 Markdown 或&quot;字段：值&quot;的文本，别硬切</td></tr></tbody></table></div>
+<blockquote class="callout">
+<p><strong>表格是 PDF 解析的最大噩梦。</strong> 如果你的文档里表格多，先做好心理准备：M5 会教你怎么评估&quot;表格答得好不好&quot;。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="theory-五生成提示词长什么样">五、生成：提示词长什么样</h2>
+<p>这是 RAG 的&quot;最后一公里&quot;，也是最容易写错的地方。</p>
+<h3 id="theory-错误写法">❌ 错误写法</h3>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">请根据以下内容回答问题：{context}
+问题：{question}</code></pre></figure>
+<p><strong>问题</strong>：</p>
+<ul>
+<li>没说&quot;只能用这些内容&quot; → 它会自己脑补</li>
+<li>没要求引用 → 你不知道它说的是真是假</li>
+<li>没允许说&quot;不知道&quot; → 它一定会给个答案</li>
+</ul>
+<h3 id="theory-正确写法">✅ 正确写法</h3>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">你是一个严谨的文档问答助手。请**只**根据下面提供的资料回答问题。
+
+规则：
+1. 只能使用资料中的信息，不要使用你自己的知识。
+2. 每个结论后面用 [编号] 标注来源，例如 [1]。
+3. 如果资料里没有足够信息，直接回答&quot;根据现有资料无法回答&quot;，不要猜测。
+4. 回答简洁，不超过 200 字。
+
+资料：
+[1] {chunk_1}
+[2] {chunk_2}
+[3] {chunk_3}
+
+问题：{question}</code></pre></figure>
+<h3 id="theory-四条规则每条都在解决一个具体问题">四条规则，每条都在解决一个具体问题</h3>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>规则</th><th>解决什么</th></tr></thead><tbody><tr><td>&quot;只根据资料&quot;</td><td>抑制幻觉</td></tr><tr><td>&quot;标注 [编号]&quot;</td><td><strong>可验证</strong>，用户能点开看原文</td></tr><tr><td>&quot;没有就说无法回答&quot;</td><td>允许拒绝，这是<strong>质量</strong>不是缺陷</td></tr><tr><td>&quot;不超过 200 字&quot;</td><td>控成本、防啰嗦</td></tr></tbody></table></div>
+<blockquote class="callout">
+<p><strong>&quot;允许说不知道&quot;是 RAG 系统成熟的标志。</strong> 一个从不说&quot;不知道&quot;的 RAG，一定在骗人。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="theory-六引用与溯源rag-的产品灵魂">六、引用与溯源：RAG 的产品灵魂</h2>
+<p>回答里带 <code>[1]</code>，用户能点开看原文——这个功能看着小，其实决定了产品能不能被信任。</p>
+<h3 id="theory-实现方式">实现方式</h3>
+<p>在<strong>检索阶段</strong>就保留元数据：</p>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python">chunk <span class="tok-op">=</span> {
+    <span class="tok-str">&quot;id&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;doc1_p3_c2&quot;</span>,
+    <span class="tok-str">&quot;text&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;退款需要 3-5 个工作日……&quot;</span>,
+    <span class="tok-str">&quot;source&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;售后政策.pdf&quot;</span>,
+    <span class="tok-str">&quot;page&quot;</span><span class="tok-op">:</span> <span class="tok-num">3</span>,
+    <span class="tok-str">&quot;chunk_index&quot;</span><span class="tok-op">:</span> <span class="tok-num">2</span>,
+}</code></pre></figure>
+<p>拼提示词时带上编号，回答后把编号映射回元数据：</p>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python">refs <span class="tok-op">=</span> {f<span class="tok-str">&quot;[{i+1}]&quot;</span><span class="tok-op">:</span> c[<span class="tok-str">&quot;source&quot;</span>] <span class="tok-op">+</span> f<span class="tok-str">&quot; 第{c[&#39;page&#39;]}页&quot;</span> <span class="tok-kw">for</span> i, c <span class="tok-kw">in</span> <span class="tok-fn">enumerate</span>(chunks)}</code></pre></figure>
+<p><strong>没有元数据的 RAG，等于没有出处的论文。</strong> 用户看一眼不会信，你自己也没法调试。</p>
+<hr class="rule">
+<h2 id="theory-七rag-的四种典型失败照着这张表排查">七、RAG 的四种典型失败（照着这张表排查）</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>#</th><th>症状</th><th>大概率原因</th><th>往哪调</th></tr></thead><tbody><tr><td>1</td><td>答&quot;资料里没有&quot;，但明明有</td><td><strong>检索没找到</strong></td><td>切分太碎/太大、embedding 模型不合适、查询和文档表述差异大 → 加<strong>查询改写</strong>或<strong>混合检索</strong>（M5）</td></tr><tr><td>2</td><td>找到了对的块，但答错</td><td><strong>上下文太杂</strong>（塞了 10 块，8 块无关）</td><td>减小 top-k、加阈值、加<strong>重排</strong>（M5）</td></tr><tr><td>3</td><td>答对了但没引用/引用错</td><td>提示词没约束，或编号映射错</td><td>改提示词、检查 <code>refs</code> 映射</td></tr><tr><td>4</td><td>答得又长又飘，超出材料</td><td>没限制&quot;只用资料&quot;</td><td>加&quot;只能使用资料&quot;&quot;不超过 N 字&quot;</td></tr></tbody></table></div>
+<h3 id="theory-排查顺序记住这个顺序能省你一半时间">排查顺序（记住这个顺序，能省你一半时间）</h3>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">① 打印检索到的 chunk 原文 → 内容对吗？
+   不对 → 问题在检索（①②③环节）
+   对   → 进 ②
+② 看提示词里塞了什么 → 是不是塞太多/太少？
+③ 看模型回答 → 有没有遵守&quot;只用资料&quot;&quot;要引用&quot;？</code></pre></figure>
+<blockquote class="callout">
+<p><strong>永远先怀疑检索，再怀疑模型。</strong> 这是 RAG 调试的铁律。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="theory-八一个完整的最小实现伪代码看懂结构">八、一个完整的最小实现（伪代码，看懂结构）</h2>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-com"># ---------- 离线：建库（只跑一次） ----------</span>
+text <span class="tok-op">=</span> <span class="tok-fn">load_pdf</span>(<span class="tok-str">&quot;售后政策.pdf&quot;</span>)                    <span class="tok-com"># ① 加载</span>
+chunks <span class="tok-op">=</span> <span class="tok-fn">split_fixed</span>(<span class="tok-fn">clean</span>(text), <span class="tok-num">500</span>, <span class="tok-num">50</span>)         <span class="tok-com"># ② 切分</span>
+vecs <span class="tok-op">=</span> <span class="tok-fn">embed_texts</span>([c.text <span class="tok-kw">for</span> c <span class="tok-kw">in</span> chunks])       <span class="tok-com"># ③ 嵌入</span>
+<span class="tok-fn">save_index</span>(chunks, vecs)                           <span class="tok-com">#    入库</span>
+
+<span class="tok-com"># ---------- 在线：回答（每次提问） ----------</span>
+<span class="tok-kw">def</span> <span class="tok-fn">answer</span>(question)<span class="tok-op">:</span>
+    qv <span class="tok-op">=</span> <span class="tok-fn">embed_one</span>(question)                       <span class="tok-com"># ④ 检索</span>
+    hits <span class="tok-op">=</span> <span class="tok-fn">top_k</span>(chunks, vecs, qv, k<span class="tok-op">=</span><span class="tok-num">3</span>)
+
+    context <span class="tok-op">=</span> <span class="tok-str">&quot;\n&quot;</span>.<span class="tok-fn">join</span>(f<span class="tok-str">&quot;[{i+1}] {h.text}&quot;</span> <span class="tok-kw">for</span> i, h <span class="tok-kw">in</span> <span class="tok-fn">enumerate</span>(hits))
+    prompt <span class="tok-op">=</span> RAG_TEMPLATE.<span class="tok-fn">format</span>(context<span class="tok-op">=</span>context, question<span class="tok-op">=</span>question)
+
+    reply <span class="tok-op">=</span> <span class="tok-fn">chat</span>(prompt)                           <span class="tok-com"># ⑤ 生成</span>
+    <span class="tok-kw">return</span> reply, [h.source <span class="tok-kw">for</span> h <span class="tok-kw">in</span> hits]         <span class="tok-com">#    带回出处</span></code></pre></figure>
+<p><strong>这 15 行，就是 RAG 的全部。</strong> 剩下的所有复杂度，都是在优化这 15 行里的每一步。</p>
+<hr class="rule">
+<h2 id="theory-常见误解">【常见误解】</h2>
+<p><strong>误解 1：&quot;RAG 能消灭幻觉。&quot;</strong>
+不能。它<strong>降低</strong>幻觉。如果检索到的内容本身是错的、或者模型没遵守&quot;只用资料&quot;，照样会错。RAG 把&quot;编造&quot;变成了&quot;可能读错&quot;，这是进步但不是终点。</p>
+<p><strong>误解 2：&quot;切得越细越准。&quot;</strong>
+太细会丢上下文（&quot;3-5 个工作日&quot;单独一块，不知道说的是退款还是发货）。<strong>要&quot;一句完整的话&quot;，不是&quot;一个词&quot;。</strong></p>
+<p><strong>误解 3：&quot;top-k 越大越好，多给点总没错。&quot;</strong>
+错。无关内容会<strong>干扰</strong>模型（&quot;lost in the middle&quot;：模型对中间位置的上下文最不敏感）。k=3~5 通常最好。</p>
+<p><strong>误解 4：&quot;RAG 就是把文档扔给模型。&quot;</strong>
+&quot;扔&quot;是长上下文方案，贵且不准。RAG 的核心价值是<strong>&quot;先筛后给&quot;</strong>——筛这一步才是技术含量所在。</p>
+<hr class="rule">
+<h2 id="theory-自检清单">【自检清单】</h2>
+<ol>
+<li>用开卷考试解释 RAG，并说出它治好的三个病。</li>
+<li>RAG / 微调 / 长上下文，分别什么时候用？各一句话。</li>
+<li>五个环节是哪五个？哪三个是离线的？</li>
+<li>为什么切分要 overlap？overlap 太大有什么坏处？</li>
+<li>RAG 提示词里必须有的四条规则是什么？每条解决什么问题？</li>
+<li>回答&quot;资料里没有&quot;但明明有时，你先怀疑哪一步？为什么？</li>
+</ol>
+<hr class="rule">
+<h2 id="theory-下一站">【下一站】</h2>
+<ul>
+<li><strong>练习</strong>：<code>03_练习题目区/M4_RAG核心/01_题目.md</code></li>
+<li><strong>项目</strong>：<code>04_实践项目区/P5_个人文档问答机器人/00_项目计划书.md</code></li>
+</ul></div>
+  </div>
+  <div class="tab-panel" id="panel-quiz" role="tabpanel" aria-labelledby="tab-panel-quiz" hidden>
+    <div class="callout" style="margin-bottom:22px">
+      <strong>先做，再看解析。</strong> 题目按「概念 / 代码 / 动手」三类排列，建议用时：概念题 3 分钟，代码题 10 分钟，动手题 30 分钟。
+      做完再去下一个标签页对答案，否则等于没做。
+    </div>
+    <div class="prose exercise-doc"><blockquote class="callout">
+<p>对应讲稿：<code>02_理论讲解区/M4_RAG核心/00_理论讲稿.md</code></p>
+</blockquote>
+<hr class="rule">
+<h2 id="quiz-第-1-题概念-三选一">🧠 第 1 题（概念）· 三选一</h2>
+<p>下面 5 个需求，分别该用 <strong>RAG / 微调 / 长上下文</strong> 中的哪个？说明理由。</p>
+<ol>
+<li>公司想让 AI 回答&quot;我们自己的员工手册&quot;里的问题</li>
+<li>想让 AI 用&quot;我们品牌的语气&quot;写小红书文案（活泼、带 emoji、短句）</li>
+<li>用户上传一份 80 页的合同，问&quot;第 12 条有什么风险&quot;</li>
+<li>客服机器人要能回答&quot;上周刚改的退款政策&quot;</li>
+<li>想让模型学会&quot;把我们系统里的报错码翻译成人话&quot;，报错码有 3000 个</li>
+</ol>
+<p><strong>附加问</strong>：为什么<strong>不能</strong>用微调来&quot;灌知识&quot;？（提示：想想模型是&quot;记&quot;还是&quot;接&quot;）</p>
+<hr class="rule">
+<h2 id="quiz-第-2-题计算-切分与成本">💻 第 2 题（计算）· 切分与成本</h2>
+<p>一份 10000 字的制度文档，用 <code>chunk_size=500, overlap=50</code> 切分。</p>
+<p><strong>任务：</strong></p>
+<ol>
+<li>会切出多少块？（写出算式）</li>
+<li>如果用 <code>top_k=3</code> 检索，每次问答塞给模型的上下文大约多少字？</li>
+<li>如果改成 <code>chunk_size=200, overlap=20</code>，块数变成多少？这对检索和成本分别有什么影响？</li>
+<li>如果 <code>overlap</code> 改成 400（接近 chunk_size），会发生什么？</li>
+</ol>
+<hr class="rule">
+<h2 id="quiz-第-3-题代码-补全提示词与引用">💻 第 3 题（代码）· 补全提示词与引用</h2>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python">RAG_TEMPLATE <span class="tok-op">=</span> <span class="tok-str">&quot;&quot;&quot;你是一个严谨的文档问答助手。
+请只根据下面提供的资料回答问题。
+
+规则：
+（这里缺规则）
+
+资料：
+{context}
+
+问题：{question}
+&quot;&quot;&quot;</span>
+
+<span class="tok-kw">def</span> <span class="tok-fn">build_context</span>(hits)<span class="tok-op">:</span>
+    <span class="tok-com"># hits: [{&quot;text&quot;: ..., &quot;source&quot;: &quot;a.pdf&quot;, &quot;page&quot;: 3}, ...]</span>
+    <span class="tok-op">???</span> 
+    <span class="tok-kw">return</span> context, refs</code></pre></figure>
+<p><strong>任务：</strong></p>
+<ol>
+<li>补全 4 条规则（对应讲稿第五节）。</li>
+<li>实现 <code>build_context</code>，返回拼接好的 <code>context</code> 字符串和 <code>refs</code> 字典。</li>
+<li>如果用户问的问题，资料里完全没有，你希望模型输出什么？提示词里该怎么写才能保证？</li>
+</ol>
+<hr class="rule">
+<h2 id="quiz-第-4-题排错-四个症状四个病因">🔧 第 4 题（排错）· 四个症状，四个病因</h2>
+<p>下面 4 个用户反馈，分别最可能是哪个环节出了问题？<strong>给出你的第一步排查动作</strong>。</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>#</th><th>用户反馈</th></tr></thead><tbody><tr><td>A</td><td>&quot;我问退款几天到账，它说资料里没有，但手册第 3 页明明写了&quot;</td></tr><tr><td>B</td><td>&quot;它答得挺像，但引用的页码是错的&quot;</td></tr><tr><td>C</td><td>&quot;我问 A 问题，它把 B、C、D 的内容全扯进来了，答得又长又乱&quot;</td></tr><tr><td>D</td><td>&quot;它说&#39;根据资料，退款需要 30 个工作日&#39;，但资料写的是 3-5 个&quot;</td></tr></tbody></table></div>
+<hr class="rule">
+<h2 id="quiz-第-5-题概念-为什么说不知道是优点">🧠 第 5 题（概念）· 为什么&quot;说不知道&quot;是优点</h2>
+<p>有人说：&quot;一个 RAG 系统如果经常回答&#39;根据现有资料无法回答&#39;，说明它做得很差。&quot;</p>
+<p><strong>你同意吗？</strong> 请从<strong>用户体验</strong>和<strong>工程可维护性</strong>两个角度反驳或支持，并举一个具体场景说明。</p>
+<hr class="rule">
+<h2 id="quiz-第-6-题动手-做一个最小-rag">🛠️ 第 6 题（动手）· 做一个最小 RAG</h2>
+<p><strong>任务：</strong></p>
+<ol>
+<li>找一份 <strong>10 页以上的中文 PDF</strong>（产品手册、课程讲义、政策文件都行）</li>
+<li>解析成文本，切分（chunk_size 自定，写清理由）</li>
+<li>向量化 + 存索引</li>
+<li>实现问答：检索 top-3 → 拼提示词 → 生成 → <strong>显示引用（文件名 + 页码）</strong></li>
+<li>测 5 个问题：</li>
+</ol>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>#</th><th>问题</th><th>类型</th><th>检索到的块对不对</th><th>回答对不对</th><th>引用对不对</th></tr></thead><tbody><tr><td>1</td><td>文档里明确写了答案的</td><td>简单</td><td></td><td></td><td></td></tr><tr><td>2</td><td>需要跨两页才能答的</td><td>中等</td><td></td><td></td><td></td></tr><tr><td>3</td><td>换个说法问同一个事</td><td>同义</td><td></td><td></td><td></td></tr><tr><td>4</td><td>文档里<strong>没有</strong>的</td><td>应拒答</td><td></td><td></td><td></td></tr><tr><td>5</td><td>需要计算/比较的</td><td>困难</td><td></td><td></td><td></td></tr></tbody></table></div>
+<ol start="6">
+<li><strong>统计</strong>：5 题里，检索对了几个？回答对了几个？引用对了几个？</li>
+</ol>
+<p><strong>加分</strong>：把 <code>chunk_size</code> 从 500 改成 300、800 各跑一遍，把 5 题的结果记下来，看哪个最好。</p>
+<hr class="rule">
+<h2 id="quiz-提交前自检">提交前自检</h2>
+<ul>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">第 6 题的第 4 个问题（文档里没有的）<strong>真的拒答了</strong></span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">引用能定位到具体页码，不是笼统的&quot;来自文档&quot;</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">能说出你这套参数是&quot;怎么选出来的&quot;，不是抄的</span></li>
+</ul></div>
+  </div>
+  <div class="tab-panel" id="panel-answers" role="tabpanel" aria-labelledby="tab-panel-answers" hidden>
+    <div class="prose"><hr class="rule">
+<h2 id="answers-第-1-题-三选一">第 1 题 · 三选一</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>#</th><th>选择</th><th>理由</th></tr></thead><tbody><tr><td>1</td><td><strong>RAG</strong></td><td>知识型问答，内容会变，且<strong>需要出处</strong>（员工手册答错了要担责）</td></tr><tr><td>2</td><td><strong>微调</strong></td><td>这是&quot;风格/格式&quot;问题，不是&quot;知识&quot;问题。RAG 改不了文风</td></tr><tr><td>3</td><td><strong>长上下文</strong></td><td>一次性分析一份长文档，不需要反复查。塞进去最直接</td></tr><tr><td>4</td><td><strong>RAG</strong></td><td>知识会变，微调每次改政策都要重训，代价太大</td></tr><tr><td>5</td><td><strong>RAG 为主</strong></td><td>3000 个报错码是&quot;查表&quot;，不是&quot;学规律&quot;。用检索最合适；如果还要固定输出格式，可以 RAG + 少量微调</td></tr></tbody></table></div>
+<h3 id="answers-附加问为什么微调不能灌知识">附加问：为什么微调不能&quot;灌知识&quot;</h3>
+<p>因为<strong>模型不是数据库，它是&quot;接话机器&quot;</strong>。</p>
+<p>微调做的事是：<strong>调整它接话的偏好</strong>（语气、格式、句式），而不是<strong>往它脑子里塞一份可检索的文件</strong>。</p>
+<p>具体三个原因：</p>
+<ol>
+<li><strong>记不牢</strong>：微调后它可能&quot;大致记得&quot;，但细节（数字、日期、条款号）极易出错，而且<strong>错得理直气壮</strong>。</li>
+<li><strong>改不动</strong>：政策改一条，你得重新训一遍；RAG 只要替换那一页 PDF。</li>
+<li><strong>没法溯源</strong>：微调后的回答没有出处，用户无法验证。</li>
+</ol>
+<blockquote class="callout">
+<p>行业共识：<strong>微调学&quot;怎么说&quot;，RAG 学&quot;说什么&quot;。</strong></p>
+</blockquote>
+<h3 id="answers-常见错误">常见错误</h3>
+<ul>
+<li>❌ 第 3 题选 RAG。<strong>单份文档一次性分析，RAG 是杀鸡用牛刀</strong>（还要建库、检索，多此一举）。</li>
+<li>❌ 认为&quot;微调更高级所以更好&quot;。<strong>选错方案比用错参数损失大 10 倍。</strong></li>
+</ul>
+<hr class="rule">
+<h2 id="answers-第-2-题-切分与成本">第 2 题 · 切分与成本</h2>
+<h3 id="answers-第-1-问多少块">第 1 问：多少块</h3>
+<p>关键是<strong>步进 = chunk_size - overlap = 500 - 50 = 450</strong>。</p>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">块数 = ceil((总长 - overlap) / 步进)
+     = ceil((10000 - 50) / 450)
+     = ceil(9950 / 450)
+     = ceil(22.1)
+     = 23 块</code></pre></figure>
+<p><strong>为什么不是 10000/500 = 20 块</strong>：因为有重叠，每块只&quot;前进&quot;450 字，需要更多块才能覆盖全文。</p>
+<h3 id="answers-第-2-问每次塞多少字">第 2 问：每次塞多少字</h3>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">top_k=3 × 500 字/块 = 1500 字</code></pre></figure>
+<p>再加上提示词模板（约 200 字）和问题。粗估 <strong>1700~1800 字</strong>，约 <strong>2000~2500 token</strong>。</p>
+<h3 id="answers-第-3-问改成-20020">第 3 问：改成 200/20</h3>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">步进 = 180
+块数 = ceil((10000 - 20) / 180) = ceil(55.4) = 56 块</code></pre></figure>
+<p><strong>影响</strong>：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>方面</th><th>变化</th></tr></thead><tbody><tr><td>检索精度</td><td><strong>提升</strong>（每块更聚焦，噪声少）</td></tr><tr><td>上下文完整性</td><td><strong>下降</strong>（可能切断了跨句的逻辑）</td></tr><tr><td>块数量</td><td>23 → 56，索引变大</td></tr><tr><td>每次问答成本</td><td>变化不大（还是 top-3 × 200 = 600 字），<strong>反而更省</strong></td></tr><tr><td>主要风险</td><td><strong>&quot;半句话&quot;问题</strong>：检索到的块信息不完整，模型答不出</td></tr></tbody></table></div>
+<blockquote class="callout">
+<p>所以不是&quot;越小越好&quot;，而是&quot;<strong>小到刚好能表达一个完整意思</strong>&quot;。</p>
+</blockquote>
+<h3 id="answers-第-4-问overlap400">第 4 问：overlap=400</h3>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">步进 = 500 - 400 = 100
+块数 = ceil((10000 - 400) / 100) = 96 块</code></pre></figure>
+<p><strong>后果</strong>：</p>
+<ol>
+<li><strong>索引膨胀</strong>：96 块 vs 23 块，存储和嵌入成本翻 4 倍</li>
+<li><strong>检索结果高度重复</strong>：top-3 可能是&quot;几乎一样的三段&quot;，等于只拿到 1 段有效信息</li>
+<li><strong>浪费 token</strong>：同样的内容被塞了三遍</li>
+</ol>
+<blockquote class="callout">
+<p><strong>经验上限：overlap 不要超过 chunk_size 的 30%。</strong></p>
+</blockquote>
+<h3 id="answers-常见错误-2">常见错误</h3>
+<ul>
+<li>❌ 用 <code>10000/500</code>。<strong>忘了重叠。</strong></li>
+<li>✅ 高分答案会指出&quot;小块更省 token 但更容易断句&quot;这种权衡关系。</li>
+</ul>
+<hr class="rule">
+<h2 id="answers-第-3-题-补全提示词与引用">第 3 题 · 补全提示词与引用</h2>
+<h3 id="answers-第-1-问四条规则">第 1 问：四条规则</h3>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">1. 只能使用资料中的信息，不要使用你自己的知识。
+2. 每个结论后面用 [编号] 标注来源，例如 [1]。
+3. 如果资料里没有足够信息，直接回答&quot;根据现有资料无法回答&quot;，不要猜测。
+4. 回答简洁，不超过 200 字。</code></pre></figure>
+<h3 id="answers-第-2-问build-context">第 2 问：<code>build_context</code></h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">def</span> <span class="tok-fn">build_context</span>(hits)<span class="tok-op">:</span>
+    <span class="tok-str">&quot;&quot;&quot;
+    hits: [{&quot;text&quot;: ..., &quot;source&quot;: &quot;a.pdf&quot;, &quot;page&quot;: 3}, ...]
+    返回 (context 字符串, refs 字典)
+    &quot;&quot;&quot;</span>
+    lines <span class="tok-op">=</span> []
+    refs <span class="tok-op">=</span> {}
+    <span class="tok-kw">for</span> i, h <span class="tok-kw">in</span> <span class="tok-fn">enumerate</span>(hits, start<span class="tok-op">=</span><span class="tok-num">1</span>)<span class="tok-op">:</span>
+        tag <span class="tok-op">=</span> f<span class="tok-str">&quot;[{i}]&quot;</span>
+        lines.<span class="tok-fn">append</span>(f<span class="tok-str">&quot;{tag} {h[&#39;text&#39;]}&quot;</span>)
+        refs[tag] <span class="tok-op">=</span> f<span class="tok-str">&quot;{h[&#39;source&#39;]} 第 {h.get(&#39;page&#39;, &#39;?&#39;)} 页&quot;</span>
+
+    context <span class="tok-op">=</span> <span class="tok-str">&quot;\n\n&quot;</span>.<span class="tok-fn">join</span>(lines)
+    <span class="tok-kw">return</span> context, refs</code></pre></figure>
+<p><strong>注意 <code>enumerate(hits, start=1)</code></strong>：编号从 1 开始，和提示词里的 <code>[1]</code> 对齐。用默认的 0 会导致<strong>引用整体错位一位</strong>——这是最隐蔽的 bug。</p>
+<h3 id="answers-第-3-问资料里没有时">第 3 问：资料里没有时</h3>
+<p>希望模型输出：<strong>&quot;根据现有资料无法回答。&quot;</strong>（明确、简短、不编）</p>
+<p>提示词里要保证这一点，必须做到三件事：</p>
+<ol>
+<li><strong>明确写出来</strong>这句话的模板（&quot;直接回答&#39;根据现有资料无法回答&#39;&quot;），而不是含糊地说&quot;不要编造&quot;</li>
+<li><strong>在规则里排到前面</strong>（位置越靠前权重越高）</li>
+<li><strong>不要在同一段里写&quot;请尽量回答&quot;</strong>（自相矛盾，模型会选后者）</li>
+</ol>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-com"># 反面示例（自相矛盾）</span>
+<span class="tok-str">&quot;如果资料里没有，就说不知道，但请尽量给出有用的回答。&quot;</span>   <span class="tok-com"># ❌ 它一定会编</span></code></pre></figure>
+<h3 id="answers-常见错误-3">常见错误</h3>
+<ul>
+<li>❌ 编号从 0 开始。</li>
+<li>❌ 规则写&quot;不要编造&quot;但不给具体句式。<strong>模型需要一个&quot;照抄的句子&quot;。</strong></li>
+</ul>
+<hr class="rule">
+<h2 id="answers-第-4-题-四个症状四个病因">第 4 题 · 四个症状，四个病因</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>#</th><th>病因</th><th>第一步排查</th></tr></thead><tbody><tr><td><strong>A</strong></td><td><strong>检索没找到</strong>（环节 ④），或切分把答案切碎了（环节 ②）</td><td><strong>打印检索到的 top-5 原文</strong>。如果里面没有那段话 → 检索问题；如果有但排名靠后 → 调 top-k 或加混合检索</td></tr><tr><td><strong>B</strong></td><td><strong>引用映射错</strong>（环节 ⑤ 的元数据）</td><td>检查 <code>refs</code> 的编号是否从 1 开始、<code>hits</code> 顺序是否在排序后被改动过</td></tr><tr><td><strong>C</strong></td><td><strong>top-k 太大 / 没加阈值</strong>（环节 ④）</td><td>把 k 从 10 降到 3，加相似度阈值</td></tr><tr><td><strong>D</strong></td><td><strong>模型没遵守&quot;只用资料&quot;</strong>（环节 ⑤ 提示词）</td><td>检查提示词有没有&quot;只能使用资料&quot;；检查 temperature 是否过高；检查资料里的原文是否真的写的是 3-5（也可能<strong>资料本身</strong>就是 30）</td></tr></tbody></table></div>
+<h3 id="answers-第-d-题的关键点">第 D 题的关键点</h3>
+<p><strong>先确认&quot;资料里到底写的是几&quot;。</strong></p>
+<p>如果检索到的原文就是&quot;30 个工作日&quot;，那模型没错，<strong>是你的知识库过时了</strong>。
+如果原文是&quot;3-5&quot;，模型说&quot;30&quot;，那是模型在改数字——<strong>这种情况要降低 temperature，并加&quot;数字必须与原文完全一致&quot;的规则</strong>。</p>
+<blockquote class="callout">
+<p>这题的考点：<strong>&quot;模型答错&quot;和&quot;资料错了&quot;是两回事，先看原文。</strong> 这是 RAG 调试第一铁律的实践。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="answers-第-5-题-为什么说不知道是优点">第 5 题 · 为什么&quot;说不知道&quot;是优点</h2>
+<h3 id="answers-参考答案不同意那个说法">参考答案：不同意那个说法</h3>
+<p><strong>从用户体验看</strong>：</p>
+<p>一个总在编造的 RAG，用户第一次被骗会愤怒，第二次就不用了。
+一个会说&quot;资料里没有&quot;的 RAG，用户会知道&quot;这个系统靠谱，它不知道就是真没有&quot;，然后<strong>换个问法或去问人</strong>。</p>
+<blockquote class="callout">
+<p><strong>可信度比覆盖率值钱。</strong> 客服场景里，一句错误的&quot;退款 30 天&quot;可能导致投诉；一句&quot;我查不到，帮您转人工&quot;只是多一步。</p>
+</blockquote>
+<p><strong>从工程可维护性看</strong>：</p>
+<ul>
+<li>&quot;说不知道&quot;是<strong>可观测的信号</strong>：你知道哪些问题覆盖不到，可以针对性补文档</li>
+<li>一直硬答的系统，你<strong>永远不知道它错了多少</strong>（错误被隐藏了）</li>
+</ul>
+<p><strong>具体场景</strong>：</p>
+<blockquote class="callout">
+<p>医院导诊机器人。用户问&quot;吃了这个药能不能喝酒&quot;。</p>
+<ul>
+<li>编造型：给出一个看似合理的答案 → 可能出人命</li>
+<li>拒答型：&quot;这个问题超出我的知识范围，请咨询医生&quot; → 正确</li>
+</ul>
+</blockquote>
+<h3 id="answers-但要加一个限定条件">但要加一个限定条件</h3>
+<p><strong>&quot;经常说不知道&quot;确实说明系统有问题</strong>——说明你的知识库覆盖不够，或者检索没做好。</p>
+<p>所以正确的判断是：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>指标</th><th>健康值</th></tr></thead><tbody><tr><td>该答的<strong>答对率</strong></td><td>高</td></tr><tr><td>不该答的<strong>拒答率</strong></td><td>高</td></tr><tr><td><strong>整体拒答率</strong></td><td>应该<strong>低</strong>（否则说明库不全）</td></tr></tbody></table></div>
+<blockquote class="callout">
+<p><strong>理想状态：该答的都答对，不该答的都拒掉。</strong> 两个指标要一起看，只看一个都会骗人。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="answers-第-6-题-做一个最小-rag">第 6 题 · 做一个最小 RAG</h2>
+<h3 id="answers-参考实现骨架">参考实现骨架</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-com"># loader.py</span>
+<span class="tok-kw">from</span> pypdf <span class="tok-kw">import</span> PdfReader
+
+<span class="tok-kw">def</span> <span class="tok-fn">load_pdf</span>(path)<span class="tok-op">:</span>
+    reader <span class="tok-op">=</span> <span class="tok-fn">PdfReader</span>(path)
+    pages <span class="tok-op">=</span> []
+    <span class="tok-kw">for</span> i, page <span class="tok-kw">in</span> <span class="tok-fn">enumerate</span>(reader.pages, start<span class="tok-op">=</span><span class="tok-num">1</span>)<span class="tok-op">:</span>
+        text <span class="tok-op">=</span> page.<span class="tok-fn">extract_text</span>() <span class="tok-kw">or</span> <span class="tok-str">&quot;&quot;</span>
+        pages.<span class="tok-fn">append</span>({<span class="tok-str">&quot;page&quot;</span><span class="tok-op">:</span> i, <span class="tok-str">&quot;text&quot;</span><span class="tok-op">:</span> text})
+    <span class="tok-kw">return</span> pages</code></pre></figure>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-com"># splitter.py</span>
+<span class="tok-kw">import</span> re
+
+<span class="tok-kw">def</span> <span class="tok-fn">clean</span>(text)<span class="tok-op">:</span>
+    text <span class="tok-op">=</span> re.<span class="tok-fn">sub</span>(r<span class="tok-str">&quot;\n{3,}&quot;</span>, <span class="tok-str">&quot;\n\n&quot;</span>, text)      <span class="tok-com"># 多余空行</span>
+    text <span class="tok-op">=</span> re.<span class="tok-fn">sub</span>(r<span class="tok-str">&quot;(?&lt;!\n)\n(?!\n)&quot;</span>, <span class="tok-str">&quot;&quot;</span>, text)  <span class="tok-com"># 单换行（PDF 断行）直接删</span>
+    text <span class="tok-op">=</span> re.<span class="tok-fn">sub</span>(r<span class="tok-str">&quot;[ \t]{2,}&quot;</span>, <span class="tok-str">&quot; &quot;</span>, text)
+    <span class="tok-kw">return</span> text.<span class="tok-fn">strip</span>()
+
+<span class="tok-kw">def</span> <span class="tok-fn">split</span>(text, doc_name, chunk_size<span class="tok-op">=</span><span class="tok-num">500</span>, overlap<span class="tok-op">=</span><span class="tok-num">50</span>)<span class="tok-op">:</span>
+    out, start, idx <span class="tok-op">=</span> [], <span class="tok-num">0</span>, <span class="tok-num">0</span>
+    <span class="tok-kw">while</span> start <span class="tok-op">&lt;</span> <span class="tok-fn">len</span>(text)<span class="tok-op">:</span>
+        piece <span class="tok-op">=</span> text[start<span class="tok-op">:</span>start <span class="tok-op">+</span> chunk_size]
+        <span class="tok-kw">if</span> piece.<span class="tok-fn">strip</span>()<span class="tok-op">:</span>
+            out.<span class="tok-fn">append</span>({
+                <span class="tok-str">&quot;id&quot;</span><span class="tok-op">:</span> f<span class="tok-str">&quot;{doc_name}_{idx}&quot;</span>,
+                <span class="tok-str">&quot;text&quot;</span><span class="tok-op">:</span> piece,
+                <span class="tok-str">&quot;source&quot;</span><span class="tok-op">:</span> doc_name,
+                <span class="tok-str">&quot;page&quot;</span><span class="tok-op">:</span> <span class="tok-bool">None</span>,          <span class="tok-com"># 需要按页切时再填</span>
+                <span class="tok-str">&quot;chunk_index&quot;</span><span class="tok-op">:</span> idx,
+            })
+            idx <span class="tok-op">+=</span> <span class="tok-num">1</span>
+        start <span class="tok-op">+=</span> chunk_size <span class="tok-op">-</span> overlap
+    <span class="tok-kw">return</span> out</code></pre></figure>
+<p><strong>注意 <code>page: None</code></strong>：这是本题的一个真实难点——<strong>按页切分和按长度切分是冲突的</strong>。</p>
+<p>两种解法：</p>
+<ol>
+<li><strong>按页切</strong>（每页单独切），页码天然保留，但页尾页首会被割裂</li>
+<li><strong>整本切</strong>，然后根据字符偏移量估算页码（不精确）</li>
+</ol>
+<blockquote class="callout">
+<p>建议：<strong>先按页切</strong>。页码准确比语义连贯更重要——因为用户要的是&quot;我能去第 3 页核对&quot;。</p>
+</blockquote>
+<h3 id="answers-参考评测结果示例">参考评测结果（示例）</h3>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>#</th><th>问题</th><th>检索对?</th><th>回答对?</th><th>引用对?</th></tr></thead><tbody><tr><td>1</td><td>简单事实</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>2</td><td>跨两页</td><td>⚠️ 只找到一半</td><td>❌</td><td>✅</td></tr><tr><td>3</td><td>同义改写</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>4</td><td>文档没有</td><td>✅（正确返回无关块）</td><td>✅ 拒答</td><td>—</td></tr><tr><td>5</td><td>需计算</td><td>✅</td><td>❌ 算错</td><td>✅</td></tr></tbody></table></div>
+<p><strong>结论</strong>：检索 4.5/5，回答 3/5，引用 4/5。</p>
+<p><strong>这告诉你什么</strong>：你的瓶颈<strong>不在检索，在生成和计算</strong>。</p>
+<ul>
+<li>跨页问题 → 加&quot;父子块&quot;或增大 chunk_size</li>
+<li>计算问题 → 这不是 RAG 的活，<strong>该上工具调用（M6）</strong></li>
+</ul>
+<blockquote class="callout">
+<p>能做出这种归因，你就已经跨过了&quot;调通 API&quot;的门槛。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="answers-自评标准">自评标准</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>答对</th><th>评价</th><th>下一步</th></tr></thead><tbody><tr><td>6/6</td><td>优秀</td><td>直接做 P5</td></tr><tr><td>4~5</td><td>合格</td><td>重做第 4 题（排错表最实用）</td></tr><tr><td>2~3</td><td>需要回炉</td><td>重读讲稿第三、五、七节</td></tr><tr><td>0~1</td><td>别慌</td><td>先把最小 RAG 跑通一遍，再回来</td></tr></tbody></table></div></div>
+  </div>
+  <div class="tab-panel" id="panel-project" role="tabpanel" aria-labelledby="tab-panel-project" hidden>
+    <div class="callout" style="margin-bottom:22px">
+      <strong>P5 项目计划书 · P5 个人文档问答机器人 v1</strong><br>
+      按「目标 → 代码 → 为什么 → 怎么验证」一步步敲。卡住的地方，才是真正学到的地方。
+    </div>
+    <div class="prose"><blockquote class="callout">
+<p>难度：⭐⭐⭐ ｜ 周期：两个周末（约 5 小时）｜ 学习模块：M4
+<strong>这是你第一个能写进简历的项目。</strong>
+<strong>采用的资料</strong>：见文末第 7 节</p>
+</blockquote>
+<hr class="rule">
+<h2 id="project-1-项目要做什么">1. 项目要做什么</h2>
+<h3 id="project-一句话">一句话</h3>
+<p>上传一份 PDF，然后<strong>用大白话问它问题</strong>，它从文档里找答案，并告诉你<strong>答案在第几页</strong>。</p>
+<h3 id="project-验收标准">验收标准</h3>
+<ul>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">能解析一份 10 页以上的中文 PDF</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">建索引一次，之后提问不用重建</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">问文档里有的问题，能答对，且<strong>引用到正确页码</strong></span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">问文档里<strong>没有</strong>的问题，会说&quot;根据现有资料无法回答&quot;</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">界面能看到&quot;检索到了哪 3 段&quot;，方便你自己调试</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">有一份 10 题的评测记录（对几题、错在哪）</span></li>
+</ul>
+<h3 id="project-明确不做">明确不做</h3>
+<ul>
+<li>❌ 不做多文档同时检索（v2 再说）</li>
+<li>❌ 不做切分策略自动选择（手动调参）</li>
+<li>❌ 不做重排、查询改写（<strong>M5 的内容</strong>）</li>
+<li>❌ 不做用户系统、不做部署（M7）</li>
+</ul>
+<blockquote class="callout">
+<p><strong>v1 的目标是&quot;跑通并诚实&quot;</strong>：能答就答，不能答就说不能答，且每个答案有出处。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="project-2-工具与开发环境">2. 工具与开发环境</h2>
+<blockquote class="callout">
+<p>🛑 <strong>这次要装 <code>pypdf</code>，装之前跟我说一声。</strong></p>
+</blockquote>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>项</th><th>状态</th><th>说明</th></tr></thead><tbody><tr><td>Python 3.10+</td><td>已有</td><td>—</td></tr><tr><td><code>pypdf</code></td><td><strong>新增</strong></td><td>PDF 解析，<code>pip install pypdf</code>，纯 Python，无需编译</td></tr><tr><td><code>numpy</code></td><td>P4 已装</td><td>向量计算</td></tr><tr><td><code>openai</code></td><td>已有</td><td>聊天 + embedding</td></tr><tr><td><code>streamlit</code></td><td>P3 已装</td><td>界面</td></tr><tr><td>embedding 服务</td><td>P4 已注册</td><td>沿用</td></tr><tr><td>聊天服务</td><td>已有</td><td>DeepSeek</td></tr></tbody></table></div>
+<h3 id="project-为什么用-pypdf-而不是-pymupdf-pdfplumber">为什么用 <code>pypdf</code> 而不是 <code>PyMuPDF</code> / <code>pdfplumber</code></h3>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>库</th><th>优点</th><th>缺点</th><th>适合</th></tr></thead><tbody><tr><td><strong>pypdf</strong></td><td>纯 Python、好装、够用</td><td>复杂排版（双栏、表格）效果差</td><td><strong>入门</strong></td></tr><tr><td>pdfplumber</td><td>表格解析强</td><td>慢、依赖多</td><td>表格多的文档</td></tr><tr><td>PyMuPDF (fitz)</td><td>快、质量好</td><td>要装二进制包，有时报错</td><td>生产环境</td></tr><tr><td>MinerU / Marker</td><td>版面还原极好</td><td>要下模型、吃显存</td><td>专业文档处理</td></tr></tbody></table></div>
+<blockquote class="callout">
+<p><strong>先用 pypdf 把流程跑通。</strong> 如果解析出来的文字是乱码或错位，再换 <code>pdfplumber</code>——<strong>但那时你已经知道问题在哪了</strong>。</p>
+</blockquote>
+<hr class="rule">
+<h2 id="project-3-项目文件结构">3. 项目文件结构</h2>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">p5-rag/
+├── .env
+├── .gitignore
+├── requirements.txt
+├── config.py          ← 参数集中管理（chunk_size 等）
+├── loader.py          ← PDF → 带页码的文本
+├── splitter.py        ← 清洗 + 切分
+├── embedder.py        ← 文本 → 向量
+├── store.py           ← 索引存/读（chunks.json + vectors.npy）
+├── rag.py             ← 检索 + 拼提示词 + 生成
+├── app.py             ← Streamlit 界面
+├── data/
+│   └── 售后政策.pdf
+└── index/
+    ├── chunks.json
+    └── vectors.npy</code></pre></figure>
+<h3 id="project-为什么索引要存成两个文件">为什么索引要存成两个文件</h3>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>文件</th><th>存什么</th><th>为什么分开</th></tr></thead><tbody><tr><td><code>chunks.json</code></td><td>文本 + 元数据（页码、来源）</td><td>人可读，方便你直接打开看&quot;切成了什么样&quot;</td></tr><tr><td><code>vectors.npy</code></td><td>纯数值矩阵</td><td><code>numpy</code> 原生格式，读取快，体积小</td></tr></tbody></table></div>
+<p><strong>分开的原因</strong>：调试时你只想看文本（json 能直接读），不想看十万个浮点数。</p>
+<blockquote class="callout">
+<p>这是工程上的常见做法：<strong>&quot;人能读的&quot;和&quot;机器要算的&quot;分开存。</strong></p>
+</blockquote>
+<hr class="rule">
+<h2 id="project-4-项目流程图">4. 项目流程图</h2>
+<div class="mermaid-wrap"><div class="mermaid">flowchart TD
+    subgraph 建库["建库（跑一次）"]
+        A1[选择 PDF] --> A2[pypdf 逐页提取]
+        A2 --> A3{文字是乱码吗}
+        A3 -- 是 --> A4[换 pdfplumber<br/>或换一份文档]
+        A3 -- 否 --> A5[清洗：去页眉页脚/断行]
+        A5 --> A6[按页切分<br/>500字/块 重叠50]
+        A6 --> A7[批量嵌入]
+        A7 --> A8[归一化 + 存盘]
+    end
+
+    subgraph 问答["问答（每次）"]
+        B1[/用户提问/] --> B2[嵌入问题]
+        B2 --> B3[算相似度 top-k]
+        B3 --> B4{最高分 < 阈值?}
+        B4 -- 是 --> B5[直接回复：资料里没有]
+        B4 -- 否 --> B6[拼 context + 编号]
+        B6 --> B7[调聊天模型<br/>temperature=0.1]
+        B7 --> B8[解析回答里的 1 2 3]
+        B8 --> B9[映射回 文件名+页码]
+        B9 --> B10[界面显示回答 + 可展开原文]
+    end
+
+    A8 -.-> B3</div></div>
+<h3 id="project-三个关键设计点">三个关键设计点</h3>
+<ol>
+<li><strong>建库和问答完全解耦</strong>：建库慢（要读 PDF、算向量），只做一次；问答快。</li>
+<li><strong>阈值前置</strong>：检索分数太低就直接拒答，<strong>根本不调聊天模型</strong>——省钱且不会编。</li>
+<li><strong>引用是&quot;后处理&quot;</strong>：先让模型带编号输出，再把编号映射回页码。<strong>不要让模型自己写页码</strong>（它会写错）。</li>
+</ol>
+<hr class="rule">
+<h2 id="project-5-分步实现">5. 分步实现</h2>
+<h3 id="project-step-0-选一份好的-pdf20-分钟别跳过">Step 0 · 选一份&quot;好&quot;的 PDF（20 分钟，别跳过）</h3>
+<p><strong>这一步决定你后面三小时的体验。</strong></p>
+<h4 id="project-好的文档长什么样">好的文档长什么样</h4>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>✅ 好</th><th>❌ 差</th></tr></thead><tbody><tr><td>文字版 PDF（能选中复制）</td><td>扫描件（图片，需要 OCR）</td></tr><tr><td>单栏排版</td><td>双栏、多栏混排</td></tr><tr><td>有明确条款/步骤</td><td>大量复杂表格、公式</td></tr><tr><td>你自己熟悉内容</td><td>完全陌生的领域（你没法判断它对不对）</td></tr></tbody></table></div>
+<p><strong>推荐素材</strong>：产品说明书、课程讲义、政策文件、你自己的学习笔记导出。</p>
+<h4 id="project-怎么快速判断">怎么快速判断</h4>
+<p>用 Edge 打开 PDF，<strong>试着用鼠标选中一段文字并复制</strong>：</p>
+<ul>
+<li>能选中、粘贴出来是正常中文 → ✅ 可以用</li>
+<li>选中是空白 / 粘贴出来是乱码 → ❌ 这是扫描件，需要 OCR（先别碰）</li>
+</ul>
+<hr class="rule">
+<h3 id="project-step-1-装-pypdf先验证解析质量30-分钟">Step 1 · 装 pypdf，先验证解析质量（30 分钟）</h3>
+<figure class="code-block" data-lang="bash"><figcaption><span class="code-lang">bash</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-bash">pip install pypdf</code></pre></figure>
+<p><strong>在做任何其他事之前，先看一眼解析结果</strong>：</p>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-com"># 临时脚本 check.py</span>
+<span class="tok-kw">from</span> pypdf <span class="tok-kw">import</span> PdfReader
+
+reader <span class="tok-op">=</span> <span class="tok-fn">PdfReader</span>(<span class="tok-str">&quot;data/售后政策.pdf&quot;</span>)
+<span class="tok-fn">print</span>(<span class="tok-str">&quot;总页数：&quot;</span>, <span class="tok-fn">len</span>(reader.pages))
+<span class="tok-kw">for</span> i <span class="tok-kw">in</span> <span class="tok-fn">range</span>(<span class="tok-fn">min</span>(<span class="tok-num">3</span>, <span class="tok-fn">len</span>(reader.pages)))<span class="tok-op">:</span>
+    <span class="tok-fn">print</span>(f<span class="tok-str">&quot;\n===== 第 {i+1} 页 =====&quot;</span>)
+    <span class="tok-fn">print</span>(reader.pages[i].<span class="tok-fn">extract_text</span>()[<span class="tok-op">:</span><span class="tok-num">500</span>])</code></pre></figure>
+<p><strong>你必须亲眼确认三件事</strong>：</p>
+<ol>
+<li>有没有文字？（没有 → 扫描件，换文档）</li>
+<li>中文是不是乱码？（是 → 编码问题，换 pdfplumber）</li>
+<li><strong>段落顺序对不对？</strong>（双栏 PDF 会把左右栏交错读出来，变成&quot;天书&quot;）</li>
+</ol>
+<blockquote class="callout">
+<p><strong>这一步花 10 分钟，能省你后面 2 小时。</strong>
+90% 的人跳过这一步，然后在&quot;为什么 RAG 答得乱七八糟&quot;上卡一整天——其实是因为<strong>输入本来就是乱的</strong>。</p>
+</blockquote>
+<hr class="rule">
+<h3 id="project-step-2-写-loaderpy逐页提取20-分钟">Step 2 · 写 <code>loader.py</code>：逐页提取（20 分钟）</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">from</span> pypdf <span class="tok-kw">import</span> PdfReader
+
+
+<span class="tok-kw">def</span> <span class="tok-fn">load_pdf</span>(path<span class="tok-op">:</span> str)<span class="tok-op">:</span>
+    <span class="tok-str">&quot;&quot;&quot;返回 [{&quot;page&quot;: 1, &quot;text&quot;: &quot;...&quot;}, ...]&quot;&quot;&quot;</span>
+    reader <span class="tok-op">=</span> <span class="tok-fn">PdfReader</span>(path)
+    pages <span class="tok-op">=</span> []
+    <span class="tok-kw">for</span> i, page <span class="tok-kw">in</span> <span class="tok-fn">enumerate</span>(reader.pages, start<span class="tok-op">=</span><span class="tok-num">1</span>)<span class="tok-op">:</span>
+        <span class="tok-kw">try</span><span class="tok-op">:</span>
+            text <span class="tok-op">=</span> page.<span class="tok-fn">extract_text</span>() <span class="tok-kw">or</span> <span class="tok-str">&quot;&quot;</span>
+        <span class="tok-kw">except</span> Exception <span class="tok-kw">as</span> e<span class="tok-op">:</span>
+            <span class="tok-fn">print</span>(f<span class="tok-str">&quot;⚠️ 第 {i} 页解析失败：{e}&quot;</span>)
+            text <span class="tok-op">=</span> <span class="tok-str">&quot;&quot;</span>
+        pages.<span class="tok-fn">append</span>({<span class="tok-str">&quot;page&quot;</span><span class="tok-op">:</span> i, <span class="tok-str">&quot;text&quot;</span><span class="tok-op">:</span> text})
+    <span class="tok-kw">return</span> pages</code></pre></figure>
+<p><strong>为什么要逐页保留</strong>：因为<strong>页码是引用的基础</strong>。整本读成一坨，你就永远不知道答案在第几页。</p>
+<p><strong>为什么 <code>try/except</code></strong>：PDF 里偶尔有损坏的页，一页报错不该让整个程序崩。</p>
+<hr class="rule">
+<h3 id="project-step-3-写-splitterpy清洗-切分40-分钟最需要动脑">Step 3 · 写 <code>splitter.py</code>：清洗 + 切分（40 分钟，最需要动脑）</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">import</span> re
+
+
+<span class="tok-kw">def</span> <span class="tok-fn">clean</span>(text<span class="tok-op">:</span> str) <span class="tok-op">-&gt;</span> str<span class="tok-op">:</span>
+    <span class="tok-com"># 1. 去掉连续空行</span>
+    text <span class="tok-op">=</span> re.<span class="tok-fn">sub</span>(r<span class="tok-str">&quot;\n{3,}&quot;</span>, <span class="tok-str">&quot;\n\n&quot;</span>, text)
+
+    <span class="tok-com"># 2. PDF 每行硬换行 → 合并成段（保留真正的段落分隔 \n\n）</span>
+    text <span class="tok-op">=</span> re.<span class="tok-fn">sub</span>(r<span class="tok-str">&quot;(?&lt;!\n)\n(?!\n)&quot;</span>, <span class="tok-str">&quot;&quot;</span>, text)
+
+    <span class="tok-com"># 3. 去掉行内多余空格</span>
+    text <span class="tok-op">=</span> re.<span class="tok-fn">sub</span>(r<span class="tok-str">&quot;[ \t]{2,}&quot;</span>, <span class="tok-str">&quot; &quot;</span>, text)
+
+    <span class="tok-com"># 4. 去掉常见的页眉页脚残留（按你文档的实际情况改）</span>
+    text <span class="tok-op">=</span> re.<span class="tok-fn">sub</span>(r<span class="tok-str">&quot;^\s*第\s*\d+\s*页\s*$&quot;</span>, <span class="tok-str">&quot;&quot;</span>, text, flags<span class="tok-op">=</span>re.M)
+    text <span class="tok-op">=</span> re.<span class="tok-fn">sub</span>(r<span class="tok-str">&quot;^\s*-?\s*\d+\s*-?\s*$&quot;</span>, <span class="tok-str">&quot;&quot;</span>, text, flags<span class="tok-op">=</span>re.M)
+
+    <span class="tok-kw">return</span> text.<span class="tok-fn">strip</span>()
+
+
+<span class="tok-kw">def</span> <span class="tok-fn">split_pages</span>(pages, doc_name<span class="tok-op">:</span> str, chunk_size<span class="tok-op">=</span><span class="tok-num">500</span>, overlap<span class="tok-op">=</span><span class="tok-num">50</span>)<span class="tok-op">:</span>
+    <span class="tok-str">&quot;&quot;&quot;按页切分，保留页码。&quot;&quot;&quot;</span>
+    chunks <span class="tok-op">=</span> []
+    <span class="tok-kw">for</span> p <span class="tok-kw">in</span> pages<span class="tok-op">:</span>
+        text <span class="tok-op">=</span> <span class="tok-fn">clean</span>(p[<span class="tok-str">&quot;text&quot;</span>])
+        <span class="tok-kw">if</span> <span class="tok-fn">len</span>(text) <span class="tok-op">&lt;</span> <span class="tok-num">30</span><span class="tok-op">:</span>           <span class="tok-com"># 太短的页（封面、目录）跳过</span>
+            <span class="tok-kw">continue</span>
+
+        start, idx <span class="tok-op">=</span> <span class="tok-num">0</span>, <span class="tok-num">0</span>
+        <span class="tok-kw">while</span> start <span class="tok-op">&lt;</span> <span class="tok-fn">len</span>(text)<span class="tok-op">:</span>
+            piece <span class="tok-op">=</span> text[start<span class="tok-op">:</span>start <span class="tok-op">+</span> chunk_size]
+            <span class="tok-kw">if</span> piece.<span class="tok-fn">strip</span>()<span class="tok-op">:</span>
+                chunks.<span class="tok-fn">append</span>({
+                    <span class="tok-str">&quot;id&quot;</span><span class="tok-op">:</span> f<span class="tok-str">&quot;{doc_name}_p{p[&#39;page&#39;]}_c{idx}&quot;</span>,
+                    <span class="tok-str">&quot;text&quot;</span><span class="tok-op">:</span> piece,
+                    <span class="tok-str">&quot;source&quot;</span><span class="tok-op">:</span> doc_name,
+                    <span class="tok-str">&quot;page&quot;</span><span class="tok-op">:</span> p[<span class="tok-str">&quot;page&quot;</span>],
+                    <span class="tok-str">&quot;chunk_index&quot;</span><span class="tok-op">:</span> idx,
+                })
+                idx <span class="tok-op">+=</span> <span class="tok-num">1</span>
+            start <span class="tok-op">+=</span> chunk_size <span class="tok-op">-</span> overlap
+    <span class="tok-kw">return</span> chunks</code></pre></figure>
+<h4 id="project-这段代码里有三个决定成败的细节">这段代码里有三个决定成败的细节</h4>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>细节</th><th>不做的后果</th></tr></thead><tbody><tr><td><strong><code>(?&lt;!\n)\n(?!\n)</code> 合并单换行</strong></td><td>PDF 每行都硬换行，不合并的话&quot;退款需要 3-5 个工&quot;和&quot;作日到账&quot;会被算成两句，向量表示被割裂</td></tr><tr><td><strong>按页切，不跨页</strong></td><td>跨页的块无法标注单一页码，引用就废了</td></tr><tr><td><strong><code>len(text) &lt; 30</code> 跳过</strong></td><td>封面、目录页会产生一堆&quot;第 1 页&quot;&quot;目录&quot;这种垃圾块，污染检索</td></tr></tbody></table></div>
+<blockquote class="callout">
+<p><strong><code>(?&lt;!\n)\n(?!\n)</code> 是什么</strong>：正则的&quot;前后瞻&quot;。意思是&quot;这个 <code>\n</code> 前面不是 <code>\n</code>，后面也不是 <code>\n</code>&quot;——也就是<strong>只匹配孤立的单换行</strong>，保留段落之间的双换行。
+不用看懂语法，会用就行。</p>
+</blockquote>
+<hr class="rule">
+<h3 id="project-step-4-写-embedderpy15-分钟直接复用-p4">Step 4 · 写 <code>embedder.py</code>（15 分钟，直接复用 P4）</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">import</span> numpy <span class="tok-kw">as</span> np
+<span class="tok-kw">from</span> openai <span class="tok-kw">import</span> OpenAI
+
+<span class="tok-kw">from</span> config <span class="tok-kw">import</span> BATCH_SIZE, EMBED_API_KEY, EMBED_BASE_URL, EMBED_MODEL
+
+client <span class="tok-op">=</span> <span class="tok-fn">OpenAI</span>(api_key<span class="tok-op">=</span>EMBED_API_KEY, base_url<span class="tok-op">=</span>EMBED_BASE_URL)
+
+
+<span class="tok-kw">def</span> <span class="tok-fn">embed_texts</span>(texts)<span class="tok-op">:</span>
+    out <span class="tok-op">=</span> []
+    <span class="tok-kw">for</span> i <span class="tok-kw">in</span> <span class="tok-fn">range</span>(<span class="tok-num">0</span>, <span class="tok-fn">len</span>(texts), BATCH_SIZE)<span class="tok-op">:</span>
+        resp <span class="tok-op">=</span> client.embeddings.<span class="tok-fn">create</span>(model<span class="tok-op">=</span>EMBED_MODEL, input<span class="tok-op">=</span>texts[i<span class="tok-op">:</span>i <span class="tok-op">+</span> BATCH_SIZE])
+        out.<span class="tok-fn">extend</span>([d.embedding <span class="tok-kw">for</span> d <span class="tok-kw">in</span> <span class="tok-fn">sorted</span>(resp.data, key<span class="tok-op">=</span><span class="tok-kw">lambda</span> x<span class="tok-op">:</span> x.index)])
+    <span class="tok-kw">return</span> out
+
+
+<span class="tok-kw">def</span> <span class="tok-fn">normalize</span>(v)<span class="tok-op">:</span>
+    v <span class="tok-op">=</span> np.<span class="tok-fn">asarray</span>(v, dtype<span class="tok-op">=</span>np.float32)
+    <span class="tok-kw">return</span> v <span class="tok-op">/</span> (np.linalg.<span class="tok-fn">norm</span>(v) <span class="tok-op">+</span> <span class="tok-num">1e-10</span>)</code></pre></figure>
+<hr class="rule">
+<h3 id="project-step-5-写-storepy把索引存下来30-分钟">Step 5 · 写 <code>store.py</code>：把索引存下来（30 分钟）</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">import</span> json
+<span class="tok-kw">import</span> os
+
+<span class="tok-kw">import</span> numpy <span class="tok-kw">as</span> np
+
+<span class="tok-kw">from</span> config <span class="tok-kw">import</span> CHUNKS_PATH, VECTORS_PATH, EMBED_MODEL
+
+
+<span class="tok-kw">def</span> <span class="tok-fn">save</span>(chunks, vecs)<span class="tok-op">:</span>
+    os.<span class="tok-fn">makedirs</span>(os.path.<span class="tok-fn">dirname</span>(CHUNKS_PATH), exist_ok<span class="tok-op">=</span><span class="tok-bool">True</span>)
+    <span class="tok-kw">with</span> <span class="tok-fn">open</span>(CHUNKS_PATH, <span class="tok-str">&quot;w&quot;</span>, encoding<span class="tok-op">=</span><span class="tok-str">&quot;utf-8&quot;</span>) <span class="tok-kw">as</span> f<span class="tok-op">:</span>
+        json.<span class="tok-fn">dump</span>({<span class="tok-str">&quot;model&quot;</span><span class="tok-op">:</span> EMBED_MODEL, <span class="tok-str">&quot;chunks&quot;</span><span class="tok-op">:</span> chunks}, f, ensure_ascii<span class="tok-op">=</span><span class="tok-bool">False</span>)
+    np.<span class="tok-fn">save</span>(VECTORS_PATH, np.<span class="tok-fn">array</span>(vecs, dtype<span class="tok-op">=</span>np.float32))
+    <span class="tok-fn">print</span>(f<span class="tok-str">&quot;✅ 已保存 {len(chunks)} 个块&quot;</span>)
+
+
+<span class="tok-kw">def</span> <span class="tok-fn">load</span>()<span class="tok-op">:</span>
+    <span class="tok-kw">if</span> <span class="tok-kw">not</span> (os.path.<span class="tok-fn">exists</span>(CHUNKS_PATH) <span class="tok-kw">and</span> os.path.<span class="tok-fn">exists</span>(VECTORS_PATH))<span class="tok-op">:</span>
+        <span class="tok-kw">return</span> <span class="tok-bool">None</span>, <span class="tok-bool">None</span>
+
+    <span class="tok-kw">with</span> <span class="tok-fn">open</span>(CHUNKS_PATH, encoding<span class="tok-op">=</span><span class="tok-str">&quot;utf-8&quot;</span>) <span class="tok-kw">as</span> f<span class="tok-op">:</span>
+        data <span class="tok-op">=</span> json.<span class="tok-fn">load</span>(f)
+
+    <span class="tok-kw">if</span> data[<span class="tok-str">&quot;model&quot;</span>] <span class="tok-op">!=</span> EMBED_MODEL<span class="tok-op">:</span>
+        <span class="tok-fn">print</span>(f<span class="tok-str">&quot;⚠️ 索引模型是 {data[&#39;model&#39;]}，当前是 {EMBED_MODEL}，请重建&quot;</span>)
+        <span class="tok-kw">return</span> <span class="tok-bool">None</span>, <span class="tok-bool">None</span>
+
+    <span class="tok-kw">return</span> data[<span class="tok-str">&quot;chunks&quot;</span>], np.<span class="tok-fn">load</span>(VECTORS_PATH)</code></pre></figure>
+<p><strong><code>np.save</code> / <code>np.load</code></strong> 是 numpy 的二进制格式，比 json 存浮点数<strong>小 5~10 倍，快几十倍</strong>。</p>
+<hr class="rule">
+<h3 id="project-step-6-写-ragpy检索-生成50-分钟核心">Step 6 · 写 <code>rag.py</code>：检索 + 生成（50 分钟，核心）</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">import</span> re
+
+<span class="tok-kw">import</span> numpy <span class="tok-kw">as</span> np
+<span class="tok-kw">from</span> openai <span class="tok-kw">import</span> OpenAI
+
+<span class="tok-kw">from</span> config <span class="tok-kw">import</span> (CHAT_API_KEY, CHAT_BASE_URL, CHAT_MODEL,
+                    DEFAULT_THRESHOLD, DEFAULT_TOP_K)
+<span class="tok-kw">from</span> embedder <span class="tok-kw">import</span> embed_texts, normalize
+
+chat_client <span class="tok-op">=</span> <span class="tok-fn">OpenAI</span>(api_key<span class="tok-op">=</span>CHAT_API_KEY, base_url<span class="tok-op">=</span>CHAT_BASE_URL)
+
+RAG_TEMPLATE <span class="tok-op">=</span> <span class="tok-str">&quot;&quot;&quot;你是一个严谨的文档问答助手。请只根据下面提供的资料回答问题。
+
+规则：
+1. 只能使用资料中的信息，不要使用你自己的知识。
+2. 每个结论后用 [编号] 标注来源，例如 [1]。
+3. 如果资料里没有足够信息，直接回答&quot;根据现有资料无法回答&quot;，不要猜测。
+4. 回答简洁，不超过 200 字。
+
+资料：
+{context}
+
+问题：{question}&quot;&quot;&quot;</span>
+
+
+<span class="tok-kw">def</span> <span class="tok-fn">retrieve</span>(question, chunks, matrix, k<span class="tok-op">=</span>DEFAULT_TOP_K)<span class="tok-op">:</span>
+    qv <span class="tok-op">=</span> <span class="tok-fn">normalize</span>(<span class="tok-fn">embed_texts</span>([question])[<span class="tok-num">0</span>])
+    scores <span class="tok-op">=</span> matrix @ qv
+    order <span class="tok-op">=</span> np.<span class="tok-fn">argsort</span>(<span class="tok-op">-</span>scores)[<span class="tok-op">:</span>k]
+    <span class="tok-kw">return</span> [{<span class="tok-op">**</span>chunks[i], <span class="tok-str">&quot;score&quot;</span><span class="tok-op">:</span> <span class="tok-fn">float</span>(scores[i])} <span class="tok-kw">for</span> i <span class="tok-kw">in</span> order]
+
+
+<span class="tok-kw">def</span> <span class="tok-fn">build_context</span>(hits)<span class="tok-op">:</span>
+    lines, refs <span class="tok-op">=</span> [], {}
+    <span class="tok-kw">for</span> i, h <span class="tok-kw">in</span> <span class="tok-fn">enumerate</span>(hits, start<span class="tok-op">=</span><span class="tok-num">1</span>)<span class="tok-op">:</span>
+        tag <span class="tok-op">=</span> f<span class="tok-str">&quot;[{i}]&quot;</span>
+        lines.<span class="tok-fn">append</span>(f<span class="tok-str">&quot;{tag} {h[&#39;text&#39;]}&quot;</span>)
+        refs[tag] <span class="tok-op">=</span> {<span class="tok-str">&quot;source&quot;</span><span class="tok-op">:</span> h[<span class="tok-str">&quot;source&quot;</span>], <span class="tok-str">&quot;page&quot;</span><span class="tok-op">:</span> h[<span class="tok-str">&quot;page&quot;</span>], <span class="tok-str">&quot;score&quot;</span><span class="tok-op">:</span> h[<span class="tok-str">&quot;score&quot;</span>]}
+    <span class="tok-kw">return</span> <span class="tok-str">&quot;\n\n&quot;</span>.<span class="tok-fn">join</span>(lines), refs
+
+
+<span class="tok-kw">def</span> <span class="tok-fn">answer</span>(question, chunks, matrix, k<span class="tok-op">=</span>DEFAULT_TOP_K, threshold<span class="tok-op">=</span>DEFAULT_THRESHOLD)<span class="tok-op">:</span>
+    hits <span class="tok-op">=</span> <span class="tok-fn">retrieve</span>(question, chunks, matrix, k)
+    best <span class="tok-op">=</span> hits[<span class="tok-num">0</span>][<span class="tok-str">&quot;score&quot;</span>] <span class="tok-kw">if</span> hits <span class="tok-kw">else</span> <span class="tok-num">0.0</span>
+
+    <span class="tok-kw">if</span> best <span class="tok-op">&lt;</span> threshold<span class="tok-op">:</span>
+        <span class="tok-kw">return</span> <span class="tok-str">&quot;根据现有资料无法回答。&quot;</span>, [], best
+
+    context, refs <span class="tok-op">=</span> <span class="tok-fn">build_context</span>(hits)
+    prompt <span class="tok-op">=</span> RAG_TEMPLATE.<span class="tok-fn">format</span>(context<span class="tok-op">=</span>context, question<span class="tok-op">=</span>question)
+
+    resp <span class="tok-op">=</span> chat_client.chat.completions.<span class="tok-fn">create</span>(
+        model<span class="tok-op">=</span>CHAT_MODEL,
+        messages<span class="tok-op">=</span>[{<span class="tok-str">&quot;role&quot;</span><span class="tok-op">:</span> <span class="tok-str">&quot;user&quot;</span>, <span class="tok-str">&quot;content&quot;</span><span class="tok-op">:</span> prompt}],
+        temperature<span class="tok-op">=</span><span class="tok-num">0.1</span>,          <span class="tok-com"># 事实性任务，要稳</span>
+    )
+    <span class="tok-kw">return</span> resp.choices[<span class="tok-num">0</span>].message.content, refs, best</code></pre></figure>
+<h4 id="project-四个参数选择每个都有理由">四个参数选择，每个都有理由</h4>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>参数</th><th>值</th><th>为什么</th></tr></thead><tbody><tr><td><code>temperature</code></td><td><strong>0.1</strong></td><td>事实问答要稳。0.7 会让它&quot;发挥&quot;</td></tr><tr><td><code>k</code></td><td><strong>3</strong></td><td>3 段够用；10 段会让模型分心</td></tr><tr><td><code>threshold</code></td><td><strong>0.5</strong>（起点）</td><td>需要你实测调</td></tr><tr><td>编号</td><td><strong>从 1 开始</strong></td><td>和提示词对齐，偏移一位会导致引用全错</td></tr></tbody></table></div>
+<hr class="rule">
+<h3 id="project-step-7-写-apppy界面-展示引用40-分钟">Step 7 · 写 <code>app.py</code>：界面 + 展示引用（40 分钟）</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-kw">import</span> streamlit <span class="tok-kw">as</span> st
+
+<span class="tok-kw">from</span> rag <span class="tok-kw">import</span> answer
+<span class="tok-kw">from</span> store <span class="tok-kw">import</span> load
+
+st.<span class="tok-fn">set_page_config</span>(page_title<span class="tok-op">=</span><span class="tok-str">&quot;文档问答&quot;</span>, page_icon<span class="tok-op">=</span><span class="tok-str">&quot;📄&quot;</span>)
+st.<span class="tok-fn">title</span>(<span class="tok-str">&quot;📄 文档问答机器人&quot;</span>)
+st.<span class="tok-fn">caption</span>(<span class="tok-str">&quot;答案来自你的 PDF，带页码出处&quot;</span>)
+
+chunks, matrix <span class="tok-op">=</span> <span class="tok-fn">load</span>()
+<span class="tok-kw">if</span> chunks <span class="tok-kw">is</span> <span class="tok-bool">None</span><span class="tok-op">:</span>
+    st.<span class="tok-fn">error</span>(<span class="tok-str">&quot;索引不存在，请先运行 `python build.py` 建库。&quot;</span>)
+    st.<span class="tok-fn">stop</span>()
+
+<span class="tok-kw">with</span> st.sidebar<span class="tok-op">:</span>
+    k <span class="tok-op">=</span> st.<span class="tok-fn">slider</span>(<span class="tok-str">&quot;检索段数&quot;</span>, <span class="tok-num">1</span>, <span class="tok-num">8</span>, <span class="tok-num">3</span>)
+    th <span class="tok-op">=</span> st.<span class="tok-fn">slider</span>(<span class="tok-str">&quot;相似度阈值&quot;</span>, <span class="tok-num">0.0</span>, <span class="tok-num">1.0</span>, <span class="tok-num">0.5</span>, <span class="tok-num">0.01</span>)
+    st.<span class="tok-fn">caption</span>(f<span class="tok-str">&quot;库里有 {len(chunks)} 个文本块&quot;</span>)
+
+q <span class="tok-op">=</span> st.<span class="tok-fn">text_input</span>(<span class="tok-str">&quot;问点什么&quot;</span>, placeholder<span class="tok-op">=</span><span class="tok-str">&quot;例如：退款多久到账？&quot;</span>)
+
+<span class="tok-kw">if</span> q<span class="tok-op">:</span>
+    text, refs, best <span class="tok-op">=</span> <span class="tok-fn">answer</span>(q, chunks, matrix, k<span class="tok-op">=</span>k, threshold<span class="tok-op">=</span>th)
+
+    st.<span class="tok-fn">markdown</span>(text)
+
+    <span class="tok-kw">if</span> refs<span class="tok-op">:</span>
+        st.<span class="tok-fn">divider</span>()
+        st.<span class="tok-fn">caption</span>(f<span class="tok-str">&quot;检索最高分：{best:.3f}&quot;</span>)
+        <span class="tok-kw">with</span> st.<span class="tok-fn">expander</span>(<span class="tok-str">&quot;📚 查看引用的原文&quot;</span>)<span class="tok-op">:</span>
+            <span class="tok-kw">for</span> tag, info <span class="tok-kw">in</span> refs.<span class="tok-fn">items</span>()<span class="tok-op">:</span>
+                st.<span class="tok-fn">markdown</span>(f<span class="tok-str">&quot;**{tag}** {info[&#39;source&#39;]} · 第 {info[&#39;page&#39;]} 页 · 相似度 {info[&#39;score&#39;]:.3f}&quot;</span>)</code></pre></figure>
+<p><strong><code>st.expander</code> 是点睛之笔</strong>：默认折叠，用户想看再展开。</p>
+<p>这个设计让你既能&quot;看起来简洁&quot;，又能&quot;随时自证&quot;。<strong>面试时点开这个，比说十句都有用。</strong></p>
+<hr class="rule">
+<h3 id="project-step-8-建库脚本-首次运行20-分钟">Step 8 · 建库脚本 + 首次运行（20 分钟）</h3>
+<figure class="code-block" data-lang="python"><figcaption><span class="code-lang">python</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-python"><span class="tok-com"># build.py</span>
+<span class="tok-kw">from</span> config <span class="tok-kw">import</span> CHUNK_OVERLAP, CHUNK_SIZE, DOC_NAME, DOC_PATH
+<span class="tok-kw">from</span> embedder <span class="tok-kw">import</span> embed_texts, normalize
+<span class="tok-kw">from</span> loader <span class="tok-kw">import</span> load_pdf
+<span class="tok-kw">from</span> splitter <span class="tok-kw">import</span> split_pages
+<span class="tok-kw">from</span> store <span class="tok-kw">import</span> save
+
+<span class="tok-kw">if</span> __name__ <span class="tok-op">==</span> <span class="tok-str">&quot;__main__&quot;</span><span class="tok-op">:</span>
+    pages <span class="tok-op">=</span> <span class="tok-fn">load_pdf</span>(DOC_PATH)
+    <span class="tok-fn">print</span>(f<span class="tok-str">&quot;解析到 {len(pages)} 页&quot;</span>)
+
+    chunks <span class="tok-op">=</span> <span class="tok-fn">split_pages</span>(pages, DOC_NAME, CHUNK_SIZE, CHUNK_OVERLAP)
+    <span class="tok-fn">print</span>(f<span class="tok-str">&quot;切成 {len(chunks)} 块&quot;</span>)
+
+    vecs <span class="tok-op">=</span> [<span class="tok-fn">normalize</span>(v).<span class="tok-fn">tolist</span>() <span class="tok-kw">for</span> v <span class="tok-kw">in</span> <span class="tok-fn">embed_texts</span>([c[<span class="tok-str">&quot;text&quot;</span>] <span class="tok-kw">for</span> c <span class="tok-kw">in</span> chunks])]
+    <span class="tok-fn">save</span>(chunks, vecs)</code></pre></figure>
+<figure class="code-block" data-lang="bash"><figcaption><span class="code-lang">bash</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-bash">python build.py     <span class="tok-com"># 建库</span>
+streamlit run app.py</code></pre></figure>
+<hr class="rule">
+<h3 id="project-step-9-评测40-分钟决定你是做过还是做好了">Step 9 · 评测（40 分钟，<strong>决定你是&quot;做过&quot;还是&quot;做好了&quot;</strong>）</h3>
+<p>建 <code>eval.md</code>，填 10 题：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>#</th><th>问题</th><th>类型</th><th>检索对?</th><th>回答对?</th><th>引用对?</th><th>备注</th></tr></thead><tbody><tr><td>1</td><td>文档里直接写了的</td><td>简单</td><td></td><td></td><td></td><td></td></tr><tr><td>2</td><td>需要跨两页</td><td>中等</td><td></td><td></td><td></td><td></td></tr><tr><td>3</td><td>换个说法问</td><td>同义</td><td></td><td></td><td></td><td></td></tr><tr><td>4</td><td>文档里没有</td><td>拒答</td><td></td><td></td><td></td><td></td></tr><tr><td>5</td><td>问一个数字</td><td>精确</td><td></td><td></td><td></td><td></td></tr><tr><td>...</td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+<p>然后算三个数：</p>
+<figure class="code-block" data-lang="text"><figcaption><span class="code-lang">text</span><span class="code-copy" data-copy>copy</span></figcaption><pre><code class="language-text">检索命中率 = 检索对的题数 / 10
+回答正确率 = 回答对的题数 / 10
+引用正确率 = 引用对的题数 / 10</code></pre></figure>
+<blockquote class="callout">
+<p><strong>这三个数就是你的项目&quot;成绩单&quot;。</strong> 没有它们的项目，在面试里只能算&quot;练习&quot;。</p>
+</blockquote>
+<hr class="rule">
+<h3 id="project-step-10-调参实验30-分钟产出你的结论">Step 10 · 调参实验（30 分钟，产出你的&quot;结论&quot;）</h3>
+<p>用同一个评测集，跑 4 组参数：</p>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>chunk_size</th><th>k</th><th>检索命中率</th><th>回答正确率</th><th>平均 token</th></tr></thead><tbody><tr><td>300</td><td>3</td><td></td><td></td><td></td></tr><tr><td>500</td><td>3</td><td></td><td></td><td></td></tr><tr><td>500</td><td>5</td><td></td><td></td><td></td></tr><tr><td>800</td><td>3</td><td></td><td></td><td></td></tr></tbody></table></div>
+<p><strong>然后写一段 100 字结论</strong>，例如：</p>
+<blockquote class="callout">
+<p>chunk_size=500/k=3 综合最好（命中 8/10，回答 7/10）。300 时命中 7/10 但回答掉到 5/10——切太碎导致答案不完整。k=5 时回答反而变差（6/10），因为无关块干扰。结论：<strong>这个文档适合&quot;中等块 + 少召回&quot;</strong>。</p>
+<p><strong>这段话就是你简历里可以写的那句&quot;我的 RAG 命中率 80%，通过调切分参数从 70% 提上来&quot;。</strong></p>
+</blockquote>
+<hr class="rule">
+<h2 id="project-6-项目进化方向">6. 项目进化方向</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>等级</th><th>加什么</th><th>学什么</th><th>难度</th></tr></thead><tbody><tr><td>Lv.1</td><td>支持多个 PDF（文件名进元数据）</td><td>索引合并</td><td>⭐⭐</td></tr><tr><td>Lv.2</td><td>加&quot;父子块&quot;（小块检索、大块生成）</td><td>两级索引</td><td>⭐⭐⭐</td></tr><tr><td>Lv.3</td><td>加混合检索（关键词 + 向量）</td><td>BM25</td><td>⭐⭐⭐（M5）</td></tr><tr><td>Lv.4</td><td>加查询改写（先让模型改写问题）</td><td>Query Rewriting</td><td>⭐⭐⭐（M5）</td></tr><tr><td>Lv.5</td><td>加重排（rerank）</td><td>Cross-encoder</td><td>⭐⭐⭐⭐（M5）</td></tr><tr><td>Lv.6</td><td>支持 Word/网页/Excel</td><td>多格式解析</td><td>⭐⭐⭐</td></tr><tr><td>Lv.7</td><td>答案高亮原文（在 PDF 里标出那句话）</td><td>前端 + 定位</td><td>⭐⭐⭐⭐</td></tr></tbody></table></div>
+<h3 id="project-三个先别做的">三个&quot;先别做&quot;的</h3>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>想法</th><th>为什么先别做</th></tr></thead><tbody><tr><td>支持 100 份 PDF</td><td>你的瓶颈不在&quot;量&quot;，在&quot;一份都答不准&quot;</td></tr><tr><td>加聊天式多轮追问</td><td>会引入&quot;指代消解&quot;难题，M5 再说</td></tr><tr><td>换更贵的模型</td><td>先确认是检索的问题还是生成的问题（十有八九是检索）</td></tr></tbody></table></div>
+<hr class="rule">
+<h2 id="project-7-本项目采用的资料">7. 本项目采用的资料</h2>
+<div class="table-scroll"><table class="data-table"><thead><tr><th>步骤</th><th>参考</th><th>出处</th></tr></thead><tbody><tr><td>Step 0–2 PDF 解析</td><td>pypdf 官方文档</td><td><a href="https://pypdf.readthedocs.io/" target="_blank" rel="noopener">https://pypdf.readthedocs.io/</a></td></tr><tr><td>Step 3 清洗与切分</td><td>all-in-rag · 文档解析与切分章节</td><td><a href="https://datawhalechina.github.io/all-in-rag/" target="_blank" rel="noopener">https://datawhalechina.github.io/all-in-rag/</a></td></tr><tr><td>Step 3 切分策略</td><td>llm-universe 第 5 章</td><td><a href="https://datawhalechina.github.io/llm-universe/" target="_blank" rel="noopener">https://datawhalechina.github.io/llm-universe/</a></td></tr><tr><td>Step 5 索引存储</td><td>本讲稿第三节</td><td>本地</td></tr><tr><td>Step 6 RAG 提示词</td><td>复旦《大规模语言模型》第 7 章</td><td><a href="https://llmbook-zh.github.io/" target="_blank" rel="noopener">https://llmbook-zh.github.io/</a></td></tr><tr><td>Step 6 提示词模板</td><td>all-in-rag · 生成章节</td><td><a href="https://datawhalechina.github.io/all-in-rag/" target="_blank" rel="noopener">https://datawhalechina.github.io/all-in-rag/</a></td></tr><tr><td>Step 7 界面</td><td>Streamlit 文档</td><td><a href="https://docs.streamlit.io/" target="_blank" rel="noopener">https://docs.streamlit.io/</a></td></tr><tr><td>Step 9–10 评测</td><td>all-in-rag · 评估章节（预习 M5）</td><td><a href="https://datawhalechina.github.io/all-in-rag/" target="_blank" rel="noopener">https://datawhalechina.github.io/all-in-rag/</a></td></tr></tbody></table></div>
+<hr class="rule">
+<h2 id="project-交付清单">交付清单</h2>
+<ul>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text"><code>python build.py</code> 能建库，打印页数/块数</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">5 类问题都能处理，包括&quot;拒答&quot;</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">引用能定位到<strong>具体页码</strong></span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">界面上&quot;查看引用原文&quot;能展开</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text"><code>eval.md</code> 填了 10 题，算了 3 个率</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">调参实验表填了 4 组</span></li>
+<li class="task-item"><span class="task-box" aria-hidden="true"></span><span class="task-text">写了 100 字结论</span></li>
+</ul>
+<blockquote class="callout">
+<p>做完这个，你的简历可以写第一行了：
+<strong>&quot;独立实现基于向量检索的文档问答系统（pypdf + Embedding + 自建索引），10 题评测命中率 80%，通过切分参数调优提升 10 个百分点。&quot;</strong></p>
+<p>这句话，比&quot;熟悉 Python&quot;值钱一百倍。</p>
+</blockquote></div>
+  </div>
+        <nav class="module-pager" aria-label="模块切换">
+    <a class="pager-link" href="m3.html"><span>← 上一模块</span><b>M3 · 语义检索</b></a>
+    <a class="pager-link pager-link--next" href="m5.html"><span>下一模块 →</span><b>M5 · RAG 进阶</b></a>
+  </nav>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="../index.html">
+          <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+  <path d="M20 2.6 35 11v18L20 37.4 5 29V11z" fill="#fff" stroke="#080b16" stroke-width="1.8"/>
+  <path d="M20 2.6 35 11v9L20 28.6 5 20v-9z" fill="#00d5e8" opacity=".9"/>
+  <path d="M35 20v9L20 37.4V28.6z" fill="#ff3d9a" opacity=".85"/>
+  <path d="M13.2 24V16l6.8-3.9L26.8 16v8L20 27.9z" fill="#fff" stroke="#080b16" stroke-width="1.4"/>
+  <circle cx="20" cy="20" r="2.1" fill="#080b16"/>
+</svg>
+          <span class="brand-text">
+            <span class="brand-name">BEGINNER_IN_AI</span>
+            <span class="brand-sub">from python basics to rag &amp; agents</span>
+          </span>
+        </a>
+        <p>为「会一点 Python、数学基本忘光、看英文吃力、只有周末能集中学」的人准备的 16 周路线。理论 → 练习 → 项目，每个模块都走一遍。</p>
+      </div>
+      <div class="footer-col">
+        <h4>Route</h4>
+        <ul>
+          <li><a href="../roadmap.html">16 周排期</a></li>
+          <li><a href="../modules.html">8 个模块</a></li>
+          <li><a href="../projects.html">8 个实践项目</a></li>
+          <li><a href="../graph.html">知识图谱</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Modules</h4>
+        <ul><li><a href="../modules/m0.html">M0 · 开局</a></li><li><a href="../modules/m1.html">M1 · 提示工程</a></li><li><a href="../modules/m2.html">M2 · 对话应用</a></li><li><a href="../modules/m3.html">M3 · 语义检索</a></li><li><a href="../modules/m4.html">M4 · RAG 核心</a></li><li><a href="../modules/m5.html">M5 · RAG 进阶</a></li><li><a href="../modules/m6.html">M6 · Agent</a></li><li><a href="../modules/m7.html">M7 · 部署上线</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Beginner_in_AI · 内容来自个人学习计划，持续迭代中</span>
+      <span>
+        <a href="https://github.com/zonevenom/Beginner_in_AI" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="../resources.html">资料出处</a> ·
+        <button class="reset-btn" type="button" data-to-top>回到顶部 ↑</button>
+      </span>
+    </div>
+  </div>
+</footer>
+<div class="search-overlay" data-search-overlay role="dialog" aria-modal="true" aria-label="站内搜索">
+  <div class="search-panel">
+    <div class="search-field">
+      <svg class="icon " width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.4"/><path d="m15.6 15.6 4.4 4.4"/></svg>
+      <input type="search" placeholder="搜索模块、概念、题目、项目…" aria-label="搜索关键词" autocomplete="off">
+      <button class="search-esc" type="button" data-search-close>ESC</button>
+    </div>
+    <ul class="search-results" data-search-results></ul>
+    <p class="search-empty" hidden>没有匹配结果，换个关键词试试。</p>
+  </div>
+</div>
+<script src="../assets/vendor/mermaid.min.js" defer></script>
+<script src="../assets/js/site.js" defer></script>
+
+</body>
+</html>
